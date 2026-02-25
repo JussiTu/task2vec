@@ -2,7 +2,7 @@
 eval_report.py
 ==============
 Reads .cache/eval_results.json and prints a human-readable summary of the
-git-based eval: how well Claude reproduces actual Spring Framework fixes,
+git-based eval: how well an AI reproduces actual Spring Framework fixes,
 broken down by AI-readiness tier.
 
 Usage:
@@ -44,10 +44,13 @@ def main():
     for r in results:
         by_tier[r["tier"]].append(r)
 
+    model_label = results[0].get("model", "unknown") if results else "unknown"
+
     # ── Header ────────────────────────────────────────────────────────────────
     print()
     print(hr("="))
-    print("GIT-BASED EVAL: Can Claude reproduce actual Spring Framework fixes?")
+    print(f"GIT-BASED EVAL: Can AI reproduce actual Spring Framework fixes?")
+    print(f"Model: {model_label}   Tickets: {len(results)}")
     print(hr("="))
     print(f"{'Tier':<12} {'N':>4}  {'Pass%':>6}  {'FileHit%':>9}  "
           f"{'AvgOverlap':>11}  {'Tokens(avg)':>12}")
@@ -92,8 +95,8 @@ def main():
     print()
     print("Scoring key:")
     print("  Pass      = identified correct file/class  AND  token_overlap >= 15%")
-    print("  FileHit   = Claude's answer mentions the name of the changed class")
-    print("  Overlap   = Jaccard of code tokens: Claude's answer vs. ground-truth")
+    print("  FileHit   = AI's answer mentions the name of the changed class")
+    print("  Overlap   = Jaccard of code tokens: AI's answer vs. ground-truth")
     print("              added lines in the actual commit diff")
 
     # ── Sample results ────────────────────────────────────────────────────────
@@ -117,7 +120,8 @@ def main():
             print(f"       Summary : {r['summary'][:60]}")
             print(f"       Files   : {', '.join(Path(f).name for f in r['files'][:2])}")
             if args.verbose and r.get("answer_preview"):
-                print(f"       Claude  : {r['answer_preview'][:120].strip()!r}")
+                model_label = r.get("model", "AI")
+                print(f"       {model_label[:12]:<12}: {r['answer_preview'][:120].strip()!r}")
             print()
         if not args.verbose and len(recs) > 3:
             print(f"  … {len(recs)-3} more — run with --verbose to see all")
@@ -131,13 +135,13 @@ def main():
 The three tiers predict how easy a ticket is for AI:
 
   Automate  — fast to resolve, low watcher count, routine contributor.
-               Hypothesis: Claude should reproduce these fixes most reliably
+               Hypothesis: AI should reproduce these fixes most reliably
                (well-understood bug patterns, single-file changes).
 
-  Assist    — middle ground; Claude can draft a fix but may miss edge cases.
+  Assist    — middle ground; AI can draft a fix but may miss edge cases.
 
   Escalate  — slow, watched by many, often tackled by senior contributors.
-               Hypothesis: Claude should struggle most here — these are
+               Hypothesis: AI should struggle most here — these are
                architectural, ambiguous, or require deep codebase knowledge.
 
 If pass-rates track Automate > Assist > Escalate, the outcome-based tier
