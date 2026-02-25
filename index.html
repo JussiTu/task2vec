@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTKXE40LPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QTKXE40LPF');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>task2vec — Ticket Intelligence</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d0d;
+  --bg2:     #111111;
+  --bg3:     #161616;
+  --border:  #1e1e1e;
+  --border2: #2a2a2a;
+  --purple:  #7b68ee;
+  --gold:    #ffd700;
+  --text:    #ddd;
+  --muted:   #666;
+  --dim:     #333;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: #a99fff; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-size: 18px; font-weight: 700; letter-spacing: -.02em;
+  color: #fff;
+}
+.logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: var(--muted); transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  nav { padding: 12px 16px; }
+  .nav-links { gap: 14px; font-size: 12px; }
+}
+
+/* ── Sections ── */
+section { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+/* ── Hero ── */
+.hero {
+  padding-top: 130px; padding-bottom: 80px;
+  text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(36px, 6vw, 58px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.12;
+  letter-spacing: -.03em;
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--purple), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 17px; color: #888;
+  max-width: 560px; margin: 0 auto 36px;
+  line-height: 1.75;
+}
+.btn-demo {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--purple); color: #fff;
+  padding: 12px 28px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  transition: background .2s, transform .1s;
+}
+.btn-demo:hover { background: #6a57dd; color: #fff; transform: translateY(-1px); }
+.btn-demo svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+/* ── Divider ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ── What ── */
+.what { padding: 72px 28px; }
+.what h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .1em;
+           color: var(--muted); margin-bottom: 16px; }
+.what p { font-size: 16px; color: #aaa; line-height: 1.8; margin-bottom: 16px; }
+.what p strong { color: var(--text); font-weight: 500; }
+
+/* ── Pipeline ── */
+.pipeline-section { padding: 0 28px 80px; }
+.pipeline-section h2 {
+  font-size: 13px; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 32px;
+}
+
+.pipeline {
+  display: flex; flex-direction: column; gap: 0;
+  position: relative;
+}
+.pipeline::before {
+  content: '';
+  position: absolute; left: 19px; top: 24px; bottom: 24px;
+  width: 2px; background: linear-gradient(180deg, var(--purple), var(--gold));
+  opacity: 0.3;
+}
+
+.step {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 20px 0;
+}
+.step-dot {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--bg2);
+  border: 2px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; z-index: 1;
+  font-size: 13px; font-weight: 700;
+}
+.step-dot.purple { border-color: var(--purple); color: var(--purple); }
+.step-dot.gold   { border-color: var(--gold);   color: var(--gold); }
+.step-dot.green  { border-color: #00cc88;        color: #00cc88; }
+.step-dot.orange { border-color: #ff8c42;        color: #ff8c42; }
+.step-dot.red    { border-color: #ff5566;        color: #ff5566; }
+.step-dot.blue   { border-color: #5cb8ff;        color: #5cb8ff; }
+
+.step-body { padding-top: 6px; }
+.step-title { font-size: 15px; font-weight: 600; color: #eee; margin-bottom: 4px; }
+.step-desc  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.step-tech  {
+  display: inline-block; margin-top: 6px;
+  background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 4px; padding: 2px 8px;
+  font-size: 11px; color: var(--dim); font-family: monospace;
+}
+
+/* ── Concepts grid ── */
+.concepts-section { padding: 0 28px 80px; }
+.concepts-section h2 {
+  font-size: 13px; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 28px;
+}
+.concepts-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.concept-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+}
+.concept-card .icon { font-size: 22px; margin-bottom: 10px; }
+.concept-card h3 { font-size: 14px; font-weight: 600; color: #ddd; margin-bottom: 6px; }
+.concept-card p  { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--muted);
+  flex-wrap: wrap; gap: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">task<span>2</span>vec</div>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#concepts">Concepts</a>
+    <a href="ai_readiness_chart.html">AI Readiness</a>
+    <a href="score.html">Score a ticket</a>
+    <a href="cockpit.html">Cockpit</a>
+    <a href="stories_spring/spring_explorer.html">Live demo</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-tag">Ticket Intelligence</div>
+  <h1>What does your engineering<br>history <em>actually</em> say?</h1>
+  <p>
+    task2vec turns years of Jira tickets into a semantic map of expertise —
+    showing how individuals evolve, where the project is heading,
+    and whether the two are moving together.
+  </p>
+  <a class="btn-demo" href="stories_spring/spring_explorer.html">
+    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    Open Spring explorer
+  </a>
+  &nbsp;&nbsp;
+  <a class="btn-demo" href="ai_readiness_chart.html" style="background:transparent;border:1px solid var(--purple);color:var(--purple);">
+    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    AI Readiness analysis
+  </a>
+  &nbsp;&nbsp;
+  <a class="btn-demo" href="cockpit.html" style="background:transparent;border:1px solid var(--gold);color:var(--gold);">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+    AI Work Cockpit
+  </a>
+  &nbsp;&nbsp;
+  <a class="btn-demo" href="score.html" style="background:transparent;border:1px solid #00cc88;color:#00cc88;">
+    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    Score a ticket →
+  </a>
+</section>
+
+<hr class="divider">
+
+<!-- What is it -->
+<section class="what" id="how">
+  <h2>The idea</h2>
+  <p>
+    Not all engineering work is equal. Some tickets are repetitive patterns the team has solved dozens of times.
+    Some sit at the edge of what anyone knows. Most are somewhere in between.
+    The problem is that nobody has ever had a reliable way to tell them apart — until now.
+  </p>
+  <p>
+    task2vec embeds every ticket into a semantic map built from your project's full history.
+    That map makes three things visible at once:
+    <strong>which work is safe to hand to an AI agent</strong>,
+    which needs an AI draft with a human checking the result,
+    and <strong>which problems are genuinely hard</strong> — the ones that require deep expertise,
+    careful judgment, and the kind of engagement that actually grows an engineer's skills.
+  </p>
+  <p>
+    The goal is not to replace engineers. It is the opposite: free them from repetitive work
+    so their time is spent entirely on the problems worth solving.
+    <strong>AI handles the routine. Engineers own the frontier.</strong>
+  </p>
+  <p>
+    No manual tagging. No surveys. No process changes. Connect your Jira or GitHub,
+    and the data speaks for itself.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- Pipeline -->
+<section class="pipeline-section" id="architecture">
+  <h2>Architecture</h2>
+  <div class="pipeline">
+
+    <div class="step">
+      <div class="step-dot purple">1</div>
+      <div class="step-body">
+        <div class="step-title">Ingest tickets</div>
+        <div class="step-desc">Load resolved tickets from Jira or MongoDB. Each ticket carries a key, summary, description, assignee, and timestamp.</div>
+        <span class="step-tech">MongoDB · JSONL · Jira REST API</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot blue">2</div>
+      <div class="step-body">
+        <div class="step-title">Embed ticket text</div>
+        <div class="step-desc">Each ticket is converted to a 3072-dimensional vector using a text embedding model. Embeddings are cached so large corpora only need processing once.</div>
+        <span class="step-tech">text-embedding-3-large · local cache</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot orange">3</div>
+      <div class="step-body">
+        <div class="step-title">Project to 2D with UMAP</div>
+        <div class="step-desc">PCA reduces the embeddings to 50 dimensions first, then UMAP projects them to 2D. Semantically similar tickets land near each other on the map — organically, without predefined categories.</div>
+        <span class="step-tech">PCA-50 → UMAP-2 · ~45 s for 70 k tickets</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot purple">4</div>
+      <div class="step-body">
+        <div class="step-title">Cluster and label themes</div>
+        <div class="step-desc">K-Means groups tickets into semantic clusters in the original embedding space. Each cluster is labelled automatically by an LLM shown a sample of its tickets.</div>
+        <span class="step-tech">K-Means (k=32) · GPT-4o-mini labelling</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot green">5</div>
+      <div class="step-body">
+        <div class="step-title">Analyse careers and strategy</div>
+        <div class="step-desc">Each contributor's tickets are split into Early, Middle, and Recent phases. Convex hulls and centroids show the shape of each phase on the map. The project strategy vector is the shift from the earliest centroid to the most recent one.</div>
+        <span class="step-tech">Phase centroids · cosine alignment · UMAP trajectory</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot gold">6</div>
+      <div class="step-body">
+        <div class="step-title">Generate narratives</div>
+        <div class="step-desc">An LLM writes a plain-English work story for each contributor and for the project as a whole, grounded entirely in the structured data — no hallucination, no invented facts.</div>
+        <span class="step-tech">GPT-4o-mini · structured prompt · cached</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-dot red">7</div>
+      <div class="step-body">
+        <div class="step-title">Serve as self-contained explorer</div>
+        <div class="step-desc">All pre-computed data is embedded into a single HTML file. No server, no database at runtime. Open in a browser and explore.</div>
+        <span class="step-tech">Plotly.js · WebGL scattergl · ~16 MB HTML</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Research findings -->
+<section class="what" id="research" style="padding-bottom:0;">
+  <h2>Findings — 69,000 Spring tickets</h2>
+  <p>
+    We ran task2vec on the full Spring Framework Jira archive: 69,156 tickets spanning 20 years of open-source development.
+    The data reveals three tiers of AI readiness — and a trend that reframes the entire case for AI oversight.
+  </p>
+</section>
+
+<section style="max-width:860px;margin:0 auto;padding:32px 28px 72px;">
+
+  <!-- Three stat cards -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px;">
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:20px;">
+      <div style="font-size:34px;font-weight:700;color:#10b981;line-height:1;">22%</div>
+      <div style="font-size:13px;color:#555;margin-top:6px;line-height:1.5;"><strong style="color:#aaa;">Automate</strong><br>safe for AI, no human review</div>
+    </div>
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:20px;">
+      <div style="font-size:34px;font-weight:700;color:#f59e0b;line-height:1;">30%</div>
+      <div style="font-size:13px;color:#555;margin-top:6px;line-height:1.5;"><strong style="color:#aaa;">Assist</strong><br>AI draft + human sign-off</div>
+    </div>
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:20px;">
+      <div style="font-size:34px;font-weight:700;color:#ef4444;line-height:1;">48%</div>
+      <div style="font-size:13px;color:#555;margin-top:6px;line-height:1.5;"><strong style="color:#aaa;">Escalate</strong><br>senior engineer required</div>
+    </div>
+  </div>
+
+  <!-- Year trend -->
+  <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:24px;margin-bottom:14px;">
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:16px;">The trend — automatable work vs. hard problems over time</div>
+    <div style="font-family:monospace;font-size:13px;line-height:2;color:#888;">
+      <div><span style="color:#555;">2010</span> &nbsp;<span style="color:#10b981;">19% auto</span> &nbsp;<span style="color:#ef4444;">36% escalate</span> &nbsp;<span style="color:#444;font-size:11px;">← project growing, lots of routine work</span></div>
+      <div><span style="color:#555;">2013</span> &nbsp;<span style="color:#10b981;">21% auto</span> &nbsp;<span style="color:#ef4444;">39% escalate</span></div>
+      <div><span style="color:#555;">2016</span> &nbsp;<span style="color:#10b981;">17% auto</span> &nbsp;<span style="color:#ef4444;">55% escalate</span> &nbsp;<span style="color:#444;font-size:11px;">← maturing, easy work done</span></div>
+      <div><span style="color:#555;">2018</span> &nbsp;<span style="color:#10b981;">15% auto</span> &nbsp;<span style="color:#ef4444;">59% escalate</span></div>
+      <div><span style="color:#555;">2020</span> &nbsp;<span style="color:#10b981;">&nbsp;5% auto</span> &nbsp;<span style="color:#ef4444;">68% escalate</span> &nbsp;<span style="color:#444;font-size:11px;">← only hard problems remain</span></div>
+    </div>
+  </div>
+
+  <!-- Key insight callout -->
+  <div style="background:#0d1a12;border:1px solid #1a3a25;border-radius:10px;padding:22px;margin-bottom:14px;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#10b981;margin-bottom:10px;">Key insight</div>
+    <p style="font-size:15px;color:#ccc;line-height:1.75;">
+      AI automation doesn't shrink the escalate pile over time — it <strong style="color:#fff;">accelerates through the easy work and exposes the hard problems faster.</strong>
+      By 2020 nearly 70% of new Spring tickets were architecture-level problems.
+      The triage tool becomes <em>more</em> valuable as adoption grows, not less.
+    </p>
+  </div>
+
+  <!-- Automatable work types -->
+  <div style="background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:24px;margin-bottom:14px;">
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:14px;">Most automatable work types</div>
+    <ol style="padding-left:18px;color:#888;font-size:13px;line-height:2.1;">
+      <li>Documentation corrections and typo fixes</li>
+      <li>Dependency and version upgrades</li>
+      <li>Deprecation API replacements</li>
+      <li>Codebase consistency, renaming, and formatting</li>
+      <li>Acceptance test failures — known failure pattern, fix-and-verify</li>
+    </ol>
+  </div>
+
+  <div style="text-align:center;margin-top:28px;">
+    <a href="ai_readiness_chart.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #7b68ee;color:#7b68ee;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='rgba(123,104,238,0.1)'" onmouseout="this.style.background='transparent'">
+      View full analysis
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+
+</section>
+
+<hr class="divider">
+
+<!-- Concepts -->
+<section class="concepts-section" id="concepts">
+  <h2>Key concepts</h2>
+  <div class="concepts-grid">
+
+    <div class="concept-card">
+      <div class="icon">🗺️</div>
+      <h3>Ticket landscape</h3>
+      <p>All tickets projected into a shared 2D space. Proximity = semantic similarity. Cluster islands emerge naturally without any manual labelling.</p>
+    </div>
+
+    <div class="concept-card">
+      <div class="icon">📍</div>
+      <h3>Career phases</h3>
+      <p>Each contributor's work is divided into Early, Middle, and Recent thirds. Phase centroids on the map show where focus lived at each stage.</p>
+    </div>
+
+    <div class="concept-card">
+      <div class="icon">↗</div>
+      <h3>Project direction</h3>
+      <p>The gold arrow is the project's emergent strategy — the vector from the early centroid of all tickets to the recent centroid. No document defines it.</p>
+    </div>
+
+    <div class="concept-card">
+      <div class="icon">⚡</div>
+      <h3>Alignment score</h3>
+      <p>Cosine similarity between a contributor's personal trajectory and the project direction vector, mapped to a 0–100% alignment score.</p>
+    </div>
+
+    <div class="concept-card">
+      <div class="icon">📊</div>
+      <h3>Theme river</h3>
+      <p>A stacked bar chart showing which semantic clusters a contributor worked in each year — their thematic fingerprint over time.</p>
+    </div>
+
+    <div class="concept-card">
+      <div class="icon">📝</div>
+      <h3>Work story</h3>
+      <p>An LLM-generated narrative summarising each contributor's career arc, written from structured data with no invented facts.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Contact -->
+<section class="what" id="contact" style="padding-bottom:72px;">
+  <h2>Get in touch</h2>
+  <p>Interested in running this analysis on your own data, or want to talk about what task2vec could do for your team? Send us a message.</p>
+
+  <form id="contact-form" style="margin-top:28px;display:flex;flex-direction:column;gap:14px;max-width:520px;">
+    <input type="text" name="name" placeholder="Your name" required
+      style="background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:12px 14px;font-size:14px;color:#eee;outline:none;transition:border-color .2s;"
+      onfocus="this.style.borderColor='#7b68ee'" onblur="this.style.borderColor='#2a2a2a'">
+    <input type="email" name="email" placeholder="Your email" required
+      style="background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:12px 14px;font-size:14px;color:#eee;outline:none;transition:border-color .2s;"
+      onfocus="this.style.borderColor='#7b68ee'" onblur="this.style.borderColor='#2a2a2a'">
+    <textarea name="message" placeholder="What would you like to know?" rows="4" required
+      style="background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:12px 14px;font-size:14px;color:#eee;outline:none;resize:vertical;font-family:inherit;transition:border-color .2s;"
+      onfocus="this.style.borderColor='#7b68ee'" onblur="this.style.borderColor='#2a2a2a'"></textarea>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <button type="submit" id="contact-btn" class="btn-demo" style="border:none;cursor:pointer;">
+        Send message
+      </button>
+      <span id="contact-msg" style="font-size:13px;display:none;"></span>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <span>task2vec &mdash; ticket intelligence</span>
+  <span>Built on OpenAI embeddings &middot; UMAP &middot; Plotly.js</span>
+</footer>
+
+<script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contact-btn');
+  const msg = document.getElementById('contact-msg');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  const data = new FormData(this);
+  try {
+    const r = await fetch('/api/contact.php', { method: 'POST', body: data });
+    const j = await r.json();
+    if (j.ok) {
+      msg.textContent = 'Message sent — thank you!';
+      msg.style.color = '#00cc88';
+      this.reset();
+    } else {
+      msg.textContent = j.error || 'Something went wrong.';
+      msg.style.color = '#ff5566';
+    }
+  } catch(err) {
+    msg.textContent = 'Could not send. Please try again.';
+    msg.style.color = '#ff5566';
+  }
+  msg.style.display = 'inline';
+  btn.textContent = 'Send message';
+  btn.disabled = false;
+});
+</script>
+
+</body>
+</html>

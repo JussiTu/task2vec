@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Scorer — task2vec</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8f9fc;
+    color: #1a1d23;
+    min-height: 100vh;
+    padding: 32px 20px 64px;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b7280;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color .15s;
+  }
+  .back-link:hover { color: #6c63ff; }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6c63ff;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f1117;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  /* ── Form ── */
+  .form-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1a1d23;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color .15s;
+    background: #fafafa;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+    background: #fff;
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 26px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background .15s, transform .1s;
+  }
+  .submit-btn:hover { background: #5b53e8; transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { background: #a5b4fc; cursor: not-allowed; transform: none; }
+
+  .spinner {
+    width: 15px; height: 15px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    display: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Result panel ── */
+  #result {
+    display: none;
+  }
+
+  /* Tier badge */
+  .tier-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .tier-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .tier-badge.Automate { background: #d1fae5; color: #065f46; }
+  .tier-badge.Assist   { background: #fef3c7; color: #92400e; }
+  .tier-badge.Escalate { background: #fee2e2; color: #991b1b; }
+
+  .confidence-wrap {
+    flex: 1;
+    min-width: 160px;
+  }
+  .confidence-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  .conf-bar-bg {
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .conf-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .4s ease;
+  }
+  .conf-bar-fill.Automate { background: #10b981; }
+  .conf-bar-fill.Assist   { background: #f59e0b; }
+  .conf-bar-fill.Escalate { background: #ef4444; }
+
+  /* Probability pills */
+  .pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+  .pill.Automate { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+  .pill.Assist   { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+  .pill.Escalate { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+  .pill-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .Automate .pill-dot { background: #10b981; }
+  .Assist   .pill-dot { background: #f59e0b; }
+  .Escalate .pill-dot { background: #ef4444; }
+
+  /* Coverage note */
+  .coverage-note {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* Insight sentence */
+  .insight-sentence {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #075985;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* Evidence table */
+  .table-wrap {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 20px 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+  }
+  .table-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  thead tr {
+    border-bottom: 2px solid #e5e7eb;
+  }
+  th {
+    text-align: left;
+    padding: 6px 8px;
+    color: #6b7280;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  td {
+    padding: 8px 8px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .key-link {
+    font-family: monospace;
+    font-size: 11px;
+    color: #6c63ff;
+    white-space: nowrap;
+  }
+  .summary-cell {
+    color: #374151;
+    line-height: 1.4;
+    max-width: 280px;
+  }
+  .days-cell {
+    color: #374151;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .watchers-cell {
+    color: #374151;
+    text-align: right;
+  }
+  .tier-cell { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .badge.Automate { background: #d1fae5; color: #065f46; }
+  .badge.Assist   { background: #fef3c7; color: #92400e; }
+  .badge.Escalate { background: #fee2e2; color: #991b1b; }
+
+  .sim-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .sim-bar-bg {
+    width: 48px; height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sim-bar-fill {
+    height: 100%;
+    background: #6c63ff;
+    border-radius: 2px;
+  }
+
+  /* Explainer card */
+  .explainer {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .explainer-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f1117;
+    margin-bottom: 16px;
+  }
+  .explainer-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .explainer-item:last-child { margin-bottom: 0; }
+  .explainer-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .explainer-text {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .explainer-text strong { color: #0f1117; }
+
+  /* CTA card */
+  .cta-card {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .cta-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 10px;
+  }
+  .cta-text {
+    font-size: 15px;
+    color: #3b0764;
+    line-height: 1.75;
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  .cta-text strong { color: #6c63ff; }
+
+  /* Error */
+  .error-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #991b1b;
+    margin-bottom: 20px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div style="margin-bottom: 40px;">
+    <a class="back-link" href="/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to task2vec.com
+    </a>
+    <div class="logo">task2vec · Ticket Scorer</div>
+    <h1>Does this ticket need a human?</h1>
+    <p class="subtitle">
+      Paste any Jira ticket summary or description below. The scorer finds the most
+      similar tickets in 40 k resolved Spring Framework tickets and aggregates
+      their actual outcome signals — no LLM, pure historical evidence.
+    </p>
+  </div>
+
+  <!-- Form -->
+  <div class="form-card">
+    <label class="form-label" for="ticket-text">Ticket summary or description</label>
+    <textarea
+      id="ticket-text"
+      placeholder="e.g. Fix NullPointerException in RedisTemplate when connection pool is exhausted under high load"
+    ></textarea>
+    <button class="submit-btn" id="submit-btn" onclick="submitScore()">
+      <svg id="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      <div class="spinner" id="spinner"></div>
+      Score ticket
+    </button>
+  </div>
+
+  <!-- Error box -->
+  <div class="error-box" id="error-box"></div>
+
+  <!-- Result panel -->
+  <div id="result">
+
+    <!-- Tier + confidence bar -->
+    <div class="form-card" style="margin-bottom:16px;">
+      <div class="tier-row">
+        <span class="tier-badge" id="tier-badge">Automate</span>
+        <div class="confidence-wrap">
+          <div class="confidence-label" id="conf-label">Confidence: 74%</div>
+          <div class="conf-bar-bg">
+            <div class="conf-bar-fill" id="conf-bar" style="width:74%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Probability pills -->
+      <div class="pills" id="pills-row"></div>
+
+      <!-- Coverage note -->
+      <p class="coverage-note" id="coverage-note"></p>
+
+      <!-- Insight sentence -->
+      <div class="insight-sentence" id="insight-sentence"></div>
+    </div>
+
+    <!-- Evidence table -->
+    <div class="table-wrap" id="evidence-wrap">
+      <div class="table-title">Most similar historical tickets</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Summary</th>
+            <th style="text-align:right">Resolved in</th>
+            <th style="text-align:right">Watchers</th>
+            <th>Match</th>
+            <th>Tier</th>
+          </tr>
+        </thead>
+        <tbody id="evidence-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- Explainer card (always visible after first result) -->
+    <div class="explainer">
+      <div class="explainer-title">How the score is computed</div>
+      <div class="explainer-item">
+        <div class="explainer-dot" style="background:#10b981;"></div>
+        <div class="explainer-text">
+          <strong>Resolution speed.</strong> Tickets resolved in under 1.9 days (p33 of Spring history) score a
+          point toward Automate — they were quick, well-understood work.
+        </div>
+      </div>
+      <div class="explainer-item">
+        <div class="explainer-dot" style="background:#6c63ff;"></div>
+        <div class="explainer-text">
+          <strong>Watcher count.</strong> Tickets with 2 or fewer watchers required less cross-team
+          coordination — a signal of routine, self-contained work.
+        </div>
+      </div>
+      <div class="explainer-item">
+        <div class="explainer-dot" style="background:#f59e0b;"></div>
+        <div class="explainer-text">
+          <strong>Assignee experience.</strong> Tickets handled by contributors with fewer than 136 tickets
+          (p75) were resolved without deep specialisation — suggesting the problem was approachable.
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <div class="cta-tag">Your own data</div>
+      <p class="cta-text">
+        This model is trained on Spring Framework history. Connect your own Jira
+        and <strong>task2vec builds the same scorer from your team's actual outcomes</strong> —
+        calibrated to your codebase, your team's velocity, and your definition of "hard".
+      </p>
+    </div>
+
+  </div><!-- /#result -->
+
+</div><!-- /.page -->
+
+<script>
+const API = '/api/score.php';
+
+async function submitScore() {
+  const text = document.getElementById('ticket-text').value.trim();
+  if (!text) {
+    showError('Please enter a ticket summary or description.');
+    return;
+  }
+
+  setLoading(true);
+  hideError();
+  document.getElementById('result').style.display = 'none';
+
+  try {
+    const resp = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
+    const data = await resp.json();
+    if (!resp.ok || data.error) {
+      showError(data.error || `Server error ${resp.status}`);
+      return;
+    }
+    renderResult(data);
+  } catch (err) {
+    showError('Could not reach the server. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+}
+
+function renderResult(d) {
+  const tier       = d.tier       || 'Assist';
+  const confidence = d.confidence || 0;
+  const probs      = d.probabilities || {};
+  const evidence   = d.evidence   || [];
+  const coverage   = d.coverage   || 0;
+  const avgDays    = d.avg_days;
+
+  // Tier badge
+  const badge = document.getElementById('tier-badge');
+  badge.textContent = tier;
+  badge.className   = 'tier-badge ' + tier;
+
+  // Confidence bar
+  document.getElementById('conf-label').textContent =
+    `Confidence: ${Math.round(confidence * 100)}%`;
+  const bar = document.getElementById('conf-bar');
+  bar.style.width = `${Math.round(confidence * 100)}%`;
+  bar.className   = 'conf-bar-fill ' + tier;
+
+  // Probability pills
+  const pillsRow = document.getElementById('pills-row');
+  pillsRow.innerHTML = '';
+  ['Automate', 'Assist', 'Escalate'].forEach(t => {
+    const pct = Math.round((probs[t] || 0) * 100);
+    const pill = document.createElement('div');
+    pill.className = 'pill ' + t;
+    pill.innerHTML = `<div class="pill-dot"></div>${t} ${pct}%`;
+    pillsRow.appendChild(pill);
+  });
+
+  // Coverage note
+  document.getElementById('coverage-note').textContent =
+    `Based on ${coverage} similar historical tickets from Spring Framework with resolved outcome data.`;
+
+  // Insight sentence
+  let insight = '';
+  if (coverage > 0 && avgDays !== null && avgDays !== undefined) {
+    const topCount = Math.min(coverage, 7);
+    const expLabel = tier === 'Automate'
+      ? 'typically by less-experienced contributors'
+      : tier === 'Escalate'
+        ? 'often requiring specialised expertise'
+        : 'suggesting moderate complexity';
+    insight = `The ${topCount} most similar tickets were resolved in an average of ${avgDays} days — ${expLabel}.`;
+  } else {
+    insight = 'Not enough resolved outcome data found for similar tickets.';
+  }
+  document.getElementById('insight-sentence').textContent = insight;
+
+  // Evidence table
+  const tbody = document.getElementById('evidence-tbody');
+  tbody.innerHTML = '';
+  evidence.forEach(ev => {
+    const simPct = Math.round(ev.similarity * 100);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><span class="key-link">${escHtml(ev.key)}</span></td>
+      <td class="summary-cell">${escHtml(truncate(ev.summary, 80))}</td>
+      <td class="days-cell">${ev.days !== null ? ev.days + 'd' : '—'}</td>
+      <td class="watchers-cell">${ev.watches}</td>
+      <td>
+        <div class="sim-bar-wrap">
+          <div class="sim-bar-bg"><div class="sim-bar-fill" style="width:${simPct}%"></div></div>
+          <span style="font-size:11px;color:#6b7280;">${simPct}%</span>
+        </div>
+      </td>
+      <td class="tier-cell"><span class="badge ${ev.label}">${ev.label}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function setLoading(on) {
+  const btn     = document.getElementById('submit-btn');
+  const icon    = document.getElementById('btn-icon');
+  const spinner = document.getElementById('spinner');
+  btn.disabled          = on;
+  icon.style.display    = on ? 'none' : '';
+  spinner.style.display = on ? 'block' : 'none';
+}
+
+function showError(msg) {
+  const box = document.getElementById('error-box');
+  box.textContent  = msg;
+  box.style.display = 'block';
+}
+
+function hideError() {
+  document.getElementById('error-box').style.display = 'none';
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function truncate(s, n) {
+  return s && s.length > n ? s.slice(0, n) + '…' : s || '';
+}
+
+// Allow Ctrl+Enter / Cmd+Enter to submit
+document.getElementById('ticket-text').addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submitScore();
+});
+</script>
+</body>
+</html>
