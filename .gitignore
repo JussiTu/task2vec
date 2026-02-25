@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Cache & generated data
+.cache/
+*.npy
+*.npz
+*.db
+
+# Logs
+*.log
+gunicorn.pid
+
+# Credentials / deploy scripts
+_deploy.py
+deploy/restart_api.sh
+
+# OS
+.DS_Store
+Thumbs.db
