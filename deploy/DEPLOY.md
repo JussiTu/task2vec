@@ -111,18 +111,38 @@ sudo chmod 644 /var/www/task2vec/.cache/*.npy
 
 ## 8. Test end-to-end
 
+Run the site check script — it tests all pages and API endpoints in one go:
+
+```bash
+python check_site.py
+```
+
+Expected output: all `[+]` green, including:
+- 6 HTML pages returning 200
+- `GET /api/health.php` → `indexed=69156`
+- `POST /api/score.php` (simple ticket) → `tier=Assist`
+- `POST /api/score.php` (hard ticket) → `tier=Escalate`
+- `POST /api/analyze.php` → similar tickets returned
+
+Or check manually:
+
 ```bash
 # API health
-curl https://task2vec.com/api/health
+curl https://task2vec.com/api/health.php
 
-# Ticket analysis (replace with real ticket text)
-curl -X POST https://task2vec.com/api/analyze \
+# Ticket scorer
+curl -X POST https://task2vec.com/api/score.php \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "Fix typo in documentation"}'
+
+# Ticket analysis
+curl -X POST https://task2vec.com/api/analyze.php \
   -H 'Content-Type: application/json' \
   -d '{"text": "Implement reactive MongoDB support for Spring Data"}'
 ```
 
-Then open https://task2vec.com in a browser — click the site, open the Spring explorer,
-expand "Analyze a ticket" in the side panel, paste a ticket description, and click Analyze.
+Then open https://task2vec.com in a browser — check the homepage, score.html,
+ai_readiness_chart.html, and the Spring explorer.
 
 ---
 
