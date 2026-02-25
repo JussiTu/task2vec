@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work Vectors | SofterHR</title>
+  <style>
+    :root { --bg:#0b1220; --card:#0f1a2e; --text:#e9eef7; --muted:#a9b4c7; --accent:#f6b26b; --line:#22304a; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; background:linear-gradient(180deg,#08101e, #0b1220); color:var(--text); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 56px 20px; }
+    .nav { display:flex; justify-content:space-between; align-items:center; margin-bottom: 44px; }
+    .brand { font-weight:700; letter-spacing:0.2px; }
+    .pill { border:1px solid var(--line); color:var(--muted); padding:8px 12px; border-radius:999px; font-size:14px; }
+    .hero { display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items:center; }
+    @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; } }
+    h1 { font-size: 44px; line-height: 1.05; margin: 0 0 12px; }
+    .sub { font-size: 18px; color: var(--muted); line-height:1.55; margin: 0 0 22px; }
+    .cta { display:flex; gap: 12px; flex-wrap:wrap; }
+    .btn { background: var(--accent); color:#161a22; border:0; padding: 12px 16px; border-radius: 12px; font-weight: 650; cursor:pointer; }
+    .btn2 { background: transparent; color: var(--text); border:1px solid var(--line); padding: 12px 16px; border-radius: 12px; font-weight: 650; cursor:pointer; }
+    .card { background: rgba(15,26,46,0.72); border:1px solid var(--line); border-radius: 18px; padding: 18px; }
+    .img { width:100%; border-radius: 14px; border:1px solid var(--line); background:#0a1324; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+    .k { font-weight: 650; margin:0 0 6px; }
+    .p { margin:0; color: var(--muted); line-height:1.5; }
+    h2 { margin: 44px 0 14px; font-size: 26px; }
+    ol { margin: 12px 0 0 20px; color: var(--muted); line-height:1.7; }
+    .footer { margin-top: 44px; display:flex; justify-content:space-between; align-items:center; gap: 12px; flex-wrap:wrap; padding-top: 18px; border-top:1px solid var(--line); color: var(--muted); }
+    .small { font-size: 13px; color: var(--muted); }
+    form { display:flex; gap: 10px; flex-wrap:wrap; }
+    input { background: transparent; color: var(--text); border:1px solid var(--line); padding: 12px 12px; border-radius: 12px; min-width: 260px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">SofterHR</div>
+      <div class="pill">Work Intelligence • MVP</div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <h1>Work Vectors</h1>
+        <p class="sub"><strong>Tasks are vectors. People are trajectories. Strategy is a direction.</strong><br/>
+          SofterHR turns tickets and project tasks into a living map of how work creates value—so teams can align, reuse what works, and learn faster.</p>
+        <div class="cta">
+          <button class="btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Request access</button>
+          <button class="btn2" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <p class="k">Alignment you can explain</p>
+            <p class="p">Shows how a task supports strategy (with evidence), and flags constructive divergence.</p>
+          </div>
+          <div class="card">
+            <p class="k">Better approaches, faster</p>
+            <p class="p">Suggests alternatives from similar past work: methods, components, tech choices.</p>
+          </div>
+          <div class="card">
+            <p class="k">Find the right people</p>
+            <p class="p">Recommends best contacts based on observed experience—not titles or guesswork.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <!-- Replace src with your hosted asset URL -->
+        <img class="img" src="/assets/work-vectors-diagram.png" alt="Tasks as vectors, people as trajectories, strategy as a direction" />
+        <p class="small" style="margin:10px 2px 0;">A single mental model for planning, learning, and direction.</p>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="card">
+        <ol>
+          <li>Paste a ticket or task into a chat-like interface.</li>
+          <li>Upload strategy documents (roadmap, principles, OKRs).</li>
+          <li>The assistant asks clarifying questions only when needed.</li>
+          <li>We save a structured <em>task vector</em>: tech, product, method, invention, risk, intent.</li>
+          <li>You get alignment, proposals, similar work, and best contacts—with evidence.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2>Built for trust</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="k">We model work, not people</p>
+          <p class="p">No leaderboards. No activity scoring. Insights are grounded in tasks and outcomes.</p>
+        </div>
+        <div class="card">
+          <p class="k">Evidence-first</p>
+          <p class="p">Recommendations link to similar past work and strategy excerpts—so humans stay in control.</p>
+        </div>
+        <div class="card">
+          <p class="k">Employee-visible</p>
+          <p class="p">Trajectories are for growth and learning, with transparent dimensions and boundaries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <h2>Pilot the MVP</h2>
+      <div class="card">
+        <p class="p" style="margin:0 0 12px;">Want to try Work Vectors with one team? Leave your email and we’ll follow up.</p>
+        <form>
+          <input type="email" placeholder="Work email" required />
+          <button class="btn" type="submit">Request access</button>
+        </form>
+        <p class="small" style="margin:12px 0 0;">(MVP note: form can post to your existing CRM, HubSpot, or a simple backend endpoint.)</p>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="small">© SofterHR • Work Vectors</div>
+      <div class="small">Contact: hello@softerhr.com</div>
+    </div>
+  </div>
+</body>
+</html>

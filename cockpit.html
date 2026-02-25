@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>task2vec — AI Work Cockpit</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #0d0d0d;
+  --bg2:     #111111;
+  --bg3:     #161616;
+  --border:  #1e1e1e;
+  --border2: #2a2a2a;
+  --purple:  #7b68ee;
+  --blue:    #5cb8ff;
+  --green:   #00cc88;
+  --red:     #ff5566;
+  --gold:    #ffd700;
+  --orange:  #ff6b35;
+  --text:    #ddd;
+  --muted:   #555;
+  --dim:     #333;
+}
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* ── Header ── */
+#header {
+  padding: 10px 18px; background: #161616;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+}
+.logo { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -.02em; white-space: nowrap; }
+.logo span { color: var(--purple); }
+#project-sel {
+  background: #1e1e1e; color: #eee; border: 1px solid #333;
+  border-radius: 6px; padding: 5px 10px; font-size: 12px; cursor: pointer;
+}
+#project-sel:focus { outline: none; border-color: var(--purple); }
+.header-date { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.spacer { flex: 1; }
+#alert-badge {
+  background: #2a1010; border: 1px solid var(--red);
+  color: var(--red); font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; cursor: pointer;
+  transition: background .2s;
+}
+#alert-badge:hover { background: #3a1515; }
+#ask-btn {
+  background: var(--purple); color: #fff; border: none;
+  border-radius: 6px; padding: 6px 14px; font-size: 12px;
+  font-weight: 600; cursor: pointer; transition: background .2s;
+  white-space: nowrap;
+}
+#ask-btn:hover { background: #6a57dd; }
+
+/* ── Agent legend chips ── */
+#legend-bar {
+  padding: 6px 16px; background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 20px; padding: 3px 10px; font-size: 11px;
+  cursor: pointer; transition: opacity .2s; user-select: none;
+}
+.chip.off { opacity: 0.3; }
+.chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.legend-label { font-size: 10px; color: var(--muted); margin-right: 4px; }
+.stat-pill {
+  margin-left: auto; font-size: 10px; color: var(--muted);
+  display: flex; gap: 16px;
+}
+.stat-pill b { color: #aaa; }
+
+/* ── Main layout ── */
+#main { display: flex; flex: 1; overflow: hidden; min-height: 0; }
+#map-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+#map { flex: 1; min-height: 0; }
+
+/* ── Side panel ── */
+#side-col {
+  width: 310px; min-width: 310px; background: var(--bg2);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+#side-inner { flex: 1; overflow-y: auto; padding: 12px 14px; }
+
+.panel-title {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted); margin-bottom: 10px;
+}
+.alert-card {
+  border-radius: 8px; padding: 11px 13px; margin-bottom: 10px;
+  border-left: 3px solid var(--border2); background: var(--bg3);
+}
+.alert-card.warning { border-left-color: var(--red); }
+.alert-card.caution { border-left-color: var(--orange); }
+.alert-card.ok      { border-left-color: var(--green); }
+.alert-card.info    { border-left-color: var(--purple); }
+.ac-head {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: #eee; margin-bottom: 5px;
+}
+.ac-icon { font-size: 13px; }
+.ac-body { font-size: 11px; color: #888; line-height: 1.6; }
+.ac-link {
+  display: inline-block; margin-top: 6px; font-size: 10px;
+  color: var(--purple); cursor: pointer; text-decoration: underline;
+}
+.ac-link:hover { color: #a99fff; }
+
+.divider-line { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+
+.activity-item {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 11px; color: #777; padding: 5px 0;
+  border-bottom: 1px solid #181818;
+}
+.activity-item:last-child { border-bottom: none; }
+.act-day { font-size: 10px; color: #444; min-width: 58px; flex-shrink: 0; }
+.act-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+.act-text { flex: 1; line-height: 1.5; }
+.act-text b { color: #bbb; }
+
+/* ── Cluster detail panel ── */
+#cluster-panel { display: none; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--purple); cursor: pointer;
+  margin-bottom: 12px; background: none; border: none; padding: 0;
+}
+.back-btn:hover { color: #a99fff; }
+.breakdown-bar { margin-bottom: 4px; }
+.bar-row { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
+.bar-label { font-size: 10px; color: var(--muted); min-width: 90px; }
+.bar-track { flex: 1; background: #1a1a1a; border-radius: 3px; height: 6px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+.bar-pct { font-size: 10px; color: #555; min-width: 28px; text-align: right; }
+.override-item {
+  font-size: 11px; color: #777; padding: 5px 0;
+  border-bottom: 1px solid #181818; line-height: 1.5;
+}
+.override-item:last-child { border-bottom: none; }
+.override-item .key { color: var(--red); font-family: monospace; font-size: 10px; }
+.reasoning-box {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 12px; font-size: 11px;
+  color: #888; line-height: 1.7; font-style: italic;
+  border-left: 3px solid var(--purple);
+}
+.conf-badge {
+  display: inline-block; padding: 1px 7px; border-radius: 10px;
+  font-size: 10px; font-weight: 600; margin-left: 6px;
+}
+.conf-badge.low    { background: #2a1010; color: var(--red); }
+.conf-badge.medium { background: #1a1500; color: #ffa500; }
+.conf-badge.high   { background: #0a2018; color: var(--green); }
+.expert-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #1a1a2e; border: 1px solid #2a2a44;
+  border-radius: 4px; padding: 3px 8px;
+  font-size: 11px; color: #99a; margin: 2px 2px 0 0; cursor: pointer;
+}
+
+/* ── Timeline ── */
+#timeline {
+  padding: 8px 18px 10px; background: var(--bg3);
+  border-top: 1px solid var(--border); flex-shrink: 0;
+}
+#time-scrubber {
+  width: 100%; height: 4px; -webkit-appearance: none;
+  background: linear-gradient(90deg, var(--purple) var(--pct, 100%), #1e1e1e var(--pct, 100%));
+  border-radius: 2px; outline: none; cursor: pointer; margin-bottom: 4px;
+}
+#time-scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  background: #fff; border-radius: 50%; cursor: pointer;
+  border: 2px solid var(--purple);
+}
+#time-labels {
+  display: flex; justify-content: space-between;
+  font-size: 9px; color: #333;
+}
+#time-now { font-size: 10px; color: var(--muted); text-align: center; margin-bottom: 4px; }
+
+/* ── Ask modal ── */
+#ask-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7); z-index: 200;
+  align-items: center; justify-content: center;
+}
+#ask-overlay.open { display: flex; }
+#ask-modal {
+  background: #161616; border: 1px solid var(--border2);
+  border-radius: 12px; width: 580px; max-width: 95vw;
+  padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.modal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.modal-title { font-size: 15px; font-weight: 600; color: #eee; }
+.close-btn {
+  background: none; border: none; color: #555; font-size: 20px;
+  cursor: pointer; line-height: 1; padding: 0;
+}
+.close-btn:hover { color: #aaa; }
+#ask-input-wrap { display: flex; gap: 8px; margin-bottom: 18px; }
+#ask-input {
+  flex: 1; background: #1a1a1a; border: 1px solid #333;
+  border-radius: 8px; color: #eee; padding: 10px 14px; font-size: 13px;
+  font-family: inherit;
+}
+#ask-input:focus { outline: none; border-color: var(--purple); }
+#ask-submit {
+  background: var(--purple); color: #fff; border: none;
+  border-radius: 8px; padding: 10px 16px; font-size: 13px;
+  font-weight: 600; cursor: pointer; white-space: nowrap;
+}
+#ask-submit:hover { background: #6a57dd; }
+.suggested-q {
+  font-size: 11px; color: var(--muted); margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.q-chip {
+  display: inline-block; background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 6px; padding: 5px 10px; font-size: 11px; color: #888;
+  margin: 3px 3px 0 0; cursor: pointer; transition: border-color .2s;
+}
+.q-chip:hover { border-color: var(--purple); color: #ccc; }
+#ask-answer {
+  display: none; margin-top: 16px; border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.answer-text {
+  font-size: 12px; color: #999; line-height: 1.8;
+  background: var(--bg3); border-radius: 8px; padding: 13px 15px;
+  border-left: 3px solid var(--purple);
+}
+.answer-warn {
+  margin-top: 10px; font-size: 11px; color: var(--orange);
+  background: #1a1000; border-radius: 6px; padding: 8px 12px;
+  border-left: 3px solid var(--orange);
+}
+.answer-tickets {
+  margin-top: 10px; font-size: 11px; color: var(--purple); cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+  <a href="/" style="display:inline-flex;align-items:center;gap:4px;font-size:12px;color:#555;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    Back
+  </a>
+  <div class="logo">task<span>2</span>vec</div>
+  <select id="project-sel">
+    <option>payments-service</option>
+    <option>auth-platform</option>
+    <option>data-pipeline</option>
+    <option>mobile-api</option>
+  </select>
+  <div class="header-date" id="header-date">Week of Feb 24, 2026</div>
+  <div class="spacer"></div>
+  <div id="alert-badge" onclick="highlightAlerts()">⚠ 3 alerts</div>
+  <button id="ask-btn" onclick="openAsk()">Ask anything →</button>
+</div>
+
+<!-- Legend bar -->
+<div id="legend-bar">
+  <span class="legend-label">Show:</span>
+  <div class="chip" id="chip-v3"    onclick="toggleChip('v3')">
+    <div class="chip-dot" style="background:#7b68ee"></div> AI-agent-v3
+  </div>
+  <div class="chip" id="chip-v2"    onclick="toggleChip('v2')">
+    <div class="chip-dot" style="background:#5cb8ff"></div> AI-agent-v2
+  </div>
+  <div class="chip" id="chip-human" onclick="toggleChip('human')">
+    <div class="chip-dot" style="background:#00cc88"></div> Human
+  </div>
+  <div class="chip" id="chip-override" onclick="toggleChip('override')">
+    <div class="chip-dot" style="background:#ff5566"></div> Override
+  </div>
+  <div class="spacer"></div>
+  <div class="stat-pill">
+    <span>Total: <b id="stat-total">1,510</b></span>
+    <span>AI: <b id="stat-ai">94%</b></span>
+    <span>Human: <b id="stat-human">6%</b></span>
+    <span>Overrides: <b id="stat-overrides" style="color:#ff5566">19</b></span>
+  </div>
+</div>
+
+<!-- Main -->
+<div id="main">
+  <!-- Map -->
+  <div id="map-col">
+    <div id="map"></div>
+  </div>
+
+  <!-- Side panel -->
+  <div id="side-col">
+    <div id="side-inner">
+
+      <!-- Overview panel (default) -->
+      <div id="overview-panel">
+        <div class="panel-title">Oversight</div>
+
+        <div class="alert-card warning" id="card-drift" style="cursor:pointer" onclick="highlightDrift()">
+          <div class="ac-head"><span class="ac-icon">⚠</span> Drift Detected</div>
+          <div class="ac-body">
+            AI trajectory diverges <b style="color:#ff6b35">78°</b> from strategy target this week.
+            34% of work is outside declared focus areas.
+            <div class="ac-link" onclick="event.stopPropagation();highlightDrift()">show on map →</div>
+          </div>
+        </div>
+
+        <div class="alert-card caution" id="card-override" style="cursor:pointer" onclick="selectCluster(0)">
+          <div class="ac-head"><span class="ac-icon">🔴</span> Override Hotspot</div>
+          <div class="ac-body">
+            <b>Auth &amp; Session</b>: 12 human overrides in 30 days.
+            AI is repeatedly making the same mistake in token scoping.
+            Prompt update recommended.
+            <div class="ac-link" onclick="event.stopPropagation();selectCluster(0)">inspect cluster →</div>
+          </div>
+        </div>
+
+        <div class="alert-card ok">
+          <div class="ac-head"><span class="ac-icon">✅</span> Aligned Zones</div>
+          <div class="ac-body">
+            CI/CD, Infrastructure, Data Pipeline — all within
+            <b style="color:#00cc88">5%</b> of strategy targets.
+            Zero overrides in 14 days.
+          </div>
+        </div>
+
+        <hr class="divider-line">
+        <div class="panel-title">Recent Activity</div>
+
+        <div class="activity-item">
+          <div class="act-day">Today</div>
+          <div class="act-dot" style="background:#7b68ee"></div>
+          <div class="act-text"><b>47</b> tickets solved by AI</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-day"></div>
+          <div class="act-dot" style="background:#00cc88"></div>
+          <div class="act-text"><b>3</b> human reviews</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-day"></div>
+          <div class="act-dot" style="background:#ff5566"></div>
+          <div class="act-text"><b>1</b> override — <span style="color:#ff5566;font-family:monospace;font-size:10px">SVC-4821</span> wrong token scope</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-day">Yesterday</div>
+          <div class="act-dot" style="background:#7b68ee"></div>
+          <div class="act-text"><b>53</b> tickets solved by AI</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-day"></div>
+          <div class="act-dot" style="background:#00cc88"></div>
+          <div class="act-text"><b>5</b> human reviews</div>
+        </div>
+        <div class="activity-item">
+          <div class="act-day">Feb 22</div>
+          <div class="act-dot" style="background:#ff5566"></div>
+          <div class="act-text"><b>3</b> overrides — deprecated API pattern</div>
+        </div>
+      </div>
+
+      <!-- Cluster detail panel (shown on cluster click) -->
+      <div id="cluster-panel">
+        <button class="back-btn" onclick="showOverview()">← Overview</button>
+        <div style="font-size:16px;font-weight:700;color:#eee;margin-bottom:2px" id="cl-name"></div>
+        <div style="font-size:11px;color:#555;margin-bottom:14px" id="cl-meta"></div>
+
+        <div class="panel-title">Work Breakdown</div>
+        <div class="breakdown-bar" id="cl-breakdown"></div>
+
+        <hr class="divider-line">
+        <div class="panel-title" id="cl-override-title">Recent Overrides</div>
+        <div id="cl-overrides"></div>
+
+        <hr class="divider-line">
+        <div class="panel-title">AI Reasoning Sample</div>
+        <div class="reasoning-box" id="cl-reasoning"></div>
+
+        <hr class="divider-line">
+        <div class="panel-title">Human Experts</div>
+        <div id="cl-experts"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Timeline -->
+<div id="timeline">
+  <div id="time-now">Showing work through: <b id="time-label">Feb 2026</b> &nbsp;·&nbsp; <span style="color:#555">drag to replay AI work history</span></div>
+  <input type="range" id="time-scrubber" min="0" max="25" value="25" oninput="onTimeScrub(this.value)">
+  <div id="time-labels">
+    <span>Jan 2024</span><span>Jul 2024</span>
+    <span>Jan 2025</span><span>Jul 2025</span>
+    <span>Feb 2026</span>
+  </div>
+</div>
+
+<!-- Ask modal -->
+<div id="ask-overlay" onclick="closeAskIfOutside(event)">
+  <div id="ask-modal">
+    <div class="modal-head">
+      <div class="modal-title">Ask about AI work history</div>
+      <button class="close-btn" onclick="closeAsk()">×</button>
+    </div>
+    <div id="ask-input-wrap">
+      <input id="ask-input" type="text" placeholder="e.g. Why did auth overrides spike in January?" onkeydown="if(event.key==='Enter')submitAsk()">
+      <button id="ask-submit" onclick="submitAsk()">Ask →</button>
+    </div>
+    <div class="suggested-q">Suggested questions</div>
+    <div>
+      <span class="q-chip" onclick="fillAsk('Why did auth overrides spike in January?')">Why did auth overrides spike in January?</span>
+      <span class="q-chip" onclick="fillAsk('What areas has the AI never touched?')">What areas has the AI never touched?</span>
+      <span class="q-chip" onclick="fillAsk('Which decisions have the lowest confidence?')">Which decisions have the lowest confidence?</span>
+      <span class="q-chip" onclick="fillAsk('Is the AI aligned with our Q1 strategy?')">Is the AI aligned with our Q1 strategy?</span>
+    </div>
+    <div id="ask-answer">
+      <div class="answer-text" id="ask-answer-text"></div>
+      <div class="answer-warn" id="ask-answer-warn" style="display:none"></div>
+      <div class="answer-tickets" id="ask-answer-tickets" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Reproducible PRNG ────────────────────────────────────────────────
+class RNG {
+  constructor(seed) { this.s = seed % 2147483647; if (this.s <= 0) this.s += 2147483646; }
+  next() { this.s = this.s * 16807 % 2147483647; return (this.s - 1) / 2147483646; }
+  norm() {
+    var u, v;
+    do { u = this.next(); } while(u === 0);
+    do { v = this.next(); } while(v === 0);
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+}
+
+var rng = new RNG(42);
+
+// ── Cluster definitions ─────────────────────────────────────────────
+var CLUSTERS = [
+  { id:0, name:'Auth & Session Mgmt',  cx:-3.5, cy:2.5,  n:280, std:0.8, overrides:12, hotspot:true,
+    reasoning:'Chose JWT stateless tokens over session cookies based on 31 similar prior tickets in this cluster. Confidence: 71%.',
+    conf:'medium', experts:['EMP-0047 (182 tickets)','EMP-0012 (94 tickets)'],
+    overrideList:['SVC-4821 — wrong token scope assigned','SVC-4799 — deprecated OAuth endpoint used','SVC-4743 — missing PKCE validation','SVC-4701 — refresh token lifetime too long'] },
+  { id:1, name:'API & REST Layer',     cx:2.0,  cy:3.0,  n:220, std:0.9, overrides:2,  hotspot:false,
+    reasoning:'Applied RESTful conventions from 48 similar tickets. Chose 422 over 400 for validation errors based on majority pattern. Confidence: 88%.',
+    conf:'high', experts:['EMP-0033 (156 tickets)','EMP-0019 (88 tickets)'],
+    overrideList:['SVC-4812 — response envelope format wrong','SVC-4780 — pagination cursor format inconsistent'] },
+  { id:2, name:'Database & ORM',       cx:-1.0, cy:-3.5, n:195, std:0.8, overrides:1,  hotspot:false,
+    reasoning:'Used lazy loading for all relations based on performance tickets from 2024. Confidence: 82%.',
+    conf:'high', experts:['EMP-0055 (211 tickets)','EMP-0008 (103 tickets)'],
+    overrideList:['SVC-4655 — N+1 query introduced in reporting endpoint'] },
+  { id:3, name:'CI/CD & Build',        cx:4.5,  cy:-0.5, n:160, std:0.7, overrides:0,  hotspot:false,
+    reasoning:'Followed established pipeline patterns. No ambiguous cases encountered. Confidence: 94%.',
+    conf:'high', experts:['EMP-0021 (99 tickets)'],
+    overrideList:[] },
+  { id:4, name:'Unit Testing',         cx:0.5,  cy:1.0,  n:175, std:0.7, overrides:3,  hotspot:false,
+    reasoning:'Applied AAA pattern from majority of 67 similar test tickets. Mocking strategy based on recent patterns. Confidence: 79%.',
+    conf:'medium', experts:['EMP-0037 (134 tickets)','EMP-0044 (71 tickets)'],
+    overrideList:['SVC-4740 — test covered wrong path','SVC-4712 — mock too permissive','SVC-4688 — missing edge case for null input'] },
+  { id:5, name:'Messaging & Events',   cx:-4.0, cy:-1.0, n:140, std:0.8, overrides:1,  hotspot:false,
+    reasoning:'Used at-least-once delivery semantics based on 22 prior event tickets. Idempotency key pattern applied. Confidence: 76%.',
+    conf:'medium', experts:['EMP-0029 (88 tickets)'],
+    overrideList:['SVC-4590 — event ordering assumption incorrect'] },
+  { id:6, name:'Infrastructure',       cx:3.0,  cy:-3.0, n:130, std:0.7, overrides:0,  hotspot:false,
+    reasoning:'Terraform module reuse from existing patterns. Resource sizing from historical load data. Confidence: 91%.',
+    conf:'high', experts:['EMP-0015 (76 tickets)','EMP-0039 (60 tickets)'],
+    overrideList:[] },
+  { id:7, name:'Data Pipeline',        cx:1.5,  cy:-1.5, n:110, std:0.6, overrides:0,  hotspot:false,
+    reasoning:'Batch vs stream decision made from latency SLAs in prior tickets. Confidence: 85%.',
+    conf:'high', experts:['EMP-0052 (92 tickets)'],
+    overrideList:[] },
+];
+
+// ── Generate points ─────────────────────────────────────────────────
+var TYPES = {
+  'v3':       { label:'AI-agent-v3', color:'#7b68ee', opacity:0.65 },
+  'v2':       { label:'AI-agent-v2', color:'#5cb8ff', opacity:0.60 },
+  'human':    { label:'Human',       color:'#00cc88', opacity:0.90 },
+  'override': { label:'Override',    color:'#ff5566', opacity:1.00 },
+};
+
+var allPoints = [];
+
+CLUSTERS.forEach(function(cl) {
+  for (var i = 0; i < cl.n; i++) {
+    var x = cl.cx + rng.norm() * cl.std;
+    var y = cl.cy + rng.norm() * cl.std;
+    var r = rng.next();
+    var type;
+    if (cl.hotspot) {
+      type = r < 0.65 ? 'v3' : r < 0.80 ? 'v2' : r < 0.88 ? 'human' : 'override';
+    } else {
+      type = r < 0.73 ? 'v3' : r < 0.88 ? 'v2' : r < 0.97 ? 'human' : 'override';
+    }
+    var month = Math.floor(rng.next() * 26);
+    allPoints.push({ x:x, y:y, type:type, clusterId:cl.id, month:month });
+  }
+});
+
+// ── Build Plotly traces ─────────────────────────────────────────────
+function buildTraces(maxMonth) {
+  var buckets = { v3:{x:[],y:[],t:[]}, v2:{x:[],y:[],t:[]}, human:{x:[],y:[],t:[]}, override:{x:[],y:[],t:[]} };
+  allPoints.forEach(function(p) {
+    if (p.month > maxMonth) return;
+    buckets[p.type].x.push(p.x);
+    buckets[p.type].y.push(p.y);
+    buckets[p.type].t.push(CLUSTERS[p.clusterId].name);
+  });
+
+  return Object.keys(TYPES).map(function(k) {
+    var info = TYPES[k];
+    return {
+      type:'scattergl', mode:'markers',
+      x: buckets[k].x, y: buckets[k].y,
+      text: buckets[k].t,
+      marker:{ size: k==='override'?9:5, color:info.color, opacity:info.opacity,
+               line: k==='override'?{width:1,color:'#fff'}:{width:0} },
+      name: info.label + ' (' + buckets[k].x.length.toLocaleString() + ')',
+      hovertemplate: '%{text}<extra>' + info.label + '</extra>',
+      legendgroup: k,
+    };
+  });
+}
+
+// ── Arrows ──────────────────────────────────────────────────────────
+// Strategy (gold): historical center → intended direction (toward API + Infra)
+var stratFrom = { x: -0.3, y: -0.5 };
+var stratTo   = { x:  2.2, y:  0.8 };
+// AI drift (orange): same origin → actual AI direction (toward Auth)
+var driftTo   = { x: -2.6, y:  1.9 };
+
+function makeArrow(from, to, color, width, label) {
+  return {
+    x: to.x, y: to.y, ax: from.x, ay: from.y,
+    xref:'x', yref:'y', axref:'x', ayref:'y',
+    showarrow:true, arrowhead:3, arrowsize:2.0,
+    arrowwidth: width, arrowcolor: color, opacity:0.95,
+    text: label, font:{ color:color, size:10 },
+    xshift: label ? 8 : 0,
+  };
+}
+
+// ── Cluster annotations ─────────────────────────────────────────────
+var clusterAnnotations = CLUSTERS.map(function(cl) {
+  return {
+    x: cl.cx, y: cl.cy,
+    xref:'x', yref:'y',
+    text: cl.hotspot ? '🔴 ' + cl.name : cl.name,
+    showarrow: false,
+    font:{ color:'white', size:9 },
+    bgcolor: cl.hotspot ? 'rgba(60,10,10,0.85)' : 'rgba(0,0,0,0.65)',
+    borderpad:3, opacity:0.95,
+  };
+});
+
+// ── Layout ───────────────────────────────────────────────────────────
+var baseLayout = {
+  paper_bgcolor:'#0d0d0d', plot_bgcolor:'#111111',
+  margin:{ l:36, r:10, t:10, b:36 },
+  showlegend: true,
+  legend:{
+    bgcolor:'rgba(13,13,13,0.9)', bordercolor:'#2a2a2a',
+    font:{ size:9, color:'#ccc' },
+    x:0.99, y:0.99, xanchor:'right', yanchor:'top',
+    tracegroupgap:2, itemsizing:'constant',
+  },
+  xaxis:{ showgrid:false, zeroline:false, color:'#333',
+          title:{ text:'UMAP-1', font:{ color:'#333', size:9 } } },
+  yaxis:{ showgrid:false, zeroline:false, color:'#333',
+          title:{ text:'UMAP-2', font:{ color:'#333', size:9 } } },
+  hovermode:'closest',
+  annotations: clusterAnnotations.concat([
+    makeArrow(stratFrom, stratTo, '#ffd700', 3.5, ''),
+    makeArrow(stratFrom, driftTo, '#ff6b35', 2.5, ''),
+  ]),
+};
+
+// Arrow legend in corner
+var arrowLegendShapes = [
+  { type:'line', x0:0.02, y0:0.96, x1:0.06, y1:0.96,
+    xref:'paper', yref:'paper', line:{ color:'#ffd700', width:3 } },
+  { type:'line', x0:0.02, y0:0.91, x1:0.06, y1:0.91,
+    xref:'paper', yref:'paper', line:{ color:'#ff6b35', width:2 } },
+];
+
+var arrowLegendAnnotations = [
+  { x:0.07, y:0.96, xref:'paper', yref:'paper', showarrow:false,
+    text:'Strategy target', font:{ color:'#ffd700', size:9 }, xanchor:'left' },
+  { x:0.07, y:0.91, xref:'paper', yref:'paper', showarrow:false,
+    text:'AI actual direction', font:{ color:'#ff6b35', size:9 }, xanchor:'left' },
+];
+
+var fullLayout = Object.assign({}, baseLayout, {
+  annotations: baseLayout.annotations.concat(arrowLegendAnnotations),
+  shapes: arrowLegendShapes,
+});
+
+var mapCfg = { responsive:true, scrollZoom:true, displayModeBar:true, displaylogo:false };
+
+// ── Initial render ──────────────────────────────────────────────────
+Plotly.newPlot('map', buildTraces(25), fullLayout, mapCfg);
+
+// Click on a point → select its cluster
+document.getElementById('map').on('plotly_click', function(data) {
+  var pt = data.points[0];
+  var name = pt.text;
+  var cl = CLUSTERS.find(function(c) { return c.name === name; });
+  if (cl) selectCluster(cl.id);
+});
+
+// ── Visibility toggles ──────────────────────────────────────────────
+var hidden = {};
+function toggleChip(key) {
+  var chip = document.getElementById('chip-' + key);
+  var traceIdx = Object.keys(TYPES).indexOf(key);
+  if (hidden[key]) {
+    delete hidden[key];
+    chip.classList.remove('off');
+    Plotly.restyle('map', { visible: true }, [traceIdx]);
+  } else {
+    hidden[key] = true;
+    chip.classList.add('off');
+    Plotly.restyle('map', { visible: false }, [traceIdx]);
+  }
+}
+
+// ── Timeline scrubber ───────────────────────────────────────────────
+var MONTHS = ['Jan 2024','Feb 2024','Mar 2024','Apr 2024','May 2024','Jun 2024',
+              'Jul 2024','Aug 2024','Sep 2024','Oct 2024','Nov 2024','Dec 2024',
+              'Jan 2025','Feb 2025','Mar 2025','Apr 2025','May 2025','Jun 2025',
+              'Jul 2025','Aug 2025','Sep 2025','Oct 2025','Nov 2025','Dec 2025',
+              'Jan 2026','Feb 2026'];
+
+function onTimeScrub(val) {
+  val = parseInt(val);
+  document.getElementById('time-label').textContent = MONTHS[val];
+  var pct = (val / 25 * 100) + '%';
+  document.getElementById('time-scrubber').style.setProperty('--pct', pct);
+
+  var traces = buildTraces(val);
+  Plotly.react('map', traces, fullLayout);
+
+  // Update stats
+  var total = 0, ai = 0, human = 0, overrides = 0;
+  allPoints.forEach(function(p) {
+    if (p.month > val) return;
+    total++;
+    if (p.type === 'override') overrides++;
+    else if (p.type === 'human') human++;
+    else ai++;
+  });
+  document.getElementById('stat-total').textContent    = total.toLocaleString();
+  document.getElementById('stat-ai').textContent       = Math.round(ai/total*100) + '%';
+  document.getElementById('stat-human').textContent    = Math.round((human+overrides)/total*100) + '%';
+  document.getElementById('stat-overrides').textContent = overrides;
+}
+
+// ── Drift highlight ─────────────────────────────────────────────────
+function highlightDrift() {
+  // Flash the drift arrow by briefly making it thicker
+  var ann = fullLayout.annotations.slice();
+  // Just scroll to show both arrows visible — in real product would zoom map
+  Plotly.relayout('map', { 'xaxis.range': [-6, 5], 'yaxis.range': [-1, 4] });
+}
+
+// ── Cluster detail panel ────────────────────────────────────────────
+var currentCluster = null;
+
+function selectCluster(id) {
+  var cl = CLUSTERS[id];
+  currentCluster = cl;
+
+  document.getElementById('cl-name').textContent = cl.name;
+  document.getElementById('cl-meta').textContent =
+    cl.n + ' tickets · Jan 2024 – Feb 2026' +
+    (cl.hotspot ? ' · ⚠ override hotspot' : '');
+
+  // Breakdown
+  var v3n = Math.round(cl.n * (cl.hotspot ? 0.65 : 0.73));
+  var v2n = Math.round(cl.n * 0.15);
+  var hn  = Math.round(cl.n * 0.08);
+  var ovn = cl.overrides;
+  var bars = [
+    { label:'AI-agent-v3', pct: Math.round(v3n/cl.n*100), color:'#7b68ee' },
+    { label:'AI-agent-v2', pct: Math.round(v2n/cl.n*100), color:'#5cb8ff' },
+    { label:'Human',       pct: Math.round(hn/cl.n*100),  color:'#00cc88' },
+    { label:'Override',    pct: Math.round(ovn/cl.n*100), color:'#ff5566' },
+  ];
+  document.getElementById('cl-breakdown').innerHTML = bars.map(function(b) {
+    return '<div class="bar-row">' +
+      '<div class="bar-label">' + b.label + '</div>' +
+      '<div class="bar-track"><div class="bar-fill" style="width:' + b.pct + '%;background:' + b.color + '"></div></div>' +
+      '<div class="bar-pct">' + b.pct + '%</div>' +
+      '</div>';
+  }).join('');
+
+  // Overrides
+  var ovEl = document.getElementById('cl-overrides');
+  var ovTitle = document.getElementById('cl-override-title');
+  if (cl.overrideList.length === 0) {
+    ovEl.innerHTML = '<div style="font-size:11px;color:#444;padding:4px 0">No overrides — fully aligned ✓</div>';
+    ovTitle.textContent = 'Overrides';
+  } else {
+    ovTitle.textContent = 'Recent Overrides (' + cl.overrideList.length + ')';
+    ovEl.innerHTML = cl.overrideList.map(function(o) {
+      var parts = o.split(' — ');
+      return '<div class="override-item"><span class="key">' + parts[0] + '</span>' +
+             (parts[1] ? ' — ' + parts[1] : '') + '</div>';
+    }).join('');
+  }
+
+  // Reasoning + confidence
+  var confClass = cl.conf === 'high' ? 'high' : cl.conf === 'low' ? 'low' : 'medium';
+  var confLabel = cl.conf === 'high' ? 'High confidence' : cl.conf === 'low' ? 'Low confidence' : 'Medium confidence';
+  document.getElementById('cl-reasoning').innerHTML =
+    '&ldquo;' + cl.reasoning + '&rdquo;' +
+    '<span class="conf-badge ' + confClass + '">' + confLabel + '</span>';
+
+  // Experts
+  document.getElementById('cl-experts').innerHTML = cl.experts.map(function(e) {
+    return '<span class="expert-chip">👤 ' + e + '</span>';
+  }).join('');
+
+  // Highlight cluster on map
+  highlightClusterOnMap(id);
+
+  // Switch panels
+  document.getElementById('overview-panel').style.display = 'none';
+  document.getElementById('cluster-panel').style.display  = 'block';
+}
+
+function showOverview() {
+  document.getElementById('overview-panel').style.display = 'block';
+  document.getElementById('cluster-panel').style.display  = 'none';
+  Plotly.react('map', buildTraces(parseInt(document.getElementById('time-scrubber').value)), fullLayout);
+}
+
+function highlightClusterOnMap(id) {
+  var cl = CLUSTERS[id];
+  var focusTraces = buildTraces(parseInt(document.getElementById('time-scrubber').value));
+
+  // Dim all points not in this cluster
+  allPoints.forEach(function(p) { p._focus = p.clusterId === id; });
+
+  var buckets = { v3:{x:[],y:[],t:[],op:[]}, v2:{x:[],y:[],t:[],op:[]},
+                  human:{x:[],y:[],t:[],op:[]}, override:{x:[],y:[],t:[],op:[]} };
+  var maxMonth = parseInt(document.getElementById('time-scrubber').value);
+  allPoints.forEach(function(p) {
+    if (p.month > maxMonth) return;
+    buckets[p.type].x.push(p.x);
+    buckets[p.type].y.push(p.y);
+    buckets[p.type].t.push(CLUSTERS[p.clusterId].name);
+    buckets[p.type].op.push(p.clusterId === id ? (p.type==='override'?1.0:0.85) : 0.08);
+  });
+
+  var highlightTraces = Object.keys(TYPES).map(function(k) {
+    var info = TYPES[k];
+    return {
+      type:'scattergl', mode:'markers',
+      x:buckets[k].x, y:buckets[k].y, text:buckets[k].t,
+      marker:{ size: k==='override'?10:6, color:info.color, opacity:buckets[k].op,
+               line: k==='override'?{width:1,color:'#fff'}:{width:0} },
+      name: info.label, hovertemplate:'%{text}<extra>' + info.label + '</extra>',
+      legendgroup:k,
+    };
+  });
+
+  Plotly.react('map', highlightTraces, fullLayout);
+}
+
+function highlightAlerts() {
+  // Scroll overview into view and flash alert cards
+  showOverview();
+  ['card-drift','card-override'].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.style.transition = 'box-shadow .3s';
+    el.style.boxShadow = '0 0 12px rgba(255,85,102,0.4)';
+    setTimeout(function() { el.style.boxShadow = ''; }, 1200);
+  });
+}
+
+// ── Ask modal ───────────────────────────────────────────────────────
+var ANSWERS = {
+  'auth': {
+    text: 'Between Jan 3–18, the AI made 12 auth decisions all citing the same pattern from 2023 tickets — before your security policy update. The old pattern allowed implicit token scoping; the new policy requires explicit scopes. The AI has not seen the new policy in its prompt context.',
+    warn: 'Root cause: prompt context is missing the security policy update from Dec 2025. Recommended action: add policy summary to AI system prompt.',
+    tickets: 'Related tickets: SVC-4821, SVC-4799, SVC-4743, SVC-4701  →  show on map',
+  },
+  'never': {
+    text: 'Three areas have zero AI activity since deployment: (1) Legacy billing reconciliation — 23 tickets, all human-only. (2) GDPR data deletion workflows — flagged as human-required. (3) On-call escalation logic — no similar historical tickets to learn from.',
+    warn: 'These dark zones represent either intentional human gates or gaps in the AI\'s training context. Review whether legacy billing should remain human-only.',
+    tickets: null,
+  },
+  'confidence': {
+    text: 'Lowest-confidence decisions this month: Auth & Session (avg 71%), Messaging retry logic (68%), Database sharding decisions (66%). The AI is working from sparse historical data in these areas — fewer than 15 reference tickets each.',
+    warn: 'Consider adding domain documentation to the AI\'s context for these areas, or routing low-confidence tickets to human review.',
+    tickets: null,
+  },
+  'strategy': {
+    text: 'Q1 strategy targets: API modernisation (target 35% of work) — actual 22%. Infrastructure automation (target 20%) — actual 18%. Auth hardening was not a Q1 target but received 28% of AI effort, driven by a cascade from SPR-4655.',
+    warn: 'The AI is over-indexing on Auth work. This started Jan 8 when SVC-4610 was marked high-priority. Consider rebalancing priority weights.',
+    tickets: 'Show Q1 strategy divergence on map →',
+  },
+};
+
+function openAsk() {
+  document.getElementById('ask-overlay').classList.add('open');
+  document.getElementById('ask-input').focus();
+  document.getElementById('ask-answer').style.display = 'none';
+}
+function closeAsk() {
+  document.getElementById('ask-overlay').classList.remove('open');
+}
+function closeAskIfOutside(e) {
+  if (e.target === document.getElementById('ask-overlay')) closeAsk();
+}
+function fillAsk(q) {
+  document.getElementById('ask-input').value = q;
+  document.getElementById('ask-input').focus();
+}
+function submitAsk() {
+  var q = document.getElementById('ask-input').value.toLowerCase();
+  var ans;
+  if (q.includes('auth') || q.includes('override') || q.includes('spike')) ans = ANSWERS.auth;
+  else if (q.includes('never') || q.includes('touch') || q.includes('dark')) ans = ANSWERS.never;
+  else if (q.includes('confidence') || q.includes('low')) ans = ANSWERS.confidence;
+  else ans = ANSWERS.strategy;
+
+  document.getElementById('ask-answer-text').textContent = ans.text;
+
+  var warnEl = document.getElementById('ask-answer-warn');
+  if (ans.warn) { warnEl.textContent = ans.warn; warnEl.style.display = 'block'; }
+  else          { warnEl.style.display = 'none'; }
+
+  var tickEl = document.getElementById('ask-answer-tickets');
+  if (ans.tickets) { tickEl.textContent = ans.tickets; tickEl.style.display = 'block'; }
+  else             { tickEl.style.display = 'none'; }
+
+  document.getElementById('ask-answer').style.display = 'block';
+}
+
+// ── Keyboard shortcuts ───────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAsk();
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openAsk(); }
+});
+</script>
+</body>
+</html>

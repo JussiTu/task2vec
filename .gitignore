@@ -20,6 +20,21 @@ gunicorn.pid
 _deploy.py
 deploy/restart_api.sh
 
+# Generated images / data exports
+*.png
+*.csv
+*.graphml
+*.gexf
+*.jsonl
+*.pdf
+
+# LaTeX build artifacts
+*.aux
+*.out
+*.toc
+*.log
+texput.log
+
 # OS
 .DS_Store
 Thumbs.db
