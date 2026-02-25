@@ -1,12 +1,12 @@
 """
 run_eval.py
 ===========
-For a sample of labeled tickets that have git commits, asks Claude to fix the
+For a sample of labeled tickets that have git commits, asks an AI to fix the
 ticket given only the ticket text + before-state source files, then scores
-Claude's answer against the actual commit diff.
+the answer against the actual commit diff.
 
 Scoring per ticket:
-  file_hit      : Claude's response mentions the correct file / class name
+  file_hit      : AI's response mentions the correct file / class name
   token_overlap : Jaccard of code tokens (ground-truth added lines vs answer)
   pass          : file_hit AND token_overlap >= 0.15
 
@@ -17,12 +17,14 @@ Usage:
     python run_eval.py --n 10        # 10 per tier
     python run_eval.py --tier Automate
     python run_eval.py --seed 7
-    python run_eval.py --model claude-haiku-4-5-20251001   # cheaper
-    python run_eval.py --dry-run     # show sample without calling Claude
+    python run_eval.py --provider openai --model gpt-4o-mini
+    python run_eval.py --provider anthropic --model claude-sonnet-4-6
+    python run_eval.py --dry-run     # show sample without calling AI
 
 Requirements:
-    pip install anthropic pymongo
-    set ANTHROPIC_API_KEY=...
+    pip install anthropic openai pymongo
+    set ANTHROPIC_API_KEY=...   (for --provider anthropic)
+    set OPENAI_API_KEY=...      (for --provider openai, the default)
 """
 import argparse, json, os, random, re, subprocess, textwrap
 from pathlib import Path
@@ -39,7 +41,8 @@ TIERS       = ["Automate", "Assist", "Escalate"]
 MAX_FILE_CHARS = 6000   # truncate very large source files
 MAX_FILES      = 3      # max changed files shown to Claude
 
-DEFAULT_MODEL = "claude-sonnet-4-6"
+DEFAULT_PROVIDER = "openai"
+DEFAULT_MODEL    = "gpt-4o-mini"
 
 SYSTEM_PROMPT = (
     "You are a senior Spring Framework engineer doing a code review. "
@@ -136,8 +139,12 @@ def main():
                         help="tickets per tier (default 5)")
     parser.add_argument("--seed", type=int,  default=42)
     parser.add_argument("--tier", choices=TIERS, help="run a single tier only")
-    parser.add_argument("--model", default=DEFAULT_MODEL,
-                        help=f"Claude model ID (default: {DEFAULT_MODEL})")
+    parser.add_argument("--provider", default=DEFAULT_PROVIDER,
+                        choices=["anthropic", "openai"],
+                        help=f"AI provider (default: {DEFAULT_PROVIDER})")
+    parser.add_argument("--model", default=None,
+                        help="Model ID (default: gpt-4o-mini for openai, "
+                             "claude-sonnet-4-6 for anthropic)")
     parser.add_argument("--dry-run", action="store_true",
                         help="show what would be evaluated, don't call Claude")
     args = parser.parse_args()
@@ -172,11 +179,22 @@ def main():
     if args.dry_run:
         print("\n[DRY RUN — not calling Claude]\n")
 
-    # Claude client (only if not dry-run)
-    claude = None
+    # Resolve model default per provider
+    model = args.model
+    if model is None:
+        model = "claude-sonnet-4-6" if args.provider == "anthropic" else "gpt-4o-mini"
+
+    # AI client (only if not dry-run)
+    ai_client  = None
+    ai_provider = args.provider
     if not args.dry_run:
-        from anthropic import Anthropic
-        claude = Anthropic()   # reads ANTHROPIC_API_KEY from env
+        if ai_provider == "anthropic":
+            from anthropic import Anthropic
+            ai_client = Anthropic()
+        else:
+            from openai import OpenAI
+            ai_client = OpenAI()
+    print(f"Provider: {ai_provider}   Model: {model}\n")
 
     results = []
 
@@ -211,17 +229,28 @@ def main():
             # Ground truth
             ground_truth = diff_between(info["parent"], info["sha"])
 
-            # Ask Claude
+            # Ask AI
             try:
-                resp = claude.messages.create(
-                    model=args.model,
-                    max_tokens=1500,
-                    system=SYSTEM_PROMPT,
-                    messages=[{"role": "user", "content": user_msg}],
-                )
-                answer       = resp.content[0].text
-                in_tok       = resp.usage.input_tokens
-                out_tok      = resp.usage.output_tokens
+                if ai_provider == "anthropic":
+                    resp    = ai_client.messages.create(
+                        model=model, max_tokens=1500,
+                        system=SYSTEM_PROMPT,
+                        messages=[{"role": "user", "content": user_msg}],
+                    )
+                    answer  = resp.content[0].text
+                    in_tok  = resp.usage.input_tokens
+                    out_tok = resp.usage.output_tokens
+                else:  # openai
+                    resp    = ai_client.chat.completions.create(
+                        model=model, max_tokens=1500, temperature=0.3,
+                        messages=[
+                            {"role": "system", "content": SYSTEM_PROMPT},
+                            {"role": "user",   "content": user_msg},
+                        ],
+                    )
+                    answer  = resp.choices[0].message.content
+                    in_tok  = resp.usage.prompt_tokens
+                    out_tok = resp.usage.completion_tokens
             except Exception as exc:
                 print(f"  API error: {exc}")
                 answer = ""
@@ -238,6 +267,7 @@ def main():
             results.append({
                 "key":             key,
                 "tier":            tier,
+                "model":           model,
                 "summary":         summary,
                 "sha":             info["sha"],
                 "files":           info["files"],
@@ -253,12 +283,20 @@ def main():
     if results:
         with open(RESULTS_FILE, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=2)
-        total_cost_est = sum(
-            r["input_tokens"] * 3e-6 + r["output_tokens"] * 15e-6
-            for r in results
-        )
+        if ai_provider == "anthropic":
+            total_cost_est = sum(
+                r["input_tokens"] * 3e-6 + r["output_tokens"] * 15e-6
+                for r in results
+            )
+            pricing_label = "Sonnet"
+        else:
+            total_cost_est = sum(
+                r["input_tokens"] * 0.15e-6 + r["output_tokens"] * 0.6e-6
+                for r in results
+            )
+            pricing_label = "gpt-4o-mini"
         print(f"\nResults saved: {RESULTS_FILE}")
-        print(f"Estimated cost (Sonnet pricing): ${total_cost_est:.3f}")
+        print(f"Estimated cost ({pricing_label} pricing): ${total_cost_est:.4f}")
         print("Run:  python eval_report.py")
     elif not args.dry_run:
         print("\nNo results — check --n and --tier flags.")
