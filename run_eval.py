@@ -10,14 +10,16 @@ Scoring per ticket:
   token_overlap : Jaccard of code tokens (ground-truth added lines vs answer)
   pass          : file_hit AND token_overlap >= 0.15
 
-Results are saved to .cache/eval_results.json.
+Results are saved to .cache/eval_results_{model}.json so runs for
+different models don't overwrite each other. Use eval_compare.py to
+view results across all models side by side.
 
 Usage:
-    python run_eval.py               # 5 tickets per tier = 15 total
+    python run_eval.py               # 30 tickets per tier, gpt-4o-mini
     python run_eval.py --n 10        # 10 per tier
     python run_eval.py --tier Automate
     python run_eval.py --seed 7
-    python run_eval.py --provider openai --model gpt-4o-mini
+    python run_eval.py --provider openai --model gpt-4o
     python run_eval.py --provider anthropic --model claude-sonnet-4-6
     python run_eval.py --dry-run     # show sample without calling AI
 
@@ -33,7 +35,15 @@ CACHE        = Path(__file__).parent / ".cache"
 REPO_DIR     = CACHE / "spring-framework"
 GIT_INDEX    = CACHE / "git_index.json"
 SIGNALS_FILE = CACHE / "outcome_signals.json"
-RESULTS_FILE = CACHE / "eval_results.json"
+
+# Per-model pricing: (input $/1M, output $/1M)
+MODEL_PRICING = {
+    "gpt-4o-mini":          (0.15,  0.60),
+    "gpt-4o":               (2.50, 10.00),
+    "claude-haiku-4-5-20251001": (0.80,  4.00),
+    "claude-sonnet-4-6":    (3.00, 15.00),
+    "claude-opus-4-6":     (15.00, 75.00),
+}
 
 MONGO_URI   = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 TIERS       = ["Automate", "Assist", "Escalate"]
@@ -135,8 +145,8 @@ def score(answer: str, ground_truth_diff: str):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n",    type=int,  default=5,
-                        help="tickets per tier (default 5)")
+    parser.add_argument("--n",    type=int,  default=30,
+                        help="tickets per tier (default 30)")
     parser.add_argument("--seed", type=int,  default=42)
     parser.add_argument("--tier", choices=TIERS, help="run a single tier only")
     parser.add_argument("--provider", default=DEFAULT_PROVIDER,
@@ -281,23 +291,20 @@ def main():
             })
 
     if results:
-        with open(RESULTS_FILE, "w", encoding="utf-8") as f:
+        # Save per-model so runs don't overwrite each other
+        slug = model.replace("/", "-")
+        out_file = CACHE / f"eval_results_{slug}.json"
+        with open(out_file, "w", encoding="utf-8") as f:
             json.dump(results, f, indent=2)
-        if ai_provider == "anthropic":
-            total_cost_est = sum(
-                r["input_tokens"] * 3e-6 + r["output_tokens"] * 15e-6
-                for r in results
-            )
-            pricing_label = "Sonnet"
-        else:
-            total_cost_est = sum(
-                r["input_tokens"] * 0.15e-6 + r["output_tokens"] * 0.6e-6
-                for r in results
-            )
-            pricing_label = "gpt-4o-mini"
-        print(f"\nResults saved: {RESULTS_FILE}")
-        print(f"Estimated cost ({pricing_label} pricing): ${total_cost_est:.4f}")
-        print("Run:  python eval_report.py")
+        in_price, out_price = MODEL_PRICING.get(model, (0, 0))
+        total_cost_est = sum(
+            r["input_tokens"] * in_price / 1e6 + r["output_tokens"] * out_price / 1e6
+            for r in results
+        )
+        print(f"\nResults saved: {out_file}")
+        if total_cost_est:
+            print(f"Estimated cost ({model} pricing): ${total_cost_est:.4f}")
+        print("Run:  python eval_compare.py")
     elif not args.dry_run:
         print("\nNo results — check --n and --tier flags.")
 
