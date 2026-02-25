@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|74ad6315-5eb6-4066-b684-9f522d24b21c|>>",
+  "tickets": {
+    "count": 1263,
+    "first_created": "2005-05-23T01:56:06.000+0000",
+    "last_created": "2018-12-19T11:03:21.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.18527315914489312,
+        "count": 234,
+        "example_keys": [
+          "SPR-4419",
+          "SWS-20",
+          "SPR-5853"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.1330166270783848,
+        "count": 168,
+        "example_keys": [
+          "SWS-105",
+          "SPR-4518",
+          "SPR-4927"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.12747426761678543,
+        "count": 161,
+        "example_keys": [
+          "SWS-9",
+          "SWS-10",
+          "SWS-11"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.11718131433095803,
+        "count": 148,
+        "example_keys": [
+          "SWS-7",
+          "SWS-8",
+          "SWS-16"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.09817893903404593,
+        "count": 124,
+        "example_keys": [
+          "SWS-3",
+          "SWS-5",
+          "SWS-23"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.19714964370546317,
+          "count": 83,
+          "example_keys": [
+            "SWS-7",
+            "SWS-8",
+            "SWS-16"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.19002375296912113,
+          "count": 80,
+          "example_keys": [
+            "SWS-9",
+            "SWS-10",
+            "SWS-11"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.12589073634204276,
+          "count": 53,
+          "example_keys": [
+            "SWS-3",
+            "SWS-5",
+            "SWS-23"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.25415676959619954,
+          "count": 107,
+          "example_keys": [
+            "SPR-5362",
+            "SPR-5365",
+            "SPR-5367"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.2161520190023753,
+          "count": 91,
+          "example_keys": [
+            "SWS-436",
+            "SWS-438",
+            "SPR-5237"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.08788598574821853,
+          "count": 37,
+          "example_keys": [
+            "SWS-432",
+            "SWS-440",
+            "SWS-455"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.29453681710213775,
+          "count": 124,
+          "example_keys": [
+            "SPR-7695",
+            "SWS-648",
+            "SPR-7820"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.13539192399049882,
+          "count": 57,
+          "example_keys": [
+            "SPR-7667",
+            "SPR-7706",
+            "SPR-7707"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.10451306413301663,
+          "count": 44,
+          "example_keys": [
+            "SWS-687",
+            "SWS-688",
+            "SWS-699"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4968304278922345,
+    "positive_percent": 50,
+    "steps": 1262
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-4419",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SWS-2",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SWS-3",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SWS-4",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SWS-5",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-17555",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-17579",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-17582",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-17594",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17611",
+        "label": "Content Negotiation Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has a rich work history spanning from May 2005 to December 2018, contributing to a total of 1,263 tickets. In the early phase, they focused on \"Spring IDE Tooling Enhancements\" and \"JMS Message Listener Issues,\" with notable tickets like SWS-7 and SWS-9. As they progressed into the middle phase, their attention shifted towards \"Content Negotiation Issues\" and \"RequestMapping Enhancements,\" exemplified by tickets such as SPR-5362 and SWS-436. Recently, they have concentrated heavily on \"RequestMapping Enhancements,\" working on tickets like SPR-7695 and SWS-648. Overall, 50% of their steps aligned with the overall direction, indicating a strong commitment to the project's goals."
+}

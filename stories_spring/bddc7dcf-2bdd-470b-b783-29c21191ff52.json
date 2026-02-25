@@ -1,0 +1,249 @@
+{
+  "assignee_id": "<<|author_key|bddc7dcf-2bdd-470b-b783-29c21191ff52|>>",
+  "tickets": {
+    "count": 68,
+    "first_created": "2011-09-19T01:36:50.000+0000",
+    "last_created": "2014-10-24T12:35:58.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.36764705882352944,
+        "count": 25,
+        "example_keys": [
+          "BATCH-1794",
+          "BATCH-1797",
+          "BATCH-2242"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.14705882352941177,
+        "count": 10,
+        "example_keys": [
+          "XD-2157",
+          "XD-2166",
+          "XD-2252"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.1323529411764706,
+        "count": 9,
+        "example_keys": [
+          "BATCHADM-127",
+          "BATCH-1968",
+          "BATCH-1989"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.08823529411764706,
+        "count": 6,
+        "example_keys": [
+          "BATCH-1809",
+          "BATCH-1810",
+          "BATCH-1958"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.058823529411764705,
+        "count": 4,
+        "example_keys": [
+          "BATCHADM-133",
+          "BATCH-1928",
+          "BATCH-2127"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.4090909090909091,
+          "count": 9,
+          "example_keys": [
+            "BATCH-1794",
+            "BATCH-1797",
+            "BATCH-2242"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.13636363636363635,
+          "count": 3,
+          "example_keys": [
+            "BATCH-1809",
+            "BATCH-1810",
+            "BATCH-1958"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.13636363636363635,
+          "count": 3,
+          "example_keys": [
+            "BATCHADM-127",
+            "BATCH-1968",
+            "BATCH-1989"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.5217391304347826,
+          "count": 12,
+          "example_keys": [
+            "BATCH-2001",
+            "BATCH-2005",
+            "BATCH-2025"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.08695652173913043,
+          "count": 2,
+          "example_keys": [
+            "BATCH-1993",
+            "BATCH-2195"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.08695652173913043,
+          "count": 2,
+          "example_keys": [
+            "BATCH-2111",
+            "BATCH-2192"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.43478260869565216,
+          "count": 10,
+          "example_keys": [
+            "XD-2157",
+            "XD-2166",
+            "XD-2252"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.17391304347826086,
+          "count": 4,
+          "example_keys": [
+            "BATCH-2214",
+            "BATCHADM-185",
+            "BATCH-2231"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.17391304347826086,
+          "count": 4,
+          "example_keys": [
+            "BATCH-2227",
+            "BATCHADM-187",
+            "BATCH-2268"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5223880597014925,
+    "positive_percent": 52,
+    "steps": 67
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "BATCH-1794",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1797",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCHADM-123",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "BATCH-1809",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "BATCH-1810",
+        "label": "Documentation Corrections and Edits"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-2256",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-2257",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-2259",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-2281",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-2282",
+        "label": "Spring XD Module Development"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since September 2011, with a focus on various themes over the years. In the early phase, they primarily addressed \"Step Scope and Tasklet Issues\" with tickets like BATCH-1794 and BATCH-1797, while also making documentation corrections. As they moved into the middle phase, their work continued to emphasize tasklet issues, exemplified by BATCH-2001 and BATCH-2005, alongside some dependency upgrades. Recently, their focus shifted towards \"Spring XD Module Development,\" as seen in tickets XD-2157 and XD-2166, while still addressing some dependency upgrades and tasklet issues. Overall, 67% of their steps have aligned with the overall direction of the project, demonstrating a strong commitment to the team's goals."
+}

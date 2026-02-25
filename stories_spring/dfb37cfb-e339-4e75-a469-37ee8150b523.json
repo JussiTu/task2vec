@@ -1,0 +1,224 @@
+{
+  "assignee_id": "<<|author_key|dfb37cfb-e339-4e75-a469-37ee8150b523|>>",
+  "tickets": {
+    "count": 115,
+    "first_created": "2009-08-25T02:30:32.000+0000",
+    "last_created": "2015-05-31T02:13:41.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.4608695652173913,
+        "count": 53,
+        "example_keys": [
+          "SES-3",
+          "SES-14",
+          "SES-16"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.3565217391304348,
+        "count": 41,
+        "example_keys": [
+          "SES-4",
+          "SES-5",
+          "SES-7"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.043478260869565216,
+        "count": 5,
+        "example_keys": [
+          "SES-18",
+          "SES-57",
+          "SES-65"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.034782608695652174,
+        "count": 4,
+        "example_keys": [
+          "SES-40",
+          "SES-75",
+          "SES-78"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.02608695652173913,
+        "count": 3,
+        "example_keys": [
+          "SES-26",
+          "SES-99",
+          "SES-166"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.39473684210526316,
+          "count": 15,
+          "example_keys": [
+            "SES-3",
+            "SES-14",
+            "SES-16"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.3684210526315789,
+          "count": 14,
+          "example_keys": [
+            "SES-4",
+            "SES-5",
+            "SES-7"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.07894736842105263,
+          "count": 3,
+          "example_keys": [
+            "SES-18",
+            "SES-57",
+            "SES-65"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.42105263157894735,
+          "count": 16,
+          "example_keys": [
+            "SES-67",
+            "SES-69",
+            "SES-72"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.34210526315789475,
+          "count": 13,
+          "example_keys": [
+            "SES-68",
+            "SES-70",
+            "SES-77"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.05263157894736842,
+          "count": 2,
+          "example_keys": [
+            "SES-75",
+            "SES-78"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.5641025641025641,
+          "count": 22,
+          "example_keys": [
+            "SES-118",
+            "SES-124",
+            "SES-129"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.358974358974359,
+          "count": 14,
+          "example_keys": [
+            "SES-116",
+            "SES-117",
+            "SES-122"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.02564102564102564,
+          "count": 1,
+          "example_keys": [
+            "SES-121"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.5087719298245614,
+    "positive_percent": 51,
+    "steps": 114
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SES-3",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SES-4",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-5",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-7",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-8",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SES-162",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SES-165",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SES-166",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "SES-167",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SES-168",
+        "label": "Session Authentication Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from early 2009 to mid-2015, contributing to a total of 115 tickets. In the early phase, they focused on \"Session Authentication Issues\" and \"Authentication Framework Enhancements,\" with notable tickets like SES-3 and SES-4. As they progressed into the middle phase, they continued to address similar themes, tackling issues such as SES-67 and SES-68. Recently, their work has heavily emphasized \"Session Authentication Issues,\" exemplified by tickets like SES-118 and SES-124, while also maintaining efforts in \"Authentication Framework Enhancements.\" Overall, 51% of their steps aligned with the overall direction, showcasing a consistent commitment to improving authentication processes and frameworks."
+}

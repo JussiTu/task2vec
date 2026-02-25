@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+% ---------- Document ----------
+\begin{document}
+
+\title{Misconception-Driven Synthetic Distractor Generation}
+\author{Jussi Tuominen}
+\date{\today}
+\maketitle
+
+\section{Misconception-Driven Synthetic Distractor Generation}
+
+\subsection{Problem Setting}
+
+Let $\mathcal{Q}$ denote a set of assessment questions and $\mathcal{A}$ the space of free-text answers.
+Each item consists of a question $q \in \mathcal{Q}$ and a reference (gold) answer $a^\* \in \mathcal{A}$.
+
+Our goal is to generate a set of plausible but incorrect answers (distractors) that reflect
+\emph{systematic misconceptions} rather than random errors, enabling diagnostically meaningful
+multiple-choice assessments.
+
+\subsection{Latent Concept Space}
+
+We assume the existence of a latent semantic space $\mathcal{Z}$ representing conceptual meaning.
+We define two mappings:
+\begin{itemize}
+  \item Interpretation (encoding): $E : \mathcal{A} \rightarrow \mathcal{Z}$
+  \item Realization (verbalization): $R : \mathcal{Z} \rightarrow \mathcal{A}$
+\end{itemize}
+
+\subsection{Misconceptions as Operators}
+
+Let $\mathcal{R} = \{r_1, \dots, r_K\}$ denote a finite set of root causes of misunderstanding.
+Each root cause $r$ is modeled as an operator:
+\[
+T_r : \mathcal{Z} \rightarrow \mathcal{Z}.
+\]
+
+A synthetic incorrect answer is generated as:
+\[
+a^- = R\bigl(T_r(E(a^\*))\bigr).
+\]
+
+\subsection{Surface Variation}
+
+To produce multiple variants without changing the misconception, we introduce a nuisance
+style variable $\eta$, yielding:
+\[
+a^-_{r,i} = R\!\left(T_r(E(a^\*))\right) \oplus S(\eta_i).
+\]
+
+\subsection{Semantic Separability}
+
+Let $\phi : \mathcal{A} \rightarrow \mathbb{R}^d$ be a sentence embedding.
+Empirically, answers generated under the same root cause cluster tightly:
+\[
+\phi(a^- \mid r) \sim P_r,
+\quad
+\mathrm{supp}(P_r) \cap \mathrm{supp}(P_{r'}) \approx \emptyset.
+\]
+
+\subsection{Distractor Selection}
+
+Given a candidate set $\mathcal{C}_r$, we select a representative distractor:
+\[
+\hat{a}_r = \arg\min_{a \in \mathcal{C}_r}
+\left\|\phi(a) - \frac{1}{|\mathcal{C}_r|}\sum_{b \in \mathcal{C}_r}\phi(b)\right\|.
+\]
+
+\subsection{Implications}
+
+Synthetic distractors are useful because the latent variable $r$ remains identifiable:
+\[
+I(r; \phi(a^-)) \gg 0.
+\]
+
+\end{document}

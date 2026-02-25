@@ -1,0 +1,271 @@
+{
+  "assignee_id": "<<|author_key|d27e29a7-f0f8-4edd-88ec-75a3d144bdbe|>>",
+  "tickets": {
+    "count": 52,
+    "first_created": "2005-05-24T00:31:50.000+0000",
+    "last_created": "2008-02-18T00:09:03.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.2692307692307692,
+        "count": 14,
+        "example_keys": [
+          "MOD-31",
+          "MOD-43",
+          "MOD-87"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.19230769230769232,
+        "count": 10,
+        "example_keys": [
+          "MOD-157",
+          "MOD-200",
+          "MOD-201"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.1346153846153846,
+        "count": 7,
+        "example_keys": [
+          "MOD-62",
+          "MOD-151",
+          "MOD-241"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.1346153846153846,
+        "count": 7,
+        "example_keys": [
+          "MOD-217",
+          "MOD-245",
+          "MOD-255"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.09615384615384616,
+        "count": 5,
+        "example_keys": [
+          "MOD-185",
+          "MOD-305",
+          "MOD-388"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.6470588235294118,
+          "count": 11,
+          "example_keys": [
+            "MOD-31",
+            "MOD-43",
+            "MOD-87"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.11764705882352941,
+          "count": 2,
+          "example_keys": [
+            "MOD-62",
+            "MOD-151"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.058823529411764705,
+          "count": 1,
+          "example_keys": [
+            "MOD-157"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.29411764705882354,
+          "count": 5,
+          "example_keys": [
+            "MOD-200",
+            "MOD-201",
+            "MOD-202"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.29411764705882354,
+          "count": 5,
+          "example_keys": [
+            "MOD-241",
+            "MOD-260",
+            "MOD-271"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.17647058823529413,
+          "count": 3,
+          "example_keys": [
+            "MOD-217",
+            "MOD-245",
+            "MOD-255"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.2222222222222222,
+          "count": 4,
+          "example_keys": [
+            "MOD-324",
+            "MOD-341",
+            "MOD-371"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.2222222222222222,
+          "count": 4,
+          "example_keys": [
+            "MOD-361",
+            "MOD-392",
+            "MOD-394"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.16666666666666666,
+          "count": 3,
+          "example_keys": [
+            "MOD-366",
+            "MOD-416",
+            "MOD-449"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49019607843137253,
+    "positive_percent": 49,
+    "steps": 51
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "MOD-31",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-43",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-62",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "MOD-87",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-88",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "MOD-416",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-427",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "MOD-441",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-442",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-449",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from early 2005 to early 2008, contributing to a total of 52 tickets. In the early phase, they focused primarily on \"Spring IDE Tooling Enhancements,\" with notable tickets like MOD-31 and MOD-43. As they moved into the middle phase, their attention shifted towards \"Validation and Data Binding Issues,\" exemplified by tickets MOD-200 and MOD-201, while still addressing \"Autowiring and Bean Configuration Issues.\" Recently, they continued to work on validation issues and began enhancing bean configurations, with tickets such as MOD-361 and MOD-394 highlighting this shift. Overall, 49% of their steps aligned with the overall direction of the projects. Their work reflects a strong adaptability to evolving project needs while maintaining a focus on core themes."
+}

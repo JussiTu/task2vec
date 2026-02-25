@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|75971b74-bfe0-4f9a-aba9-a4d6301e5810|>>",
+  "tickets": {
+    "count": 395,
+    "first_created": "2008-04-08T03:29:02.000+0000",
+    "last_created": "2018-11-05T19:31:33.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.15949367088607594,
+        "count": 63,
+        "example_keys": [
+          "SPR-6564",
+          "SWF-1438",
+          "SPR-8565"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.14936708860759493,
+        "count": 59,
+        "example_keys": [
+          "SPR-4675",
+          "SWF-756",
+          "SPR-6418"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.13670886075949368,
+        "count": 54,
+        "example_keys": [
+          "SWF-1445",
+          "SPR-8493",
+          "SPR-8509"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.12151898734177215,
+        "count": 48,
+        "example_keys": [
+          "SPR-7854",
+          "SPR-8933",
+          "SPR-9288"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.07088607594936709,
+        "count": 28,
+        "example_keys": [
+          "SPR-9765",
+          "SPR-9814",
+          "SPR-9815"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.17557251908396945,
+          "count": 23,
+          "example_keys": [
+            "SPR-4675",
+            "SWF-756",
+            "SPR-6418"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.17557251908396945,
+          "count": 23,
+          "example_keys": [
+            "SPR-6564",
+            "SWF-1438",
+            "SPR-8565"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.16030534351145037,
+          "count": 21,
+          "example_keys": [
+            "SWF-1445",
+            "SPR-8493",
+            "SPR-8509"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.1590909090909091,
+          "count": 21,
+          "example_keys": [
+            "SPR-10146",
+            "SPR-10162",
+            "SPR-10198"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.14393939393939395,
+          "count": 19,
+          "example_keys": [
+            "SPR-10215",
+            "SPR-10231",
+            "SPR-10244"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.14393939393939395,
+          "count": 19,
+          "example_keys": [
+            "SPR-10223",
+            "SPR-10307",
+            "SPR-10337"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.18181818181818182,
+          "count": 24,
+          "example_keys": [
+            "SPR-10754",
+            "SPR-10798",
+            "SPR-10802"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.14393939393939395,
+          "count": 19,
+          "example_keys": [
+            "SPR-10740",
+            "SPR-10781",
+            "SPR-10820"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.14393939393939395,
+          "count": 19,
+          "example_keys": [
+            "SPR-10758",
+            "SPR-10847",
+            "SPR-10906"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5,
+    "positive_percent": 50,
+    "steps": 394
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-4675",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SWF-1319",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-756",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SWF-760",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-766",
+        "label": "JSF and Spring Web Flow Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-14088",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-14115",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SGF-526",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-15617",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-17470",
+        "label": "RequestMapping Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2008, with a total of 395 tickets created by November 2018. In the early phase, they focused on \"Bean Configuration Enhancements\" and \"Validation and Data Binding Issues,\" exemplified by tickets like SPR-4675 and SPR-6564. As they progressed into the middle phase, their work shifted towards addressing \"Content Negotiation Issues\" while still tackling validation challenges, as seen in tickets SPR-10215 and SPR-10146. Recently, they have concentrated on \"Documentation Corrections and Edits,\" alongside ongoing validation tasks, with notable tickets such as SPR-10754 and SPR-10740. Overall, 50% of their steps aligned with the overall direction, reflecting a balanced approach to evolving project needs."
+}

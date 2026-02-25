@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|79489853-f7af-4d36-bd4d-eb46eaa39841|>>",
+  "tickets": {
+    "count": 377,
+    "first_created": "2012-04-04T01:19:52.000+0000",
+    "last_created": "2016-04-01T12:33:40.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.6976127320954907,
+        "count": 263,
+        "example_keys": [
+          "XD-126",
+          "XD-193",
+          "XD-248"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.13793103448275862,
+        "count": 52,
+        "example_keys": [
+          "SHL-84",
+          "SHL-85",
+          "SHL-87"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.021220159151193633,
+        "count": 8,
+        "example_keys": [
+          "SHL-5",
+          "SHL-7",
+          "XD-732"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.01856763925729443,
+        "count": 7,
+        "example_keys": [
+          "SHL-90",
+          "SHL-140",
+          "SHL-147"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.015915119363395226,
+        "count": 6,
+        "example_keys": [
+          "XD-1047",
+          "XD-1188",
+          "XD-1706"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.8,
+          "count": 100,
+          "example_keys": [
+            "XD-126",
+            "XD-193",
+            "XD-248"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.104,
+          "count": 13,
+          "example_keys": [
+            "SHL-84",
+            "SHL-85",
+            "SHL-87"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.032,
+          "count": 4,
+          "example_keys": [
+            "SHL-5",
+            "SHL-7",
+            "XD-732"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.6111111111111112,
+          "count": 77,
+          "example_keys": [
+            "XD-1097",
+            "XD-1100",
+            "XD-1101"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.23015873015873015,
+          "count": 29,
+          "example_keys": [
+            "SHL-116",
+            "XD-1277",
+            "XD-1298"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.031746031746031744,
+          "count": 4,
+          "example_keys": [
+            "SHL-140",
+            "SHL-147",
+            "SHL-155"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.6825396825396826,
+          "count": 86,
+          "example_keys": [
+            "XD-2060",
+            "XD-2098",
+            "XD-2120"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.07936507936507936,
+          "count": 10,
+          "example_keys": [
+            "XD-2113",
+            "SHL-161",
+            "XD-2397"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.031746031746031744,
+          "count": 4,
+          "example_keys": [
+            "XD-2067",
+            "XD-2618",
+            "XD-2654"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.4973404255319149,
+    "positive_percent": 50,
+    "steps": 376
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SHL-5",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SHL-7",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SHL-74",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SHL-84",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "SHL-85",
+        "label": "Acceptance Test Failures"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3699",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "XD-3706",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "XD-3715",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "SHL-188",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "SHL-189",
+        "label": "Bean Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in software development since April 2012, focusing primarily on Spring XD Module Development. In the early phase, they contributed significantly to this area, working on tickets like XD-126 and XD-193, which accounted for 80% of their efforts. As they progressed into the middle phase, their focus remained strong on module development, with notable contributions to acceptance test failures, as seen in tickets like SHL-116 and XD-1277. Recently, they continued to excel in Spring XD Module Development, addressing issues in tickets such as XD-2060 and XD-2098, while also tackling some dependency upgrades. Overall, 50% of their steps aligned with the overall direction, demonstrating a consistent commitment to the project's goals. Their work has also touched on themes like Spring IDE Tooling Enhancements and Spring Web Flow Enhancements, showcasing a diverse skill set throughout their tenure."
+}

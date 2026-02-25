@@ -1,0 +1,255 @@
+{
+  "assignee_id": "<<|author_key|3e676344-aa61-4dd6-bac4-5edbb2931f3b|>>",
+  "tickets": {
+    "count": 19,
+    "first_created": "2019-05-22T01:42:19.000+0000",
+    "last_created": "2020-10-21T02:49:44.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "Backup and Quota Mechanisms",
+        "share": 0.2631578947368421,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3419",
+          "ZOOKEEPER-3430",
+          "ZOOKEEPER-3783"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "Performance optimization in Zookeeper",
+        "share": 0.15789473684210525,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3418",
+          "ZOOKEEPER-3560",
+          "ZOOKEEPER-3793"
+        ]
+      },
+      {
+        "cluster": 21,
+        "label": "Log Improvement and Cleanup",
+        "share": 0.10526315789473684,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3399",
+          "ZOOKEEPER-3448"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "Code Cleanup and Refactoring",
+        "share": 0.10526315789473684,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3416",
+          "ZOOKEEPER-3548"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.10526315789473684,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3483",
+          "ZOOKEEPER-3981"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.3333333333333333,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3419",
+            "ZOOKEEPER-3430"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3399"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3416"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3448"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3483"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3548"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.2857142857142857,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3964",
+            "ZOOKEEPER-3970"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.14285714285714285,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3793"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues",
+          "share": 0.14285714285714285,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3911"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5555555555555556,
+    "positive_percent": 56,
+    "steps": 18
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3399",
+        "label": "Log Improvement and Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3416",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3418",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3419",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3430",
+        "label": "Backup and Quota Mechanisms"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3948",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-3964",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3967",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-3970",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3981",
+        "label": "Flaky test issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since May 2019, focusing on various themes in their work. In the early phase, they primarily addressed \"Backup and Quota Mechanisms\" with tickets like ZOOKEEPER-3419 and ZOOKEEPER-3430, while also engaging in \"Log Improvement and Cleanup\" and \"Code Cleanup and Refactoring.\" As they moved into the middle phase, their focus shifted slightly towards \"Log Improvement and Cleanup\" and \"Flaky test issues,\" exemplified by ZOOKEEPER-3448 and ZOOKEEPER-3483. Recently, they returned to \"Backup and Quota Mechanisms,\" working on tickets such as ZOOKEEPER-3964 and ZOOKEEPER-3970, while also tackling \"Performance optimization in Zookeeper.\" Overall, 56% of their steps aligned with the overall direction of the project. Their contributions reflect a strong commitment to improving system performance and reliability."
+}

@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|fa3cdb74-bb83-49e9-8c16-f0e821bec39b|>>",
+  "tickets": {
+    "count": 171,
+    "first_created": "2005-10-15T01:24:04.000+0000",
+    "last_created": "2014-07-08T07:56:42.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.3742690058479532,
+        "count": 64,
+        "example_keys": [
+          "SPR-1383",
+          "SPR-1484",
+          "SWF-46"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.3333333333333333,
+        "count": 57,
+        "example_keys": [
+          "SWF-131",
+          "SPR-2193",
+          "SPR-2194"
+        ]
+      },
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.05847953216374269,
+        "count": 10,
+        "example_keys": [
+          "SWF-135",
+          "SWF-151",
+          "SWF-210"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.05263157894736842,
+        "count": 9,
+        "example_keys": [
+          "SPR-1914",
+          "SPR-1928",
+          "SPR-3855"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.04678362573099415,
+        "count": 8,
+        "example_keys": [
+          "SWF-384",
+          "BATCH-383",
+          "BATCH-429"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.47368421052631576,
+          "count": 27,
+          "example_keys": [
+            "SPR-1383",
+            "SPR-1484",
+            "SWF-46"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.21052631578947367,
+          "count": 12,
+          "example_keys": [
+            "SWF-131",
+            "SPR-2193",
+            "SPR-2194"
+          ]
+        },
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.15789473684210525,
+          "count": 9,
+          "example_keys": [
+            "SWF-135",
+            "SWF-151",
+            "SWF-210"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.543859649122807,
+          "count": 31,
+          "example_keys": [
+            "SPR-3843",
+            "SPR-3886",
+            "SPR-3924"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.14035087719298245,
+          "count": 8,
+          "example_keys": [
+            "BATCH-270",
+            "BATCH-271",
+            "BATCH-334"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.10526315789473684,
+          "count": 6,
+          "example_keys": [
+            "SWF-384",
+            "BATCH-383",
+            "BATCH-429"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.7192982456140351,
+          "count": 41,
+          "example_keys": [
+            "SLICE-2",
+            "SLICE-3",
+            "SLICE-6"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.10526315789473684,
+          "count": 6,
+          "example_keys": [
+            "SPR-5657",
+            "SPR-5675",
+            "SPR-5791"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.05263157894736842,
+          "count": 3,
+          "example_keys": [
+            "SLICE-103",
+            "SLICE-105",
+            "SLICE-106"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5117647058823529,
+    "positive_percent": 51,
+    "steps": 170
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-1383",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-1484",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SWF-46",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SWF-146",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-1585",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SLICE-104",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SLICE-105",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SLICE-106",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-7352",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "XD-1927",
+        "label": "Spring XD Module Development"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since October 2005, focusing primarily on OSGi Manifest and Dependency Issues, with notable early work on tickets like SPR-1383 and SPR-1484. In the middle phase of their career, they continued to address OSGi issues while also tackling Step Scope and Tasklet Issues, as seen in tickets such as BATCH-270 and BATCH-271. Recently, their efforts have shifted towards Documentation and Build Improvements, exemplified by their work on SLICE-2 and SLICE-3, while still maintaining some involvement in OSGi issues. Overall, 51% of their steps have aligned with the overall direction of the projects they have worked on. This diverse experience highlights their adaptability and commitment to improving both technical and documentation aspects of the projects."
+}

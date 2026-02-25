@@ -1,0 +1,248 @@
+{
+  "assignee_id": "<<|author_key|2851dadb-f302-4f7e-87cf-a121ddef093c|>>",
+  "tickets": {
+    "count": 18,
+    "first_created": "2019-03-11T17:16:38.000+0000",
+    "last_created": "2020-06-24T17:57:44.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 15,
+        "label": "Performance optimization in Zookeeper",
+        "share": 0.5555555555555556,
+        "count": 10,
+        "example_keys": [
+          "ZOOKEEPER-3356",
+          "ZOOKEEPER-3472",
+          "ZOOKEEPER-3473"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "Data inconsistency and leader issues",
+        "share": 0.16666666666666666,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3306",
+          "ZOOKEEPER-3642",
+          "ZOOKEEPER-3658"
+        ]
+      },
+      {
+        "cluster": 19,
+        "label": "Quorum Connection Management Issues",
+        "share": 0.05555555555555555,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3384"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "ZooKeeper Client Connection Issues",
+        "share": 0.05555555555555555,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3471"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.05555555555555555,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3480"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.5,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3356",
+            "ZOOKEEPER-3472",
+            "ZOOKEEPER-3473"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3306"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3384"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.5,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3500",
+            "ZOOKEEPER-3598",
+            "ZOOKEEPER-3618"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3480"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.16666666666666666,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3512"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.6666666666666666,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3619",
+            "ZOOKEEPER-3657",
+            "ZOOKEEPER-3690"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues",
+          "share": 0.3333333333333333,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3642",
+            "ZOOKEEPER-3658"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5294117647058824,
+    "positive_percent": 53,
+    "steps": 17
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3306",
+        "label": "Data inconsistency and leader issues"
+      },
+      {
+        "key": "ZOOKEEPER-3356",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3384",
+        "label": "Quorum Connection Management Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3471",
+        "label": "ZooKeeper Client Connection Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3472",
+        "label": "Performance optimization in Zookeeper"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3642",
+        "label": "Data inconsistency and leader issues"
+      },
+      {
+        "key": "ZOOKEEPER-3657",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3658",
+        "label": "Data inconsistency and leader issues"
+      },
+      {
+        "key": "ZOOKEEPER-3690",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3870",
+        "label": "Performance optimization in Zookeeper"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2019, focusing primarily on performance optimization in Zookeeper. In the early phase, they worked on issues like ZOOKEEPER-3356 and ZOOKEEPER-3306, addressing both performance and data inconsistency challenges. As they progressed into the middle phase, their work continued to emphasize performance, with tickets such as ZOOKEEPER-3500 and ZOOKEEPER-3480 highlighting their involvement in flaky test issues. Recently, they have intensified their focus on performance optimization, completing significant tasks like ZOOKEEPER-3657 and ZOOKEEPER-3690, while also tackling data inconsistency with ZOOKEEPER-3642. Overall, 53% of their steps aligned with the overall direction, demonstrating a strong commitment to enhancing Zookeeper's reliability and efficiency."
+}

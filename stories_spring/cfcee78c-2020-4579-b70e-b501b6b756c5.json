@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|cfcee78c-2020-4579-b70e-b501b6b756c5|>>",
+  "tickets": {
+    "count": 773,
+    "first_created": "2003-12-06T12:56:57.000+0000",
+    "last_created": "2019-02-15T09:34:58.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 4,
+        "label": "JDBC Compatibility and Performance Issues",
+        "share": 0.2276843467011643,
+        "count": 176,
+        "example_keys": [
+          "SPR-5",
+          "SPR-50",
+          "SPR-105"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.1539456662354463,
+        "count": 119,
+        "example_keys": [
+          "XD-37",
+          "XD-83",
+          "XD-86"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.129366106080207,
+        "count": 100,
+        "example_keys": [
+          "DATAMONGO-262",
+          "XD-469",
+          "XD-634"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.09184993531694696,
+        "count": 71,
+        "example_keys": [
+          "SHDP-130",
+          "SHDP-136",
+          "XD-578"
+        ]
+      },
+      {
+        "cluster": 30,
+        "label": "MongoDB Feature Enhancements",
+        "share": 0.06727037516170763,
+        "count": 52,
+        "example_keys": [
+          "DATAMONGO-1",
+          "DATAMONGO-8",
+          "DATAMONGO-11"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.5486381322957199,
+          "count": 141,
+          "example_keys": [
+            "SPR-5",
+            "SPR-50",
+            "SPR-105"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.14396887159533073,
+          "count": 37,
+          "example_keys": [
+            "SPR-2036",
+            "BATCH-264",
+            "BATCH-354"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.0622568093385214,
+          "count": 16,
+          "example_keys": [
+            "DATAMONGO-1",
+            "DATAMONGO-8",
+            "DATAMONGO-11"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.20155038759689922,
+          "count": 52,
+          "example_keys": [
+            "XD-37",
+            "XD-83",
+            "XD-86"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.13953488372093023,
+          "count": 36,
+          "example_keys": [
+            "DATAMONGO-58",
+            "DATAMONGO-61",
+            "DATAMONGO-72"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.12015503875968993,
+          "count": 31,
+          "example_keys": [
+            "DATAMONGO-262",
+            "XD-469",
+            "XD-634"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.26744186046511625,
+          "count": 69,
+          "example_keys": [
+            "SHDP-344",
+            "XD-1756",
+            "SHDP-359"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.2596899224806202,
+          "count": 67,
+          "example_keys": [
+            "XD-1702",
+            "XD-1705",
+            "XD-1765"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.18992248062015504,
+          "count": 49,
+          "example_keys": [
+            "XD-1857",
+            "XD-1912",
+            "SHDP-368"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues"
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4896373056994819,
+    "positive_percent": 49,
+    "steps": 772
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-5",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-12",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-50",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-105",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-130",
+        "label": "JDBC Compatibility and Performance Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SHDP-584",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "SHDP-585",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SHDP-586",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "SHDP-587",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SHDP-590",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2003, with a total of 773 tickets created by February 2019. In the early phase of their work, they focused heavily on \"JDBC Compatibility and Performance Issues,\" addressing tickets like SPR-5 and SPR-50. As they moved into the middle phase, their attention shifted towards \"Spring XD Module Development\" and \"MongoDB Feature Enhancements,\" exemplified by tickets such as XD-37 and DATAMONGO-58. Recently, they have concentrated on \"Spring Dependency Upgrades,\" with significant work on tickets like SHDP-344 and SHDP-359, while still engaging with \"Spring XD Module Development.\" Overall, 49% of their steps have aligned with the overall direction of the projects they have worked on."
+}

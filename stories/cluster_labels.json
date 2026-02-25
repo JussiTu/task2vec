@@ -1,0 +1,722 @@
+{
+  "0": {
+    "label": "SSL and Client Port Configuration",
+    "keywords": [
+      "port",
+      "zookeeper",
+      "server",
+      "client",
+      "https",
+      "ssl",
+      "use",
+      "apache",
+      "sh",
+      "configure"
+    ],
+    "size": 29,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3887",
+        "summary": "In SSL-only server zkServer.sh status command should use secureClientPortAddress instead of clientPortAddress"
+      },
+      {
+        "key": "ZOOKEEPER-4276",
+        "summary": "Serving only with secureClientPort fails"
+      },
+      {
+        "key": "ZOOKEEPER-3554",
+        "summary": "A way to connect to a different port in CLIENT_JVMFLAGS"
+      }
+    ]
+  },
+  "1": {
+    "label": "Testability and Validation Improvements",
+    "keywords": [
+      "zookeeper",
+      "test",
+      "java",
+      "server",
+      "curator",
+      "directory",
+      "apache",
+      "module",
+      "tests",
+      "use"
+    ],
+    "size": 32,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3703",
+        "summary": "Publish a Test-Jar from ZooKeeper Server"
+      },
+      {
+        "key": "ZOOKEEPER-3831",
+        "summary": "Add a test that does a minimal validation of Apache Curator"
+      },
+      {
+        "key": "ZOOKEEPER-3754",
+        "summary": "ZooKeeper unusable in OSGi - missing headers"
+      }
+    ]
+  },
+  "2": {
+    "label": "Jackson Databind Vulnerabilities",
+    "keywords": [
+      "jackson",
+      "cve",
+      "databind",
+      "jackson databind",
+      "cve 2020",
+      "2020",
+      "check",
+      "10",
+      "owasp",
+      "error"
+    ],
+    "size": 21,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3734",
+        "summary": "upgrade jackson-databind to address CVE-2020-8840"
+      },
+      {
+        "key": "ZOOKEEPER-3441",
+        "summary": "OWASP is flagging jackson-databind-2.9.9.jar for CVE-2019-12814"
+      },
+      {
+        "key": "ZOOKEEPER-3750",
+        "summary": "update jackson-databind to address CVE-2020-9547, CVE-2020-9548, CVE-2020-9546"
+      }
+    ]
+  },
+  "3": {
+    "label": "Zookeeper upgrade issues",
+    "keywords": [
+      "zookeeper",
+      "java",
+      "apache",
+      "org",
+      "server",
+      "apache zookeeper",
+      "file",
+      "org apache",
+      "zookeeper server",
+      "new"
+    ],
+    "size": 44,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3848",
+        "summary": "Zookeeper upgrade fails due to missing snapshots on branch-3.6"
+      },
+      {
+        "key": "ZOOKEEPER-3513",
+        "summary": "Zookeeper upgrade fails due to missing snapshots"
+      },
+      {
+        "key": "ZOOKEEPER-3781",
+        "summary": "Zookeeper 3.5.7 not creating snapshot"
+      }
+    ]
+  },
+  "4": {
+    "label": "Zookeeper leader connection issues",
+    "keywords": [
+      "zookeeper",
+      "java",
+      "server",
+      "myid",
+      "zk",
+      "leader",
+      "info",
+      "2181",
+      "quorum",
+      "quorumcnxmanager"
+    ],
+    "size": 33,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3828",
+        "summary": "zookeeper clients gets connection timeout when the leader node is restarted"
+      },
+      {
+        "key": "ZOOKEEPER-3871",
+        "summary": "Zookeeper clients fail on dockerized Zookeeper leader changes"
+      },
+      {
+        "key": "ZOOKEEPER-3776",
+        "summary": "Cluster stuck not forming up quorum"
+      }
+    ]
+  },
+  "5": {
+    "label": "Zookeeper Metrics Enhancement",
+    "keywords": [
+      "metrics",
+      "add",
+      "zookeeper",
+      "metric",
+      "prometheus",
+      "time",
+      "processor",
+      "add metrics",
+      "sync",
+      "code"
+    ],
+    "size": 37,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3328",
+        "summary": "misc metrics"
+      },
+      {
+        "key": "ZOOKEEPER-3321",
+        "summary": "Add metrics for Leader"
+      },
+      {
+        "key": "ZOOKEEPER-3319",
+        "summary": "Add metrics for follower and observer"
+      }
+    ]
+  },
+  "6": {
+    "label": "Documentation Corrections and Updates",
+    "keywords": [
+      "fix",
+      "zookeeper",
+      "documentation",
+      "md",
+      "page",
+      "apache",
+      "update",
+      "typo",
+      "file",
+      "html"
+    ],
+    "size": 46,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4046",
+        "summary": "Fix typo"
+      },
+      {
+        "key": "ZOOKEEPER-4192",
+        "summary": "Fix typos and description"
+      },
+      {
+        "key": "ZOOKEEPER-4326",
+        "summary": "fix typo in the recipes.md"
+      }
+    ]
+  },
+  "7": {
+    "label": "Data inconsistency and leader issues",
+    "keywords": [
+      "leader",
+      "zookeeper",
+      "server",
+      "java",
+      "follower",
+      "apache",
+      "myid",
+      "apache zookeeper",
+      "node",
+      "org"
+    ],
+    "size": 46,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4352",
+        "summary": "inconsistent data, when minCommittedLog=0, only diff data  send but not snapshots"
+      },
+      {
+        "key": "ZOOKEEPER-3997",
+        "summary": "Why Zookeeper 3.5.8 leader shutdown makes the follower not allow new sessions?"
+      },
+      {
+        "key": "ZOOKEEPER-3673",
+        "summary": "Getting a snapshot from leader cause Connection reset shutdown Follower and repeated forever"
+      }
+    ]
+  },
+  "8": {
+    "label": "Code Cleanup and Refactoring",
+    "keywords": [
+      "code",
+      "java",
+      "use",
+      "zookeeper",
+      "new",
+      "make",
+      "remove",
+      "string",
+      "code java",
+      "apache"
+    ],
+    "size": 67,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3811",
+        "summary": "cleaning up the code,A static field should be directly referred by its class name"
+      },
+      {
+        "key": "ZOOKEEPER-3836",
+        "summary": "Use Commons and JDK Functions in ClientBase"
+      },
+      {
+        "key": "ZOOKEEPER-4346",
+        "summary": "remove never used field"
+      }
+    ]
+  },
+  "9": {
+    "label": "Flaky test issues",
+    "keywords": [
+      "java",
+      "org",
+      "zookeeper",
+      "test",
+      "apache",
+      "apache zookeeper",
+      "org apache",
+      "flaky",
+      "error",
+      "flaky test"
+    ],
+    "size": 49,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4015",
+        "summary": "Flaky test: RequestPathMetricsCollectorTest.testMultiThreadPerf"
+      },
+      {
+        "key": "ZOOKEEPER-4216",
+        "summary": "Flaky test: WatcherCleanerTest.testDeadWatcherMetrics"
+      },
+      {
+        "key": "ZOOKEEPER-4226",
+        "summary": "Flaky test: RequestThrottlerTest.testLargeRequestThrottling"
+      }
+    ]
+  },
+  "10": {
+    "label": "jUnit Upgrade Tasks",
+    "keywords": [
+      "junit",
+      "upgrade",
+      "zookeeper",
+      "update",
+      "dependency",
+      "version",
+      "use",
+      "java",
+      "junit zookeeper",
+      "check"
+    ],
+    "size": 24,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3732",
+        "summary": "Update jUnit to 5.6"
+      },
+      {
+        "key": "ZOOKEEPER-3851",
+        "summary": "Upgrade jUnit in ZooKeeper-Contrib"
+      },
+      {
+        "key": "ZOOKEEPER-3852",
+        "summary": "Upgrade jUnit in ZooKeeper-Jute"
+      }
+    ]
+  },
+  "11": {
+    "label": "Backporting for branch 3.5 and 3.6",
+    "keywords": [
+      "zookeeper",
+      "branch",
+      "backport",
+      "backport zookeeper",
+      "backporting",
+      "backporting zookeeper",
+      "fix",
+      "branch backporting",
+      "data",
+      "fix zookeeper"
+    ],
+    "size": 20,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4421",
+        "summary": "Backport ZOOKEEPER-3781 for branch-3.5"
+      },
+      {
+        "key": "ZOOKEEPER-4433",
+        "summary": "Backport ZOOKEEPER-2872 for branch-3.5"
+      },
+      {
+        "key": "ZOOKEEPER-4262",
+        "summary": "Backport ZOOKEEPER-3911 to branch-3.5"
+      }
+    ]
+  },
+  "12": {
+    "label": "Netty library security upgrades",
+    "keywords": [
+      "netty",
+      "cve",
+      "zookeeper",
+      "version",
+      "security",
+      "2021",
+      "jetty",
+      "upgrade",
+      "log4j",
+      "vulnerability"
+    ],
+    "size": 40,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4272",
+        "summary": "Upgrade Netty library to > 4.1.60 due to security vulnerability CVE-2021-21295"
+      },
+      {
+        "key": "ZOOKEEPER-4242",
+        "summary": "Upgrade Netty library to > 4.1.59 due to security vulnerability"
+      },
+      {
+        "key": "ZOOKEEPER-4295",
+        "summary": "Upgrade Netty library to > 4.1.60 due to security vulnerability CVE-2021-21409 in branch-3.5"
+      }
+    ]
+  },
+  "13": {
+    "label": "Maven and Release Cleanup",
+    "keywords": [
+      "zookeeper",
+      "checkstyle",
+      "maven",
+      "java",
+      "apache",
+      "build",
+      "file",
+      "pom",
+      "configuration",
+      "plugin"
+    ],
+    "size": 85,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3791",
+        "summary": "Miscellaneous Maven improvements"
+      },
+      {
+        "key": "ZOOKEEPER-3369",
+        "summary": "Maven release artifacts cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3668",
+        "summary": "Clean up release package for 3.6.0"
+      }
+    ]
+  },
+  "14": {
+    "label": "SASL and Kerberos Authentication Issues",
+    "keywords": [
+      "java",
+      "zookeeper",
+      "apache",
+      "server",
+      "apache zookeeper",
+      "org",
+      "security",
+      "org apache",
+      "quorum",
+      "client"
+    ],
+    "size": 26,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3576",
+        "summary": "Zookeeper Fails with AUTH_FAILED state  with SASL"
+      },
+      {
+        "key": "ZOOKEEPER-4334",
+        "summary": "SASL authentication fails when using host aliases"
+      },
+      {
+        "key": "ZOOKEEPER-3914",
+        "summary": "Kerberized Zookeeper doesn't drop connection for unauthenticated clients"
+      }
+    ]
+  },
+  "15": {
+    "label": "Performance optimization in Zookeeper",
+    "keywords": [
+      "request",
+      "requests",
+      "code",
+      "commitprocessor",
+      "throttling",
+      "zookeeper",
+      "leader",
+      "server",
+      "add",
+      "observer"
+    ],
+    "size": 34,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3690",
+        "summary": "Improving leader efficiency via not processing learner's requests in commit processor"
+      },
+      {
+        "key": "ZOOKEEPER-3484",
+        "summary": "Improve the throughput by optimizing the synchronization around outstandingChanges"
+      },
+      {
+        "key": "ZOOKEEPER-3618",
+        "summary": "Send batch quorum Ack and Commit packets to improve the efficiency and throughput of ZK"
+      }
+    ]
+  },
+  "16": {
+    "label": "Null Pointer Exception Handling",
+    "keywords": [
+      "java",
+      "zookeeper",
+      "apache",
+      "org",
+      "org apache",
+      "apache zookeeper",
+      "code",
+      "string",
+      "server",
+      "zookeeper server"
+    ],
+    "size": 39,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3579",
+        "summary": "handle NPE gracefully when the watch parameter of zookeeper java client is null"
+      },
+      {
+        "key": "ZOOKEEPER-4247",
+        "summary": "NPE while processing message from restarted quorum member"
+      },
+      {
+        "key": "ZOOKEEPER-3988",
+        "summary": "org.apache.zookeeper.server.NettyServerCnxn.receiveMessage throws NullPointerException"
+      }
+    ]
+  },
+  "17": {
+    "label": "C Client Build and Compilation Issues",
+    "keywords": [
+      "zookeeper",
+      "client",
+      "zookeeper client",
+      "code",
+      "error",
+      "sasl",
+      "exec",
+      "server",
+      "build",
+      "rc"
+    ],
+    "size": 32,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4016",
+        "summary": "C client build issue causes the failure of CI build"
+      },
+      {
+        "key": "ZOOKEEPER-3741",
+        "summary": "Fix ZooKeeper 3.5 C client build on Fedora8"
+      },
+      {
+        "key": "ZOOKEEPER-3719",
+        "summary": "C Client compilation issues in 3.5.7-rc"
+      }
+    ]
+  },
+  "18": {
+    "label": "Zookeeper authentication and permissions issues",
+    "keywords": [
+      "zookeeper",
+      "code",
+      "server",
+      "acl",
+      "zk",
+      "ssl",
+      "digest",
+      "client",
+      "connected",
+      "java"
+    ],
+    "size": 24,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3516",
+        "summary": "Zookeeper not working with enabling ssl and remote authentication"
+      },
+      {
+        "key": "ZOOKEEPER-4336",
+        "summary": "Able to authentication to zookeeper with user not configured in zookeeper-jaas.conf"
+      },
+      {
+        "key": "ZOOKEEPER-3866",
+        "summary": "Unable to change permission of zookeper node having read access"
+      }
+    ]
+  },
+  "19": {
+    "label": "Quorum Connection Management Issues",
+    "keywords": [
+      "socket",
+      "learner",
+      "zookeeper",
+      "java",
+      "connection",
+      "time",
+      "sock",
+      "leader",
+      "quorumcnxmanager",
+      "code"
+    ],
+    "size": 21,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3384",
+        "summary": "Avoid long quorum unavailable time due to TLS connection close stalled with full send buffer"
+      },
+      {
+        "key": "ZOOKEEPER-3573",
+        "summary": "Dealing with long TLS connection closing time without SO_LINGER option"
+      },
+      {
+        "key": "ZOOKEEPER-3838",
+        "summary": "Async handling of quorum connection requests, including SSL handshakes"
+      }
+    ]
+  },
+  "20": {
+    "label": "ZooKeeper Client Connection Issues",
+    "keywords": [
+      "zookeeper",
+      "session",
+      "java",
+      "client",
+      "code",
+      "server",
+      "len",
+      "connection",
+      "close",
+      "10"
+    ],
+    "size": 54,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4412",
+        "summary": "client blocked too long before session timeout"
+      },
+      {
+        "key": "ZOOKEEPER-4022",
+        "summary": "ZooKeeper client session establishment deficiency"
+      },
+      {
+        "key": "ZOOKEEPER-4314",
+        "summary": "Can not get real exception when getChildren more than 4M"
+      }
+    ]
+  },
+  "21": {
+    "label": "Log Improvement and Cleanup",
+    "keywords": [
+      "log",
+      "code",
+      "java",
+      "zxid",
+      "zookeeper",
+      "long",
+      "request",
+      "code java",
+      "logging",
+      "value"
+    ],
+    "size": 46,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-4029",
+        "summary": "improve the log of FileTxnLog#append method"
+      },
+      {
+        "key": "ZOOKEEPER-3509",
+        "summary": "Revisit log format"
+      },
+      {
+        "key": "ZOOKEEPER-3504",
+        "summary": "An information leakage from FileTxnSnapLog to log:"
+      }
+    ]
+  },
+  "22": {
+    "label": "Authentication and Authorization Enhancements",
+    "keywords": [
+      "zookeeper",
+      "authentication",
+      "client",
+      "password",
+      "key",
+      "digest",
+      "support",
+      "add",
+      "ssl",
+      "user"
+    ],
+    "size": 31,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3561",
+        "summary": "Generalize target authentication scheme for ZooKeeper authentication enforcement."
+      },
+      {
+        "key": "ZOOKEEPER-3558",
+        "summary": "Support authentication enforcement"
+      },
+      {
+        "key": "ZOOKEEPER-3918",
+        "summary": "Authorization Provider: Integration with external identity and access management"
+      }
+    ]
+  },
+  "23": {
+    "label": "Backup and Quota Mechanisms",
+    "keywords": [
+      "zookeeper",
+      "add",
+      "server",
+      "new",
+      "documentation",
+      "zk",
+      "support",
+      "https",
+      "client",
+      "cli"
+    ],
+    "size": 120,
+    "examples": [
+      {
+        "key": "ZOOKEEPER-3901",
+        "summary": "Not sure"
+      },
+      {
+        "key": "ZOOKEEPER-3380",
+        "summary": "A revist to the quota mechanism"
+      },
+      {
+        "key": "ZOOKEEPER-3499",
+        "summary": "[admin server way] Add a complete backup mechanism for zookeeper internal"
+      }
+    ]
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "assignee_id": "<<|author_key|17485a53-42c9-4ff6-9073-39af0ded7467|>>",
+  "tickets": {
+    "count": 46,
+    "first_created": "2003-12-02T01:20:44.000+0000",
+    "last_created": "2009-06-24T12:43:16.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.2608695652173913,
+        "count": 12,
+        "example_keys": [
+          "SPR-18",
+          "SPR-19",
+          "SPR-25"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.1956521739130435,
+        "count": 9,
+        "example_keys": [
+          "SPR-3",
+          "SPR-28",
+          "SPR-33"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.17391304347826086,
+        "count": 8,
+        "example_keys": [
+          "SPR-16",
+          "SPR-20",
+          "SPR-22"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.08695652173913043,
+        "count": 4,
+        "example_keys": [
+          "SPR-13",
+          "SPR-29",
+          "SPR-44"
+        ]
+      },
+      {
+        "cluster": 4,
+        "label": "JDBC Compatibility and Performance Issues",
+        "share": 0.08695652173913043,
+        "count": 4,
+        "example_keys": [
+          "SPR-21",
+          "SPR-43",
+          "SPR-64"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.3333333333333333,
+          "count": 5,
+          "example_keys": [
+            "SPR-16",
+            "SPR-20",
+            "SPR-22"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3333333333333333,
+          "count": 5,
+          "example_keys": [
+            "SPR-18",
+            "SPR-19",
+            "SPR-25"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "SPR-3",
+            "SPR-28"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3333333333333333,
+          "count": 5,
+          "example_keys": [
+            "SPR-32",
+            "SPR-35",
+            "SPR-37"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.26666666666666666,
+          "count": 4,
+          "example_keys": [
+            "SPR-33",
+            "SPR-45",
+            "SPR-53"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "SPR-43",
+            "SPR-64"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.1875,
+          "count": 3,
+          "example_keys": [
+            "SPR-113",
+            "SPR-328",
+            "SPR-382"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.125,
+          "count": 2,
+          "example_keys": [
+            "SPR-88",
+            "SPR-474"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.125,
+          "count": 2,
+          "example_keys": [
+            "SPR-89",
+            "SPR-90"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5555555555555556,
+    "positive_percent": 56,
+    "steps": 45
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-3",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-13",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-16",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-18",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-19",
+        "label": "Validation and Data Binding Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-399",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-418",
+        "label": "Transaction Management Issues"
+      },
+      {
+        "key": "SPR-474",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "ROO-109",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-117",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2003, focusing on various technical challenges. In the early phase, they worked on Bean Configuration Enhancements and Validation and Data Binding Issues, with notable tickets like SPR-16 and SPR-18. As they progressed into the middle phase, their attention shifted towards Autowiring and Bean Configuration Issues, alongside ongoing validation tasks, exemplified by tickets SPR-33 and SPR-35. Recently, they have concentrated on Autowiring and Bean Configuration Issues and Documentation Corrections, as seen in tickets SPR-113 and SPR-474. Overall, 56% of their steps aligned with the overall direction, demonstrating a strong commitment to addressing key issues in their field."
+}

@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|acdf7a16-4583-4c3c-8fb1-f1dfddcef79d|>>",
+  "tickets": {
+    "count": 124,
+    "first_created": "2018-07-09T22:19:15.000+0000",
+    "last_created": "2020-12-21T22:07:18.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.28225806451612906,
+        "count": 35,
+        "example_keys": [
+          "DATACOUCH-387",
+          "DATACOUCH-455",
+          "DATACOUCH-464"
+        ]
+      },
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.25806451612903225,
+        "count": 32,
+        "example_keys": [
+          "DATACOUCH-486",
+          "DATACOUCH-526",
+          "DATACOUCH-541"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "JPA Entity Management Issues",
+        "share": 0.20161290322580644,
+        "count": 25,
+        "example_keys": [
+          "DATACOUCH-473",
+          "DATACOUCH-484",
+          "DATACOUCH-543"
+        ]
+      },
+      {
+        "cluster": 30,
+        "label": "MongoDB Feature Enhancements",
+        "share": 0.0967741935483871,
+        "count": 12,
+        "example_keys": [
+          "DATACOUCH-431",
+          "DATACOUCH-524",
+          "DATACOUCH-533"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.03225806451612903,
+        "count": 4,
+        "example_keys": [
+          "DATACOUCH-555",
+          "DATACOUCH-577",
+          "DATACOUCH-596"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.34146341463414637,
+          "count": 14,
+          "example_keys": [
+            "DATACOUCH-387",
+            "DATACOUCH-455",
+            "DATACOUCH-464"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.21951219512195122,
+          "count": 9,
+          "example_keys": [
+            "DATACOUCH-486",
+            "DATACOUCH-526",
+            "DATACOUCH-541"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.1951219512195122,
+          "count": 8,
+          "example_keys": [
+            "DATACOUCH-473",
+            "DATACOUCH-484",
+            "DATACOUCH-543"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.36585365853658536,
+          "count": 15,
+          "example_keys": [
+            "DATACOUCH-576",
+            "DATACOUCH-579",
+            "DATACOUCH-582"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.2926829268292683,
+          "count": 12,
+          "example_keys": [
+            "DATACOUCH-580",
+            "DATACOUCH-583",
+            "DATACOUCH-585"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.21951219512195122,
+          "count": 9,
+          "example_keys": [
+            "DATACOUCH-574",
+            "DATACOUCH-575",
+            "DATACOUCH-581"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.2857142857142857,
+          "count": 12,
+          "example_keys": [
+            "DATACOUCH-631",
+            "DATACOUCH-643",
+            "DATACOUCH-644"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.19047619047619047,
+          "count": 8,
+          "example_keys": [
+            "DATACOUCH-630",
+            "DATACOUCH-632",
+            "DATACOUCH-633"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.11904761904761904,
+          "count": 5,
+          "example_keys": [
+            "DATACOUCH-629",
+            "DATACOUCH-642",
+            "DATACOUCH-647"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5365853658536586,
+    "positive_percent": 54,
+    "steps": 123
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATACOUCH-387",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-431",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATACOUCH-455",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-464",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-473",
+        "label": "JPA Entity Management Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATACOUCH-675",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-676",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-677",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATACOUCH-678",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATACOUCH-679",
+        "label": "MongoDB Feature Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since July 2018, focusing on various technical themes. In the early phase, they primarily worked on \"QueryDSL and Projections Support\" and \"MongoDB Mapping Issues,\" with notable tickets like DATACOUCH-387 and DATACOUCH-486. As they progressed into the middle phase, their attention shifted towards \"MongoDB Mapping Issues\" and \"JPA Entity Management Issues,\" exemplified by tickets such as DATACOUCH-576 and DATACOUCH-580. Recently, they returned to \"QueryDSL and Projections Support,\" while still addressing \"MongoDB Mapping Issues,\" with recent contributions including DATACOUCH-631 and DATACOUCH-630. Overall, 54% of their steps aligned with the overall direction of the project, showcasing their adaptability and focus on key areas of development."
+}

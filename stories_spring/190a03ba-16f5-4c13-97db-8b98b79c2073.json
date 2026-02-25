@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|190a03ba-16f5-4c13-97db-8b98b79c2073|>>",
+  "tickets": {
+    "count": 1863,
+    "first_created": "2008-06-14T03:50:06.000+0000",
+    "last_created": "2018-12-12T21:20:39.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.3483628556092324,
+        "count": 649,
+        "example_keys": [
+          "INT-256",
+          "INT-343",
+          "INT-496"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.2694578636607622,
+        "count": 502,
+        "example_keys": [
+          "INT-1110",
+          "INT-1145",
+          "INT-1151"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.06333870101986044,
+        "count": 118,
+        "example_keys": [
+          "INT-610",
+          "INT-1311",
+          "INT-1312"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.04830917874396135,
+        "count": 90,
+        "example_keys": [
+          "INT-1172",
+          "INT-1434",
+          "INT-1597"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.04830917874396135,
+        "count": 90,
+        "example_keys": [
+          "AMQP-195",
+          "BATCHADM-125",
+          "INT-2355"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.3413848631239936,
+          "count": 212,
+          "example_keys": [
+            "INT-256",
+            "INT-343",
+            "INT-496"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.23993558776167473,
+          "count": 149,
+          "example_keys": [
+            "INT-1110",
+            "INT-1145",
+            "INT-1151"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.09178743961352658,
+          "count": 57,
+          "example_keys": [
+            "INT-610",
+            "INT-1311",
+            "INT-1312"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.322061191626409,
+          "count": 200,
+          "example_keys": [
+            "INT-3097",
+            "INT-3099",
+            "INT-3100"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.24154589371980675,
+          "count": 150,
+          "example_keys": [
+            "INT-3098",
+            "XD-583",
+            "INT-3103"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.09017713365539452,
+          "count": 56,
+          "example_keys": [
+            "XD-542",
+            "XD-554",
+            "XD-609"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.38164251207729466,
+          "count": 237,
+          "example_keys": [
+            "INTSAMPLES-144",
+            "INT-3791",
+            "AMQP-520"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.32689210950080516,
+          "count": 203,
+          "example_keys": [
+            "INT-3795",
+            "AMQP-516",
+            "AMQP-518"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.0499194847020934,
+          "count": 31,
+          "example_keys": [
+            "INT-3785",
+            "AMQP-524",
+            "AMQP-529"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.49033297529538133,
+    "positive_percent": 49,
+    "steps": 1862
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-256",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-343",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-496",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-542",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-610",
+        "label": "Documentation and Build Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "INT-4560",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "AMQP-846",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "INT-4564",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "AMQP-848",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "AMQP-849",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2008, focusing primarily on Messaging Configuration Enhancements and JMS Message Listener Issues. In the early phase of their work, they tackled numerous tickets related to these themes, such as INT-256 and INT-343. As they progressed into the middle phase, they continued to address similar issues while also engaging in Spring XD Module Development, with tickets like INT-3097 and XD-542. Recently, their efforts have intensified in Messaging Configuration Enhancements, with notable tickets including INTSAMPLES-144 and INT-3791, alongside ongoing work on JMS Message Listener Issues, exemplified by INT-3795. Overall, 49% of their steps aligned with the overall direction, showcasing a consistent focus on key areas throughout their tenure."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|c8a82ce3-a4d5-4053-be0c-e4f6d810ebf2|>>",
+  "tickets": {
+    "count": 1368,
+    "first_created": "2005-06-21T20:31:15.000+0000",
+    "last_created": "2014-04-07T10:28:12.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.4130116959064328,
+        "count": 565,
+        "example_keys": [
+          "SEC-1",
+          "SEC-8",
+          "SEC-12"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.31140350877192985,
+        "count": 426,
+        "example_keys": [
+          "SEC-27",
+          "SEC-111",
+          "SEC-134"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.06652046783625731,
+        "count": 91,
+        "example_keys": [
+          "SEC-82",
+          "SEC-292",
+          "SEC-312"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.04824561403508772,
+        "count": 66,
+        "example_keys": [
+          "XD-29",
+          "XD-44",
+          "XD-45"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.029970760233918127,
+        "count": 41,
+        "example_keys": [
+          "SEC-44",
+          "SEC-115",
+          "SEC-181"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.5175438596491229,
+          "count": 236,
+          "example_keys": [
+            "SEC-1",
+            "SEC-8",
+            "SEC-12"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.28289473684210525,
+          "count": 129,
+          "example_keys": [
+            "SEC-27",
+            "SEC-111",
+            "SEC-134"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.043859649122807015,
+          "count": 20,
+          "example_keys": [
+            "SEC-82",
+            "SEC-292",
+            "SEC-312"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.42543859649122806,
+          "count": 194,
+          "example_keys": [
+            "SEC-920",
+            "SEC-921",
+            "SEC-922"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.31140350877192985,
+          "count": 142,
+          "example_keys": [
+            "SEC-917",
+            "SEC-926",
+            "SEC-927"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.1074561403508772,
+          "count": 49,
+          "example_keys": [
+            "SEC-918",
+            "SEC-939",
+            "SEC-944"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.3399122807017544,
+          "count": 155,
+          "example_keys": [
+            "SEC-1410",
+            "SEC-1411",
+            "SEC-1412"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.29605263157894735,
+          "count": 135,
+          "example_keys": [
+            "SEC-1413",
+            "SEC-1416",
+            "SEC-1417"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.14473684210526316,
+          "count": 66,
+          "example_keys": [
+            "XD-29",
+            "XD-44",
+            "XD-45"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.48280907095830283,
+    "positive_percent": 48,
+    "steps": 1367
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SEC-1",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-8",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-12",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-16",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-17",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-1444",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "XD-1447",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1452",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "XD-1470",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1499",
+        "label": "Spring XD Module Development"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects since joining in June 2005, with a focus on enhancing authentication frameworks and addressing session authentication issues. In the early phase, they contributed significantly to Authentication Framework Enhancements, working on tickets like SEC-1 and SEC-8. As they progressed into the middle phase, they continued to tackle similar themes, with notable contributions to tickets such as SEC-920 and SEC-917. Recently, their work has shifted towards resolving session authentication issues, exemplified by tickets SEC-1410 and SEC-1411, while still maintaining involvement in authentication enhancements. Overall, 48% of their steps aligned with the overall direction, showcasing their consistent commitment to key project themes."
+}

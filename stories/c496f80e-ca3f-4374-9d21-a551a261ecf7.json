@@ -1,0 +1,260 @@
+{
+  "assignee_id": "<<|author_key|c496f80e-ca3f-4374-9d21-a551a261ecf7|>>",
+  "tickets": {
+    "count": 23,
+    "first_created": "2019-04-08T09:04:50.000+0000",
+    "last_created": "2020-04-01T15:23:36.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.5217391304347826,
+        "count": 12,
+        "example_keys": [
+          "ZOOKEEPER-3370",
+          "ZOOKEEPER-3431",
+          "ZOOKEEPER-3446"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Testability and Validation Improvements",
+        "share": 0.13043478260869565,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3391",
+          "ZOOKEEPER-3498",
+          "ZOOKEEPER-3571"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "Code Cleanup and Refactoring",
+        "share": 0.08695652173913043,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3350",
+          "ZOOKEEPER-3523"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Null Pointer Exception Handling",
+        "share": 0.08695652173913043,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3521",
+          "ZOOKEEPER-3579"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Documentation Corrections and Updates",
+        "share": 0.08695652173913043,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3746",
+          "ZOOKEEPER-3748"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.7142857142857143,
+          "count": 5,
+          "example_keys": [
+            "ZOOKEEPER-3370",
+            "ZOOKEEPER-3431",
+            "ZOOKEEPER-3446"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.14285714285714285,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3350"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.14285714285714285,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3391"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.375,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3474",
+            "ZOOKEEPER-3475",
+            "ZOOKEEPER-3517"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.125,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3498"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.125,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3509"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.5,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3745",
+            "ZOOKEEPER-3767",
+            "ZOOKEEPER-3771"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.25,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3746",
+            "ZOOKEEPER-3748"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.125,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3571"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5,
+    "positive_percent": 50,
+    "steps": 22
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3350",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3370",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3391",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-3431",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3446",
+        "label": "Maven and Release Cleanup"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3746",
+        "label": "Documentation Corrections and Updates"
+      },
+      {
+        "key": "ZOOKEEPER-3748",
+        "label": "Documentation Corrections and Updates"
+      },
+      {
+        "key": "ZOOKEEPER-3767",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3771",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3782",
+        "label": "Maven and Release Cleanup"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from April 2019 to April 2020. In the early phase, they focused primarily on \"Maven and Release Cleanup,\" contributing to tickets like ZOOKEEPER-3370 and ZOOKEEPER-3431. As they moved into the middle phase, they continued to work on Maven-related tasks while also addressing \"Testability and Validation Improvements,\" with examples such as ZOOKEEPER-3498. Recently, their efforts shifted towards \"Documentation Corrections and Updates,\" alongside ongoing Maven tasks, as seen in ZOOKEEPER-3746 and ZOOKEEPER-3767. Overall, 50% of their steps aligned with the overall direction, demonstrating a consistent commitment to improving project quality and efficiency."
+}

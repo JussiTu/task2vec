@@ -1,0 +1,271 @@
+{
+  "assignee_id": "<<|author_key|c8100eea-3728-4128-8a07-34438879abbd|>>",
+  "tickets": {
+    "count": 68,
+    "first_created": "2019-03-09T11:19:32.000+0000",
+    "last_created": "2021-09-14T12:40:02.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "Backup and Quota Mechanisms",
+        "share": 0.47058823529411764,
+        "count": 32,
+        "example_keys": [
+          "ZOOKEEPER-3301",
+          "ZOOKEEPER-3318",
+          "ZOOKEEPER-3329"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.08823529411764706,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3423",
+          "ZOOKEEPER-3434",
+          "ZOOKEEPER-3464"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "ZooKeeper Client Connection Issues",
+        "share": 0.07352941176470588,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3593",
+          "ZOOKEEPER-3621",
+          "ZOOKEEPER-3884"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Documentation Corrections and Updates",
+        "share": 0.07352941176470588,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3636",
+          "ZOOKEEPER-3807",
+          "ZOOKEEPER-4186"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Zookeeper Metrics Enhancement",
+        "share": 0.058823529411764705,
+        "count": 4,
+        "example_keys": [
+          "ZOOKEEPER-3629",
+          "ZOOKEEPER-3823",
+          "ZOOKEEPER-3907"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.6818181818181818,
+          "count": 15,
+          "example_keys": [
+            "ZOOKEEPER-3301",
+            "ZOOKEEPER-3318",
+            "ZOOKEEPER-3329"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.13636363636363635,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3423",
+            "ZOOKEEPER-3434",
+            "ZOOKEEPER-3464"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "SSL and Client Port Configuration",
+          "share": 0.09090909090909091,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3322",
+            "ZOOKEEPER-3486"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.5217391304347826,
+          "count": 12,
+          "example_keys": [
+            "ZOOKEEPER-3502",
+            "ZOOKEEPER-3529",
+            "ZOOKEEPER-3535"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.08695652173913043,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3506",
+            "ZOOKEEPER-3570"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "ZooKeeper Client Connection Issues",
+          "share": 0.08695652173913043,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3593",
+            "ZOOKEEPER-3621"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.21739130434782608,
+          "count": 5,
+          "example_keys": [
+            "ZOOKEEPER-3809",
+            "ZOOKEEPER-4188",
+            "ZOOKEEPER-4351"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.17391304347826086,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3807",
+            "ZOOKEEPER-4186",
+            "ZOOKEEPER-4320"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.13043478260869565,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3789",
+            "ZOOKEEPER-4208",
+            "ZOOKEEPER-4212"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4626865671641791,
+    "positive_percent": 46,
+    "steps": 67
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3301",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3318",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3322",
+        "label": "SSL and Client Port Configuration"
+      },
+      {
+        "key": "ZOOKEEPER-3329",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3332",
+        "label": "Log Improvement and Cleanup"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-4353",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-4370",
+        "label": "Documentation Corrections and Updates"
+      },
+      {
+        "key": "ZOOKEEPER-4373",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-4375",
+        "label": "ZooKeeper Client Connection Issues"
+      },
+      {
+        "key": "ZOOKEEPER-4377",
+        "label": "Null Pointer Exception Handling"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since March 2019, focusing primarily on \"Backup and Quota Mechanisms,\" which has been their top theme throughout their work. In the early phase, they tackled numerous tickets like ZOOKEEPER-3301 and ZOOKEEPER-3318, emphasizing backup strategies. As they moved into the middle phase, they continued to address backup issues while also engaging in \"Log Improvement and Cleanup,\" with tickets such as ZOOKEEPER-3506. Recently, their focus shifted slightly towards \"Documentation Corrections and Updates,\" alongside ongoing work in backup mechanisms, as seen in ZOOKEEPER-3807 and ZOOKEEPER-4186. Overall, 46% of their steps aligned with the overall direction, showcasing a consistent commitment to improving system reliability and documentation."
+}

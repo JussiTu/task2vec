@@ -1,0 +1,1594 @@
+{
+  "n_docs": 1000,
+  "cluster_method": "hdbscan",
+  "clusters": {
+    "-1": 684,
+    "7": 15,
+    "15": 12,
+    "5": 19,
+    "8": 49,
+    "14": 25,
+    "4": 26,
+    "10": 18,
+    "13": 22,
+    "1": 29,
+    "11": 20,
+    "6": 14,
+    "3": 17,
+    "0": 12,
+    "2": 15,
+    "12": 11,
+    "9": 12
+  },
+  "metrics": {
+    "issuetype": {
+      "present": 1000,
+      "unique": 7,
+      "purity": 0.483,
+      "nmi": 0.13465713641533597,
+      "ari": 0.029121880285306715
+    },
+    "status": {
+      "present": 1000,
+      "unique": 6,
+      "purity": 0.457,
+      "nmi": 0.06092880667446404,
+      "ari": 0.004667242807336385
+    },
+    "project_key": {
+      "present": 1000,
+      "unique": 1,
+      "purity": 1.0,
+      "nmi": 0.0,
+      "ari": NaN
+    },
+    "priority": {
+      "present": 1000,
+      "unique": 5,
+      "purity": 0.553,
+      "nmi": 0.0765441593101099,
+      "ari": -0.004750358585682161
+    },
+    "resolution": {
+      "present": 564,
+      "unique": 14,
+      "purity": 0.8120567375886525,
+      "nmi": 0.09471227915222018,
+      "ari": 0.02844555967676933
+    },
+    "component": {
+      "present": 699,
+      "unique": 72,
+      "purity": 0.44206008583690987,
+      "nmi": 0.2691761746540213,
+      "ari": 0.03956732432231606
+    },
+    "label_top": {
+      "present": 556,
+      "unique": 31,
+      "purity": 0.9190647482014388,
+      "nmi": 0.1115220690915972,
+      "ari": 0.005909391818360993
+    }
+  },
+  "enrichments": {
+    "issuetype": {
+      "7": [
+        {
+          "label": "Bug",
+          "count": 11,
+          "share": 0.7333333333333333
+        },
+        {
+          "label": "Improvement",
+          "count": 4,
+          "share": 0.26666666666666666
+        }
+      ],
+      "15": [
+        {
+          "label": "Bug",
+          "count": 7,
+          "share": 0.5833333333333334
+        },
+        {
+          "label": "Task",
+          "count": 4,
+          "share": 0.3333333333333333
+        },
+        {
+          "label": "Improvement",
+          "count": 1,
+          "share": 0.08333333333333333
+        }
+      ],
+      "5": [
+        {
+          "label": "Improvement",
+          "count": 8,
+          "share": 0.42105263157894735
+        },
+        {
+          "label": "Bug",
+          "count": 8,
+          "share": 0.42105263157894735
+        },
+        {
+          "label": "New Feature",
+          "count": 3,
+          "share": 0.15789473684210525
+        }
+      ],
+      "8": [
+        {
+          "label": "Bug",
+          "count": 45,
+          "share": 0.9183673469387755
+        },
+        {
+          "label": "Improvement",
+          "count": 4,
+          "share": 0.08163265306122448
+        }
+      ],
+      "14": [
+        {
+          "label": "Bug",
+          "count": 12,
+          "share": 0.48
+        },
+        {
+          "label": "Task",
+          "count": 9,
+          "share": 0.36
+        },
+        {
+          "label": "Improvement",
+          "count": 4,
+          "share": 0.16
+        }
+      ],
+      "4": [
+        {
+          "label": "Improvement",
+          "count": 11,
+          "share": 0.4230769230769231
+        },
+        {
+          "label": "Bug",
+          "count": 8,
+          "share": 0.3076923076923077
+        },
+        {
+          "label": "Test",
+          "count": 3,
+          "share": 0.11538461538461539
+        }
+      ],
+      "10": [
+        {
+          "label": "Improvement",
+          "count": 9,
+          "share": 0.5
+        },
+        {
+          "label": "New Feature",
+          "count": 5,
+          "share": 0.2777777777777778
+        },
+        {
+          "label": "Bug",
+          "count": 2,
+          "share": 0.1111111111111111
+        }
+      ],
+      "13": [
+        {
+          "label": "Improvement",
+          "count": 12,
+          "share": 0.5454545454545454
+        },
+        {
+          "label": "Sub-task",
+          "count": 8,
+          "share": 0.36363636363636365
+        },
+        {
+          "label": "Bug",
+          "count": 2,
+          "share": 0.09090909090909091
+        }
+      ],
+      "1": [
+        {
+          "label": "Bug",
+          "count": 17,
+          "share": 0.5862068965517241
+        },
+        {
+          "label": "Sub-task",
+          "count": 8,
+          "share": 0.27586206896551724
+        },
+        {
+          "label": "Improvement",
+          "count": 2,
+          "share": 0.06896551724137931
+        }
+      ],
+      "11": [
+        {
+          "label": "Task",
+          "count": 5,
+          "share": 0.25
+        },
+        {
+          "label": "Bug",
+          "count": 4,
+          "share": 0.2
+        },
+        {
+          "label": "New Feature",
+          "count": 4,
+          "share": 0.2
+        }
+      ],
+      "6": [
+        {
+          "label": "Bug",
+          "count": 10,
+          "share": 0.7142857142857143
+        },
+        {
+          "label": "Improvement",
+          "count": 3,
+          "share": 0.21428571428571427
+        },
+        {
+          "label": "Wish",
+          "count": 1,
+          "share": 0.07142857142857142
+        }
+      ],
+      "3": [
+        {
+          "label": "Bug",
+          "count": 13,
+          "share": 0.7647058823529411
+        },
+        {
+          "label": "Improvement",
+          "count": 3,
+          "share": 0.17647058823529413
+        },
+        {
+          "label": "Wish",
+          "count": 1,
+          "share": 0.058823529411764705
+        }
+      ],
+      "0": [
+        {
+          "label": "Improvement",
+          "count": 7,
+          "share": 0.5833333333333334
+        },
+        {
+          "label": "Bug",
+          "count": 5,
+          "share": 0.4166666666666667
+        }
+      ],
+      "2": [
+        {
+          "label": "Sub-task",
+          "count": 11,
+          "share": 0.7333333333333333
+        },
+        {
+          "label": "Improvement",
+          "count": 4,
+          "share": 0.26666666666666666
+        }
+      ],
+      "12": [
+        {
+          "label": "Sub-task",
+          "count": 6,
+          "share": 0.5454545454545454
+        },
+        {
+          "label": "Improvement",
+          "count": 3,
+          "share": 0.2727272727272727
+        },
+        {
+          "label": "Bug",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "9": [
+        {
+          "label": "Bug",
+          "count": 12,
+          "share": 1.0
+        }
+      ]
+    },
+    "status": {
+      "7": [
+        {
+          "label": "Resolved",
+          "count": 9,
+          "share": 0.6
+        },
+        {
+          "label": "Open",
+          "count": 6,
+          "share": 0.4
+        }
+      ],
+      "15": [
+        {
+          "label": "Closed",
+          "count": 9,
+          "share": 0.75
+        },
+        {
+          "label": "Resolved",
+          "count": 2,
+          "share": 0.16666666666666666
+        },
+        {
+          "label": "Open",
+          "count": 1,
+          "share": 0.08333333333333333
+        }
+      ],
+      "5": [
+        {
+          "label": "Open",
+          "count": 9,
+          "share": 0.47368421052631576
+        },
+        {
+          "label": "Resolved",
+          "count": 5,
+          "share": 0.2631578947368421
+        },
+        {
+          "label": "Closed",
+          "count": 4,
+          "share": 0.21052631578947367
+        }
+      ],
+      "8": [
+        {
+          "label": "Open",
+          "count": 33,
+          "share": 0.673469387755102
+        },
+        {
+          "label": "Resolved",
+          "count": 8,
+          "share": 0.16326530612244897
+        },
+        {
+          "label": "Closed",
+          "count": 7,
+          "share": 0.14285714285714285
+        }
+      ],
+      "14": [
+        {
+          "label": "Closed",
+          "count": 9,
+          "share": 0.36
+        },
+        {
+          "label": "Open",
+          "count": 8,
+          "share": 0.32
+        },
+        {
+          "label": "Resolved",
+          "count": 8,
+          "share": 0.32
+        }
+      ],
+      "4": [
+        {
+          "label": "Open",
+          "count": 17,
+          "share": 0.6538461538461539
+        },
+        {
+          "label": "Closed",
+          "count": 6,
+          "share": 0.23076923076923078
+        },
+        {
+          "label": "Resolved",
+          "count": 3,
+          "share": 0.11538461538461539
+        }
+      ],
+      "10": [
+        {
+          "label": "Resolved",
+          "count": 11,
+          "share": 0.6111111111111112
+        },
+        {
+          "label": "Open",
+          "count": 6,
+          "share": 0.3333333333333333
+        },
+        {
+          "label": "In Progress",
+          "count": 1,
+          "share": 0.05555555555555555
+        }
+      ],
+      "13": [
+        {
+          "label": "Closed",
+          "count": 13,
+          "share": 0.5909090909090909
+        },
+        {
+          "label": "Resolved",
+          "count": 5,
+          "share": 0.22727272727272727
+        },
+        {
+          "label": "In Progress",
+          "count": 2,
+          "share": 0.09090909090909091
+        }
+      ],
+      "1": [
+        {
+          "label": "Open",
+          "count": 15,
+          "share": 0.5172413793103449
+        },
+        {
+          "label": "Resolved",
+          "count": 13,
+          "share": 0.4482758620689655
+        },
+        {
+          "label": "Closed",
+          "count": 1,
+          "share": 0.034482758620689655
+        }
+      ],
+      "11": [
+        {
+          "label": "Open",
+          "count": 7,
+          "share": 0.35
+        },
+        {
+          "label": "Closed",
+          "count": 7,
+          "share": 0.35
+        },
+        {
+          "label": "Resolved",
+          "count": 4,
+          "share": 0.2
+        }
+      ],
+      "6": [
+        {
+          "label": "Open",
+          "count": 6,
+          "share": 0.42857142857142855
+        },
+        {
+          "label": "Resolved",
+          "count": 5,
+          "share": 0.35714285714285715
+        },
+        {
+          "label": "Closed",
+          "count": 3,
+          "share": 0.21428571428571427
+        }
+      ],
+      "3": [
+        {
+          "label": "Closed",
+          "count": 8,
+          "share": 0.47058823529411764
+        },
+        {
+          "label": "Open",
+          "count": 6,
+          "share": 0.35294117647058826
+        },
+        {
+          "label": "Resolved",
+          "count": 3,
+          "share": 0.17647058823529413
+        }
+      ],
+      "0": [
+        {
+          "label": "Resolved",
+          "count": 5,
+          "share": 0.4166666666666667
+        },
+        {
+          "label": "Open",
+          "count": 4,
+          "share": 0.3333333333333333
+        },
+        {
+          "label": "Closed",
+          "count": 2,
+          "share": 0.16666666666666666
+        }
+      ],
+      "2": [
+        {
+          "label": "Resolved",
+          "count": 11,
+          "share": 0.7333333333333333
+        },
+        {
+          "label": "Closed",
+          "count": 3,
+          "share": 0.2
+        },
+        {
+          "label": "Open",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "12": [
+        {
+          "label": "Resolved",
+          "count": 10,
+          "share": 0.9090909090909091
+        },
+        {
+          "label": "Closed",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "9": [
+        {
+          "label": "Open",
+          "count": 5,
+          "share": 0.4166666666666667
+        },
+        {
+          "label": "Closed",
+          "count": 3,
+          "share": 0.25
+        },
+        {
+          "label": "Resolved",
+          "count": 3,
+          "share": 0.25
+        }
+      ]
+    },
+    "project_key": {
+      "7": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 15,
+          "share": 1.0
+        }
+      ],
+      "15": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 12,
+          "share": 1.0
+        }
+      ],
+      "5": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 19,
+          "share": 1.0
+        }
+      ],
+      "8": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 49,
+          "share": 1.0
+        }
+      ],
+      "14": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 25,
+          "share": 1.0
+        }
+      ],
+      "4": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 26,
+          "share": 1.0
+        }
+      ],
+      "10": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 18,
+          "share": 1.0
+        }
+      ],
+      "13": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 22,
+          "share": 1.0
+        }
+      ],
+      "1": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 29,
+          "share": 1.0
+        }
+      ],
+      "11": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 20,
+          "share": 1.0
+        }
+      ],
+      "6": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 14,
+          "share": 1.0
+        }
+      ],
+      "3": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 17,
+          "share": 1.0
+        }
+      ],
+      "0": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 12,
+          "share": 1.0
+        }
+      ],
+      "2": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 15,
+          "share": 1.0
+        }
+      ],
+      "12": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 11,
+          "share": 1.0
+        }
+      ],
+      "9": [
+        {
+          "label": "ZOOKEEPER",
+          "count": 12,
+          "share": 1.0
+        }
+      ]
+    },
+    "priority": {
+      "7": [
+        {
+          "label": "Major",
+          "count": 14,
+          "share": 0.9333333333333333
+        },
+        {
+          "label": "Critical",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "15": [
+        {
+          "label": "Blocker",
+          "count": 5,
+          "share": 0.4166666666666667
+        },
+        {
+          "label": "Major",
+          "count": 4,
+          "share": 0.3333333333333333
+        },
+        {
+          "label": "Critical",
+          "count": 3,
+          "share": 0.25
+        }
+      ],
+      "5": [
+        {
+          "label": "Major",
+          "count": 11,
+          "share": 0.5789473684210527
+        },
+        {
+          "label": "Minor",
+          "count": 6,
+          "share": 0.3157894736842105
+        },
+        {
+          "label": "Blocker",
+          "count": 1,
+          "share": 0.05263157894736842
+        }
+      ],
+      "8": [
+        {
+          "label": "Major",
+          "count": 34,
+          "share": 0.6938775510204082
+        },
+        {
+          "label": "Critical",
+          "count": 9,
+          "share": 0.1836734693877551
+        },
+        {
+          "label": "Minor",
+          "count": 5,
+          "share": 0.10204081632653061
+        }
+      ],
+      "14": [
+        {
+          "label": "Major",
+          "count": 11,
+          "share": 0.44
+        },
+        {
+          "label": "Blocker",
+          "count": 10,
+          "share": 0.4
+        },
+        {
+          "label": "Critical",
+          "count": 2,
+          "share": 0.08
+        }
+      ],
+      "4": [
+        {
+          "label": "Major",
+          "count": 21,
+          "share": 0.8076923076923077
+        },
+        {
+          "label": "Minor",
+          "count": 2,
+          "share": 0.07692307692307693
+        },
+        {
+          "label": "Blocker",
+          "count": 1,
+          "share": 0.038461538461538464
+        }
+      ],
+      "10": [
+        {
+          "label": "Major",
+          "count": 8,
+          "share": 0.4444444444444444
+        },
+        {
+          "label": "Minor",
+          "count": 7,
+          "share": 0.3888888888888889
+        },
+        {
+          "label": "Trivial",
+          "count": 3,
+          "share": 0.16666666666666666
+        }
+      ],
+      "13": [
+        {
+          "label": "Major",
+          "count": 16,
+          "share": 0.7272727272727273
+        },
+        {
+          "label": "Minor",
+          "count": 5,
+          "share": 0.22727272727272727
+        },
+        {
+          "label": "Trivial",
+          "count": 1,
+          "share": 0.045454545454545456
+        }
+      ],
+      "1": [
+        {
+          "label": "Major",
+          "count": 17,
+          "share": 0.5862068965517241
+        },
+        {
+          "label": "Minor",
+          "count": 12,
+          "share": 0.41379310344827586
+        }
+      ],
+      "11": [
+        {
+          "label": "Major",
+          "count": 11,
+          "share": 0.55
+        },
+        {
+          "label": "Trivial",
+          "count": 4,
+          "share": 0.2
+        },
+        {
+          "label": "Minor",
+          "count": 3,
+          "share": 0.15
+        }
+      ],
+      "6": [
+        {
+          "label": "Major",
+          "count": 7,
+          "share": 0.5
+        },
+        {
+          "label": "Minor",
+          "count": 4,
+          "share": 0.2857142857142857
+        },
+        {
+          "label": "Trivial",
+          "count": 3,
+          "share": 0.21428571428571427
+        }
+      ],
+      "3": [
+        {
+          "label": "Major",
+          "count": 11,
+          "share": 0.6470588235294118
+        },
+        {
+          "label": "Minor",
+          "count": 4,
+          "share": 0.23529411764705882
+        },
+        {
+          "label": "Blocker",
+          "count": 2,
+          "share": 0.11764705882352941
+        }
+      ],
+      "0": [
+        {
+          "label": "Major",
+          "count": 5,
+          "share": 0.4166666666666667
+        },
+        {
+          "label": "Minor",
+          "count": 3,
+          "share": 0.25
+        },
+        {
+          "label": "Critical",
+          "count": 2,
+          "share": 0.16666666666666666
+        }
+      ],
+      "2": [
+        {
+          "label": "Minor",
+          "count": 11,
+          "share": 0.7333333333333333
+        },
+        {
+          "label": "Major",
+          "count": 4,
+          "share": 0.26666666666666666
+        }
+      ],
+      "12": [
+        {
+          "label": "Major",
+          "count": 9,
+          "share": 0.8181818181818182
+        },
+        {
+          "label": "Minor",
+          "count": 2,
+          "share": 0.18181818181818182
+        }
+      ],
+      "9": [
+        {
+          "label": "Major",
+          "count": 9,
+          "share": 0.75
+        },
+        {
+          "label": "Critical",
+          "count": 2,
+          "share": 0.16666666666666666
+        },
+        {
+          "label": "Blocker",
+          "count": 1,
+          "share": 0.08333333333333333
+        }
+      ]
+    },
+    "resolution": {
+      "14": [
+        {
+          "label": "Fixed",
+          "count": 16,
+          "share": 0.9411764705882353
+        },
+        {
+          "label": "Invalid",
+          "count": 1,
+          "share": 0.058823529411764705
+        }
+      ],
+      "10": [
+        {
+          "label": "Fixed",
+          "count": 11,
+          "share": 1.0
+        }
+      ],
+      "7": [
+        {
+          "label": "Fixed",
+          "count": 9,
+          "share": 1.0
+        }
+      ],
+      "13": [
+        {
+          "label": "Fixed",
+          "count": 17,
+          "share": 0.9444444444444444
+        },
+        {
+          "label": "Invalid",
+          "count": 1,
+          "share": 0.05555555555555555
+        }
+      ],
+      "1": [
+        {
+          "label": "Fixed",
+          "count": 7,
+          "share": 0.5
+        },
+        {
+          "label": "Duplicate",
+          "count": 5,
+          "share": 0.35714285714285715
+        },
+        {
+          "label": "Invalid",
+          "count": 1,
+          "share": 0.07142857142857142
+        }
+      ],
+      "6": [
+        {
+          "label": "Fixed",
+          "count": 5,
+          "share": 0.625
+        },
+        {
+          "label": "Duplicate",
+          "count": 2,
+          "share": 0.25
+        },
+        {
+          "label": "Information Provided",
+          "count": 1,
+          "share": 0.125
+        }
+      ],
+      "3": [
+        {
+          "label": "Fixed",
+          "count": 11,
+          "share": 1.0
+        }
+      ],
+      "4": [
+        {
+          "label": "Fixed",
+          "count": 8,
+          "share": 0.8888888888888888
+        },
+        {
+          "label": "Won't Fix",
+          "count": 1,
+          "share": 0.1111111111111111
+        }
+      ],
+      "8": [
+        {
+          "label": "Fixed",
+          "count": 9,
+          "share": 0.6
+        },
+        {
+          "label": "Duplicate",
+          "count": 3,
+          "share": 0.2
+        },
+        {
+          "label": "Not A Problem",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "0": [
+        {
+          "label": "Fixed",
+          "count": 5,
+          "share": 0.7142857142857143
+        },
+        {
+          "label": "Won't Fix",
+          "count": 1,
+          "share": 0.14285714285714285
+        },
+        {
+          "label": "Duplicate",
+          "count": 1,
+          "share": 0.14285714285714285
+        }
+      ],
+      "5": [
+        {
+          "label": "Fixed",
+          "count": 8,
+          "share": 0.8888888888888888
+        },
+        {
+          "label": "Duplicate",
+          "count": 1,
+          "share": 0.1111111111111111
+        }
+      ],
+      "2": [
+        {
+          "label": "Fixed",
+          "count": 11,
+          "share": 0.7857142857142857
+        },
+        {
+          "label": "Not A Problem",
+          "count": 2,
+          "share": 0.14285714285714285
+        },
+        {
+          "label": "Later",
+          "count": 1,
+          "share": 0.07142857142857142
+        }
+      ],
+      "12": [
+        {
+          "label": "Fixed",
+          "count": 8,
+          "share": 0.7272727272727273
+        },
+        {
+          "label": "Won't Fix",
+          "count": 2,
+          "share": 0.18181818181818182
+        },
+        {
+          "label": "Duplicate",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "11": [
+        {
+          "label": "Fixed",
+          "count": 6,
+          "share": 0.5454545454545454
+        },
+        {
+          "label": "Invalid",
+          "count": 4,
+          "share": 0.36363636363636365
+        },
+        {
+          "label": "Duplicate",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "15": [
+        {
+          "label": "Fixed",
+          "count": 9,
+          "share": 0.8181818181818182
+        },
+        {
+          "label": "Won't Do",
+          "count": 1,
+          "share": 0.09090909090909091
+        },
+        {
+          "label": "Duplicate",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "9": [
+        {
+          "label": "Fixed",
+          "count": 3,
+          "share": 0.5
+        },
+        {
+          "label": "Duplicate",
+          "count": 2,
+          "share": 0.3333333333333333
+        },
+        {
+          "label": "Invalid",
+          "count": 1,
+          "share": 0.16666666666666666
+        }
+      ]
+    },
+    "component": {
+      "7": [
+        {
+          "label": "server",
+          "count": 4,
+          "share": 0.5
+        },
+        {
+          "label": "quorum;server",
+          "count": 1,
+          "share": 0.125
+        },
+        {
+          "label": "security",
+          "count": 1,
+          "share": 0.125
+        }
+      ],
+      "5": [
+        {
+          "label": "server",
+          "count": 6,
+          "share": 0.375
+        },
+        {
+          "label": "security",
+          "count": 5,
+          "share": 0.3125
+        },
+        {
+          "label": "server;tests",
+          "count": 1,
+          "share": 0.0625
+        }
+      ],
+      "8": [
+        {
+          "label": "server",
+          "count": 16,
+          "share": 0.48484848484848486
+        },
+        {
+          "label": "quorum",
+          "count": 5,
+          "share": 0.15151515151515152
+        },
+        {
+          "label": "leaderElection",
+          "count": 5,
+          "share": 0.15151515151515152
+        }
+      ],
+      "14": [
+        {
+          "label": "server",
+          "count": 5,
+          "share": 0.35714285714285715
+        },
+        {
+          "label": "security",
+          "count": 5,
+          "share": 0.35714285714285715
+        },
+        {
+          "label": "build",
+          "count": 2,
+          "share": 0.14285714285714285
+        }
+      ],
+      "4": [
+        {
+          "label": "server",
+          "count": 9,
+          "share": 0.42857142857142855
+        },
+        {
+          "label": "security",
+          "count": 4,
+          "share": 0.19047619047619047
+        },
+        {
+          "label": "quorum;security",
+          "count": 1,
+          "share": 0.047619047619047616
+        }
+      ],
+      "10": [
+        {
+          "label": "documentation",
+          "count": 11,
+          "share": 0.7333333333333333
+        },
+        {
+          "label": "server",
+          "count": 2,
+          "share": 0.13333333333333333
+        },
+        {
+          "label": "documentation;recipes",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "13": [
+        {
+          "label": "build",
+          "count": 5,
+          "share": 0.3125
+        },
+        {
+          "label": "tests",
+          "count": 3,
+          "share": 0.1875
+        },
+        {
+          "label": "server",
+          "count": 2,
+          "share": 0.125
+        }
+      ],
+      "1": [
+        {
+          "label": "tests",
+          "count": 16,
+          "share": 0.8421052631578947
+        },
+        {
+          "label": "server",
+          "count": 2,
+          "share": 0.10526315789473684
+        },
+        {
+          "label": "metric system",
+          "count": 1,
+          "share": 0.05263157894736842
+        }
+      ],
+      "6": [
+        {
+          "label": "documentation",
+          "count": 8,
+          "share": 0.8888888888888888
+        },
+        {
+          "label": "build",
+          "count": 1,
+          "share": 0.1111111111111111
+        }
+      ],
+      "3": [
+        {
+          "label": "c client",
+          "count": 13,
+          "share": 0.8666666666666667
+        },
+        {
+          "label": "c client;documentation",
+          "count": 1,
+          "share": 0.06666666666666667
+        },
+        {
+          "label": "build",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "0": [
+        {
+          "label": "java client",
+          "count": 5,
+          "share": 0.625
+        },
+        {
+          "label": "server",
+          "count": 2,
+          "share": 0.25
+        },
+        {
+          "label": "leaderElection",
+          "count": 1,
+          "share": 0.125
+        }
+      ],
+      "11": [
+        {
+          "label": "server",
+          "count": 4,
+          "share": 0.36363636363636365
+        },
+        {
+          "label": "documentation",
+          "count": 2,
+          "share": 0.18181818181818182
+        },
+        {
+          "label": "build;contrib-bindings;tests",
+          "count": 2,
+          "share": 0.18181818181818182
+        }
+      ],
+      "2": [
+        {
+          "label": "metric system",
+          "count": 14,
+          "share": 0.9333333333333333
+        },
+        {
+          "label": "metric system;server",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "9": [
+        {
+          "label": "server",
+          "count": 8,
+          "share": 0.8
+        },
+        {
+          "label": "quorum;server",
+          "count": 1,
+          "share": 0.1
+        },
+        {
+          "label": "quorum",
+          "count": 1,
+          "share": 0.1
+        }
+      ],
+      "15": [
+        {
+          "label": "security",
+          "count": 5,
+          "share": 0.8333333333333334
+        },
+        {
+          "label": "build;security",
+          "count": 1,
+          "share": 0.16666666666666666
+        }
+      ],
+      "12": [
+        {
+          "label": "build",
+          "count": 9,
+          "share": 1.0
+        }
+      ]
+    },
+    "label_top": {
+      "7": [
+        {
+          "label": "pull-request-available",
+          "count": 10,
+          "share": 0.9090909090909091
+        },
+        {
+          "label": "pull-requests-available",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "15": [
+        {
+          "label": "pull-request-available",
+          "count": 11,
+          "share": 1.0
+        }
+      ],
+      "8": [
+        {
+          "label": "pull-request-available",
+          "count": 14,
+          "share": 1.0
+        }
+      ],
+      "14": [
+        {
+          "label": "pull-request-available",
+          "count": 10,
+          "share": 0.6666666666666666
+        },
+        {
+          "label": "owasp",
+          "count": 3,
+          "share": 0.2
+        },
+        {
+          "label": "security",
+          "count": 1,
+          "share": 0.06666666666666667
+        }
+      ],
+      "10": [
+        {
+          "label": "pull-request-available",
+          "count": 13,
+          "share": 1.0
+        }
+      ],
+      "4": [
+        {
+          "label": "pull-request-available",
+          "count": 6,
+          "share": 0.75
+        },
+        {
+          "label": "quorum",
+          "count": 1,
+          "share": 0.125
+        },
+        {
+          "label": "Java13",
+          "count": 1,
+          "share": 0.125
+        }
+      ],
+      "5": [
+        {
+          "label": "pull-request-available",
+          "count": 11,
+          "share": 0.9166666666666666
+        },
+        {
+          "label": "features",
+          "count": 1,
+          "share": 0.08333333333333333
+        }
+      ],
+      "13": [
+        {
+          "label": "pull-request-available",
+          "count": 13,
+          "share": 0.9285714285714286
+        },
+        {
+          "label": "junit5",
+          "count": 1,
+          "share": 0.07142857142857142
+        }
+      ],
+      "6": [
+        {
+          "label": "pull-request-available",
+          "count": 7,
+          "share": 1.0
+        }
+      ],
+      "3": [
+        {
+          "label": "pull-request-available",
+          "count": 11,
+          "share": 1.0
+        }
+      ],
+      "0": [
+        {
+          "label": "pull-request-available",
+          "count": 7,
+          "share": 0.875
+        },
+        {
+          "label": "newbie",
+          "count": 1,
+          "share": 0.125
+        }
+      ],
+      "1": [
+        {
+          "label": "pull-request-available",
+          "count": 9,
+          "share": 0.8181818181818182
+        },
+        {
+          "label": "flaky-test",
+          "count": 1,
+          "share": 0.09090909090909091
+        },
+        {
+          "label": "flaky",
+          "count": 1,
+          "share": 0.09090909090909091
+        }
+      ],
+      "2": [
+        {
+          "label": "pull-request-available",
+          "count": 7,
+          "share": 1.0
+        }
+      ],
+      "12": [
+        {
+          "label": "pull-request-available",
+          "count": 10,
+          "share": 1.0
+        }
+      ],
+      "11": [
+        {
+          "label": "pull-request-available",
+          "count": 8,
+          "share": 0.8888888888888888
+        },
+        {
+          "label": "Twitter",
+          "count": 1,
+          "share": 0.1111111111111111
+        }
+      ],
+      "9": [
+        {
+          "label": "pull-request-available",
+          "count": 4,
+          "share": 1.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|7950fbc3-ff9a-40ce-a6f5-dcfb4cff3c2c|>>",
+  "tickets": {
+    "count": 1205,
+    "first_created": "2004-02-19T17:49:56.000+0000",
+    "last_created": "2013-02-21T11:54:01.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.27717842323651454,
+        "count": 334,
+        "example_keys": [
+          "MOD-69",
+          "MOD-85",
+          "MOD-101"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.12033195020746888,
+        "count": 145,
+        "example_keys": [
+          "MOD-79",
+          "MOD-5",
+          "SPR-926"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.09626556016597511,
+        "count": 116,
+        "example_keys": [
+          "MOD-73",
+          "MOD-96",
+          "MOD-102"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.0946058091286307,
+        "count": 114,
+        "example_keys": [
+          "SPR-1320",
+          "MOD-68",
+          "MOD-114"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.07468879668049792,
+        "count": 90,
+        "example_keys": [
+          "MOD-86",
+          "MOD-100",
+          "OSGI-22"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.3341645885286783,
+          "count": 134,
+          "example_keys": [
+            "MOD-69",
+            "MOD-85",
+            "MOD-101"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.14713216957605985,
+          "count": 59,
+          "example_keys": [
+            "MOD-79",
+            "MOD-5",
+            "SPR-926"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.09476309226932668,
+          "count": 38,
+          "example_keys": [
+            "SPR-1320",
+            "MOD-68",
+            "MOD-114"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.36069651741293535,
+          "count": 145,
+          "example_keys": [
+            "OSGI-312",
+            "OSGI-314",
+            "OSGI-315"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13432835820895522,
+          "count": 54,
+          "example_keys": [
+            "OSGI-309",
+            "OSGI-311",
+            "SPR-4331"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.09950248756218906,
+          "count": 40,
+          "example_keys": [
+            "OSGI-319",
+            "OSGI-320",
+            "OSGI-350"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.13681592039800994,
+          "count": 55,
+          "example_keys": [
+            "OSGI-710",
+            "OSGI-713",
+            "OSGI-714"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.12935323383084577,
+          "count": 52,
+          "example_keys": [
+            "OSGI-715",
+            "OSGI-722",
+            "OSGI-730"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.10696517412935323,
+          "count": 43,
+          "example_keys": [
+            "OSGI-727",
+            "SPR-6393",
+            "SPR-6394"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5016611295681063,
+    "positive_percent": 50,
+    "steps": 1204
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "MOD-79",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-5",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-926",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-977",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "MOD-32",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATAREDIS-114",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAREDIS-115",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "SHDP-127",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "SHDP-128",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "SHDP-129",
+        "label": "Authentication Framework Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in software development since early 2004, focusing primarily on OSGi Manifest and Dependency Issues, which accounted for a significant portion of their work. In the early years, they tackled numerous tickets related to Spring IDE Tooling Enhancements, with examples like MOD-79 and MOD-5. As they progressed into the middle phase, their contributions continued to emphasize OSGi issues, while also addressing Bean Configuration Enhancements, as seen in tickets like OSGI-312 and OSGI-314. Recently, they shifted some focus towards Autowiring and Bean Configuration Issues, alongside ongoing work in OSGi, with recent tickets such as OSGI-710 and OSGI-715. Overall, 50% of their steps have aligned with the overall direction of the projects. This diverse experience highlights their adaptability and commitment to improving software quality across various themes."
+}

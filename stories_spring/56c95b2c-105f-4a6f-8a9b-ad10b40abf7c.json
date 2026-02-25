@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|56c95b2c-105f-4a6f-8a9b-ad10b40abf7c|>>",
+  "tickets": {
+    "count": 2760,
+    "first_created": "2005-06-22T01:33:12.000+0000",
+    "last_created": "2021-12-22T17:42:16.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.3398550724637681,
+        "count": 938,
+        "example_keys": [
+          "SPR-1068",
+          "SPR-1294",
+          "SPR-2309"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.286231884057971,
+        "count": 790,
+        "example_keys": [
+          "SPR-5555",
+          "SPR-6164",
+          "SPR-6709"
+        ]
+      },
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.08985507246376812,
+        "count": 248,
+        "example_keys": [
+          "SWF-360",
+          "SWF-364",
+          "SWF-425"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.06086956521739131,
+        "count": 168,
+        "example_keys": [
+          "SPR-9704",
+          "SPR-10611",
+          "SPR-10749"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.042028985507246375,
+        "count": 116,
+        "example_keys": [
+          "SWF-1308",
+          "SPR-4984",
+          "SPR-5948"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.34130434782608693,
+          "count": 314,
+          "example_keys": [
+            "SPR-1068",
+            "SPR-1294",
+            "SPR-2309"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.2358695652173913,
+          "count": 217,
+          "example_keys": [
+            "SPR-5555",
+            "SPR-6164",
+            "SPR-6709"
+          ]
+        },
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.14565217391304347,
+          "count": 134,
+          "example_keys": [
+            "SWF-360",
+            "SWF-364",
+            "SWF-425"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.30434782608695654,
+          "count": 280,
+          "example_keys": [
+            "SPR-10165",
+            "SPR-10169",
+            "SPR-10170"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.30434782608695654,
+          "count": 280,
+          "example_keys": [
+            "SPR-10167",
+            "SPR-10168",
+            "SPR-10172"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.08478260869565217,
+          "count": 78,
+          "example_keys": [
+            "SPR-10611",
+            "SPR-10749",
+            "SPR-10930"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.3739130434782609,
+          "count": 344,
+          "example_keys": [
+            "SPR-14019",
+            "SPR-14032",
+            "SPR-14036"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.3184782608695652,
+          "count": 293,
+          "example_keys": [
+            "SPR-14021",
+            "SPR-14023",
+            "SPR-14044"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.0967391304347826,
+          "count": 89,
+          "example_keys": [
+            "SPR-14077",
+            "SPR-14107",
+            "SPR-14111"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.4947444726350127,
+    "positive_percent": 49,
+    "steps": 2759
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-1068",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-1294",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-2309",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-2692",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-3028",
+        "label": "Validation and Data Binding Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SWF-1746",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1747",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1748",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1749",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1750",
+        "label": "JSF and Spring Web Flow Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active since June 2005, contributing significantly to various projects over the years. In the early phase, they focused on \"RequestMapping Enhancements\" and \"Content Negotiation Issues,\" with notable tickets like SPR-1068 and SPR-5555. As they progressed into the middle phase, their work continued to emphasize these themes, addressing tickets such as SPR-10165 and SPR-10167. Recently, they have maintained this focus, tackling more complex challenges in the same areas, including tickets like SPR-14019 and SPR-14021. Overall, 49% of their steps aligned with the overall direction, showcasing a consistent commitment to enhancing project functionality. Their contributions also touched on \"JSF and Spring Web Flow Issues,\" indicating a well-rounded skill set."
+}

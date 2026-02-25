@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|9511c5e5-5ad8-44bd-9cbd-fc8278445c97|>>",
+  "tickets": {
+    "count": 1523,
+    "first_created": "2006-07-11T17:34:48.000+0000",
+    "last_created": "2016-06-16T15:49:59.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.43204202232435984,
+        "count": 658,
+        "example_keys": [
+          "BATCH-7",
+          "BATCH-53",
+          "BATCH-73"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.1057124097176625,
+        "count": 161,
+        "example_keys": [
+          "SECOAUTH-42",
+          "SECOAUTH-56",
+          "SECOAUTH-70"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.09717662508207485,
+        "count": 148,
+        "example_keys": [
+          "SECOAUTH-9",
+          "SECOAUTH-12",
+          "SECOAUTH-28"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.05975049244911359,
+        "count": 91,
+        "example_keys": [
+          "INT-538",
+          "INT-544",
+          "INT-603"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.03742613263296126,
+        "count": 57,
+        "example_keys": [
+          "SPR-2282",
+          "SPR-2841",
+          "SPR-3155"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.7041420118343196,
+          "count": 357,
+          "example_keys": [
+            "BATCH-7",
+            "BATCH-53",
+            "BATCH-73"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.0670611439842209,
+          "count": 34,
+          "example_keys": [
+            "SPR-2282",
+            "SPR-2841",
+            "SPR-3155"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.04339250493096647,
+          "count": 22,
+          "example_keys": [
+            "BATCH-399",
+            "BATCH-460",
+            "BATCH-482"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.4409448818897638,
+          "count": 224,
+          "example_keys": [
+            "BATCH-1427",
+            "BATCH-1428",
+            "BATCH-1429"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.11811023622047244,
+          "count": 60,
+          "example_keys": [
+            "INT-877",
+            "INT-928",
+            "INT-958"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.06299212598425197,
+          "count": 32,
+          "example_keys": [
+            "SPR-6345",
+            "SPR-6357",
+            "SPR-6365"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.31496062992125984,
+          "count": 160,
+          "example_keys": [
+            "SECOAUTH-56",
+            "SECOAUTH-70",
+            "SECOAUTH-76"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.28346456692913385,
+          "count": 144,
+          "example_keys": [
+            "SECOAUTH-53",
+            "SECOAUTH-75",
+            "SECOAUTH-82"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.1515748031496063,
+          "count": 77,
+          "example_keys": [
+            "BATCH-1709",
+            "BATCH-1710",
+            "BATCHADM-107"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5131406044678055,
+    "positive_percent": 51,
+    "steps": 1522
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-2282",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "MOD-254",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-2841",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-2959",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-3155",
+        "label": "Documentation Corrections and Edits"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-1732",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1895",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "INT-4048",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "INT-4056",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "INT-4058",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has a rich work history spanning from early July 2006 to mid-June 2016, contributing to a total of 1,523 tickets. In the early phase, they primarily focused on \"Step Scope and Tasklet Issues,\" with notable tickets like BATCH-7 and BATCH-53, which made up 70% of their work. As they moved into the middle phase, they continued addressing similar issues but began incorporating \"Messaging Configuration Enhancements,\" as seen in tickets like INT-877. Recently, their focus shifted towards \"Session Authentication Issues\" and \"Authentication Framework Enhancements,\" with key tickets such as SECOAUTH-56 and SECOAUTH-53. Overall, 51% of their steps aligned with the overall direction, demonstrating a consistent commitment to improving system functionality and user experience."
+}

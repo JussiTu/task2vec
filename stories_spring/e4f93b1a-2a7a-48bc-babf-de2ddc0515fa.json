@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|e4f93b1a-2a7a-48bc-babf-de2ddc0515fa|>>",
+  "tickets": {
+    "count": 991,
+    "first_created": "2004-06-08T22:25:54.000+0000",
+    "last_created": "2012-01-26T05:53:04.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.5378405650857719,
+        "count": 533,
+        "example_keys": [
+          "RCP-79",
+          "SWF-5",
+          "SWF-3"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.1029263370332997,
+        "count": 102,
+        "example_keys": [
+          "RCP-1",
+          "RCP-4",
+          "RCP-5"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.07366296670030273,
+        "count": 73,
+        "example_keys": [
+          "RCP-8",
+          "RCP-40",
+          "SPR-661"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.04843592330978809,
+        "count": 48,
+        "example_keys": [
+          "RCP-6",
+          "RCP-50",
+          "RCP-118"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.044399596367305755,
+        "count": 44,
+        "example_keys": [
+          "SWF-69",
+          "SWF-81",
+          "SWF-97"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.696969696969697,
+          "count": 230,
+          "example_keys": [
+            "RCP-79",
+            "SWF-5",
+            "SWF-3"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.09090909090909091,
+          "count": 30,
+          "example_keys": [
+            "RCP-1",
+            "RCP-4",
+            "RCP-5"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.06363636363636363,
+          "count": 21,
+          "example_keys": [
+            "RCP-8",
+            "RCP-40",
+            "SPR-661"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.5878787878787879,
+          "count": 194,
+          "example_keys": [
+            "SWF-557",
+            "SWF-559",
+            "SWF-560"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.10909090909090909,
+          "count": 36,
+          "example_keys": [
+            "SWF-555",
+            "SWF-599",
+            "SWF-613"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.08484848484848485,
+          "count": 28,
+          "example_keys": [
+            "SWF-563",
+            "SWF-568",
+            "SWF-576"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.3293051359516616,
+          "count": 109,
+          "example_keys": [
+            "SWF-1100",
+            "SWF-1101",
+            "SWF-1102"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.11782477341389729,
+          "count": 39,
+          "example_keys": [
+            "SWF-1173",
+            "GREENHOUSE-1",
+            "GREENHOUSE-2"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.10876132930513595,
+          "count": 36,
+          "example_keys": [
+            "SWF-1132",
+            "SWF-1146",
+            "SWF-1156"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5050505050505051,
+    "positive_percent": 51,
+    "steps": 990
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "RCP-1",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-4",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-5",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-6",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "RCP-7",
+        "label": "Validation and Data Binding Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SWF-1486",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SWF-1498",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1503",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SWF-1505",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "GREENHOUSE-517",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2004, focusing primarily on JSF and Spring Web Flow issues. In the early phase of their work, they tackled a significant number of validation and data binding issues, with example tickets like RCP-1 and RCP-4. As they progressed into the middle phase, their efforts continued to center around JSF and Spring Web Flow, addressing tickets such as SWF-557 and SWF-559. Recently, they have shifted some focus towards Spring Web Flow enhancements, while still handling JSF-related tasks, as seen in tickets like SWF-1100 and SWF-1173. Overall, 51% of their steps have aligned with the overall direction of the project, demonstrating a consistent commitment to key themes throughout their tenure."
+}

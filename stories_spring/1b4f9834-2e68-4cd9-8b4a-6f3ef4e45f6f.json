@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|1b4f9834-2e68-4cd9-8b4a-6f3ef4e45f6f|>>",
+  "tickets": {
+    "count": 288,
+    "first_created": "2009-06-25T09:57:41.000+0000",
+    "last_created": "2013-09-20T14:44:26.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.53125,
+        "count": 153,
+        "example_keys": [
+          "STS-1114",
+          "STS-1121",
+          "STS-1179"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.2569444444444444,
+        "count": 74,
+        "example_keys": [
+          "STS-180",
+          "STS-476",
+          "STS-487"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "JPA and Entity Mapping Issues",
+        "share": 0.04861111111111111,
+        "count": 14,
+        "example_keys": [
+          "STS-1287",
+          "ROO-1665",
+          "STS-1493"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.041666666666666664,
+        "count": 12,
+        "example_keys": [
+          "STS-554",
+          "STS-558",
+          "STS-579"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.027777777777777776,
+        "count": 8,
+        "example_keys": [
+          "STS-578",
+          "STS-871",
+          "STS-1315"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.3958333333333333,
+          "count": 38,
+          "example_keys": [
+            "STS-180",
+            "STS-476",
+            "STS-487"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.3854166666666667,
+          "count": 37,
+          "example_keys": [
+            "STS-1114",
+            "STS-1121",
+            "STS-1179"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.09375,
+          "count": 9,
+          "example_keys": [
+            "STS-554",
+            "STS-558",
+            "STS-579"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.4895833333333333,
+          "count": 47,
+          "example_keys": [
+            "STS-1676",
+            "STS-1680",
+            "STS-1745"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.28125,
+          "count": 27,
+          "example_keys": [
+            "STS-1686",
+            "STS-1699",
+            "STS-1727"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.08333333333333333,
+          "count": 8,
+          "example_keys": [
+            "STS-1982",
+            "STS-2068",
+            "STS-2222"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.71875,
+          "count": 69,
+          "example_keys": [
+            "STS-2379",
+            "STS-2386",
+            "STS-2455"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.09375,
+          "count": 9,
+          "example_keys": [
+            "STS-2368",
+            "STS-2535",
+            "STS-2612"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.052083333333333336,
+          "count": 5,
+          "example_keys": [
+            "XD-730",
+            "XD-817",
+            "XD-818"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5400696864111498,
+    "positive_percent": 54,
+    "steps": 287
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "STS-180",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "STS-476",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "STS-487",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "STS-550",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "STS-552",
+        "label": "Spring Web Flow Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-821",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-830",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "XD-837",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "STS-3556",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "XD-881",
+        "label": "Spring XD Module Development"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2009, focusing primarily on Workspace and Class Loading Issues and Spring Web Flow Enhancements. In the early phase, they worked on tickets like STS-180 and STS-476, addressing key enhancements in Spring Web Flow. As they progressed into the middle phase, their efforts continued to revolve around these themes, with notable contributions to tickets such as STS-1676 and STS-1680.\n\nRecently, their work has heavily concentrated on Workspace and Class Loading Issues, exemplified by tickets like STS-2379 and STS-2386, indicating a strong alignment with ongoing project needs. Overall, 54% of their steps have aligned with the overall direction of the project, showcasing their commitment to enhancing the development process."
+}

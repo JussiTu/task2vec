@@ -1,0 +1,243 @@
+{
+  "assignee_id": "<<|author_key|abc2ac5f-3c2c-436a-a3f2-d87a31d4305e|>>",
+  "tickets": {
+    "count": 42,
+    "first_created": "2019-03-26T18:15:18.000+0000",
+    "last_created": "2021-09-14T14:16:07.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 8,
+        "label": "Code Cleanup and Refactoring",
+        "share": 0.5714285714285714,
+        "count": 24,
+        "example_keys": [
+          "ZOOKEEPER-3335",
+          "ZOOKEEPER-3338",
+          "ZOOKEEPER-3341"
+        ]
+      },
+      {
+        "cluster": 21,
+        "label": "Log Improvement and Cleanup",
+        "share": 0.14285714285714285,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3339",
+          "ZOOKEEPER-3348",
+          "ZOOKEEPER-3670"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Documentation Corrections and Updates",
+        "share": 0.07142857142857142,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3355",
+          "ZOOKEEPER-3357",
+          "ZOOKEEPER-3382"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Null Pointer Exception Handling",
+        "share": 0.047619047619047616,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3662",
+          "ZOOKEEPER-3988"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.047619047619047616,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3678",
+          "ZOOKEEPER-3833"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.42857142857142855,
+          "count": 6,
+          "example_keys": [
+            "ZOOKEEPER-3335",
+            "ZOOKEEPER-3338",
+            "ZOOKEEPER-3341"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.21428571428571427,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3355",
+            "ZOOKEEPER-3357",
+            "ZOOKEEPER-3382"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3339",
+            "ZOOKEEPER-3348"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.6428571428571429,
+          "count": 9,
+          "example_keys": [
+            "ZOOKEEPER-3663",
+            "ZOOKEEPER-3669",
+            "ZOOKEEPER-3671"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3670",
+            "ZOOKEEPER-3675"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3679",
+            "ZOOKEEPER-3680"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.6428571428571429,
+          "count": 9,
+          "example_keys": [
+            "ZOOKEEPER-3693",
+            "ZOOKEEPER-3694",
+            "ZOOKEEPER-3835"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3708",
+            "ZOOKEEPER-3963"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.07142857142857142,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3833"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring"
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring"
+        },
+        {
+          "cluster": 21,
+          "label": "Log Improvement and Cleanup"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5609756097560976,
+    "positive_percent": 56,
+    "steps": 41
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3335",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3338",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3339",
+        "label": "Log Improvement and Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3340",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3341",
+        "label": "Code Cleanup and Refactoring"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3840",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3963",
+        "label": "Log Improvement and Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3988",
+        "label": "Null Pointer Exception Handling"
+      },
+      {
+        "key": "ZOOKEEPER-3993",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-4379",
+        "label": "Code Cleanup and Refactoring"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since March 2019, focusing primarily on code cleanup and refactoring. In the early phase, they worked on tasks such as ZOOKEEPER-3335 and ZOOKEEPER-3338, which emphasized improving code quality. As they progressed into the middle phase, their efforts continued to center around code cleanup, with notable tickets like ZOOKEEPER-3663 and ZOOKEEPER-3671, while also addressing log improvements. Recently, they maintained this focus, tackling additional code cleanup tasks, including ZOOKEEPER-3693 and ZOOKEEPER-3835. Throughout their work, they also engaged in log improvement and cleanup, as seen in tickets like ZOOKEEPER-3708. Overall, 56% of their steps aligned with the overall direction of the project."
+}

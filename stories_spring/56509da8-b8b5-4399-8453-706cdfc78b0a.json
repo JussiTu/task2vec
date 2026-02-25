@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|56509da8-b8b5-4399-8453-706cdfc78b0a|>>",
+  "tickets": {
+    "count": 979,
+    "first_created": "2004-07-20T15:54:01.000+0000",
+    "last_created": "2013-05-21T05:14:24.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.2972420837589377,
+        "count": 291,
+        "example_keys": [
+          "SPR-230",
+          "SPR-260",
+          "SPR-468"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.22778345250255363,
+        "count": 223,
+        "example_keys": [
+          "SJC-17",
+          "SJC-25",
+          "SJC-47"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.07150153217568948,
+        "count": 70,
+        "example_keys": [
+          "SJC-41",
+          "SJC-44",
+          "SJC-48"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.06945863125638406,
+        "count": 68,
+        "example_keys": [
+          "SJC-20",
+          "SJC-27",
+          "SJC-28"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.06945863125638406,
+        "count": 68,
+        "example_keys": [
+          "SJC-39",
+          "SJC-68",
+          "SJC-146"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.3619631901840491,
+          "count": 118,
+          "example_keys": [
+            "SPR-230",
+            "SPR-260",
+            "SPR-468"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.1656441717791411,
+          "count": 54,
+          "example_keys": [
+            "SJC-17",
+            "SJC-25",
+            "SJC-47"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.12576687116564417,
+          "count": 41,
+          "example_keys": [
+            "SJC-41",
+            "SJC-44",
+            "SJC-48"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.34049079754601225,
+          "count": 111,
+          "example_keys": [
+            "SPR-6474",
+            "SPR-6795",
+            "SPR-6847"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.19938650306748465,
+          "count": 65,
+          "example_keys": [
+            "SPR-6602",
+            "SPR-6618",
+            "SPR-6673"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.08282208588957055,
+          "count": 27,
+          "example_keys": [
+            "SPR-6619",
+            "SPR-7303",
+            "SPR-7339"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.3180428134556575,
+          "count": 104,
+          "example_keys": [
+            "SPR-8551",
+            "SPR-8553",
+            "SPR-8582"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.18960244648318042,
+          "count": 62,
+          "example_keys": [
+            "SPR-8548",
+            "SPR-8685",
+            "SPR-8728"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.10703363914373089,
+          "count": 35,
+          "example_keys": [
+            "SPR-8570",
+            "SPR-8579",
+            "SPR-8591"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49795501022494887,
+    "positive_percent": 50,
+    "steps": 978
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-230",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-260",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-468",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-729",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-978",
+        "label": "Bean Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-10331",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-10344",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-10461",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-10480",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-10579",
+        "label": "Bean Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has a rich work history spanning from July 2004 to May 2013, with a total of 979 tickets created. In the early phase, they focused heavily on \"Bean Configuration Enhancements,\" contributing to tickets like SPR-230 and SPR-260, which accounted for a significant portion of their work. As they moved into the middle phase, they continued to address similar themes, with a notable emphasis on \"Autowiring and Bean Configuration Issues,\" as seen in tickets like SPR-6602 and SPR-6618. Recently, their efforts have shifted towards resolving more complex issues within the same themes, particularly with tickets such as SPR-8551 and SPR-8548. Overall, 50% of their steps aligned with the overall direction of the projects they worked on, showcasing their consistent contribution to key areas."
+}

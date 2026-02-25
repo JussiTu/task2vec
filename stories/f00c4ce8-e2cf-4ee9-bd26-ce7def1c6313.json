@@ -1,0 +1,265 @@
+{
+  "assignee_id": "<<|author_key|f00c4ce8-e2cf-4ee9-bd26-ce7def1c6313|>>",
+  "tickets": {
+    "count": 38,
+    "first_created": "2019-06-11T19:11:54.000+0000",
+    "last_created": "2021-08-05T08:46:54.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 17,
+        "label": "C Client Build and Compilation Issues",
+        "share": 0.18421052631578946,
+        "count": 7,
+        "example_keys": [
+          "ZOOKEEPER-3654",
+          "ZOOKEEPER-3719",
+          "ZOOKEEPER-3937"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.13157894736842105,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-4199",
+          "ZOOKEEPER-4200",
+          "ZOOKEEPER-4226"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Authentication and Authorization Enhancements",
+        "share": 0.07894736842105263,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3714",
+          "ZOOKEEPER-3959",
+          "ZOOKEEPER-4030"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Documentation Corrections and Updates",
+        "share": 0.07894736842105263,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3752",
+          "ZOOKEEPER-3753",
+          "ZOOKEEPER-4265"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.07894736842105263,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3790",
+          "ZOOKEEPER-4056",
+          "ZOOKEEPER-4191"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.3333333333333333,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3654",
+            "ZOOKEEPER-3719",
+            "ZOOKEEPER-3937"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.16666666666666666,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3752",
+            "ZOOKEEPER-3753"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "ZooKeeper Client Connection Issues",
+          "share": 0.08333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3426"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3959",
+            "ZOOKEEPER-4030"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-4056",
+            "ZOOKEEPER-4191"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.07692307692307693,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3954"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.3076923076923077,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-4200",
+            "ZOOKEEPER-4226",
+            "ZOOKEEPER-4274"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-4201",
+            "ZOOKEEPER-4342"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-4233",
+            "ZOOKEEPER-4343"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5405405405405406,
+    "positive_percent": 54,
+    "steps": 37
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3426",
+        "label": "ZooKeeper Client Connection Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3640",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3654",
+        "label": "C Client Build and Compilation Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3711",
+        "label": "SASL and Kerberos Authentication Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3714",
+        "label": "Authentication and Authorization Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-4285",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-4327",
+        "label": "Flaky test issues"
+      },
+      {
+        "key": "ZOOKEEPER-4337",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-4342",
+        "label": "C Client Build and Compilation Issues"
+      },
+      {
+        "key": "ZOOKEEPER-4343",
+        "label": "Jackson Databind Vulnerabilities"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2019, focusing on various themes throughout their work. In the early phase, they primarily tackled \"C Client Build and Compilation Issues,\" with notable tickets like ZOOKEEPER-3654 and ZOOKEEPER-3719. As they progressed into the middle phase, they shifted their attention to \"Authentication and Authorization Enhancements\" and \"Maven and Release Cleanup,\" addressing tickets such as ZOOKEEPER-3959 and ZOOKEEPER-4056. Recently, their efforts have concentrated on \"Flaky test issues,\" with significant contributions to tickets like ZOOKEEPER-4200 and ZOOKEEPER-4226. Overall, 54% of their steps aligned with the overall direction of the project, demonstrating a consistent commitment to addressing critical issues."
+}

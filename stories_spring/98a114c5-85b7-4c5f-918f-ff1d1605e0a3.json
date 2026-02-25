@@ -1,0 +1,264 @@
+{
+  "assignee_id": "<<|author_key|98a114c5-85b7-4c5f-918f-ff1d1605e0a3|>>",
+  "tickets": {
+    "count": 33,
+    "first_created": "2003-12-17T19:01:59.000+0000",
+    "last_created": "2007-02-27T00:27:35.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.45454545454545453,
+        "count": 15,
+        "example_keys": [
+          "SPR-144",
+          "SPR-402",
+          "SPR-492"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.12121212121212122,
+        "count": 4,
+        "example_keys": [
+          "SPR-9",
+          "SPR-528",
+          "SPR-651"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.09090909090909091,
+        "count": 3,
+        "example_keys": [
+          "SPR-302",
+          "SPR-772",
+          "SPR-3111"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.06060606060606061,
+        "count": 2,
+        "example_keys": [
+          "SPR-66",
+          "SPR-293"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.06060606060606061,
+        "count": 2,
+        "example_keys": [
+          "SPR-82",
+          "SWS-1"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SPR-66",
+            "SPR-293"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SPR-144",
+            "SPR-402"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SPR-171",
+            "SPR-355"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.5454545454545454,
+          "count": 6,
+          "example_keys": [
+            "SPR-492",
+            "SPR-685",
+            "SPR-750"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.2727272727272727,
+          "count": 3,
+          "example_keys": [
+            "SPR-528",
+            "SPR-651",
+            "SPR-751"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.09090909090909091,
+          "count": 1,
+          "example_keys": [
+            "SPR-762"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.6363636363636364,
+          "count": 7,
+          "example_keys": [
+            "SPR-1908",
+            "SPR-2600",
+            "SPR-3061"
+          ]
+        },
+        {
+          "cluster": 16,
+          "label": "Transaction Management Issues",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SPR-1356",
+            "SPR-3164"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.09090909090909091,
+          "count": 1,
+          "example_keys": [
+            "SWS-1"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 16,
+          "label": "Transaction Management Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.53125,
+    "positive_percent": 53,
+    "steps": 32
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-9",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-66",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-82",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPR-144",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-171",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-3077",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-3111",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-3139",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-3164",
+        "label": "Transaction Management Issues"
+      },
+      {
+        "key": "SPR-3209",
+        "label": "Documentation Corrections and Edits"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2003, focusing primarily on documentation and validation issues. In the early phase, they worked on RequestMapping Enhancements and Documentation Corrections, exemplified by tickets SPR-66 and SPR-144. As they progressed into the middle phase, their efforts shifted towards more extensive documentation corrections and addressing validation issues, with notable tickets like SPR-492 and SPR-528. Recently, they have continued to emphasize documentation, while also tackling Transaction Management Issues, as seen in tickets SPR-1908 and SPR-1356. Overall, 53% of their steps aligned with the overall direction of the project, showcasing a consistent commitment to improving documentation and resolving critical issues."
+}

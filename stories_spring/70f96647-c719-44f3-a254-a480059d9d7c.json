@@ -1,0 +1,268 @@
+{
+  "assignee_id": "<<|author_key|70f96647-c719-44f3-a254-a480059d9d7c|>>",
+  "tickets": {
+    "count": 64,
+    "first_created": "2006-03-22T11:02:56.000+0000",
+    "last_created": "2010-03-02T07:50:05.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.578125,
+        "count": 37,
+        "example_keys": [
+          "SWF-94",
+          "SWF-183",
+          "SWF-483"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.078125,
+        "count": 5,
+        "example_keys": [
+          "SPR-2733",
+          "SWF-644",
+          "SWF-918"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.078125,
+        "count": 5,
+        "example_keys": [
+          "SWF-921",
+          "SPR-5267",
+          "SPR-5298"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.0625,
+        "count": 4,
+        "example_keys": [
+          "SWF-93",
+          "SWF-485",
+          "SWF-521"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.046875,
+        "count": 3,
+        "example_keys": [
+          "SPR-3389",
+          "SWF-827",
+          "SWF-1289"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.6666666666666666,
+          "count": 14,
+          "example_keys": [
+            "SWF-94",
+            "SWF-183",
+            "SWF-483"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.14285714285714285,
+          "count": 3,
+          "example_keys": [
+            "SWF-93",
+            "SWF-485",
+            "SWF-521"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.047619047619047616,
+          "count": 1,
+          "example_keys": [
+            "SPR-2733"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.5714285714285714,
+          "count": 12,
+          "example_keys": [
+            "SWF-735",
+            "SWF-765",
+            "SWF-780"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.09523809523809523,
+          "count": 2,
+          "example_keys": [
+            "SWF-644",
+            "SWF-918"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.047619047619047616,
+          "count": 1,
+          "example_keys": [
+            "SWF-643"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.5,
+          "count": 11,
+          "example_keys": [
+            "SWF-926",
+            "SWF-929",
+            "SWF-930"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.18181818181818182,
+          "count": 4,
+          "example_keys": [
+            "SPR-5267",
+            "SPR-5298",
+            "SPR-5304"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.09090909090909091,
+          "count": 2,
+          "example_keys": [
+            "SWF-928",
+            "SPR-6923"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5555555555555556,
+    "positive_percent": 56,
+    "steps": 63
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SWF-93",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SWF-94",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-183",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SPR-2733",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-3389",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-5429",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-5605",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SWF-1289",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-6296",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-6923",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from early 2006 to early 2010, contributing to a total of 64 tickets. In the early phase, they primarily focused on \"JSF and Spring Web Flow Issues,\" with notable tickets like SWF-94 and SWF-183. As they moved into the middle phase, they continued to address similar issues while also tackling \"Validation and Data Binding Issues,\" exemplified by tickets SWF-644 and SWF-918. Recently, their work has shifted to include \"RequestMapping Enhancements,\" alongside ongoing efforts in JSF and Spring Web Flow, with tickets such as SPR-5267 and SWF-926. Overall, 56% of their steps aligned with the overall direction, showcasing a consistent focus on key themes throughout their tenure."
+}

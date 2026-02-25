@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|4b19ad5f-a30e-4852-a618-8e1656face7e|>>",
+  "tickets": {
+    "count": 980,
+    "first_created": "2004-02-24T19:17:46.000+0000",
+    "last_created": "2017-12-22T03:30:57.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.1346938775510204,
+        "count": 132,
+        "example_keys": [
+          "SPR-46",
+          "SPRNET-2",
+          "SPRNET-6"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.12346938775510204,
+        "count": 121,
+        "example_keys": [
+          "XD-2",
+          "XD-7",
+          "XD-10"
+        ]
+      },
+      {
+        "cluster": 4,
+        "label": "JDBC Compatibility and Performance Issues",
+        "share": 0.09693877551020408,
+        "count": 95,
+        "example_keys": [
+          "SPRNET-348",
+          "SPRNET-425",
+          "SPRNET-435"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.08877551020408163,
+        "count": 87,
+        "example_keys": [
+          "SPRNET-8",
+          "SPRNET-20",
+          "SPRNET-32"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Transaction Management Issues",
+        "share": 0.0663265306122449,
+        "count": 65,
+        "example_keys": [
+          "SPRNET-346",
+          "SPRNET-416",
+          "SPRNET-436"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.21779141104294478,
+          "count": 71,
+          "example_keys": [
+            "SPR-46",
+            "SPRNET-2",
+            "SPRNET-6"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.12883435582822086,
+          "count": 42,
+          "example_keys": [
+            "SPRNET-348",
+            "SPRNET-425",
+            "SPRNET-435"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.12269938650306748,
+          "count": 40,
+          "example_keys": [
+            "SPRNET-8",
+            "SPRNET-20",
+            "SPRNET-32"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.14984709480122324,
+          "count": 49,
+          "example_keys": [
+            "SPRNET-775",
+            "SPRNET-777",
+            "SPRNET-781"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.14067278287461774,
+          "count": 46,
+          "example_keys": [
+            "SPRNET-791",
+            "SPRNET-793",
+            "SPRNET-796"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.12232415902140673,
+          "count": 40,
+          "example_keys": [
+            "SPRNET-780",
+            "SPRNET-798",
+            "SPRNET-806"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.37003058103975534,
+          "count": 121,
+          "example_keys": [
+            "XD-2",
+            "XD-7",
+            "XD-10"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.1162079510703364,
+          "count": 38,
+          "example_keys": [
+            "DATAMONGO-2",
+            "DATAMONGO-4",
+            "DATAMONGO-5"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.0856269113149847,
+          "count": 28,
+          "example_keys": [
+            "AMQP-7",
+            "SGFNET-3",
+            "DATARIAK-3"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.48008171603677224,
+    "positive_percent": 48,
+    "steps": 979
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-46",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-1",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-2",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-4",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPRNET-6",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3627",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3632",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "XD-3635",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3645",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "DATAHB-4",
+        "label": "RedisTemplate and Jedis Improvements"
+      }
+    ]
+  },
+  "narrative": "The assignee has a rich work history spanning from early 2004 to late 2017, contributing significantly to various projects. In the early phase, they focused on \"Spring IDE Tooling Enhancements,\" with notable contributions like SPR-46 and SPRNET-2, while also addressing \"JDBC Compatibility and Performance Issues\" (e.g., SPRNET-348). During the middle phase, they continued to enhance Spring IDE tools and tackled documentation corrections, exemplified by tickets like SPRNET-780. Recently, their efforts shifted towards \"Spring XD Module Development,\" where they worked on key tickets such as XD-2 and XD-7, alongside \"MongoDB Feature Enhancements.\" Overall, 48% of their steps aligned with the overall direction, showcasing their adaptability and commitment to evolving project needs."
+}

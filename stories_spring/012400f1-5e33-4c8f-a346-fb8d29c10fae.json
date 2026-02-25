@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|012400f1-5e33-4c8f-a346-fb8d29c10fae|>>",
+  "tickets": {
+    "count": 884,
+    "first_created": "2012-04-19T08:05:42.000+0000",
+    "last_created": "2021-09-23T07:44:35.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.15723981900452488,
+        "count": 139,
+        "example_keys": [
+          "SGF-229",
+          "SGF-264",
+          "SGF-267"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.1244343891402715,
+        "count": 110,
+        "example_keys": [
+          "SGF-215",
+          "SGF-256",
+          "SGF-265"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.1074660633484163,
+        "count": 95,
+        "example_keys": [
+          "SGF-106",
+          "SGF-208",
+          "SGF-209"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.10633484162895927,
+        "count": 94,
+        "example_keys": [
+          "SGF-88",
+          "SGF-110",
+          "SGF-126"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.10180995475113122,
+        "count": 90,
+        "example_keys": [
+          "SGF-187",
+          "SGF-204",
+          "SGF-223"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.11904761904761904,
+          "count": 35,
+          "example_keys": [
+            "SGF-88",
+            "SGF-110",
+            "SGF-126"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.1054421768707483,
+          "count": 31,
+          "example_keys": [
+            "SGF-106",
+            "SGF-208",
+            "SGF-209"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.1054421768707483,
+          "count": 31,
+          "example_keys": [
+            "SGF-194",
+            "SGF-195",
+            "SGF-200"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.18983050847457628,
+          "count": 56,
+          "example_keys": [
+            "SGF-538",
+            "SGF-539",
+            "SGF-552"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.16271186440677965,
+          "count": 48,
+          "example_keys": [
+            "SGF-511",
+            "SGF-512",
+            "SGF-513"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.12542372881355932,
+          "count": 37,
+          "example_keys": [
+            "SGF-525",
+            "SGF-533",
+            "SGF-566"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.1864406779661017,
+          "count": 55,
+          "example_keys": [
+            "DATAGEODE-122",
+            "SGF-761",
+            "DATAGEODE-132"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.16271186440677965,
+          "count": 48,
+          "example_keys": [
+            "SGF-766",
+            "SGF-783",
+            "DATAGEODE-143"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.10847457627118644,
+          "count": 32,
+          "example_keys": [
+            "DATAGEODE-124",
+            "DATAGEODE-129",
+            "DATAGEODE-142"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5300113250283126,
+    "positive_percent": 53,
+    "steps": 883
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SGF-88",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SGF-106",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "SGF-110",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SGF-126",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SGF-132",
+        "label": "RedisTemplate and Jedis Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SGF-926",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "SGF-927",
+        "label": "MongoDB Mapping Issues"
+      },
+      {
+        "key": "SGF-928",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "SGF-929",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "SGF-930",
+        "label": "RequestMapping Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since April 2012, with a total of 884 tickets created by September 2021. In the early phase, they focused on \"Spring IDE Tooling Enhancements\" and \"QueryDSL and Projections Support,\" exemplified by tickets like SGF-88 and SGF-106. As they progressed into the middle phase, their work shifted towards \"Spring Data Commons Deprecation Updates,\" with notable contributions such as SGF-538 and SGF-525. Recently, they continued to emphasize deprecation updates and began addressing \"Spring Dependency Upgrades,\" as seen in tickets like SGF-766 and DATAGEODE-143. Overall, 53% of their steps aligned with the overall direction, showcasing a consistent commitment to enhancing the Spring framework."
+}

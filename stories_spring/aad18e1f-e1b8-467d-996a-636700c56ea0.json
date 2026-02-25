@@ -1,0 +1,246 @@
+{
+  "assignee_id": "<<|author_key|aad18e1f-e1b8-467d-996a-636700c56ea0|>>",
+  "tickets": {
+    "count": 137,
+    "first_created": "2006-03-22T10:59:08.000+0000",
+    "last_created": "2013-09-20T07:29:27.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 14,
+        "label": "RedisTemplate and Jedis Improvements",
+        "share": 0.708029197080292,
+        "count": 97,
+        "example_keys": [
+          "DATAREDIS-54",
+          "DATAREDIS-37",
+          "DATAREDIS-99"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.15328467153284672,
+        "count": 21,
+        "example_keys": [
+          "XD-107",
+          "XD-124",
+          "XD-130"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.043795620437956206,
+        "count": 6,
+        "example_keys": [
+          "DATAREDIS-187",
+          "DATAREDIS-196",
+          "DATAREDIS-204"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.021897810218978103,
+        "count": 3,
+        "example_keys": [
+          "DATAREDIS-165",
+          "DATAREDIS-233",
+          "XD-810"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.021897810218978103,
+        "count": 3,
+        "example_keys": [
+          "XD-644",
+          "XD-716",
+          "XD-877"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements",
+          "share": 0.9555555555555556,
+          "count": 43,
+          "example_keys": [
+            "DATAREDIS-54",
+            "DATAREDIS-37",
+            "DATAREDIS-99"
+          ]
+        },
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.022222222222222223,
+          "count": 1,
+          "example_keys": [
+            "SWF-90"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.022222222222222223,
+          "count": 1,
+          "example_keys": [
+            "SWF-171"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements",
+          "share": 0.5434782608695652,
+          "count": 25,
+          "example_keys": [
+            "DATAREDIS-164",
+            "DATAREDIS-167",
+            "DATAREDIS-168"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.30434782608695654,
+          "count": 14,
+          "example_keys": [
+            "XD-107",
+            "XD-124",
+            "XD-130"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.043478260869565216,
+          "count": 2,
+          "example_keys": [
+            "DATAREDIS-187",
+            "DATAREDIS-196"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements",
+          "share": 0.6304347826086957,
+          "count": 29,
+          "example_keys": [
+            "DATAREDIS-200",
+            "DATAREDIS-201",
+            "DATAREDIS-202"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.15217391304347827,
+          "count": 7,
+          "example_keys": [
+            "XD-539",
+            "XD-649",
+            "XD-656"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.08695652173913043,
+          "count": 4,
+          "example_keys": [
+            "DATAREDIS-204",
+            "XD-715",
+            "XD-793"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements"
+        },
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5073529411764706,
+    "positive_percent": 51,
+    "steps": 136
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SWF-90",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-171",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "DATAREDIS-54",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAREDIS-37",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAREDIS-99",
+        "label": "RedisTemplate and Jedis Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-832",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-854",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-858",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "DATAREDIS-239",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "XD-877",
+        "label": "Acceptance Test Failures"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2006, focusing primarily on improvements related to RedisTemplate and Jedis. In the early phase, they worked on 43 tickets, including notable examples like DATAREDIS-54 and DATAREDIS-37. As they progressed into the middle phase, their work shifted to include Spring XD Module Development, while still addressing RedisTemplate improvements, with tickets such as XD-107 and DATAREDIS-164. Recently, they continued to enhance RedisTemplate, contributing to 29 tickets, including DATAREDIS-200 and DATAREDIS-201, while also tackling Spring Dependency Upgrades. Overall, 51% of their steps aligned with the overall direction. This consistent focus on RedisTemplate and related technologies has defined their work history."
+}

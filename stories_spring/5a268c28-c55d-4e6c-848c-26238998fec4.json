@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|5a268c28-c55d-4e6c-848c-26238998fec4|>>",
+  "tickets": {
+    "count": 1307,
+    "first_created": "2008-01-30T04:03:59.000+0000",
+    "last_created": "2019-01-14T19:32:56.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.3190512624330528,
+        "count": 417,
+        "example_keys": [
+          "INT-89",
+          "INT-230",
+          "INT-267"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.2433052792654935,
+        "count": 318,
+        "example_keys": [
+          "INT-299",
+          "INT-552",
+          "INT-639"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.05508798775822494,
+        "count": 72,
+        "example_keys": [
+          "INT-585",
+          "INT-754",
+          "INT-1345"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.051262433052792655,
+        "count": 67,
+        "example_keys": [
+          "INT-448",
+          "INT-881",
+          "INT-1198"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.04896710022953328,
+        "count": 64,
+        "example_keys": [
+          "INT-2165",
+          "INT-2288",
+          "INT-2533"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.38850574712643676,
+          "count": 169,
+          "example_keys": [
+            "INT-89",
+            "INT-230",
+            "INT-267"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.15402298850574714,
+          "count": 67,
+          "example_keys": [
+            "INT-299",
+            "INT-552",
+            "INT-639"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.07586206896551724,
+          "count": 33,
+          "example_keys": [
+            "INT-448",
+            "INT-881",
+            "INT-1198"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.30504587155963303,
+          "count": 133,
+          "example_keys": [
+            "INT-3286",
+            "INTEXT-96",
+            "INT-3293"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.24770642201834864,
+          "count": 108,
+          "example_keys": [
+            "AMQP-369",
+            "INT-3285",
+            "INT-3296"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.06192660550458716,
+          "count": 27,
+          "example_keys": [
+            "INT-3282",
+            "INT-3317",
+            "INT-3321"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.32798165137614677,
+          "count": 143,
+          "example_keys": [
+            "AMQP-582",
+            "AMQP-587",
+            "AMQP-594"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.26376146788990823,
+          "count": 115,
+          "example_keys": [
+            "INT-3961",
+            "INT-3963",
+            "INT-3972"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.07110091743119266,
+          "count": 31,
+          "example_keys": [
+            "INT-3959",
+            "INT-3966",
+            "INT-3976"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49770290964777947,
+    "positive_percent": 50,
+    "steps": 1306
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-89",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-230",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-267",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-275",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-299",
+        "label": "JMS Message Listener Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "INT-4569",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "INT-4570",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "INT-4572",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-4573",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-4574",
+        "label": "JDBC Compatibility and Performance Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2008, with a focus on enhancing messaging configurations and addressing JMS message listener issues. In the early phase, they worked on 169 tickets related to Messaging Configuration Enhancements, such as INT-89 and INT-230. As they progressed into the middle phase, they continued to tackle similar themes, completing 133 tickets, including INT-3286 and INT-3293. Recently, their efforts have shifted towards resolving JMS Message Listener Issues, with 143 tickets like AMQP-582 and AMQP-587. Overall, 50% of their steps have aligned with the overall direction of the project. This consistent focus on messaging enhancements and issue resolution demonstrates their commitment to improving system performance and reliability."
+}

@@ -1,0 +1,267 @@
+{
+  "assignee_id": "<<|author_key|eb66a156-cd78-4b87-95ed-6727e51327e2|>>",
+  "tickets": {
+    "count": 44,
+    "first_created": "2005-06-22T19:54:54.000+0000",
+    "last_created": "2006-05-10T08:59:05.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.2727272727272727,
+        "count": 12,
+        "example_keys": [
+          "RCP-128",
+          "RCP-159",
+          "RCP-176"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.2727272727272727,
+        "count": 12,
+        "example_keys": [
+          "RCP-157",
+          "RCP-178",
+          "RCP-181"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.11363636363636363,
+        "count": 5,
+        "example_keys": [
+          "RCP-171",
+          "RCP-191",
+          "RCP-206"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "JPA and Entity Mapping Issues",
+        "share": 0.06818181818181818,
+        "count": 3,
+        "example_keys": [
+          "RCP-195",
+          "RCP-207",
+          "RCP-268"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.045454545454545456,
+        "count": 2,
+        "example_keys": [
+          "RCP-154",
+          "RCP-196"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.5,
+          "count": 7,
+          "example_keys": [
+            "RCP-128",
+            "RCP-159",
+            "RCP-176"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.2857142857142857,
+          "count": 4,
+          "example_keys": [
+            "RCP-157",
+            "RCP-178",
+            "RCP-181"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.07142857142857142,
+          "count": 1,
+          "example_keys": [
+            "RCP-154"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.26666666666666666,
+          "count": 4,
+          "example_keys": [
+            "RCP-193",
+            "RCP-199",
+            "RCP-228"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "RCP-191",
+            "RCP-206"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "RCP-195",
+            "RCP-207"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.4,
+          "count": 6,
+          "example_keys": [
+            "RCP-254",
+            "RCP-265",
+            "RCP-281"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "RCP-239",
+            "RCP-326"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "RCP-289",
+            "RCP-314"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5348837209302325,
+    "positive_percent": 53,
+    "steps": 43
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "RCP-128",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "RCP-154",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "RCP-157",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-159",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "RCP-167",
+        "label": "Bean Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "RCP-314",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "RCP-326",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "RCP-333",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-338",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-341",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2005, focusing on various themes throughout their work. In the early phase, they primarily worked on \"Spring Web Flow Enhancements\" and \"Validation and Data Binding Issues,\" with notable tickets like RCP-128 and RCP-157. As they moved into the middle phase, they continued to enhance Spring Web Flow while also beginning to address \"Spring IDE Tooling Enhancements,\" as seen in tickets RCP-191 and RCP-206. Recently, their focus shifted towards resolving \"Validation and Data Binding Issues\" and tackling \"Spring Dependency Upgrades,\" with examples including RCP-254 and RCP-239. Overall, 53% of their steps aligned with the overall direction of the project. This diverse experience showcases their adaptability and commitment to improving the development process."
+}

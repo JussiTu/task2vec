@@ -1,0 +1,273 @@
+{
+  "assignee_id": "<<|author_key|aeddba50-e7c8-4b70-817b-7811dba659b1|>>",
+  "tickets": {
+    "count": 66,
+    "first_created": "2005-02-16T07:23:16.000+0000",
+    "last_created": "2010-03-30T22:59:44.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.22727272727272727,
+        "count": 15,
+        "example_keys": [
+          "RCP-284",
+          "RCP-288",
+          "RCP-290"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.21212121212121213,
+        "count": 14,
+        "example_keys": [
+          "RCP-297",
+          "RCP-301",
+          "RCP-330"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.18181818181818182,
+        "count": 12,
+        "example_keys": [
+          "RCP-287",
+          "RCP-291",
+          "RCP-294"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.07575757575757576,
+        "count": 5,
+        "example_keys": [
+          "RCP-198",
+          "RCP-204",
+          "RCP-286"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.06060606060606061,
+        "count": 4,
+        "example_keys": [
+          "RCP-285",
+          "RCP-304",
+          "RCP-378"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.2727272727272727,
+          "count": 6,
+          "example_keys": [
+            "RCP-284",
+            "RCP-288",
+            "RCP-290"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.2727272727272727,
+          "count": 6,
+          "example_keys": [
+            "RCP-287",
+            "RCP-291",
+            "RCP-294"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13636363636363635,
+          "count": 3,
+          "example_keys": [
+            "RCP-198",
+            "RCP-204",
+            "RCP-286"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.2727272727272727,
+          "count": 6,
+          "example_keys": [
+            "RCP-352",
+            "RCP-355",
+            "RCP-358"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.22727272727272727,
+          "count": 5,
+          "example_keys": [
+            "RCP-330",
+            "RCP-332",
+            "RCP-360"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.18181818181818182,
+          "count": 4,
+          "example_keys": [
+            "RCP-337",
+            "RCP-350",
+            "RCP-397"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.3181818181818182,
+          "count": 7,
+          "example_keys": [
+            "RCP-454",
+            "RCP-591",
+            "RCP-604"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.13636363636363635,
+          "count": 3,
+          "example_keys": [
+            "RCP-443",
+            "RCP-444",
+            "RCP-466"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.09090909090909091,
+          "count": 2,
+          "example_keys": [
+            "RCP-430",
+            "RCP-631"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5230769230769231,
+    "positive_percent": 52,
+    "steps": 65
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "RCP-99",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "RCP-198",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "RCP-204",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "RCP-284",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "RCP-285",
+        "label": "Spring Web Flow Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "RCP-606",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "RCP-608",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "RCP-616",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "RCP-617",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "RCP-631",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from early 2005 to late March 2010, contributing to a total of 66 tickets. In the early phase, they focused on \"OSGi Manifest and Dependency Issues\" and \"Documentation and Build Improvements,\" with notable tickets like RCP-284 and RCP-287. As they moved into the middle phase, they continued addressing OSGi issues while also tackling \"Acceptance Test Failures,\" exemplified by tickets such as RCP-330. Recently, their work has shifted predominantly towards \"Acceptance Test Failures,\" with a significant number of tickets like RCP-454 and RCP-591. Overall, 52% of their steps aligned with the overall direction, reflecting a consistent focus on improving software quality and documentation."
+}

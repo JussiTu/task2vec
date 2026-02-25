@@ -1,0 +1,270 @@
+{
+  "assignee_id": "<<|author_key|49a2b48f-1660-4356-aa3c-870a2289d6e0|>>",
+  "tickets": {
+    "count": 42,
+    "first_created": "2009-11-25T01:12:26.000+0000",
+    "last_created": "2015-08-20T22:42:35.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.2619047619047619,
+        "count": 11,
+        "example_keys": [
+          "SESURF-49",
+          "SESURF-71",
+          "SESURF-72"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.16666666666666666,
+        "count": 7,
+        "example_keys": [
+          "SESURF-42",
+          "SESURF-43",
+          "SESURF-65"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.11904761904761904,
+        "count": 5,
+        "example_keys": [
+          "SESURF-12",
+          "SESURF-20",
+          "SESURF-67"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.09523809523809523,
+        "count": 4,
+        "example_keys": [
+          "SESURF-66",
+          "SESURF-90",
+          "SESURF-92"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.07142857142857142,
+        "count": 3,
+        "example_keys": [
+          "SESURF-104",
+          "SESURF-110",
+          "SESURF-114"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2857142857142857,
+          "count": 4,
+          "example_keys": [
+            "SESURF-12",
+            "SESURF-20",
+            "SESURF-67"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.21428571428571427,
+          "count": 3,
+          "example_keys": [
+            "SESURF-42",
+            "SESURF-43",
+            "SESURF-65"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.21428571428571427,
+          "count": 3,
+          "example_keys": [
+            "SESURF-49",
+            "SESURF-71",
+            "SESURF-72"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.42857142857142855,
+          "count": 6,
+          "example_keys": [
+            "SESURF-75",
+            "SESURF-76",
+            "SESURF-82"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "SESURF-90",
+            "SESURF-92"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.07142857142857142,
+          "count": 1,
+          "example_keys": [
+            "SESURF-73"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.21428571428571427,
+          "count": 3,
+          "example_keys": [
+            "SESURF-98",
+            "SESURF-103",
+            "SESURF-113"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.21428571428571427,
+          "count": 3,
+          "example_keys": [
+            "SESURF-104",
+            "SESURF-110",
+            "SESURF-114"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "SESURF-99",
+            "SESURF-106"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5853658536585366,
+    "positive_percent": 59,
+    "steps": 41
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SESURF-11",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "SESURF-12",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESURF-20",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESURF-33",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "SESURF-42",
+        "label": "Content Negotiation Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SESURF-108",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESURF-110",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SESURF-111",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SESURF-113",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SESURF-114",
+        "label": "Authentication Framework Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since late 2009, with a total of 42 tickets created by August 2015. In the early phase, they focused on \"Spring IDE Tooling Enhancements\" and \"Content Negotiation Issues,\" exemplified by tickets like SESURF-12 and SESURF-42. As they moved into the middle phase, their work shifted towards \"OSGi Manifest and Dependency Issues,\" handling tickets such as SESURF-75 and SESURF-90. Recently, they have returned to addressing \"Content Negotiation Issues\" and \"Authentication Framework Enhancements,\" with notable tickets including SESURF-98 and SESURF-110. Overall, 59% of their steps aligned with the overall direction, showcasing a strong commitment to evolving project needs."
+}

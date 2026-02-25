@@ -1,0 +1,226 @@
+{
+  "assignee_id": "<<|author_key|11e66f65-56ca-4046-8e3e-bc39ef0dc0bc|>>",
+  "tickets": {
+    "count": 90,
+    "first_created": "2004-10-11T02:27:42.000+0000",
+    "last_created": "2007-06-21T05:44:46.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.4777777777777778,
+        "count": 43,
+        "example_keys": [
+          "SPRNET-5",
+          "SPRNET-15",
+          "SPRNET-16"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.18888888888888888,
+        "count": 17,
+        "example_keys": [
+          "SPRNET-26",
+          "SPRNET-27",
+          "SPRNET-148"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.07777777777777778,
+        "count": 7,
+        "example_keys": [
+          "SPRNET-140",
+          "SPRNET-175",
+          "SPRNET-189"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.06666666666666667,
+        "count": 6,
+        "example_keys": [
+          "SPRNET-195",
+          "SPRNET-196",
+          "SPRNET-206"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.05555555555555555,
+        "count": 5,
+        "example_keys": [
+          "SPRNET-121",
+          "SPRNET-146",
+          "SPRNET-169"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.4666666666666667,
+          "count": 14,
+          "example_keys": [
+            "SPRNET-5",
+            "SPRNET-15",
+            "SPRNET-16"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.1,
+          "count": 3,
+          "example_keys": [
+            "SPRNET-26",
+            "SPRNET-27",
+            "SPRNET-148"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.1,
+          "count": 3,
+          "example_keys": [
+            "SPRNET-121",
+            "SPRNET-146",
+            "SPRNET-169"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.5666666666666667,
+          "count": 17,
+          "example_keys": [
+            "SPRNET-216",
+            "SPRNET-267",
+            "SPRNET-269"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.2,
+          "count": 6,
+          "example_keys": [
+            "SPRNET-247",
+            "SPRNET-294",
+            "SPRNET-328"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.1,
+          "count": 3,
+          "example_keys": [
+            "SPRNET-215",
+            "SPRNET-275",
+            "SPRNET-304"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.4,
+          "count": 12,
+          "example_keys": [
+            "SPRNET-378",
+            "SPRNET-390",
+            "SPRNET-397"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.26666666666666666,
+          "count": 8,
+          "example_keys": [
+            "SPRNET-355",
+            "SPRNET-385",
+            "SPRNET-451"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.06666666666666667,
+          "count": 2,
+          "example_keys": [
+            "SPRNET-359",
+            "SPRNET-360"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.47191011235955055,
+    "positive_percent": 47,
+    "steps": 89
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPRNET-5",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-15",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-16",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-22",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-23",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPRNET-503",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-530",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPRNET-553",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-564",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "SPRNET-602",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since October 2004, focusing primarily on Spring IDE Tooling Enhancements. In the early phase, they worked on tickets like SPRNET-5 and SPRNET-15, contributing to 47% of their total work in this area. During the middle phase, they continued to enhance tooling with tickets such as SPRNET-216 and SPRNET-267, which further solidified their expertise. Recently, they tackled additional enhancements, including SPRNET-378 and SPRNET-390, while also addressing Validation and Data Binding Issues with tickets like SPRNET-355. Overall, 47% of their steps aligned with the overall direction, showcasing a consistent focus on improving Spring IDE tools and related functionalities."
+}

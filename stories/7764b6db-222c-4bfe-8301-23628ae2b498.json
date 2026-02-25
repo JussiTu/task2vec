@@ -1,0 +1,198 @@
+{
+  "assignee_id": "<<|author_key|7764b6db-222c-4bfe-8301-23628ae2b498|>>",
+  "tickets": {
+    "count": 15,
+    "first_created": "2020-02-18T15:41:34.000+0000",
+    "last_created": "2020-10-06T20:02:29.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 10,
+        "label": "jUnit Upgrade Tasks",
+        "share": 0.8,
+        "count": 12,
+        "example_keys": [
+          "ZOOKEEPER-3732",
+          "ZOOKEEPER-3850",
+          "ZOOKEEPER-3851"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "Code Cleanup and Refactoring",
+        "share": 0.13333333333333333,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3952",
+          "ZOOKEEPER-3956"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.06666666666666667,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3857"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 1.0,
+          "count": 5,
+          "example_keys": [
+            "ZOOKEEPER-3732",
+            "ZOOKEEPER-3850",
+            "ZOOKEEPER-3851"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.8,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3854",
+            "ZOOKEEPER-3855",
+            "ZOOKEEPER-3862"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3857"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.6,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3941",
+            "ZOOKEEPER-3953",
+            "ZOOKEEPER-3958"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring",
+          "share": 0.4,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3952",
+            "ZOOKEEPER-3956"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 8,
+          "label": "Code Cleanup and Refactoring"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.6428571428571429,
+    "positive_percent": 64,
+    "steps": 14
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3732",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3850",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3851",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3852",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3853",
+        "label": "jUnit Upgrade Tasks"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3941",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3952",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3953",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-3956",
+        "label": "Code Cleanup and Refactoring"
+      },
+      {
+        "key": "ZOOKEEPER-3958",
+        "label": "jUnit Upgrade Tasks"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various tasks from early 2020 to late 2020. In the early phase, they focused primarily on jUnit Upgrade Tasks, completing five significant tickets, including ZOOKEEPER-3732 and ZOOKEEPER-3850. As they moved into the middle phase, they continued with jUnit tasks while also beginning to address Maven and Release Cleanup, demonstrating a shift in focus. Recently, they maintained their commitment to jUnit tasks while also engaging in Code Cleanup and Refactoring, with notable tickets like ZOOKEEPER-3952 and ZOOKEEPER-3941. Overall, 64% of their steps aligned with the overall direction of the project. This assignee's work reflects a strong dedication to improving code quality and maintaining project standards."
+}

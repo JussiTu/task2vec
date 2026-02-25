@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|5a02118a-1e87-477d-bab6-4e96783ff8e2|>>",
+  "tickets": {
+    "count": 291,
+    "first_created": "2005-10-16T00:14:25.000+0000",
+    "last_created": "2010-10-01T11:17:37.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.2508591065292096,
+        "count": 73,
+        "example_keys": [
+          "SPRNET-373",
+          "SPRNET-407",
+          "SPRNET-420"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.21649484536082475,
+        "count": 63,
+        "example_keys": [
+          "SPRNET-260",
+          "SPRNET-318",
+          "SPRNET-334"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.2027491408934708,
+        "count": 59,
+        "example_keys": [
+          "SPRNET-219",
+          "SPRNET-344",
+          "SPRNET-406"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.08934707903780069,
+        "count": 26,
+        "example_keys": [
+          "SPRNET-461",
+          "SPRNET-463",
+          "SPRNET-626"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.061855670103092786,
+        "count": 18,
+        "example_keys": [
+          "SPRNET-329",
+          "SPRNET-333",
+          "SPRNET-336"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.25773195876288657,
+          "count": 25,
+          "example_keys": [
+            "SPRNET-260",
+            "SPRNET-318",
+            "SPRNET-334"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.21649484536082475,
+          "count": 21,
+          "example_keys": [
+            "SPRNET-219",
+            "SPRNET-344",
+            "SPRNET-406"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.21649484536082475,
+          "count": 21,
+          "example_keys": [
+            "SPRNET-373",
+            "SPRNET-407",
+            "SPRNET-420"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.30927835051546393,
+          "count": 30,
+          "example_keys": [
+            "SPRNET-686",
+            "SPRNET-687",
+            "SPRNET-696"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2268041237113402,
+          "count": 22,
+          "example_keys": [
+            "SPRNET-702",
+            "SPRNET-703",
+            "SPRNET-707"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.1134020618556701,
+          "count": 11,
+          "example_keys": [
+            "SPRNET-698",
+            "SPRNET-845",
+            "SPRNET-846"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.27835051546391754,
+          "count": 27,
+          "example_keys": [
+            "SPRNET-1044",
+            "SPRNET-1047",
+            "SPRNET-1059"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.2268041237113402,
+          "count": 22,
+          "example_keys": [
+            "SPRNET-1023",
+            "SPRNET-1032",
+            "SPRNET-1034"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.16494845360824742,
+          "count": 16,
+          "example_keys": [
+            "SPRNET-1033",
+            "SPRNET-1036",
+            "SPRNET-1037"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5206896551724138,
+    "positive_percent": 52,
+    "steps": 290
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPRNET-219",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPRNET-260",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-274",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPRNET-318",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-329",
+        "label": "Content Negotiation Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPRNET-1272",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-1276",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPRNET-1305",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-1331",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPRNET-1379",
+        "label": "OSGi Manifest and Dependency Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from October 2005 to October 2010, contributing to a total of 291 tickets. In the early phase, they focused on \"Autowiring and Bean Configuration Issues\" and \"Spring IDE Tooling Enhancements,\" with example tickets like SPRNET-260 and SPRNET-219. As they moved into the middle phase, their attention shifted towards \"Validation and Data Binding Issues,\" exemplified by tickets such as SPRNET-686 and SPRNET-687. Recently, they returned to \"Autowiring and Bean Configuration Issues,\" while still addressing \"Validation and Data Binding Issues,\" with recent tickets like SPRNET-1044 and SPRNET-1023. Overall, 52% of their steps aligned with the overall direction, showcasing a consistent engagement with key themes throughout their work history."
+}

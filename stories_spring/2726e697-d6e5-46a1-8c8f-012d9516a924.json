@@ -1,0 +1,273 @@
+{
+  "assignee_id": "<<|author_key|2726e697-d6e5-46a1-8c8f-012d9516a924|>>",
+  "tickets": {
+    "count": 77,
+    "first_created": "2013-12-30T15:00:08.000+0000",
+    "last_created": "2016-08-26T07:27:34.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.44155844155844154,
+        "count": 34,
+        "example_keys": [
+          "DATACOUCH-59",
+          "DATACOUCH-91",
+          "DATACOUCH-134"
+        ]
+      },
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.14285714285714285,
+        "count": 11,
+        "example_keys": [
+          "DATACOUCH-98",
+          "DATACOUCH-111",
+          "DATACOUCH-115"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.07792207792207792,
+        "count": 6,
+        "example_keys": [
+          "DATACOUCH-135",
+          "DATACOUCH-152",
+          "DATACOUCH-164"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.06493506493506493,
+        "count": 5,
+        "example_keys": [
+          "DATACOUCH-77",
+          "DATACOUCH-142",
+          "DATACOUCH-170"
+        ]
+      },
+      {
+        "cluster": 30,
+        "label": "MongoDB Feature Enhancements",
+        "share": 0.06493506493506493,
+        "count": 5,
+        "example_keys": [
+          "DATACOUCH-144",
+          "DATACOUCH-158",
+          "DATACOUCH-168"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.56,
+          "count": 14,
+          "example_keys": [
+            "DATACOUCH-59",
+            "DATACOUCH-91",
+            "DATACOUCH-134"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.2,
+          "count": 5,
+          "example_keys": [
+            "DATACOUCH-98",
+            "DATACOUCH-111",
+            "DATACOUCH-115"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.08,
+          "count": 2,
+          "example_keys": [
+            "DATACOUCH-77",
+            "DATACOUCH-142"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.46153846153846156,
+          "count": 12,
+          "example_keys": [
+            "DATACOUCH-161",
+            "DATACOUCH-165",
+            "DATACOUCH-166"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.11538461538461539,
+          "count": 3,
+          "example_keys": [
+            "DATACOUCH-164",
+            "DATACOUCH-177",
+            "DATACOUCH-188"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.11538461538461539,
+          "count": 3,
+          "example_keys": [
+            "DATACOUCH-170",
+            "DATACOUCH-178",
+            "DATACOUCH-190"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.3076923076923077,
+          "count": 8,
+          "example_keys": [
+            "DATACOUCH-200",
+            "DATACOUCH-208",
+            "DATACOUCH-209"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.19230769230769232,
+          "count": 5,
+          "example_keys": [
+            "DATACOUCH-214",
+            "DATACOUCH-225",
+            "DATACOUCH-227"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.15384615384615385,
+          "count": 4,
+          "example_keys": [
+            "DATACOUCH-203",
+            "DATACOUCH-211",
+            "DATACOUCH-212"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5394736842105263,
+    "positive_percent": 54,
+    "steps": 76
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATACOUCH-59",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-77",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "DATACOUCH-91",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-98",
+        "label": "MongoDB Mapping Issues"
+      },
+      {
+        "key": "DATACOUCH-111",
+        "label": "MongoDB Mapping Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATACOUCH-239",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-240",
+        "label": "MongoDB Mapping Issues"
+      },
+      {
+        "key": "DATACOUCH-241",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-242",
+        "label": "MongoDB Mapping Issues"
+      },
+      {
+        "key": "DATACOUCH-243",
+        "label": "RedisTemplate and Jedis Improvements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2013, focusing primarily on QueryDSL and Projections Support, which has been a consistent theme throughout their work. In the early phase, they tackled numerous tickets, such as DATACOUCH-59 and DATACOUCH-91, emphasizing support for QueryDSL and addressing MongoDB Mapping Issues. As they progressed into the middle phase, their focus shifted slightly to include Spring Dependency Upgrades, with notable tickets like DATACOUCH-164 and DATACOUCH-177. Recently, they returned to MongoDB Mapping Issues while continuing to support QueryDSL, as seen in tickets like DATACOUCH-214 and DATACOUCH-225. Overall, 54% of their steps have aligned with the overall direction of the project, showcasing their commitment to key themes and ongoing improvements."
+}

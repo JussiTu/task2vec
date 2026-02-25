@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|25a63c30-ce99-4016-94aa-e406de525f67|>>",
+  "tickets": {
+    "count": 594,
+    "first_created": "2007-05-28T17:16:00.000+0000",
+    "last_created": "2017-04-03T07:39:24.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.6447811447811448,
+        "count": 383,
+        "example_keys": [
+          "IDE-608",
+          "IDE-998",
+          "STS-693"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.06565656565656566,
+        "count": 39,
+        "example_keys": [
+          "IDE-1151",
+          "IDE-1169",
+          "STS-1898"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.058922558922558925,
+        "count": 35,
+        "example_keys": [
+          "IDE-812",
+          "STS-1332",
+          "STS-1475"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.030303030303030304,
+        "count": 18,
+        "example_keys": [
+          "STS-1543",
+          "STS-1803",
+          "STS-2206"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.026936026936026935,
+        "count": 16,
+        "example_keys": [
+          "STS-1532",
+          "IDE-1186",
+          "STS-3055"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.6161616161616161,
+          "count": 122,
+          "example_keys": [
+            "IDE-608",
+            "IDE-998",
+            "STS-693"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.05555555555555555,
+          "count": 11,
+          "example_keys": [
+            "IDE-592",
+            "IDE-712",
+            "STS-1399"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.05555555555555555,
+          "count": 11,
+          "example_keys": [
+            "IDE-812",
+            "STS-1332",
+            "STS-1475"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.6060606060606061,
+          "count": 120,
+          "example_keys": [
+            "STS-2890",
+            "STS-2891",
+            "STS-2939"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.08585858585858586,
+          "count": 17,
+          "example_keys": [
+            "STS-3068",
+            "IDE-1272",
+            "IDE-1278"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.06060606060606061,
+          "count": 12,
+          "example_keys": [
+            "STS-3055",
+            "STS-3056",
+            "STS-3172"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.7121212121212122,
+          "count": 141,
+          "example_keys": [
+            "STS-3770",
+            "STS-3771",
+            "IDE-1334"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.06565656565656566,
+          "count": 13,
+          "example_keys": [
+            "IDE-1344",
+            "STS-3964",
+            "STS-4001"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.06060606060606061,
+          "count": 12,
+          "example_keys": [
+            "IDE-1362",
+            "STS-4082",
+            "STS-4094"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.524451939291737,
+    "positive_percent": 52,
+    "steps": 593
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "IDE-592",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "IDE-607",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "IDE-608",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "IDE-630",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "IDE-712",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "STS-4422",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-4428",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "STS-4434",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "IDE-1394",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-4439",
+        "label": "Workspace and Class Loading Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since May 2007, with a focus on resolving various issues related to software development. In the early phase, they primarily tackled \"Workspace and Class Loading Issues,\" exemplified by tickets like IDE-608 and IDE-998. As they progressed into the middle phase, they continued to address these issues while also taking on \"Autowiring and Bean Configuration Issues,\" with examples such as STS-3068 and IDE-1272. Recently, their work has remained heavily centered on \"Workspace and Class Loading Issues,\" with a notable increase in activity, as seen in tickets like STS-3770 and STS-3771. Overall, 52% of their steps aligned with the overall direction, showcasing their consistent focus on key themes throughout their tenure."
+}

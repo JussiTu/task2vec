@@ -1,0 +1,224 @@
+{
+  "assignee_id": "<<|author_key|f0e3360e-4866-4a6b-98c4-d08588323453|>>",
+  "tickets": {
+    "count": 14,
+    "first_created": "2020-02-25T01:20:46.000+0000",
+    "last_created": "2020-11-01T19:00:48.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.6428571428571429,
+        "count": 9,
+        "example_keys": [
+          "ZOOKEEPER-3738",
+          "ZOOKEEPER-3786",
+          "ZOOKEEPER-3787"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Testability and Validation Improvements",
+        "share": 0.14285714285714285,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3737",
+          "ZOOKEEPER-3739"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "SSL and Client Port Configuration",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3765"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "C Client Build and Compilation Issues",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3983"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3987"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.5,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3737",
+            "ZOOKEEPER-3739"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3738"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "SSL and Client Port Configuration",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3765"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 1.0,
+          "count": 5,
+          "example_keys": [
+            "ZOOKEEPER-3786",
+            "ZOOKEEPER-3787",
+            "ZOOKEEPER-3788"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.6,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3802",
+            "ZOOKEEPER-3962",
+            "ZOOKEEPER-3973"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3983"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3987"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.6153846153846154,
+    "positive_percent": 62,
+    "steps": 13
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3737",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-3738",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3739",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-3765",
+        "label": "SSL and Client Port Configuration"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3802",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3962",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3973",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3983",
+        "label": "C Client Build and Compilation Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3987",
+        "label": "Flaky test issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2020, focusing primarily on improving testability and validation, as well as Maven and release cleanup. In the early phase, they worked on tickets like ZOOKEEPER-3737 and ZOOKEEPER-3739, which aimed at enhancing test processes. As they moved into the middle phase, their efforts shifted predominantly to Maven and release cleanup, completing five related tickets, including ZOOKEEPER-3786 and ZOOKEEPER-3787.\n\nRecently, the assignee continued to prioritize Maven and release cleanup, addressing tickets such as ZOOKEEPER-3802 and ZOOKEEPER-3962, while also tackling C client build issues with ZOOKEEPER-3983. Overall, 62% of their steps aligned with the overall direction, demonstrating a strong commitment to the project's goals."
+}

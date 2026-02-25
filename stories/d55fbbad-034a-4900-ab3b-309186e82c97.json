@@ -1,0 +1,269 @@
+{
+  "assignee_id": "<<|author_key|d55fbbad-034a-4900-ab3b-309186e82c97|>>",
+  "tickets": {
+    "count": 43,
+    "first_created": "2019-06-20T18:15:01.000+0000",
+    "last_created": "2021-03-12T08:49:46.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 4,
+        "label": "Zookeeper leader connection issues",
+        "share": 0.18604651162790697,
+        "count": 8,
+        "example_keys": [
+          "ZOOKEEPER-3698",
+          "ZOOKEEPER-3725",
+          "ZOOKEEPER-3756"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.13953488372093023,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3455",
+          "ZOOKEEPER-3470",
+          "ZOOKEEPER-3495"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Backporting for branch 3.5 and 3.6",
+        "share": 0.11627906976744186,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3720",
+          "ZOOKEEPER-3810",
+          "ZOOKEEPER-3865"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.06976744186046512,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3436",
+          "ZOOKEEPER-3530",
+          "ZOOKEEPER-3727"
+        ]
+      },
+      {
+        "cluster": 14,
+        "label": "SASL and Kerberos Authentication Issues",
+        "share": 0.06976744186046512,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3482",
+          "ZOOKEEPER-3715",
+          "ZOOKEEPER-3743"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.35714285714285715,
+          "count": 5,
+          "example_keys": [
+            "ZOOKEEPER-3455",
+            "ZOOKEEPER-3470",
+            "ZOOKEEPER-3495"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3436",
+            "ZOOKEEPER-3530"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3567",
+            "ZOOKEEPER-3630"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 4,
+          "label": "Zookeeper leader connection issues",
+          "share": 0.2857142857142857,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3725",
+            "ZOOKEEPER-3756",
+            "ZOOKEEPER-3758"
+          ]
+        },
+        {
+          "cluster": 14,
+          "label": "SASL and Kerberos Authentication Issues",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3715",
+            "ZOOKEEPER-3743"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3726",
+            "ZOOKEEPER-3741"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 11,
+          "label": "Backporting for branch 3.5 and 3.6",
+          "share": 0.26666666666666666,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3810",
+            "ZOOKEEPER-3865",
+            "ZOOKEEPER-4202"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "Zookeeper leader connection issues",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3778",
+            "ZOOKEEPER-3814",
+            "ZOOKEEPER-3842"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3808",
+            "ZOOKEEPER-3960"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Flaky test issues"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 4,
+          "label": "Zookeeper leader connection issues"
+        },
+        {
+          "cluster": 14,
+          "label": "SASL and Kerberos Authentication Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 4,
+          "label": "Zookeeper leader connection issues"
+        },
+        {
+          "cluster": 14,
+          "label": "SASL and Kerberos Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 11,
+          "label": "Backporting for branch 3.5 and 3.6"
+        },
+        {
+          "cluster": 4,
+          "label": "Zookeeper leader connection issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5476190476190477,
+    "positive_percent": 55,
+    "steps": 42
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3436",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3455",
+        "label": "Flaky test issues"
+      },
+      {
+        "key": "ZOOKEEPER-3470",
+        "label": "Flaky test issues"
+      },
+      {
+        "key": "ZOOKEEPER-3482",
+        "label": "SASL and Kerberos Authentication Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3495",
+        "label": "Flaky test issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3960",
+        "label": "Documentation Corrections and Updates"
+      },
+      {
+        "key": "ZOOKEEPER-4202",
+        "label": "Backporting for branch 3.5 and 3.6"
+      },
+      {
+        "key": "ZOOKEEPER-4220",
+        "label": "Quorum Connection Management Issues"
+      },
+      {
+        "key": "ZOOKEEPER-4222",
+        "label": "Backporting for branch 3.5 and 3.6"
+      },
+      {
+        "key": "ZOOKEEPER-4247",
+        "label": "Null Pointer Exception Handling"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2019, focusing on various themes throughout their work. In the early phase, they primarily tackled flaky test issues, as seen in tickets like ZOOKEEPER-3455 and ZOOKEEPER-3470, while also addressing Maven and release cleanup. Moving into the middle phase, they shifted their attention to Zookeeper leader connection issues, with notable tickets such as ZOOKEEPER-3725 and ZOOKEEPER-3756, alongside handling SASL and Kerberos authentication issues. Recently, their work has centered on backporting for branches 3.5 and 3.6, highlighted by tickets like ZOOKEEPER-3810 and ZOOKEEPER-3865, while still managing connection issues. Overall, 55% of their steps aligned with the overall direction, demonstrating a strong commitment to project goals."
+}

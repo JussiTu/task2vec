@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|d7fee58e-30aa-43ff-8add-f6c9287c2d3d|>>",
+  "tickets": {
+    "count": 103,
+    "first_created": "2013-06-01T02:40:10.000+0000",
+    "last_created": "2020-06-08T06:42:31.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.20388349514563106,
+        "count": 21,
+        "example_keys": [
+          "DATACOUCH-10",
+          "DATACOUCH-11",
+          "DATACOUCH-13"
+        ]
+      },
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.20388349514563106,
+        "count": 21,
+        "example_keys": [
+          "DATACOUCH-27",
+          "DATACOUCH-28",
+          "DATACOUCH-30"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.1650485436893204,
+        "count": 17,
+        "example_keys": [
+          "DATACOUCH-5",
+          "DATACOUCH-7",
+          "DATACOUCH-14"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.10679611650485436,
+        "count": 11,
+        "example_keys": [
+          "DATACOUCH-29",
+          "DATACOUCH-31",
+          "DATACOUCH-37"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "JPA Entity Management Issues",
+        "share": 0.07766990291262135,
+        "count": 8,
+        "example_keys": [
+          "DATACOUCH-44",
+          "DATACOUCH-48",
+          "DATACOUCH-50"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "DATACOUCH-27",
+            "DATACOUCH-28",
+            "DATACOUCH-30"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.17647058823529413,
+          "count": 6,
+          "example_keys": [
+            "DATACOUCH-5",
+            "DATACOUCH-7",
+            "DATACOUCH-14"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.17647058823529413,
+          "count": 6,
+          "example_keys": [
+            "DATACOUCH-10",
+            "DATACOUCH-11",
+            "DATACOUCH-13"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.23529411764705882,
+          "count": 8,
+          "example_keys": [
+            "DATACOUCH-43",
+            "DATACOUCH-51",
+            "DATACOUCH-53"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "DATACOUCH-41",
+            "DATACOUCH-45",
+            "DATACOUCH-56"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.17647058823529413,
+          "count": 6,
+          "example_keys": [
+            "DATACOUCH-49",
+            "DATACOUCH-63",
+            "DATACOUCH-64"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.22857142857142856,
+          "count": 8,
+          "example_keys": [
+            "DATACOUCH-89",
+            "DATACOUCH-105",
+            "DATACOUCH-120"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.2,
+          "count": 7,
+          "example_keys": [
+            "DATACOUCH-86",
+            "DATACOUCH-94",
+            "DATACOUCH-108"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.17142857142857143,
+          "count": 6,
+          "example_keys": [
+            "DATACOUCH-81",
+            "DATACOUCH-102",
+            "DATACOUCH-104"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.47058823529411764,
+    "positive_percent": 47,
+    "steps": 102
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATACOUCH-4",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATACOUCH-5",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-6",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "DATACOUCH-7",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATACOUCH-8",
+        "label": "Documentation and Build Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATACOUCH-531",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATACOUCH-538",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATACOUCH-539",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "DATACOUCH-562",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "DATACOUCH-563",
+        "label": "Spring Dependency Upgrades"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2013, with a total of 103 tickets created by June 2020. In the early phase, they focused on MongoDB Mapping Issues and QueryDSL Support, exemplified by tickets like DATACOUCH-27 and DATACOUCH-5. As they progressed into the middle phase, their work shifted towards Spring Dependency Upgrades and continued MongoDB Mapping Issues, with notable tickets such as DATACOUCH-41 and DATACOUCH-43. Recently, they have concentrated on Spring Dependency Upgrades and Spring Data Commons Deprecation Updates, highlighted by tickets like DATACOUCH-89 and DATACOUCH-86. Overall, 47% of their steps aligned with the overall direction, showcasing a consistent commitment to key themes throughout their tenure."
+}

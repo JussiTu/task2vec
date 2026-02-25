@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|9ac39f78-aea1-4133-913c-92fe54cfe3f8|>>",
+  "tickets": {
+    "count": 356,
+    "first_created": "2004-02-24T19:18:48.000+0000",
+    "last_created": "2009-09-04T14:12:43.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.2556179775280899,
+        "count": 91,
+        "example_keys": [
+          "SPR-285",
+          "SPR-357",
+          "SPR-368"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.21910112359550563,
+        "count": 78,
+        "example_keys": [
+          "SPR-431",
+          "SPR-517",
+          "SPR-518"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.21067415730337077,
+        "count": 75,
+        "example_keys": [
+          "SPR-311",
+          "SPR-511",
+          "SPR-636"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.13764044943820225,
+        "count": 49,
+        "example_keys": [
+          "SPR-47",
+          "SPR-282",
+          "SPR-292"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.06460674157303371,
+        "count": 23,
+        "example_keys": [
+          "SPR-236",
+          "SPR-605",
+          "SPR-703"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.288135593220339,
+          "count": 34,
+          "example_keys": [
+            "SPR-431",
+            "SPR-517",
+            "SPR-518"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.23728813559322035,
+          "count": 28,
+          "example_keys": [
+            "SPR-47",
+            "SPR-282",
+            "SPR-292"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.211864406779661,
+          "count": 25,
+          "example_keys": [
+            "SPR-285",
+            "SPR-357",
+            "SPR-368"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.31092436974789917,
+          "count": 37,
+          "example_keys": [
+            "SPR-1217",
+            "SPR-1218",
+            "SPR-1219"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.25210084033613445,
+          "count": 30,
+          "example_keys": [
+            "SPR-1256",
+            "SPR-1295",
+            "SPR-1305"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.15966386554621848,
+          "count": 19,
+          "example_keys": [
+            "SPR-1237",
+            "SPR-1265",
+            "SPR-1327"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3949579831932773,
+          "count": 47,
+          "example_keys": [
+            "SPR-2004",
+            "SPR-2013",
+            "SPR-2014"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.24369747899159663,
+          "count": 29,
+          "example_keys": [
+            "SPR-2021",
+            "SPR-2108",
+            "SPR-2129"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.11764705882352941,
+          "count": 14,
+          "example_keys": [
+            "SPR-2166",
+            "SPR-2074",
+            "SPR-2082"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.48450704225352115,
+    "positive_percent": 48,
+    "steps": 355
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-47",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-95",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-236",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-282",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-285",
+        "label": "Autowiring and Bean Configuration Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-6025",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-6048",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-6057",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-6063",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-6081",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2004, focusing on various aspects of software development. In the early phase, they primarily worked on Bean Configuration Enhancements, as seen in tickets like SPR-431 and SPR-517, alongside Spring IDE Tooling Enhancements. As they moved into the middle phase, their focus shifted towards Autowiring and Bean Configuration Issues, with notable contributions in tickets such as SPR-1217 and SPR-1256. Recently, they have concentrated on Validation and Data Binding Issues, exemplified by tickets SPR-2004 and SPR-2013. Overall, 48% of their steps aligned with the overall direction, demonstrating a consistent commitment to improving software quality and functionality."
+}

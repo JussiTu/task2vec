@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|cf901697-e3a4-4444-b739-1e88d07f5d05|>>",
+  "tickets": {
+    "count": 317,
+    "first_created": "2006-05-28T12:38:47.000+0000",
+    "last_created": "2012-08-10T00:06:06.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.526813880126183,
+        "count": 167,
+        "example_keys": [
+          "SWF-195",
+          "SWF-288",
+          "SWF-289"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.15141955835962145,
+        "count": 48,
+        "example_keys": [
+          "SWF-1273",
+          "SWF-287",
+          "SWF-370"
+        ]
+      },
+      {
+        "cluster": 21,
+        "label": "Codebase Consistency and Refactoring",
+        "share": 0.08517350157728706,
+        "count": 27,
+        "example_keys": [
+          "ROOFLEX-1",
+          "ROOFLEX-2",
+          "ROOFLEX-5"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.04416403785488959,
+        "count": 14,
+        "example_keys": [
+          "SWF-529",
+          "SWF-606",
+          "SWF-607"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.028391167192429023,
+        "count": 9,
+        "example_keys": [
+          "SWF-392",
+          "SWF-404",
+          "SWF-740"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.6571428571428571,
+          "count": 69,
+          "example_keys": [
+            "SWF-195",
+            "SWF-288",
+            "SWF-289"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.18095238095238095,
+          "count": 19,
+          "example_keys": [
+            "SWF-1273",
+            "SWF-287",
+            "SWF-370"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.047619047619047616,
+          "count": 5,
+          "example_keys": [
+            "SWF-529",
+            "SWF-606",
+            "SWF-607"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.6509433962264151,
+          "count": 69,
+          "example_keys": [
+            "SWF-723",
+            "SWF-725",
+            "SWF-751"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.14150943396226415,
+          "count": 15,
+          "example_keys": [
+            "SWF-1331",
+            "SWF-1302",
+            "SWF-1285"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.07547169811320754,
+          "count": 8,
+          "example_keys": [
+            "SWF-736",
+            "SWF-737",
+            "SWF-764"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.27358490566037735,
+          "count": 29,
+          "example_keys": [
+            "SWF-1299",
+            "SWF-1082",
+            "SWF-1092"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.25471698113207547,
+          "count": 27,
+          "example_keys": [
+            "ROOFLEX-1",
+            "ROOFLEX-2",
+            "ROOFLEX-5"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.1320754716981132,
+          "count": 14,
+          "example_keys": [
+            "SWF-1283",
+            "SWF-1279",
+            "SWF-1286"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues"
+        },
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5126582278481012,
+    "positive_percent": 51,
+    "steps": 316
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SWF-1273",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SWF-195",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-287",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SWF-288",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-289",
+        "label": "JSF and Spring Web Flow Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ROOFLEX-47",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROOFLEX-48",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROOFLEX-49",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "ROOFLEX-50",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROOFLEX-51",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active since May 2006, focusing primarily on JSF and Spring Web Flow issues, which accounted for over half of their work. In the early phase, they tackled numerous tickets related to this theme, such as SWF-195 and SWF-288. As they progressed into the middle phase, they continued to address similar issues while also enhancing Spring IDE tooling, with examples like SWF-723 and SWF-1331. Recently, their focus shifted slightly towards codebase consistency and refactoring, as seen in tickets like ROOFLEX-1 and ROOFLEX-2, while still handling JSF and Spring Web Flow issues. Overall, 51% of their steps aligned with the overall direction of the projects they worked on. This demonstrates their adaptability and commitment to improving both functionality and code quality throughout their tenure."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|a4b4f105-47ae-4ff2-8d22-b964e2486f7c|>>",
+  "tickets": {
+    "count": 8191,
+    "first_created": "2003-12-05T11:12:50.000+0000",
+    "last_created": "2019-01-09T07:21:43.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.22158466609693567,
+        "count": 1815,
+        "example_keys": [
+          "SPR-8",
+          "SPR-15",
+          "SPR-17"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.19875473080209988,
+        "count": 1628,
+        "example_keys": [
+          "SPR-24",
+          "SPR-56",
+          "SPR-74"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.13441582224392626,
+        "count": 1101,
+        "example_keys": [
+          "SPR-57",
+          "SPR-58",
+          "SPR-59"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.06958857282383103,
+        "count": 570,
+        "example_keys": [
+          "SPR-123",
+          "SPR-128",
+          "SPR-150"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Transaction Management Issues",
+        "share": 0.06922231717738982,
+        "count": 567,
+        "example_keys": [
+          "SPR-67",
+          "SPR-114",
+          "SPR-116"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.20036630036630038,
+          "count": 547,
+          "example_keys": [
+            "SPR-8",
+            "SPR-15",
+            "SPR-17"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.18754578754578755,
+          "count": 512,
+          "example_keys": [
+            "SPR-24",
+            "SPR-56",
+            "SPR-74"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.1695970695970696,
+          "count": 463,
+          "example_keys": [
+            "SPR-57",
+            "SPR-58",
+            "SPR-59"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.2454212454212454,
+          "count": 670,
+          "example_keys": [
+            "SPR-4332",
+            "SPR-4338",
+            "SPR-4343"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.1879120879120879,
+          "count": 513,
+          "example_keys": [
+            "SPR-4337",
+            "SPR-4339",
+            "SPR-4340"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.14542124542124543,
+          "count": 397,
+          "example_keys": [
+            "SPR-4344",
+            "SPR-4352",
+            "SPR-4363"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.22079824240205054,
+          "count": 603,
+          "example_keys": [
+            "SPR-11260",
+            "SPR-11269",
+            "SPR-11291"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.21896741120468693,
+          "count": 598,
+          "example_keys": [
+            "SPR-11246",
+            "SPR-11250",
+            "SPR-11251"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.09447088978396193,
+          "count": 258,
+          "example_keys": [
+            "SPR-11244",
+            "SPR-11259",
+            "SPR-11261"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4993894993894994,
+    "positive_percent": 50,
+    "steps": 8190
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-4",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-6",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-8",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-10",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPR-14",
+        "label": "Content Negotiation Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-17645",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17646",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-17649",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-17650",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SPR-17651",
+        "label": "Documentation Corrections and Edits"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2003, with a focus on various technical themes throughout their career. In the early phase, they primarily addressed \"Autowiring and Bean Configuration Issues\" and \"Bean Configuration Enhancements,\" exemplified by tickets like SPR-8 and SPR-24. As they progressed into the middle phase, their work continued to emphasize these themes, with notable contributions to tickets such as SPR-4332 and SPR-4337. Recently, they have shifted their focus slightly, still working on \"Bean Configuration Enhancements\" and \"Autowiring and Bean Configuration Issues,\" as seen in tickets like SPR-11260 and SPR-11246. Overall, 50% of their steps align with the overall direction of the projects they have been involved in. Their extensive experience, with a total of 8,191 tickets created, showcases their commitment and adaptability in addressing complex issues in software development."
+}

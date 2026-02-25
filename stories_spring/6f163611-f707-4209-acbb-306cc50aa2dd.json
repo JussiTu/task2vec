@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|6f163611-f707-4209-acbb-306cc50aa2dd|>>",
+  "tickets": {
+    "count": 269,
+    "first_created": "2007-06-13T01:09:41.000+0000",
+    "last_created": "2012-07-03T12:32:03.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.8029739776951673,
+        "count": 216,
+        "example_keys": [
+          "BATCH-16",
+          "BATCH-21",
+          "BATCH-29"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.05204460966542751,
+        "count": 14,
+        "example_keys": [
+          "BATCH-139",
+          "BATCH-384",
+          "BATCH-395"
+        ]
+      },
+      {
+        "cluster": 4,
+        "label": "JDBC Compatibility and Performance Issues",
+        "share": 0.05204460966542751,
+        "count": 14,
+        "example_keys": [
+          "BATCH-396",
+          "BATCH-411",
+          "BATCH-440"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.026022304832713755,
+        "count": 7,
+        "example_keys": [
+          "BATCH-621",
+          "BATCH-796",
+          "BATCH-802"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.022304832713754646,
+        "count": 6,
+        "example_keys": [
+          "BATCH-336",
+          "BATCH-405",
+          "BATCH-474"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.8314606741573034,
+          "count": 74,
+          "example_keys": [
+            "BATCH-16",
+            "BATCH-21",
+            "BATCH-29"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.0449438202247191,
+          "count": 4,
+          "example_keys": [
+            "BATCH-139",
+            "BATCH-384",
+            "BATCH-395"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.0449438202247191,
+          "count": 4,
+          "example_keys": [
+            "BATCH-336",
+            "BATCH-405",
+            "BATCH-474"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.7888888888888889,
+          "count": 71,
+          "example_keys": [
+            "BATCH-532",
+            "BATCH-533",
+            "BATCH-535"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.07777777777777778,
+          "count": 7,
+          "example_keys": [
+            "BATCH-577",
+            "BATCH-595",
+            "BATCH-609"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.05555555555555555,
+          "count": 5,
+          "example_keys": [
+            "BATCH-601",
+            "BATCH-659",
+            "BATCH-693"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.7888888888888889,
+          "count": 71,
+          "example_keys": [
+            "BATCH-757",
+            "BATCH-761",
+            "BATCH-764"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.06666666666666667,
+          "count": 6,
+          "example_keys": [
+            "BATCH-796",
+            "BATCH-802",
+            "BATCH-839"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.05555555555555555,
+          "count": 5,
+          "example_keys": [
+            "BATCH-784",
+            "BATCH-821",
+            "BATCH-981"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5335820895522388,
+    "positive_percent": 53,
+    "steps": 268
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "BATCH-16",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-21",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-29",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-139",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "BATCH-143",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "BATCH-1805",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1806",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1815",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1826",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1874",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2007, focusing primarily on Step Scope and Tasklet Issues, which accounted for over 80% of their work in the early phase. During this time, they addressed various tickets, including BATCH-16 and BATCH-21. In the middle phase, they continued to tackle Step Scope issues while also beginning to address JDBC Compatibility and Performance Issues, as seen in tickets like BATCH-577. Recently, their focus shifted slightly to include Documentation Corrections and Edits, alongside ongoing work on Step Scope issues, with examples such as BATCH-796. Overall, 53% of their steps aligned with the overall direction, demonstrating a consistent commitment to key themes throughout their tenure."
+}

@@ -1,0 +1,229 @@
+{
+  "assignee_id": "<<|author_key|990bb6d8-b52c-4dd5-9b1a-e4ecdcb626e7|>>",
+  "tickets": {
+    "count": 12,
+    "first_created": "2019-05-28T21:21:40.000+0000",
+    "last_created": "2020-09-13T05:24:51.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 2,
+        "label": "Jackson Databind Vulnerabilities",
+        "share": 0.5,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3405",
+          "ZOOKEEPER-3441",
+          "ZOOKEEPER-3518"
+        ]
+      },
+      {
+        "cluster": 10,
+        "label": "jUnit Upgrade Tasks",
+        "share": 0.25,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3519",
+          "ZOOKEEPER-3704",
+          "ZOOKEEPER-3934"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Netty library security upgrades",
+        "share": 0.16666666666666666,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3716",
+          "ZOOKEEPER-3794"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.08333333333333333,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3433"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.75,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3405",
+            "ZOOKEEPER-3441",
+            "ZOOKEEPER-3518"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3433"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.5,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3519",
+            "ZOOKEEPER-3704"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3699"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3716"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.5,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3750",
+            "ZOOKEEPER-3751"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3794"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3934"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        },
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5454545454545454,
+    "positive_percent": 55,
+    "steps": 11
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3405",
+        "label": "Jackson Databind Vulnerabilities"
+      },
+      {
+        "key": "ZOOKEEPER-3433",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3441",
+        "label": "Jackson Databind Vulnerabilities"
+      },
+      {
+        "key": "ZOOKEEPER-3518",
+        "label": "Jackson Databind Vulnerabilities"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3750",
+        "label": "Jackson Databind Vulnerabilities"
+      },
+      {
+        "key": "ZOOKEEPER-3751",
+        "label": "Jackson Databind Vulnerabilities"
+      },
+      {
+        "key": "ZOOKEEPER-3794",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-3934",
+        "label": "jUnit Upgrade Tasks"
+      }
+    ]
+  },
+  "narrative": "The assignee began their work in early 2019, focusing primarily on addressing Jackson Databind vulnerabilities, as seen in tickets like ZOOKEEPER-3405 and ZOOKEEPER-3441. As they progressed into the middle phase, they shifted towards jUnit upgrade tasks while still tackling vulnerabilities, with examples including ZOOKEEPER-3519 and ZOOKEEPER-3704. Recently, they have concentrated again on Jackson Databind vulnerabilities, alongside security upgrades for the Netty library, with notable tickets such as ZOOKEEPER-3750 and ZOOKEEPER-3794. Overall, their work aligns well with the project's direction, with 55% of their steps reflecting the overall goals. This demonstrates a consistent commitment to improving security and maintaining code quality throughout their tenure."
+}

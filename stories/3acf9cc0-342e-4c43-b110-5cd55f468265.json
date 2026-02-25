@@ -1,0 +1,208 @@
+{
+  "assignee_id": "<<|author_key|3acf9cc0-342e-4c43-b110-5cd55f468265|>>",
+  "tickets": {
+    "count": 10,
+    "first_created": "2019-03-14T00:04:13.000+0000",
+    "last_created": "2019-07-09T19:54:07.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "Backup and Quota Mechanisms",
+        "share": 0.4,
+        "count": 4,
+        "example_keys": [
+          "ZOOKEEPER-3353",
+          "ZOOKEEPER-3386",
+          "ZOOKEEPER-3395"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "Performance optimization in Zookeeper",
+        "share": 0.3,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3311",
+          "ZOOKEEPER-3359",
+          "ZOOKEEPER-3394"
+        ]
+      },
+      {
+        "cluster": 19,
+        "label": "Quorum Connection Management Issues",
+        "share": 0.2,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3349",
+          "ZOOKEEPER-3378"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.1,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3396"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3311"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3349"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3353"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3359"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3378"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3386"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms",
+          "share": 0.5,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3395",
+            "ZOOKEEPER-3459"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3394"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3396"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "Backup and Quota Mechanisms"
+        },
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.6666666666666666,
+    "positive_percent": 67,
+    "steps": 9
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3311",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3349",
+        "label": "Quorum Connection Management Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3353",
+        "label": "Backup and Quota Mechanisms"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3394",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3395",
+        "label": "Backup and Quota Mechanisms"
+      },
+      {
+        "key": "ZOOKEEPER-3396",
+        "label": "Flaky test issues"
+      },
+      {
+        "key": "ZOOKEEPER-3459",
+        "label": "Backup and Quota Mechanisms"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2019, focusing on various themes within Zookeeper. In the early phase, they worked on performance optimization (e.g., ZOOKEEPER-3311) and quorum connection management (e.g., ZOOKEEPER-3349), while also addressing backup and quota mechanisms (e.g., ZOOKEEPER-3353). As they moved into the middle phase, their efforts continued in these areas, with notable tickets like ZOOKEEPER-3359 and ZOOKEEPER-3386. Recently, they have shifted their focus more towards backup and quota mechanisms, completing significant tasks such as ZOOKEEPER-3395 and ZOOKEEPER-3459, while still addressing performance optimization and flaky test issues. Overall, 67% of their steps aligned with the overall direction of the project. This demonstrates a consistent commitment to improving Zookeeper's functionality and reliability."
+}

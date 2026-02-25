@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|9ad68320-5c32-4f2e-9305-31e06024d0e5|>>",
+  "tickets": {
+    "count": 1009,
+    "first_created": "2005-04-01T02:35:00.000+0000",
+    "last_created": "2013-06-14T01:24:09.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.3072348860257681,
+        "count": 310,
+        "example_keys": [
+          "IDE-12",
+          "IDE-26",
+          "IDE-32"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.1635282457879088,
+        "count": 165,
+        "example_keys": [
+          "IDE-9",
+          "IDE-10",
+          "IDE-14"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.13082259663032705,
+        "count": 132,
+        "example_keys": [
+          "IDE-1",
+          "IDE-2",
+          "IDE-27"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.08424182358771061,
+        "count": 85,
+        "example_keys": [
+          "IDE-39",
+          "IDE-213",
+          "IDE-214"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.06541129831516353,
+        "count": 66,
+        "example_keys": [
+          "IDE-3",
+          "IDE-33",
+          "IDE-34"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.27380952380952384,
+          "count": 92,
+          "example_keys": [
+            "IDE-12",
+            "IDE-26",
+            "IDE-32"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.24702380952380953,
+          "count": 83,
+          "example_keys": [
+            "IDE-9",
+            "IDE-10",
+            "IDE-14"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.14285714285714285,
+          "count": 48,
+          "example_keys": [
+            "IDE-1",
+            "IDE-2",
+            "IDE-27"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.2708333333333333,
+          "count": 91,
+          "example_keys": [
+            "IDE-467",
+            "IDE-483",
+            "IDE-485"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.17857142857142858,
+          "count": 60,
+          "example_keys": [
+            "IDE-477",
+            "IDE-481",
+            "IDE-482"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.12797619047619047,
+          "count": 43,
+          "example_keys": [
+            "IDE-475",
+            "IDE-500",
+            "IDE-535"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.3768545994065282,
+          "count": 127,
+          "example_keys": [
+            "IDE-890",
+            "IDE-891",
+            "IDE-897"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.142433234421365,
+          "count": 48,
+          "example_keys": [
+            "IDE-895",
+            "STS-46",
+            "STS-66"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.12166172106824925,
+          "count": 41,
+          "example_keys": [
+            "IDE-900",
+            "IDE-929",
+            "IDE-930"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49107142857142855,
+    "positive_percent": 49,
+    "steps": 1008
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "IDE-1",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "IDE-2",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "IDE-3",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "IDE-9",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "IDE-10",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "IDE-1196",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "IDE-1207",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-1866",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "IDE-1215",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "STS-3423",
+        "label": "Workspace and Class Loading Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active since April 2005, focusing primarily on resolving issues related to workspace and class loading, as well as enhancing Spring IDE tooling. In the early phase of their work, they tackled numerous autowiring and bean configuration issues, exemplified by tickets like IDE-1 and IDE-2. As they progressed into the middle phase, they continued to address workspace-related challenges, with notable tickets such as IDE-467 and IDE-483. Recently, their focus shifted towards documentation and build improvements while still managing workspace issues, as seen in tickets like IDE-890 and IDE-895. Overall, 49% of their steps aligned with the overall direction. This assignee has handled a total of 1,009 tickets, demonstrating a consistent commitment to improving the development environment."
+}

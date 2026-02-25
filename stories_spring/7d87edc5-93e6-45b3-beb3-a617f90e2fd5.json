@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|7d87edc5-93e6-45b3-beb3-a617f90e2fd5|>>",
+  "tickets": {
+    "count": 574,
+    "first_created": "2006-10-30T08:22:38.000+0000",
+    "last_created": "2018-12-25T09:30:55.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.43902439024390244,
+        "count": 252,
+        "example_keys": [
+          "SPR-6741",
+          "SPR-7589",
+          "SPR-7913"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.3344947735191638,
+        "count": 192,
+        "example_keys": [
+          "SPR-2779",
+          "SPR-5807",
+          "SPR-5821"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.05749128919860627,
+        "count": 33,
+        "example_keys": [
+          "SPR-6599",
+          "SPR-7689",
+          "SPR-7735"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.024390243902439025,
+        "count": 14,
+        "example_keys": [
+          "SPR-7959",
+          "SPR-11121",
+          "SPR-11157"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.024390243902439025,
+        "count": 14,
+        "example_keys": [
+          "SPR-9454",
+          "SPR-10734",
+          "SPR-12132"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.387434554973822,
+          "count": 74,
+          "example_keys": [
+            "SPR-2779",
+            "SPR-5807",
+            "SPR-5821"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.31413612565445026,
+          "count": 60,
+          "example_keys": [
+            "SPR-6741",
+            "SPR-7589",
+            "SPR-7913"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.09947643979057591,
+          "count": 19,
+          "example_keys": [
+            "SPR-6599",
+            "SPR-7689",
+            "SPR-7735"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.42408376963350786,
+          "count": 81,
+          "example_keys": [
+            "SPR-13090",
+            "SPR-13149",
+            "SPR-13182"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.3507853403141361,
+          "count": 67,
+          "example_keys": [
+            "SPR-13176",
+            "SPR-13203",
+            "SPR-13208"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.05235602094240838,
+          "count": 10,
+          "example_keys": [
+            "SPR-13253",
+            "SPR-13439",
+            "SPR-13846"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.578125,
+          "count": 111,
+          "example_keys": [
+            "SPR-15080",
+            "SPR-15084",
+            "SPR-15085"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.265625,
+          "count": 51,
+          "example_keys": [
+            "SPR-15079",
+            "SPR-15101",
+            "SPR-15110"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.026041666666666668,
+          "count": 5,
+          "example_keys": [
+            "SPR-15167",
+            "SPR-15281",
+            "SPR-15890"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5026178010471204,
+    "positive_percent": 50,
+    "steps": 573
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-2779",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-5807",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-5821",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-6588",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-6599",
+        "label": "Documentation Corrections and Edits"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-17608",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17610",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17615",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17621",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17624",
+        "label": "RequestMapping Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active since October 2006, contributing significantly to various projects over the years. In the early phase, they focused on \"RequestMapping Enhancements\" and \"Content Negotiation Issues,\" with notable tickets like SPR-2779 and SPR-6741. As they progressed into the middle phase, their work continued to emphasize these themes, with a shift towards more complex content negotiation tasks, exemplified by tickets such as SPR-13090. Recently, they have concentrated heavily on \"Content Negotiation Issues,\" completing 111 related tickets, including SPR-15080, while still addressing \"RequestMapping Enhancements.\" Overall, 50% of their steps aligned with the overall direction, showcasing their consistent commitment to key project themes."
+}

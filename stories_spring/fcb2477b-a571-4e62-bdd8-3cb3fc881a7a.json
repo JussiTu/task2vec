@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|fcb2477b-a571-4e62-bdd8-3cb3fc881a7a|>>",
+  "tickets": {
+    "count": 382,
+    "first_created": "2009-06-17T17:16:56.000+0000",
+    "last_created": "2013-10-18T08:34:58.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.3089005235602094,
+        "count": 118,
+        "example_keys": [
+          "STS-376",
+          "STS-377",
+          "STS-388"
+        ]
+      },
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.22774869109947643,
+        "count": 87,
+        "example_keys": [
+          "STS-839",
+          "STS-985",
+          "STS-1421"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.17277486910994763,
+        "count": 66,
+        "example_keys": [
+          "STS-192",
+          "STS-194",
+          "STS-199"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Spring Roo Initialization Errors",
+        "share": 0.112565445026178,
+        "count": 43,
+        "example_keys": [
+          "STS-1573",
+          "STS-1700",
+          "STS-1931"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.034031413612565446,
+        "count": 13,
+        "example_keys": [
+          "STS-145",
+          "STS-146",
+          "STS-147"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.48031496062992124,
+          "count": 61,
+          "example_keys": [
+            "STS-376",
+            "STS-377",
+            "STS-388"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.3464566929133858,
+          "count": 44,
+          "example_keys": [
+            "STS-192",
+            "STS-194",
+            "STS-199"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.06299212598425197,
+          "count": 8,
+          "example_keys": [
+            "STS-145",
+            "STS-146",
+            "STS-147"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.28346456692913385,
+          "count": 36,
+          "example_keys": [
+            "STS-1640",
+            "STS-1649",
+            "STS-1654"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.2047244094488189,
+          "count": 26,
+          "example_keys": [
+            "STS-1641",
+            "STS-1642",
+            "STS-1747"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.1968503937007874,
+          "count": 25,
+          "example_keys": [
+            "STS-1700",
+            "STS-1931",
+            "STS-2076"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.3515625,
+          "count": 45,
+          "example_keys": [
+            "STS-2904",
+            "STS-2947",
+            "STS-3015"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.2421875,
+          "count": 31,
+          "example_keys": [
+            "STS-2898",
+            "STS-2909",
+            "STS-2910"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.1328125,
+          "count": 17,
+          "example_keys": [
+            "STS-2903",
+            "STS-2914",
+            "STS-2932"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49081364829396323,
+    "positive_percent": 49,
+    "steps": 381
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "STS-145",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "STS-146",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "STS-147",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "STS-148",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "STS-149",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "STS-3562",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-3578",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-3582",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "STS-3584",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-3590",
+        "label": "Workspace and Class Loading Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2009, with a focus on various themes over the years. In the early phase, they primarily worked on \"Spring Web Flow Enhancements\" and \"Documentation and Build Improvements,\" exemplified by tickets like STS-376 and STS-192. As they moved into the middle phase, their attention shifted towards \"Workspace and Class Loading Issues,\" alongside continued work on web flow enhancements, with notable tickets such as STS-1640 and STS-1641. Recently, they have concentrated on resolving more workspace issues, as seen in tickets like STS-2904 and STS-2898. Overall, 49% of their steps aligned with the overall direction, demonstrating a consistent commitment to key project goals."
+}

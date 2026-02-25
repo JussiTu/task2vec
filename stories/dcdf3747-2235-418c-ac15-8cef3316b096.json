@@ -1,0 +1,219 @@
+{
+  "assignee_id": "<<|author_key|dcdf3747-2235-418c-ac15-8cef3316b096|>>",
+  "tickets": {
+    "count": 8,
+    "first_created": "2019-04-18T09:06:11.000+0000",
+    "last_created": "2021-04-07T12:21:10.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.25,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3369",
+          "ZOOKEEPER-3718"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Netty library security upgrades",
+        "share": 0.25,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3494",
+          "ZOOKEEPER-3804"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Backporting for branch 3.5 and 3.6",
+        "share": 0.125,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3780"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Documentation Corrections and Updates",
+        "share": 0.125,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3792"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "SSL and Client Port Configuration",
+        "share": 0.125,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-4259"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.5,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3369"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades",
+          "share": 0.5,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3494"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3718"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Backporting for branch 3.5 and 3.6",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3780"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Documentation Corrections and Updates",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3792"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3804"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "SSL and Client Port Configuration",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-4259"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.3333333333333333,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-4277"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 11,
+          "label": "Backporting for branch 3.5 and 3.6"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 11,
+          "label": "Backporting for branch 3.5 and 3.6"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades"
+        },
+        {
+          "cluster": 0,
+          "label": "SSL and Client Port Configuration"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.7142857142857143,
+    "positive_percent": 71,
+    "steps": 7
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3369",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3494",
+        "label": "Netty library security upgrades"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3804",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-4259",
+        "label": "SSL and Client Port Configuration"
+      },
+      {
+        "key": "ZOOKEEPER-4277",
+        "label": "Jackson Databind Vulnerabilities"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2019, focusing on various themes in their work. In the early phase, they tackled tasks related to \"Maven and Release Cleanup\" and \"Netty library security upgrades,\" exemplified by tickets ZOOKEEPER-3369 and ZOOKEEPER-3494. Moving into the middle phase, they continued with cleanup efforts while also engaging in backporting for branches 3.5 and 3.6, as seen in ZOOKEEPER-3718 and ZOOKEEPER-3780. Recently, their focus shifted to enhancing security with further upgrades to the Netty library and addressing SSL configurations, highlighted by tickets ZOOKEEPER-3804 and ZOOKEEPER-4259. Overall, 71% of their steps aligned with the overall direction of the project."
+}

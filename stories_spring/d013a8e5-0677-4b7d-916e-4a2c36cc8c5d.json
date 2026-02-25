@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|d013a8e5-0677-4b7d-916e-4a2c36cc8c5d|>>",
+  "tickets": {
+    "count": 130,
+    "first_created": "2013-04-30T03:51:43.000+0000",
+    "last_created": "2019-07-02T11:10:38.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.3923076923076923,
+        "count": 51,
+        "example_keys": [
+          "DATAES-8",
+          "DATAES-16",
+          "DATAES-17"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "JPA Entity Management Issues",
+        "share": 0.14615384615384616,
+        "count": 19,
+        "example_keys": [
+          "DATAES-58",
+          "DATAES-67",
+          "DATAES-74"
+        ]
+      },
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.11538461538461539,
+        "count": 15,
+        "example_keys": [
+          "DATAES-48",
+          "DATAES-53",
+          "DATAES-56"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.07692307692307693,
+        "count": 10,
+        "example_keys": [
+          "DATAES-7",
+          "DATAES-15",
+          "DATAES-28"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.06153846153846154,
+        "count": 8,
+        "example_keys": [
+          "DATAES-6",
+          "DATAES-43",
+          "DATAES-55"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.4186046511627907,
+          "count": 18,
+          "example_keys": [
+            "DATAES-8",
+            "DATAES-16",
+            "DATAES-17"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.16279069767441862,
+          "count": 7,
+          "example_keys": [
+            "DATAES-7",
+            "DATAES-15",
+            "DATAES-28"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.11627906976744186,
+          "count": 5,
+          "example_keys": [
+            "DATAES-48",
+            "DATAES-53",
+            "DATAES-56"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.5348837209302325,
+          "count": 23,
+          "example_keys": [
+            "DATAES-76",
+            "DATAES-84",
+            "DATAES-85"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.18604651162790697,
+          "count": 8,
+          "example_keys": [
+            "DATAES-74",
+            "DATAES-82",
+            "DATAES-115"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.06976744186046512,
+          "count": 3,
+          "example_keys": [
+            "DATAES-79",
+            "DATAES-83",
+            "DATAES-94"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.22727272727272727,
+          "count": 10,
+          "example_keys": [
+            "DATAES-209",
+            "DATAES-216",
+            "DATAES-218"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.20454545454545456,
+          "count": 9,
+          "example_keys": [
+            "DATAES-204",
+            "DATAES-238",
+            "DATAES-257"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.1590909090909091,
+          "count": 7,
+          "example_keys": [
+            "DATAES-215",
+            "DATAES-224",
+            "DATAES-228"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49612403100775193,
+    "positive_percent": 50,
+    "steps": 129
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATAES-6",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATAES-7",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "DATAES-8",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATAES-9",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "DATAES-15",
+        "label": "Spring Dependency Upgrades"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATAES-476",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "DATAES-477",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATAES-522",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATAES-556",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "DATAES-602",
+        "label": "QueryDSL and Projections Support"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since April 2013, focusing primarily on QueryDSL and Projections Support, which has been their most significant theme throughout their work. In the early phase, they tackled various tasks, including Spring Dependency Upgrades and MongoDB Mapping Issues, with notable tickets like DATAES-8 and DATAES-7. As they progressed into the middle phase, their focus on QueryDSL continued to grow, alongside addressing JPA Entity Management Issues, exemplified by tickets such as DATAES-76 and DATAES-74. Recently, they have maintained their emphasis on QueryDSL while also engaging with JPA and MongoDB challenges, as seen in tickets like DATAES-204 and DATAES-215. Overall, 50% of their steps aligned with the overall direction, showcasing their consistent contribution to key project themes."
+}

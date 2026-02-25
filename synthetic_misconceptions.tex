@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Modeling Learner Misconceptions Using Synthetic Incorrect Answers and Semantic Clustering}
+
+\author{
+Jussi Tuominen \\
+\texttt{jussi.tuominen@adlearning.com}
+}
+
+\date{18.12.2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Assessment systems in technical domains such as machine learning typically rely on manually authored multiple-choice questions or large collections of labeled learner responses. Both approaches are expensive and scale poorly across domains. We propose a method for diagnostic assessment generation based on \emph{synthetic incorrect open answers} derived from a small, manually curated set of domain-agnostic \emph{root causes of reasoning errors}.
+
+We demonstrate that incorrect answers generated from these root causes form stable semantic clusters when embedded using transformer-based sentence representations and clustered without supervision. These clusters correspond directly to underlying misconceptions, enabling automated construction of diagnostic multiple-choice questions with targeted feedback. Our results show that synthetic data, when structured around cognitive error operators rather than surface variation alone, can support misconception discovery and assessment design without requiring large labeled datasets.
+\end{abstract}
+
+\section{Introduction}
+
+Understanding why learners make mistakes is central to effective education. In technical domains, errors often arise not from missing facts but from systematic misconceptions---incorrect mental models that appear repeatedly across learners.
+
+Traditional assessment approaches face two limitations:
+\begin{enumerate}[leftmargin=*]
+    \item Manual multiple-choice question (MCQ) authoring is labor-intensive and often weakly diagnostic.
+    \item Data-driven misconception modeling requires large volumes of labeled learner responses, which are costly or unavailable.
+\end{enumerate}
+
+Recent advances in large language models (LLMs) enable synthetic data generation, but naively generated incorrect answers often lack structure and diagnostic value. In this work, we propose a structured alternative: generate incorrect answers by applying domain-independent root causes of reasoning errors to correct explanations, then validate and recover this structure using semantic embeddings and unsupervised clustering.
+
+\section{Related Work}
+
+Misconception modeling has been studied in intelligent tutoring systems and educational data mining, typically relying on expert-authored misconception lists, rule-based diagnosis, or clustering of learner responses. More recent work explores LLM-based assessment generation, but often focuses on surface plausibility rather than diagnostic structure.
+
+Our approach differs by explicitly modeling cognitive error mechanisms, generating incorrect open answers rather than MCQ distractors directly, and validating structure using unsupervised semantic clustering.
+
+\section{Root Causes of Reasoning Errors}
+
+We define a \emph{root cause} as a reusable cognitive error pattern that can be applied across questions and domains. Each root cause represents a systematic way in which correct reasoning can fail.
+
+We identify ten domain-agnostic root causes:
+\begin{enumerate}[leftmargin=*]
+    \item Category confusion
+    \item Single-case overgeneralization
+    \item Ritual compliance (checklist thinking)
+    \item Surface-level feature fixation
+    \item Terminology collision (everyday vs.\ technical meaning)
+    \item Causal inversion
+    \item Boundary ignorance
+    \item Tool or method absolutism
+    \item Scale blindness
+    \item Optimization myopia
+\end{enumerate}
+
+Each root cause is defined by a conceptual description, a transformation rule that maps a correct explanation to an incorrect one, and associated diagnostic feedback and remediation guidance. The root-cause library is intentionally small and manually curated, but reusable across many questions.
+
+\section{Synthetic Incorrect Answer Generation}
+
+Given a question $q$ and a reference (gold) answer $a^{\ast}$, we generate incorrect answers by applying each root-cause operator:
+\[
+a_i^- = g_i(q, a^{\ast})
+\]
+where $g_i$ encodes a specific reasoning error.
+
+To increase linguistic diversity without altering semantics, we apply lightweight surface-level paraphrasing operations (e.g., hedges, reordering, connectors). No LLM is required for this step, though one can be integrated later.
+
+In our experiments, we generate 25 variants per root cause, yielding 250 synthetic incorrect answers for a single question.
+
+\section{Semantic Embedding and Clustering}
+
+Each incorrect answer is embedded using a transformer-based sentence encoder (Sentence-BERT):
+\[
+v_i = f(a_i^-) \in \mathbb{R}^{384}
+\]
+
+We cluster the embeddings using HDBSCAN, a density-based clustering algorithm that does not require specifying the number of clusters and can identify noise. Importantly, clustering is performed without access to root-cause labels.
+
+\section{Results}
+
+We evaluate whether unsupervised clustering recovers the original root causes. For each cluster $C$, we compute cluster purity:
+\[
+\mathrm{purity}(C) = \frac{\max_k |C \cap R_k|}{|C|}
+\]
+where $R_k$ is the set of samples generated by root cause $k$.
+
+Across our controlled experiment, the discovered clusters corresponded exactly to the generating root causes:
+\begin{itemize}[leftmargin=*]
+    \item 10 clusters recovered
+    \item cluster sizes = 25
+    \item purity = 1.00 for all clusters
+\end{itemize}
+
+This result indicates that each root cause defines a coherent semantic region, and that semantic embeddings combined with density-based clustering can recover latent misconceptions from synthetic data alone.
+
+\section{From Clusters to Diagnostic MCQs}
+
+We leverage the recovered structure to automatically construct diagnostic MCQs:
+\begin{enumerate}[leftmargin=*]
+    \item Select one representative incorrect answer per cluster.
+    \item Choose a subset of maximally diverse clusters using cosine distance in embedding space.
+    \item Combine with a shortened correct answer.
+    \item Attach root-cause-specific feedback and remediation.
+\end{enumerate}
+
+Each MCQ option is explicitly mapped to a known misconception, enabling targeted feedback and analytics. Selecting an incorrect option yields actionable diagnostic information rather than a generic error.
+
+\section{Discussion}
+
+Synthetic data is effective in this setting not because it is realistic, but because it is structurally constrained. By grounding generation in cognitive error operators, variation preserves meaning and errors remain systematic rather than random.
+
+The current experiments are intentionally controlled. Real learner answers will exhibit greater noise and may mix multiple root causes. Future work will introduce overlapping and partial misconceptions to evaluate robustness.
+
+\section{Applications}
+
+The proposed method supports scalable diagnostic assessment generation, misconception-aware tutoring systems, curriculum analytics, and technical certification contexts such as an ``AI driving license.'' Because the root-cause library is domain-agnostic, the approach generalizes beyond machine learning.
+
+\section{Conclusion}
+
+We demonstrate that synthetic incorrect open answers generated from a small set of root causes of reasoning errors form stable semantic clusters corresponding to underlying misconceptions. This enables automated construction of diagnostic assessments without requiring large labeled datasets or human response corpora. The results suggest a shift in assessment design from collecting learner data first to explicitly modeling cognitive error mechanisms.
+
+\section*{Acknowledgments}
+
+The author thanks collaborators and early users who provided feedback during the development of the prototype system.
+
+\section*{References}
+
+\begin{itemize}[leftmargin=*]
+    \item Devlin et al., \emph{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}.
+    \item Reimers and Gurevych, \emph{Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks}.
+    \item Campello et al., \emph{HDBSCAN: Hierarchical Density-Based Clustering}.
+    \item VanLehn, \emph{The Behavior of Tutoring Systems}.
+    \item Koedinger et al., \emph{Learning Factors Analysis}.
+\end{itemize}
+
+\end{document}

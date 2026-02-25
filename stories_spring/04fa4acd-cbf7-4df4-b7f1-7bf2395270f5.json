@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|04fa4acd-cbf7-4df4-b7f1-7bf2395270f5|>>",
+  "tickets": {
+    "count": 104,
+    "first_created": "2006-07-16T03:52:23.000+0000",
+    "last_created": "2009-03-20T04:36:01.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.33653846153846156,
+        "count": 35,
+        "example_keys": [
+          "MOD-167",
+          "MOD-177",
+          "MOD-181"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.125,
+        "count": 13,
+        "example_keys": [
+          "MOD-199",
+          "MOD-213",
+          "MOD-218"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.09615384615384616,
+        "count": 10,
+        "example_keys": [
+          "MOD-169",
+          "MOD-195",
+          "MOD-251"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.08653846153846154,
+        "count": 9,
+        "example_keys": [
+          "MOD-182",
+          "MOD-203",
+          "MOD-205"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.07692307692307693,
+        "count": 8,
+        "example_keys": [
+          "MOD-234",
+          "MOD-250",
+          "MOD-311"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.4411764705882353,
+          "count": 15,
+          "example_keys": [
+            "MOD-167",
+            "MOD-177",
+            "MOD-181"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.14705882352941177,
+          "count": 5,
+          "example_keys": [
+            "MOD-182",
+            "MOD-203",
+            "MOD-205"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.11764705882352941,
+          "count": 4,
+          "example_keys": [
+            "MOD-199",
+            "MOD-213",
+            "MOD-218"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2857142857142857,
+          "count": 10,
+          "example_keys": [
+            "MOD-262",
+            "MOD-283",
+            "MOD-286"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.2,
+          "count": 7,
+          "example_keys": [
+            "MOD-310",
+            "MOD-315",
+            "MOD-319"
+          ]
+        },
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "MOD-290",
+            "MOD-308",
+            "MOD-309"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2857142857142857,
+          "count": 10,
+          "example_keys": [
+            "MOD-378",
+            "MOD-379",
+            "MOD-382"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "MOD-376",
+            "MOD-380",
+            "MOD-381"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.11428571428571428,
+          "count": 4,
+          "example_keys": [
+            "MOD-384",
+            "MOD-387",
+            "MOD-390"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5436893203883495,
+    "positive_percent": 54,
+    "steps": 103
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "MOD-167",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-168",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "MOD-169",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "MOD-176",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "MOD-177",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "MOD-443",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "MOD-444",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "MOD-447",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SEJCR-4",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SEJCR-7",
+        "label": "Documentation Corrections and Edits"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since July 2006, focusing primarily on Spring IDE Tooling Enhancements, which has been their top theme throughout their work. In the early phase, they tackled significant enhancements in this area, exemplified by tickets like MOD-167 and MOD-177. As they moved into the middle phase, they continued to refine these tooling enhancements while also addressing RequestMapping Enhancements, with notable tickets such as MOD-310 and MOD-315. Recently, their focus shifted slightly towards Acceptance Test Failures, alongside ongoing work in Spring IDE Tooling, as seen in tickets like MOD-376 and MOD-380. Overall, 54% of their steps aligned with the overall direction of the project, demonstrating a strong commitment to key objectives."
+}

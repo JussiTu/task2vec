@@ -1,0 +1,273 @@
+{
+  "assignee_id": "<<|author_key|0f43c90e-2873-4b32-a08f-ed75be5d67c5|>>",
+  "tickets": {
+    "count": 47,
+    "first_created": "2004-09-28T22:11:16.000+0000",
+    "last_created": "2007-05-25T09:05:48.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.3404255319148936,
+        "count": 16,
+        "example_keys": [
+          "SPR-1679",
+          "SPR-1681",
+          "SPR-1682"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.1702127659574468,
+        "count": 8,
+        "example_keys": [
+          "OSGI-3",
+          "OSGI-6",
+          "OSGI-8"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.14893617021276595,
+        "count": 7,
+        "example_keys": [
+          "SPR-359",
+          "SPR-1802",
+          "OSGI-19"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.0851063829787234,
+        "count": 4,
+        "example_keys": [
+          "SPR-1672",
+          "SPR-1680",
+          "SPR-1895"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.0851063829787234,
+        "count": 4,
+        "example_keys": [
+          "OSGI-2",
+          "OSGI-4",
+          "OSGI-16"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.4666666666666667,
+          "count": 7,
+          "example_keys": [
+            "SPR-1679",
+            "SPR-1681",
+            "SPR-1682"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "SPR-1672",
+            "SPR-1680",
+            "SPR-1895"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "SPR-1896",
+            "SPR-1911",
+            "SPR-1922"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.4375,
+          "count": 7,
+          "example_keys": [
+            "OSGI-3",
+            "OSGI-6",
+            "OSGI-8"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.1875,
+          "count": 3,
+          "example_keys": [
+            "SPR-2347",
+            "SPR-2621",
+            "SPR-2687"
+          ]
+        },
+        {
+          "cluster": 16,
+          "label": "Transaction Management Issues",
+          "share": 0.1875,
+          "count": 3,
+          "example_keys": [
+            "SPR-2504",
+            "SPR-2521",
+            "SPR-2718"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.375,
+          "count": 6,
+          "example_keys": [
+            "SPR-2908",
+            "SPR-3064",
+            "SPR-3241"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.3125,
+          "count": 5,
+          "example_keys": [
+            "OSGI-19",
+            "OSGI-40",
+            "OSGI-41"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.125,
+          "count": 2,
+          "example_keys": [
+            "OSGI-16",
+            "OSGI-36"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5,
+    "positive_percent": 50,
+    "steps": 46
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-359",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-1672",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-1679",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-1680",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-1681",
+        "label": "Autowiring and Bean Configuration Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-3241",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-3307",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-3346",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-3521",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-3522",
+        "label": "Autowiring and Bean Configuration Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since September 2004, focusing on various technical challenges. In the early phase, they primarily addressed \"Autowiring and Bean Configuration Issues,\" with notable tickets like SPR-1679 and SPR-1681. As they moved into the middle phase, their attention shifted towards \"OSGi Manifest and Dependency Issues,\" exemplified by tickets OSGI-3 and OSGI-6, while still handling some bean configuration tasks. Recently, they have returned to \"Autowiring and Bean Configuration Issues,\" working on tickets such as SPR-2908 and SPR-3064, and have also made strides in \"Spring IDE Tooling Enhancements\" with OSGI-19 and OSGI-40. Overall, 50% of their steps aligned with the overall direction, reflecting a consistent focus on key themes throughout their work history."
+}

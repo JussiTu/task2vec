@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|75ee80af-13dc-4d7d-99b1-3aac038123ca|>>",
+  "tickets": {
+    "count": 324,
+    "first_created": "2012-04-13T11:55:29.000+0000",
+    "last_created": "2018-10-05T15:33:23.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.2777777777777778,
+        "count": 90,
+        "example_keys": [
+          "SHDP-138",
+          "SHDP-139",
+          "SHDP-151"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.17592592592592593,
+        "count": 57,
+        "example_keys": [
+          "XD-270",
+          "XD-277",
+          "XD-279"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.10802469135802469,
+        "count": 35,
+        "example_keys": [
+          "SHDP-50",
+          "SHDP-149",
+          "SHDP-156"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.08024691358024691,
+        "count": 26,
+        "example_keys": [
+          "SHDP-146",
+          "SHDP-214",
+          "SHDP-229"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.07716049382716049,
+        "count": 25,
+        "example_keys": [
+          "SHDP-143",
+          "SHDP-145",
+          "SHDP-152"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.24074074074074073,
+          "count": 26,
+          "example_keys": [
+            "SHDP-138",
+            "SHDP-139",
+            "SHDP-151"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.23148148148148148,
+          "count": 25,
+          "example_keys": [
+            "XD-270",
+            "XD-277",
+            "XD-279"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.1574074074074074,
+          "count": 17,
+          "example_keys": [
+            "SHDP-50",
+            "SHDP-149",
+            "SHDP-156"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.2777777777777778,
+          "count": 30,
+          "example_keys": [
+            "SHDP-266",
+            "SHDP-276",
+            "SHDP-278"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.14814814814814814,
+          "count": 16,
+          "example_keys": [
+            "SHDP-282",
+            "SHDP-283",
+            "SHDP-298"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.10185185185185185,
+          "count": 11,
+          "example_keys": [
+            "SHDP-287",
+            "SHDP-290",
+            "SHDP-296"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.3148148148148148,
+          "count": 34,
+          "example_keys": [
+            "SHDP-423",
+            "SHDP-427",
+            "SHDP-436"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.21296296296296297,
+          "count": 23,
+          "example_keys": [
+            "XD-2630",
+            "XD-2844",
+            "XD-3231"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.1111111111111111,
+          "count": 12,
+          "example_keys": [
+            "SHDP-424",
+            "SHDP-433",
+            "SHDP-435"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5139318885448917,
+    "positive_percent": 51,
+    "steps": 323
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SHDP-50",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SHDP-138",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "XD-270",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-277",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-279",
+        "label": "Spring XD Module Development"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SHDP-573",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "SHDP-578",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "XD-3765",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "SHDP-588",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "SHDP-589",
+        "label": "Spring Dependency Upgrades"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since April 2012, with a focus on various themes throughout their work history. In the early phase, they primarily tackled \"Acceptance Test Failures\" and \"Spring XD Module Development,\" exemplified by tickets like SHDP-138 and XD-270. As they moved into the middle phase, their work continued to emphasize acceptance tests while also addressing \"Spring Data Commons Deprecation Updates,\" with notable tickets such as SHDP-282. Recently, their efforts have shifted back to \"Spring XD Module Development\" alongside ongoing acceptance tests, highlighted by tickets like XD-2630 and SHDP-423. Overall, 51% of their steps aligned with the overall direction, showcasing a consistent commitment to quality and improvement in their projects."
+}

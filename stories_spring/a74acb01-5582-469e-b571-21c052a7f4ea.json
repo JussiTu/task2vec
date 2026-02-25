@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|a74acb01-5582-469e-b571-21c052a7f4ea|>>",
+  "tickets": {
+    "count": 91,
+    "first_created": "2004-08-19T01:09:19.000+0000",
+    "last_created": "2008-09-12T23:24:24.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.27472527472527475,
+        "count": 25,
+        "example_keys": [
+          "RCP-158",
+          "RCP-170",
+          "RCP-202"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.16483516483516483,
+        "count": 15,
+        "example_keys": [
+          "RCP-37",
+          "RCP-97",
+          "RCP-192"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.13186813186813187,
+        "count": 12,
+        "example_keys": [
+          "RCP-303",
+          "RCP-309",
+          "RCP-331"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.0989010989010989,
+        "count": 9,
+        "example_keys": [
+          "RCP-153",
+          "RCP-177",
+          "RCP-197"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.06593406593406594,
+        "count": 6,
+        "example_keys": [
+          "RCP-11",
+          "RCP-259",
+          "RCP-366"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3333333333333333,
+          "count": 10,
+          "example_keys": [
+            "RCP-158",
+            "RCP-170",
+            "RCP-202"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.16666666666666666,
+          "count": 5,
+          "example_keys": [
+            "RCP-37",
+            "RCP-97",
+            "RCP-192"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13333333333333333,
+          "count": 4,
+          "example_keys": [
+            "RCP-153",
+            "RCP-177",
+            "RCP-197"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3,
+          "count": 9,
+          "example_keys": [
+            "RCP-361",
+            "RCP-364",
+            "RCP-365"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.2,
+          "count": 6,
+          "example_keys": [
+            "RCP-331",
+            "RCP-382",
+            "RCP-402"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.13333333333333333,
+          "count": 4,
+          "example_keys": [
+            "RCP-368",
+            "RCP-403",
+            "RCP-446"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.1935483870967742,
+          "count": 6,
+          "example_keys": [
+            "RCP-486",
+            "RCP-515",
+            "RCP-537"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.1935483870967742,
+          "count": 6,
+          "example_keys": [
+            "RCP-508",
+            "RCP-514",
+            "RCP-540"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.12903225806451613,
+          "count": 4,
+          "example_keys": [
+            "RCP-506",
+            "RCP-547",
+            "RCP-548"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5,
+    "positive_percent": 50,
+    "steps": 90
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "RCP-11",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "RCP-37",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "RCP-97",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "RCP-153",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "RCP-158",
+        "label": "Validation and Data Binding Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "RCP-554",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-555",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "RCP-558",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "RCP-561",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "RCP-569",
+        "label": "Spring Web Flow Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from August 2004 to September 2008, focusing primarily on validation and data binding issues, which accounted for 27% of their work. In the early phase, they tackled various validation issues and contributed to Spring Web Flow enhancements, with example tickets like RCP-158 and RCP-37. During the middle phase, they shifted some focus to OSGi manifest and dependency issues, while still addressing validation concerns, as seen in tickets RCP-361 and RCP-331. Recently, they returned to enhancing Spring Web Flow, alongside ongoing validation tasks, with notable tickets such as RCP-508 and RCP-486. Overall, 50% of their steps aligned with the overall direction of the projects they worked on. This diverse experience highlights their adaptability and commitment to improving software functionality."
+}

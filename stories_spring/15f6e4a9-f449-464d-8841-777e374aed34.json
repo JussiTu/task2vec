@@ -1,0 +1,250 @@
+{
+  "assignee_id": "<<|author_key|15f6e4a9-f449-464d-8841-777e374aed34|>>",
+  "tickets": {
+    "count": 69,
+    "first_created": "2004-10-26T01:08:32.000+0000",
+    "last_created": "2009-01-05T22:30:07.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.43478260869565216,
+        "count": 30,
+        "example_keys": [
+          "MOD-38",
+          "MOD-39",
+          "MOD-59"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.2463768115942029,
+        "count": 17,
+        "example_keys": [
+          "MOD-98",
+          "MOD-21",
+          "MOD-49"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.10144927536231885,
+        "count": 7,
+        "example_keys": [
+          "MOD-71",
+          "MOD-128",
+          "MOD-184"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.057971014492753624,
+        "count": 4,
+        "example_keys": [
+          "MOD-122",
+          "MOD-131",
+          "MOD-133"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.057971014492753624,
+        "count": 4,
+        "example_keys": [
+          "MOD-123",
+          "MOD-130",
+          "MOD-154"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.34782608695652173,
+          "count": 8,
+          "example_keys": [
+            "MOD-98",
+            "MOD-21",
+            "MOD-49"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.21739130434782608,
+          "count": 5,
+          "example_keys": [
+            "MOD-38",
+            "MOD-39",
+            "MOD-59"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.13043478260869565,
+          "count": 3,
+          "example_keys": [
+            "MOD-122",
+            "MOD-131",
+            "MOD-133"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.4782608695652174,
+          "count": 11,
+          "example_keys": [
+            "MOD-139",
+            "MOD-150",
+            "MOD-152"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.21739130434782608,
+          "count": 5,
+          "example_keys": [
+            "MOD-145",
+            "MOD-146",
+            "MOD-215"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.13043478260869565,
+          "count": 3,
+          "example_keys": [
+            "MOD-184",
+            "MOD-189",
+            "MOD-196"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.6086956521739131,
+          "count": 14,
+          "example_keys": [
+            "MOD-272",
+            "MOD-276",
+            "MOD-284"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.17391304347826086,
+          "count": 4,
+          "example_keys": [
+            "MOD-348",
+            "MOD-353",
+            "MOD-407"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.08695652173913043,
+          "count": 2,
+          "example_keys": [
+            "MOD-331",
+            "MOD-431"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4852941176470588,
+    "positive_percent": 49,
+    "steps": 68
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "MOD-98",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-38",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "MOD-21",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-39",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "MOD-49",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "MOD-413",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "MOD-417",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-431",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-450",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "MOD-502",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from October 2004 to January 2009, completing a total of 69 tickets. In the early phase, they focused on \"Spring IDE Tooling Enhancements\" and \"Validation and Data Binding Issues,\" with notable tickets like MOD-98 and MOD-38. As they progressed into the middle phase, their work continued to emphasize validation issues, contributing to tickets such as MOD-139 and MOD-145. Recently, they have concentrated heavily on \"Validation and Data Binding Issues,\" addressing tickets like MOD-272 and MOD-276, while still engaging with tooling enhancements. Overall, their work reflects a strong alignment with project goals, with 49% of steps aligned with the overall direction. Their contributions have significantly impacted the quality and functionality of the projects they worked on."
+}

@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|2d1f138b-fbe9-4517-9e03-86ec4ee645f0|>>",
+  "tickets": {
+    "count": 946,
+    "first_created": "2005-06-21T20:39:33.000+0000",
+    "last_created": "2011-10-31T22:41:46.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 21,
+        "label": "Codebase Consistency and Refactoring",
+        "share": 0.3023255813953488,
+        "count": 286,
+        "example_keys": [
+          "ROO-1",
+          "ROO-3",
+          "ROO-4"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.15961945031712474,
+        "count": 151,
+        "example_keys": [
+          "SEC-3",
+          "SEC-5",
+          "SEC-6"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Spring Roo Initialization Errors",
+        "share": 0.1511627906976744,
+        "count": 143,
+        "example_keys": [
+          "ROO-2",
+          "ROO-23",
+          "ROO-45"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.14059196617336153,
+        "count": 133,
+        "example_keys": [
+          "SEC-20",
+          "SEC-22",
+          "SEC-36"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "JPA and Entity Mapping Issues",
+        "share": 0.113107822410148,
+        "count": 107,
+        "example_keys": [
+          "ROO-12",
+          "ROO-19",
+          "ROO-35"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.43492063492063493,
+          "count": 137,
+          "example_keys": [
+            "SEC-3",
+            "SEC-5",
+            "SEC-6"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.37777777777777777,
+          "count": 119,
+          "example_keys": [
+            "SEC-20",
+            "SEC-22",
+            "SEC-36"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.06349206349206349,
+          "count": 20,
+          "example_keys": [
+            "SEC-28",
+            "SEC-45",
+            "SEC-95"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.38412698412698415,
+          "count": 121,
+          "example_keys": [
+            "ROO-1",
+            "ROO-3",
+            "ROO-4"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.2222222222222222,
+          "count": 70,
+          "example_keys": [
+            "ROO-12",
+            "ROO-19",
+            "ROO-35"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.17777777777777778,
+          "count": 56,
+          "example_keys": [
+            "ROO-2",
+            "ROO-23",
+            "ROO-45"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.5221518987341772,
+          "count": 165,
+          "example_keys": [
+            "ROO-646",
+            "ROO-667",
+            "ROO-672"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.27531645569620256,
+          "count": 87,
+          "example_keys": [
+            "ROO-652",
+            "ROO-664",
+            "ROO-678"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.11708860759493671,
+          "count": 37,
+          "example_keys": [
+            "ROO-659",
+            "ROO-661",
+            "ROO-666"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49523809523809526,
+    "positive_percent": 50,
+    "steps": 945
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SEC-3",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-5",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-6",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-7",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-9",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ROO-2325",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "ROO-2467",
+        "label": "JPA and Entity Mapping Issues"
+      },
+      {
+        "key": "ROO-2502",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-2804",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "ROO-2859",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2005, with a focus on various themes throughout their career. In the early phase, they primarily worked on \"Authentication Framework Enhancements\" (e.g., SEC-3, SEC-5) and \"Session Authentication Issues\" (e.g., SEC-20, SEC-22). As they progressed into the middle phase, their attention shifted towards \"Codebase Consistency and Refactoring\" (e.g., ROO-1, ROO-3) and \"JPA and Entity Mapping Issues\" (e.g., ROO-12, ROO-19). Recently, they have concentrated heavily on \"Codebase Consistency and Refactoring\" (e.g., ROO-646, ROO-667) and \"Spring Roo Initialization Errors\" (e.g., ROO-652, ROO-664). Overall, 50% of their steps have aligned with the overall direction of the project. This demonstrates a consistent commitment to improving the codebase and addressing critical issues over time."
+}

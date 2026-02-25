@@ -1,0 +1,269 @@
+{
+  "assignee_id": "<<|author_key|dfe6b7d5-82be-4642-99c5-baa0f820aca7|>>",
+  "tickets": {
+    "count": 44,
+    "first_created": "2010-05-25T03:12:33.000+0000",
+    "last_created": "2010-12-23T09:36:25.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 21,
+        "label": "Codebase Consistency and Refactoring",
+        "share": 0.25,
+        "count": 11,
+        "example_keys": [
+          "ROO-884",
+          "ROO-891",
+          "ROO-893"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Spring Roo Initialization Errors",
+        "share": 0.25,
+        "count": 11,
+        "example_keys": [
+          "ROO-1229",
+          "ROO-1337",
+          "ROO-1363"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "JPA and Entity Mapping Issues",
+        "share": 0.22727272727272727,
+        "count": 10,
+        "example_keys": [
+          "ROO-1230",
+          "ROO-1297",
+          "ROO-1389"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.09090909090909091,
+        "count": 4,
+        "example_keys": [
+          "ROO-991",
+          "ROO-1313",
+          "ROO-1424"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.045454545454545456,
+        "count": 2,
+        "example_keys": [
+          "ROO-1261",
+          "ROO-1407"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.35714285714285715,
+          "count": 5,
+          "example_keys": [
+            "ROO-884",
+            "ROO-891",
+            "ROO-893"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ROO-991",
+            "ROO-1313"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ROO-1230",
+            "ROO-1297"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.3333333333333333,
+          "count": 5,
+          "example_keys": [
+            "ROO-1389",
+            "ROO-1391",
+            "ROO-1400"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "ROO-1333",
+            "ROO-1365"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "ROO-1337",
+            "ROO-1363"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors",
+          "share": 0.5333333333333333,
+          "count": 8,
+          "example_keys": [
+            "ROO-1482",
+            "ROO-1483",
+            "ROO-1484"
+          ]
+        },
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.26666666666666666,
+          "count": 4,
+          "example_keys": [
+            "ROO-1469",
+            "ROO-1486",
+            "ROO-1531"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "ROO-1496",
+            "ROO-1501",
+            "ROO-1867"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 1,
+          "label": "Spring Roo Initialization Errors"
+        },
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5348837209302325,
+    "positive_percent": 53,
+    "steps": 43
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ROO-884",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-890",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "ROO-891",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-893",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-965",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ROO-1569",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "ROO-1697",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "ROO-1729",
+        "label": "Spring Roo Initialization Errors"
+      },
+      {
+        "key": "ROO-1866",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-1867",
+        "label": "JPA and Entity Mapping Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2010, focusing on various themes throughout their work. In the early phase, they primarily addressed Codebase Consistency and Refactoring, with notable tickets like ROO-884 and ROO-891. As they progressed into the middle phase, their attention shifted towards JPA and Entity Mapping Issues, exemplified by tickets such as ROO-1389 and ROO-1391. Recently, they have concentrated on Spring Roo Initialization Errors, handling multiple tickets including ROO-1482 and ROO-1483. This evolution in focus reflects a responsive approach to project needs, with 53% of their steps aligned with the overall direction. Their work also included improvements in documentation and build processes, showcasing a well-rounded skill set. Overall, their contributions have significantly impacted the project's development trajectory."
+}

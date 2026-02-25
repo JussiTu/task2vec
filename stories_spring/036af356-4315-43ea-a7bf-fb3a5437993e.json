@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|036af356-4315-43ea-a7bf-fb3a5437993e|>>",
+  "tickets": {
+    "count": 352,
+    "first_created": "2013-04-16T10:30:12.000+0000",
+    "last_created": "2016-02-11T17:45:54.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.5994318181818182,
+        "count": 211,
+        "example_keys": [
+          "XD-26",
+          "XD-75",
+          "XD-104"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.26420454545454547,
+        "count": 93,
+        "example_keys": [
+          "XD-206",
+          "XD-292",
+          "XD-295"
+        ]
+      },
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.045454545454545456,
+        "count": 16,
+        "example_keys": [
+          "XD-752",
+          "XD-885",
+          "XD-1059"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.02556818181818182,
+        "count": 9,
+        "example_keys": [
+          "XD-1262",
+          "XD-1329",
+          "XD-1595"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.017045454545454544,
+        "count": 6,
+        "example_keys": [
+          "XD-1189",
+          "XD-1291",
+          "XD-1370"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.7606837606837606,
+          "count": 89,
+          "example_keys": [
+            "XD-26",
+            "XD-75",
+            "XD-104"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.10256410256410256,
+          "count": 12,
+          "example_keys": [
+            "XD-206",
+            "XD-292",
+            "XD-295"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.07692307692307693,
+          "count": 9,
+          "example_keys": [
+            "XD-752",
+            "XD-885",
+            "XD-1059"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.5042735042735043,
+          "count": 59,
+          "example_keys": [
+            "XD-1209",
+            "XD-1214",
+            "XD-1221"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.3418803418803419,
+          "count": 40,
+          "example_keys": [
+            "XD-1246",
+            "XD-1310",
+            "XD-1318"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.05982905982905983,
+          "count": 7,
+          "example_keys": [
+            "XD-1215",
+            "XD-1293",
+            "XD-1435"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.5338983050847458,
+          "count": 63,
+          "example_keys": [
+            "XD-1989",
+            "XD-1999",
+            "XD-2008"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.3474576271186441,
+          "count": 41,
+          "example_keys": [
+            "XD-1986",
+            "XD-1991",
+            "XD-1995"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.0423728813559322,
+          "count": 5,
+          "example_keys": [
+            "XD-2683",
+            "XD-2735",
+            "XD-2920"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.5185185185185185,
+    "positive_percent": 52,
+    "steps": 351
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "XD-26",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-75",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-101",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "XD-104",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-105",
+        "label": "Spring XD Module Development"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3460",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "XD-3469",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3601",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3616",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3740",
+        "label": "Acceptance Test Failures"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in software development since April 2013, focusing primarily on Spring XD Module Development. In the early phase, they contributed significantly to this theme, working on tickets like XD-26 and XD-75, which accounted for 76% of their early efforts. As they progressed into the middle phase, they continued to address Acceptance Test Failures, with tickets such as XD-1246 and XD-1310 making up a substantial portion of their work. Recently, they maintained their focus on Spring XD Module Development, tackling tickets like XD-1989 and XD-1999, while also addressing some Messaging Configuration Enhancements. Overall, 52% of their steps aligned with the overall direction of the project, demonstrating a consistent commitment to key objectives throughout their tenure."
+}

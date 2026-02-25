@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|b573c385-686a-414a-8464-62f9eb239da5|>>",
+  "tickets": {
+    "count": 52,
+    "first_created": "2016-02-08T16:24:36.000+0000",
+    "last_created": "2017-02-23T09:14:14.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 21,
+        "label": "Codebase Consistency and Refactoring",
+        "share": 0.8076923076923077,
+        "count": 42,
+        "example_keys": [
+          "ROO-3698",
+          "ROO-3699",
+          "ROO-3707"
+        ]
+      },
+      {
+        "cluster": 8,
+        "label": "JPA and Entity Mapping Issues",
+        "share": 0.09615384615384616,
+        "count": 5,
+        "example_keys": [
+          "ROO-3773",
+          "ROO-3852",
+          "ROO-3854"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.038461538461538464,
+        "count": 2,
+        "example_keys": [
+          "ROO-3703",
+          "ROO-3739"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.019230769230769232,
+        "count": 1,
+        "example_keys": [
+          "ROO-3784"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Spring Roo Initialization Errors",
+        "share": 0.019230769230769232,
+        "count": 1,
+        "example_keys": [
+          "ROO-3833"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.9411764705882353,
+          "count": 16,
+          "example_keys": [
+            "ROO-3698",
+            "ROO-3699",
+            "ROO-3707"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.058823529411764705,
+          "count": 1,
+          "example_keys": [
+            "ROO-3703"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.7647058823529411,
+          "count": 13,
+          "example_keys": [
+            "ROO-3769",
+            "ROO-3770",
+            "ROO-3771"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.058823529411764705,
+          "count": 1,
+          "example_keys": [
+            "ROO-3739"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.058823529411764705,
+          "count": 1,
+          "example_keys": [
+            "ROO-3773"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring",
+          "share": 0.7222222222222222,
+          "count": 13,
+          "example_keys": [
+            "ROO-3848",
+            "ROO-3857",
+            "ROO-3861"
+          ]
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues",
+          "share": 0.2222222222222222,
+          "count": 4,
+          "example_keys": [
+            "ROO-3852",
+            "ROO-3854",
+            "ROO-3855"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.05555555555555555,
+          "count": 1,
+          "example_keys": [
+            "ROO-3860"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 21,
+          "label": "Codebase Consistency and Refactoring"
+        },
+        {
+          "cluster": 8,
+          "label": "JPA and Entity Mapping Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5098039215686274,
+    "positive_percent": 51,
+    "steps": 51
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ROO-3698",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3699",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3703",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "ROO-3707",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3710",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ROO-3875",
+        "label": "JPA and Entity Mapping Issues"
+      },
+      {
+        "key": "ROO-3876",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3877",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3879",
+        "label": "Codebase Consistency and Refactoring"
+      },
+      {
+        "key": "ROO-3882",
+        "label": "Codebase Consistency and Refactoring"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2016, focusing primarily on codebase consistency and refactoring. In the early phase, they worked on numerous tickets such as ROO-3698 and ROO-3707, dedicating over 94% of their efforts to this theme. As they progressed into the middle phase, they continued to address codebase issues while also tackling JPA and entity mapping problems, with examples like ROO-3773. Recently, their work has shifted slightly, maintaining a strong emphasis on codebase consistency while also addressing more JPA-related issues, as seen in tickets like ROO-3852 and ROO-3854. Overall, 51% of their steps aligned with the overall direction of the project, showcasing their commitment to improving the codebase while adapting to emerging needs."
+}

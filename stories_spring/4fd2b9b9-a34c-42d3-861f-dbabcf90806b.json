@@ -1,0 +1,249 @@
+{
+  "assignee_id": "<<|author_key|4fd2b9b9-a34c-42d3-861f-dbabcf90806b|>>",
+  "tickets": {
+    "count": 301,
+    "first_created": "2013-05-30T10:53:22.000+0000",
+    "last_created": "2017-09-08T14:44:50.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.6843853820598007,
+        "count": 206,
+        "example_keys": [
+          "XD-158",
+          "XD-164",
+          "XD-260"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.16611295681063123,
+        "count": 50,
+        "example_keys": [
+          "XD-480",
+          "XD-481",
+          "XD-482"
+        ]
+      },
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.08970099667774087,
+        "count": 27,
+        "example_keys": [
+          "XD-1012",
+          "XD-3687",
+          "XD-3689"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.013289036544850499,
+        "count": 4,
+        "example_keys": [
+          "XD-2458",
+          "XD-2711",
+          "XD-3456"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.009966777408637873,
+        "count": 3,
+        "example_keys": [
+          "XD-1424",
+          "XD-1438",
+          "BATCH-2632"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.79,
+          "count": 79,
+          "example_keys": [
+            "XD-158",
+            "XD-164",
+            "XD-260"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.17,
+          "count": 17,
+          "example_keys": [
+            "XD-480",
+            "XD-481",
+            "XD-482"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.02,
+          "count": 2,
+          "example_keys": [
+            "XD-1424",
+            "XD-1438"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.69,
+          "count": 69,
+          "example_keys": [
+            "XD-1455",
+            "XD-1456",
+            "XD-1457"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.26,
+          "count": 26,
+          "example_keys": [
+            "XD-1541",
+            "XD-1557",
+            "XD-1566"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.02,
+          "count": 2,
+          "example_keys": [
+            "XD-1780",
+            "XD-2064"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.5742574257425742,
+          "count": 58,
+          "example_keys": [
+            "XD-2386",
+            "XD-2387",
+            "XD-2390"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.25742574257425743,
+          "count": 26,
+          "example_keys": [
+            "XD-3687",
+            "XD-3689",
+            "BATCH-2500"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.06930693069306931,
+          "count": 7,
+          "example_keys": [
+            "XD-2470",
+            "XD-2532",
+            "XD-2653"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.52,
+    "positive_percent": 52,
+    "steps": 300
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "XD-158",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-164",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-260",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-269",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-318",
+        "label": "Spring XD Module Development"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "BATCH-2621",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "BATCH-2626",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-2632",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "BATCH-2635",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "BATCH-2640",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ]
+  },
+  "narrative": "From May 2013 to September 2017, this assignee contributed significantly to various projects, primarily focusing on Spring XD Module Development. In the early phase, they worked on numerous tickets, such as XD-158 and XD-164, with 79% of their efforts directed towards module development. As they progressed into the middle phase, they continued to tackle module development while also addressing Acceptance Test Failures, exemplified by tickets like XD-1541 and XD-1557. \n\nIn the recent phase, their focus shifted slightly, with a notable increase in handling Step Scope and Tasklet Issues, as seen in tickets XD-3687 and XD-3689, while still maintaining a strong involvement in module development. Overall, 52% of their steps aligned with the overall direction of the projects. This assignee's work reflects a consistent commitment to improving the Spring XD framework and addressing critical issues as they arose."
+}

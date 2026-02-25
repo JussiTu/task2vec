@@ -1,0 +1,482 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\title{\textbf{Mathematical Framework for Task Vectorization} \\ 
+\large Skill Development Platform as a Service}
+\author{}
+\date{\today}
+
+\definecolor{defcolor}{RGB}{230,240,255}
+\definecolor{excolor}{RGB}{255,245,230}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document presents the complete mathematical framework for a skill development platform that uses task vectorization to track employee growth, align work with company strategy, and optimize decision-making. The system leverages high-dimensional embeddings, dimensionality reduction, and trajectory analysis to transform project tickets into actionable insights.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+The core concept is to represent each work task as a vector in a learned latent space where:
+\begin{itemize}
+    \item \textbf{Direction} encodes the type of work and technologies involved
+    \item \textbf{Magnitude} represents the time investment (hours)
+    \item \textbf{Employee trajectories} are paths through this space
+    \item \textbf{Company strategy} is a desired direction vector
+\end{itemize}
+
+\section{Embedding Generation}
+
+\subsection{Initial Embedding}
+
+Given a task description text $t$, we generate a high-dimensional embedding vector using a large language model (e.g., Claude):
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 1: Task Embedding]
+$$\mathbf{e}_t = \text{Embed}(t) = [e_1, e_2, \ldots, e_d]$$
+where $\mathbf{e}_t \in \R^d$ with $d = 1024$ (Claude's embedding dimension), and typically $e_i \in [-1, 1]$ after normalization.
+\end{tcolorbox}
+
+The embedding function $\text{Embed}(\cdot)$ captures semantic meaning such that similar tasks have similar embeddings under standard distance metrics.
+
+\section{Dimensionality Reduction}
+
+Given $N$ tasks with embeddings $\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_N\}$, we reduce dimensionality from $d = 1024$ to $k \ll d$ (typically $k = 12-16$) to create an interpretable latent space.
+
+\subsection{Principal Component Analysis (PCA)}
+
+Find projection matrix $\mathbf{W} \in \R^{d \times k}$ that maximizes variance:
+
+$$\mathbf{W} = \arg\max_{\mathbf{W}} \sum_{i=1}^{N} \norm{\mathbf{W}^T \mathbf{e}_i}^2$$
+
+Subject to orthonormality constraint: $\mathbf{W}^T\mathbf{W} = \mathbf{I}_k$
+
+\subsubsection{Solution via Eigendecomposition}
+
+Compute the covariance matrix:
+$$\mathbf{C} = \frac{1}{N}\sum_{i=1}^{N}(\mathbf{e}_i - \bar{\mathbf{e}})(\mathbf{e}_i - \bar{\mathbf{e}})^T$$
+
+where $\bar{\mathbf{e}} = \frac{1}{N}\sum_{i=1}^{N}\mathbf{e}_i$ is the mean embedding.
+
+Then $\mathbf{W}$ consists of the top $k$ eigenvectors of $\mathbf{C}$.
+
+\subsubsection{Reduced Embedding}
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 2: Latent Space Embedding]
+$$\mathbf{z}_i = \mathbf{W}^T(\mathbf{e}_i - \bar{\mathbf{e}}) \in \R^k$$
+\end{tcolorbox}
+
+\subsection{UMAP (Uniform Manifold Approximation)}
+
+UMAP preserves local structure better than PCA through non-linear dimensionality reduction.
+
+\subsubsection{High-Dimensional Probability Distribution}
+
+For each point $\mathbf{e}_i$, construct a probability distribution over its neighbors:
+
+$$p_{ij} = \exp\left(-\frac{\norm{\mathbf{e}_i - \mathbf{e}_j} - \rho_i}{\sigma_i}\right)$$
+
+where:
+\begin{itemize}
+    \item $\rho_i$ is the distance to the nearest neighbor of $\mathbf{e}_i$
+    \item $\sigma_i$ is chosen such that $\sum_{j \neq i} p_{ij} = \log_2(k_{\text{neighbors}})$
+\end{itemize}
+
+\subsubsection{Low-Dimensional Optimization}
+
+Learn embeddings $\{\mathbf{z}_1, \ldots, \mathbf{z}_N\}$ in $\R^k$ by minimizing cross-entropy:
+
+$$\mathcal{L} = \sum_{i,j} \left[p_{ij}\log\frac{p_{ij}}{q_{ij}} + (1-p_{ij})\log\frac{1-p_{ij}}{1-q_{ij}}\right]$$
+
+where the low-dimensional similarity is:
+$$q_{ij} = \frac{1}{1 + a\norm{\mathbf{z}_i - \mathbf{z}_j}^{2b}}$$
+
+with hyperparameters $a, b > 0$ (typically $a=1.929, b=0.7915$).
+
+\section{Task Vectors with Magnitude}
+
+\subsection{Vector Construction}
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 3: Task Vector]
+$$\mathbf{v}_i = h_i \cdot \frac{\mathbf{z}_i}{\norm{\mathbf{z}_i}} = h_i \cdot \hat{\mathbf{z}}_i$$
+\end{tcolorbox}
+
+where:
+\begin{itemize}
+    \item $\mathbf{z}_i \in \R^k$ is the reduced embedding (determines direction)
+    \item $h_i \in \R^+$ is the estimated hours (determines magnitude)
+    \item $\hat{\mathbf{z}}_i = \frac{\mathbf{z}_i}{\norm{\mathbf{z}_i}}$ is the unit direction vector
+\end{itemize}
+
+This representation allows us to distinguish between:
+\begin{itemize}
+    \item Tasks in the same direction but different investment: $\mathbf{v}_A = 2\hat{\mathbf{z}}$ vs $\mathbf{v}_B = 8\hat{\mathbf{z}}$
+    \item Tasks with same effort in different directions: $\norm{\mathbf{v}_A} = \norm{\mathbf{v}_B}$ but $\hat{\mathbf{z}}_A \neq \hat{\mathbf{z}}_B$
+\end{itemize}
+
+\section{Employee Skill Trajectory}
+
+\subsection{Cumulative Skill Vector}
+
+An employee completes a sequence of tasks $\{t_1, t_2, \ldots, t_m\}$ over time.
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 4: Cumulative Skill]
+$$\mathbf{s}_{\text{employee}} = \sum_{j=1}^{m} \mathbf{v}_{t_j} = \sum_{j=1}^{m} h_j \hat{\mathbf{z}}_j$$
+\end{tcolorbox}
+
+This represents the total skill accumulation in vector form.
+
+\subsection{Current Position}
+
+The employee's current position in skill space:
+$$\mathbf{p}_{\text{current}} = \mathbf{s}_{\text{employee}}$$
+
+\subsection{Velocity (Growth Direction)}
+
+To capture recent learning direction, compute velocity over last $n$ tasks:
+
+$$\mathbf{v}_{\text{velocity}} = \frac{1}{n}\sum_{j=m-n+1}^{m} \mathbf{v}_{t_j}$$
+
+where $n$ is typically 3-5 tasks.
+
+\subsection{Trajectory Metrics}
+
+\subsubsection{Path Length}
+Total skill investment:
+$$L = \sum_{j=1}^{m} \norm{\mathbf{v}_{t_j}} = \sum_{j=1}^{m} h_j$$
+
+\subsubsection{Directional Consistency}
+Measure how focused the employee's growth has been:
+$$C = \frac{\norm{\mathbf{s}_{\text{employee}}}}{\sum_{j=1}^{m} \norm{\mathbf{v}_{t_j}}}$$
+
+where $C \in [0,1]$. Values near 1 indicate focused specialization; values near 0 indicate broad generalization.
+
+\section{Company Strategy Vector}
+
+\subsection{Method 1: From Desired and Undesired Tasks}
+
+Given sets of desired tasks $\mathcal{D} = \{d_1, \ldots, d_p\}$ and undesired tasks $\mathcal{U} = \{u_1, \ldots, u_q\}$:
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 5: Strategy Vector]
+$$\mathbf{s}_{\text{strategy}} = \frac{1}{p}\sum_{i=1}^{p} \mathbf{z}_{d_i} - \alpha \cdot \frac{1}{q}\sum_{j=1}^{q} \mathbf{z}_{u_j}$$
+\end{tcolorbox}
+
+where $\alpha \in [0,1]$ controls the penalty weight for moving away from undesired directions.
+
+\subsection{Method 2: Weighted Dimension Targets}
+
+If learned dimensions are interpretable, directly specify:
+
+$$\mathbf{s}_{\text{strategy}} = \sum_{i=1}^{k} w_i \mathbf{e}_i$$
+
+where $\mathbf{e}_i$ is the $i$-th basis vector in latent space and $w_i$ represents desired emphasis on that dimension.
+
+\section{Strategic Alignment}
+
+\subsection{Cosine Similarity}
+
+Measure alignment between a task vector and strategy:
+
+\begin{tcolorbox}[colback=defcolor,colframe=blue!75!black,title=Definition 6: Strategic Alignment]
+$$\text{Alignment}(\mathbf{v}_t, \mathbf{s}) = \frac{\mathbf{v}_t \cdot \mathbf{s}}{\norm{\mathbf{v}_t} \cdot \norm{\mathbf{s}}} = \frac{\sum_{i=1}^{k} v_{t,i} s_i}{\sqrt{\sum_{i=1}^{k} v_{t,i}^2} \cdot \sqrt{\sum_{i=1}^{k} s_i^2}}$$
+\end{tcolorbox}
+
+Range: $\text{Alignment} \in [-1, 1]$ where:
+\begin{itemize}
+    \item $+1$ indicates perfect alignment with strategy
+    \item $0$ indicates orthogonal (unrelated to strategy)
+    \item $-1$ indicates opposition to strategy
+\end{itemize}
+
+\subsection{Strategic Value}
+
+The total strategic value of a task combines magnitude and alignment:
+
+$$V_{\text{strategic}}(\mathbf{v}_t) = \norm{\mathbf{v}_t} \cdot \text{Alignment}(\mathbf{v}_t, \mathbf{s})$$
+
+This measures "How much does this task move us toward our strategic goals?"
+
+\section{Attention Mechanism (Query-Key-Value)}
+
+\subsection{Learned Projections}
+
+Learn three projection matrices to implement attention:
+
+$$\mathbf{W}_Q \in \R^{k \times d_q}, \quad \mathbf{W}_K \in \R^{k \times d_k}, \quad \mathbf{W}_V \in \R^{k \times d_v}$$
+
+\subsection{Task Representations}
+
+For each task with latent embedding $\mathbf{z}_i$:
+
+\begin{align}
+\mathbf{q}_i &= \mathbf{W}_Q \mathbf{z}_i && \text{(query: what skills am I seeking?)} \\
+\mathbf{k}_i &= \mathbf{W}_K \mathbf{z}_i && \text{(key: what skills do I require?)} \\
+\mathbf{v}_i &= \mathbf{W}_V \mathbf{z}_i && \text{(value: what do I provide?)}
+\end{align}
+
+\subsection{Attention Score}
+
+Compute compatibility between employee query and task key:
+
+$$\text{score}(\mathbf{q}_{\text{emp}}, \mathbf{k}_{\text{task}}) = \frac{\mathbf{q}_{\text{emp}} \cdot \mathbf{k}_{\text{task}}}{\sqrt{d_k}}$$
+
+\subsection{Softmax Distribution}
+
+Over $M$ available tasks, compute normalized attention weights:
+
+$$\alpha_j = \frac{\exp(\text{score}_j)}{\sum_{i=1}^{M} \exp(\text{score}_i)}$$
+
+\subsection{Recommendation Vector}
+
+$$\mathbf{r} = \sum_{j=1}^{M} \alpha_j \mathbf{v}_j$$
+
+This weighted combination represents the optimal next direction for the employee.
+
+\section{Multi-Objective Task Scoring}
+
+\subsection{Combined Score Function}
+
+For task $t$, employee $e$, and strategy $s$:
+
+\begin{tcolorbox}[colback=excolor,colframe=orange!75!black,title=Task Scoring Function]
+$$\text{Score}(t|e,s) = \lambda_1 f_{\text{skill}}(t,e) + \lambda_2 f_{\text{strategy}}(t,s) + \lambda_3 f_{\text{growth}}(t,e)$$
+\end{tcolorbox}
+
+where $\lambda_1 + \lambda_2 + \lambda_3 = 1$ are tunable weights representing priorities.
+
+\subsection{Component Functions}
+
+\subsubsection{Skill Match: Can the employee do this?}
+
+$$f_{\text{skill}}(t,e) = \exp\left(-\frac{\norm{\mathbf{z}_t - \mathbf{p}_e}^2}{2\sigma^2}\right)$$
+
+This is a Gaussian (RBF) kernel centered at the employee's current position. Tasks nearby in skill space receive higher scores.
+
+\subsubsection{Strategic Alignment: Does it advance our goals?}
+
+$$f_{\text{strategy}}(t,s) = \max\left(0, \frac{\mathbf{z}_t \cdot \mathbf{s}_{\text{strategy}}}{\norm{\mathbf{z}_t} \cdot \norm{\mathbf{s}_{\text{strategy}}}}\right)$$
+
+Only positive alignment contributes (tasks moving away from strategy get zero strategic score).
+
+\subsubsection{Growth/Novelty: Is this new learning?}
+
+$$f_{\text{growth}}(t,e) = 1 - \max_{i \in \text{history}(e)} \exp\left(-\frac{\norm{\mathbf{z}_t - \mathbf{z}_i}^2}{2\tau^2}\right)$$
+
+Higher scores for tasks dissimilar to all previous work. The parameter $\tau$ controls how different a task must be to count as "new."
+
+\section{Decision Making: Quick Fix vs. Proper Solution}
+
+\subsection{Problem Setup}
+
+Consider two approaches to solve the same problem:
+\begin{itemize}
+    \item Approach A (quick fix): embedding $\mathbf{z}_A$, hours $h_A$
+    \item Approach B (proper solution): embedding $\mathbf{z}_B$, hours $h_B$ where $h_B > h_A$
+\end{itemize}
+
+\subsection{Strategic Value Comparison}
+
+Compute strategic value for each:
+$$V_i = h_i \cdot \text{Alignment}(\mathbf{z}_i, \mathbf{s}_{\text{strategy}})$$
+
+\subsection{Marginal Strategic Value}
+
+\begin{tcolorbox}[colback=excolor,colframe=orange!75!black,title=Decision Metric]
+$$\Delta = \frac{V_B - V_A}{h_B - h_A}$$
+\end{tcolorbox}
+
+This represents the strategic value gained per additional hour invested.
+
+\subsection{Decision Rule}
+
+Choose the proper solution (B) if:
+$$\Delta > \theta$$
+
+where $\theta$ is a threshold (e.g., $\theta = 0.5$ means we need at least 0.5 alignment units per extra hour to justify the investment).
+
+\subsubsection{Example}
+
+Suppose:
+\begin{align*}
+h_A &= 2 \text{ hours}, \quad \text{Alignment}(\mathbf{z}_A, \mathbf{s}) = 0.3 \\
+h_B &= 10 \text{ hours}, \quad \text{Alignment}(\mathbf{z}_B, \mathbf{s}) = 0.9
+\end{align*}
+
+Then:
+\begin{align*}
+V_A &= 2 \times 0.3 = 0.6 \\
+V_B &= 10 \times 0.9 = 9.0 \\
+\Delta &= \frac{9.0 - 0.6}{10 - 2} = \frac{8.4}{8} = 1.05
+\end{align*}
+
+Since $\Delta = 1.05 > 0.5 = \theta$, choose the proper solution.
+
+\section{Learning the Projection Matrices}
+
+\subsection{Supervised Learning Setup}
+
+Given historical data $\{(\mathbf{z}_i, y_i)\}_{i=1}^{N}$ where $y_i \in \{0,1\}$ indicates successful outcome.
+
+\subsection{Logistic Objective}
+
+Learn $\mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V$ to maximize log-likelihood:
+
+$$\mathcal{L} = \sum_{i=1}^{N} \left[ y_i \log P(\text{success}|\mathbf{z}_i) + (1-y_i)\log(1 - P(\text{success}|\mathbf{z}_i)) \right]$$
+
+where the success probability is modeled as:
+
+$$P(\text{success}|\mathbf{z}_i) = \sigma\left(\mathbf{w}^T f(\mathbf{z}_i; \mathbf{W}_Q, \mathbf{W}_K, \mathbf{W}_V)\right)$$
+
+and $\sigma(x) = \frac{1}{1+e^{-x}}$ is the sigmoid function.
+
+\subsection{Gradient Descent}
+
+Update parameters iteratively:
+
+$$\mathbf{W}_Q \leftarrow \mathbf{W}_Q - \eta \frac{\partial \mathcal{L}}{\partial \mathbf{W}_Q}$$
+
+where $\eta$ is the learning rate. Similarly for $\mathbf{W}_K$ and $\mathbf{W}_V$.
+
+\section{Company Direction Monitoring}
+
+\subsection{Current Trajectory}
+
+Compute the company's actual development direction using time-weighted recent work:
+
+$$\mathbf{d}_{\text{company}}(t) = \sum_{i: t_i \in [t-\Delta t, t]} w_i \mathbf{v}_i$$
+
+where $w_i = \exp(-\lambda(t - t_i))$ applies exponential decay so recent work has more weight.
+
+\subsection{Strategy Alignment Over Time}
+
+$$A(t) = \cos(\theta) = \frac{\mathbf{d}_{\text{company}}(t) \cdot \mathbf{s}_{\text{strategy}}}{\norm{\mathbf{d}_{\text{company}}(t)} \cdot \norm{\mathbf{s}_{\text{strategy}}}}$$
+
+Track $A(t)$ to monitor if actual development aligns with stated strategy.
+
+\subsection{Required Correction Vector}
+
+The orthogonal component representing needed shift:
+
+$$\mathbf{c} = \mathbf{s}_{\text{strategy}} - \text{proj}_{\mathbf{d}}(\mathbf{s})$$
+
+where the projection is:
+$$\text{proj}_{\mathbf{d}}(\mathbf{s}) = \frac{\mathbf{s} \cdot \mathbf{d}}{\norm{\mathbf{d}}^2}\mathbf{d}$$
+
+This shows which skills/technologies need more emphasis to realign with strategy.
+
+\section{Distance Metrics}
+
+\subsection{Euclidean Distance}
+
+Standard $L^2$ distance in latent space:
+$$d_{\text{Euclidean}}(\mathbf{z}_i, \mathbf{z}_j) = \norm{\mathbf{z}_i - \mathbf{z}_j} = \sqrt{\sum_{k=1}^{d}(z_{i,k} - z_{j,k})^2}$$
+
+\subsection{Cosine Distance}
+
+Measures angular difference (ignores magnitude):
+$$d_{\cos}(\mathbf{z}_i, \mathbf{z}_j) = 1 - \frac{\mathbf{z}_i \cdot \mathbf{z}_j}{\norm{\mathbf{z}_i} \cdot \norm{\mathbf{z}_j}}$$
+
+\subsection{Mahalanobis Distance}
+
+Accounts for covariance structure of the data:
+$$d_M(\mathbf{z}_i, \mathbf{z}_j) = \sqrt{(\mathbf{z}_i - \mathbf{z}_j)^T \boldsymbol{\Sigma}^{-1}(\mathbf{z}_i - \mathbf{z}_j)}$$
+
+where $\boldsymbol{\Sigma}$ is the covariance matrix of all task embeddings.
+
+\section{Complete Pipeline Summary}
+
+\begin{enumerate}
+    \item \textbf{Embedding}: $t \xrightarrow{\text{Claude API}} \mathbf{e} \in \R^{1024}$
+    
+    \item \textbf{Dimensionality Reduction}: $\mathbf{e} \xrightarrow{\text{UMAP/PCA}} \mathbf{z} \in \R^{16}$
+    
+    \item \textbf{Add Magnitude}: $\mathbf{v} = h \cdot \hat{\mathbf{z}}$
+    
+    \item \textbf{Employee Trajectory}: $\mathbf{s}_{\text{emp}} = \sum_{i} \mathbf{v}_i$
+    
+    \item \textbf{Strategic Alignment}: $A = \cos(\mathbf{v}, \mathbf{s}_{\text{strategy}})$
+    
+    \item \textbf{Decision Making}: $\text{Score} = \lambda_1 f_{\text{skill}} + \lambda_2 f_{\text{strategy}} + \lambda_3 f_{\text{growth}}$
+\end{enumerate}
+
+\section{Implementation Considerations}
+
+\subsection{Hyperparameters}
+
+Key parameters to tune:
+\begin{itemize}
+    \item Latent dimension $k$ (12-16 typical)
+    \item Skill match bandwidth $\sigma$ (controls task difficulty matching)
+    \item Growth bandwidth $\tau$ (controls novelty sensitivity)
+    \item Objective weights $\lambda_1, \lambda_2, \lambda_3$
+    \item Decision threshold $\theta$
+    \item Time decay $\lambda$ for company trajectory
+\end{itemize}
+
+\subsection{Computational Complexity}
+
+\begin{itemize}
+    \item Embedding generation: $O(1)$ per task (API call)
+    \item PCA: $O(Nd^2 + d^3)$ one-time cost
+    \item UMAP: $O(N \log N)$ with efficient implementations
+    \item Task scoring: $O(Mk)$ for $M$ available tasks
+    \item Trajectory update: $O(k)$ per completed task
+\end{itemize}
+
+\subsection{Data Requirements}
+
+Minimum viable system:
+\begin{itemize}
+    \item $\sim$500 historical tasks for meaningful latent space
+    \item $\sim$50 tasks per employee for trajectory analysis
+    \item $\sim$20 exemplar tasks defining strategy
+\end{itemize}
+
+\section{Future Extensions}
+
+\subsection{Multi-Objective Pareto Optimization}
+
+Instead of weighted combination, find Pareto frontier:
+$$\text{Pareto-optimal} = \{t : \nexists t' \text{ with } f_i(t') \geq f_i(t) \; \forall i \text{ and } f_j(t') > f_j(t) \text{ for some } j\}$$
+
+\subsection{Temporal Dynamics}
+
+Model skill decay over time:
+$$\mathbf{s}_{\text{emp}}(t) = \sum_{j=1}^{m} e^{-\lambda(t-t_j)} \mathbf{v}_{t_j}$$
+
+\subsection{Team Composition}
+
+Optimize team skill coverage:
+$$\text{Coverage}(\mathcal{T}) = \text{volume}\left(\text{ConvexHull}\{\mathbf{s}_{e_1}, \ldots, \mathbf{s}_{e_n}\}\right)$$
+
+where $\mathcal{T} = \{e_1, \ldots, e_n\}$ is the team.
+
+\subsection{Transfer Learning}
+
+Use pre-trained embeddings from similar companies or domains, fine-tune on company-specific data.
+
+\section{Conclusion}
+
+This mathematical framework provides a rigorous foundation for transforming unstructured task data into actionable insights about skill development, strategic alignment, and organizational direction. The key innovation is the dual representation of tasks as both skill-building trajectories and strategic value vectors in a learned latent space.
+
+By leveraging modern machine learning techniques (embeddings, dimensionality reduction, attention mechanisms) with classical optimization and linear algebra, the system can provide real-time decision support while adapting to evolving organizational needs.
+
+\end{document}

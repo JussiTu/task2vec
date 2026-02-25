@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|dd2afcfa-000b-41ba-9370-d194f8615e45|>>",
+  "tickets": {
+    "count": 670,
+    "first_created": "2010-06-01T12:19:42.000+0000",
+    "last_created": "2018-09-17T21:24:47.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.21044776119402986,
+        "count": 141,
+        "example_keys": [
+          "GREENHOUSE-150",
+          "GREENHOUSE-310",
+          "GREENHOUSE-393"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.18507462686567164,
+        "count": 124,
+        "example_keys": [
+          "GREENHOUSE-38",
+          "GREENHOUSE-67",
+          "GREENHOUSE-119"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.1701492537313433,
+        "count": 114,
+        "example_keys": [
+          "GREENHOUSE-40",
+          "GREENHOUSE-49",
+          "GREENHOUSE-69"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.06567164179104477,
+        "count": 44,
+        "example_keys": [
+          "GREENHOUSE-73",
+          "GREENHOUSE-75",
+          "GREENHOUSE-307"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.06119402985074627,
+        "count": 41,
+        "example_keys": [
+          "SOCIALFB-9",
+          "SOCIAL-228",
+          "SOCIALTW-5"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.21524663677130046,
+          "count": 48,
+          "example_keys": [
+            "GREENHOUSE-38",
+            "GREENHOUSE-67",
+            "GREENHOUSE-119"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.17937219730941703,
+          "count": 40,
+          "example_keys": [
+            "GREENHOUSE-150",
+            "GREENHOUSE-310",
+            "GREENHOUSE-393"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.13452914798206278,
+          "count": 30,
+          "example_keys": [
+            "GREENHOUSE-40",
+            "GREENHOUSE-49",
+            "GREENHOUSE-69"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.23318385650224216,
+          "count": 52,
+          "example_keys": [
+            "SOCIALTW-26",
+            "SOCIALFB-52",
+            "SOCIALFB-54"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.18834080717488788,
+          "count": 42,
+          "example_keys": [
+            "SOCIAL-277",
+            "SOCIAL-281",
+            "SOCIAL-285"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.18834080717488788,
+          "count": 42,
+          "example_keys": [
+            "SOCIALTW-24",
+            "SOCIALTW-25",
+            "SOCIAL-279"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.26339285714285715,
+          "count": 59,
+          "example_keys": [
+            "SOCIAL-375",
+            "SOCIAL-376",
+            "SOCIALTW-65"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.1875,
+          "count": 42,
+          "example_keys": [
+            "SOCIAL-373",
+            "SOCIAL-378",
+            "SOCIAL-379"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.10714285714285714,
+          "count": 24,
+          "example_keys": [
+            "SOCIAL-377",
+            "SOCIALTW-66",
+            "SOCIALTW-67"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5321375186846039,
+    "positive_percent": 53,
+    "steps": 669
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "GREENHOUSE-38",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-40",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-49",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-50",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "GREENHOUSE-67",
+        "label": "Spring Web Flow Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SOCIAL-488",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SOCIALFB-203",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SOCIALLI-40",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SOCIALFB-204",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "SOCIAL-489",
+        "label": "Authentication Framework Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2010, focusing on various themes throughout their career. In the early phase, they primarily worked on \"Spring Web Flow Enhancements\" and \"Session Authentication Issues,\" with notable tickets like GREENHOUSE-38 and GREENHOUSE-150. As they progressed into the middle phase, their attention shifted slightly towards \"Authentication Framework Enhancements,\" while still addressing session issues, as seen in tickets like SOCIALTW-26 and SOCIAL-279. Recently, they have concentrated heavily on \"Session Authentication Issues,\" exemplified by tickets SOCIAL-375 and SOCIAL-376, while continuing to enhance the authentication framework. Overall, 53% of their steps aligned with the overall direction, demonstrating a consistent focus on improving user authentication and web flow processes."
+}

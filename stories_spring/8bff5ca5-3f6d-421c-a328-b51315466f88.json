@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|8bff5ca5-3f6d-421c-a328-b51315466f88|>>",
+  "tickets": {
+    "count": 521,
+    "first_created": "2009-09-25T07:10:28.000+0000",
+    "last_created": "2016-06-09T18:59:52.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.2380038387715931,
+        "count": 124,
+        "example_keys": [
+          "XD-35",
+          "XD-49",
+          "XD-106"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.12284069097888675,
+        "count": 64,
+        "example_keys": [
+          "AMQP-83",
+          "AMQP-84",
+          "INTSAMPLES-20"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.11900191938579655,
+        "count": 62,
+        "example_keys": [
+          "INT-805",
+          "INT-1189",
+          "INT-1736"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.09980806142034548,
+        "count": 52,
+        "example_keys": [
+          "INT-2392",
+          "INTSAMPLES-58",
+          "INTSAMPLES-65"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.08637236084452975,
+        "count": 45,
+        "example_keys": [
+          "INT-1917",
+          "INT-2043",
+          "INT-2052"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.24855491329479767,
+          "count": 43,
+          "example_keys": [
+            "INT-805",
+            "INT-1189",
+            "INT-1736"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.18497109826589594,
+          "count": 32,
+          "example_keys": [
+            "AMQP-83",
+            "AMQP-84",
+            "INTSAMPLES-20"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.17341040462427745,
+          "count": 30,
+          "example_keys": [
+            "INT-1917",
+            "INT-2043",
+            "INT-2052"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.22413793103448276,
+          "count": 39,
+          "example_keys": [
+            "XD-35",
+            "XD-49",
+            "XD-106"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.15517241379310345,
+          "count": 27,
+          "example_keys": [
+            "INT-2690",
+            "INT-2691",
+            "INT-2697"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.10344827586206896,
+          "count": 18,
+          "example_keys": [
+            "INT-2681",
+            "INTSAMPLES-85",
+            "INTSAMPLES-89"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.4885057471264368,
+          "count": 85,
+          "example_keys": [
+            "XD-979",
+            "XD-1006",
+            "XD-1007"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.22413793103448276,
+          "count": 39,
+          "example_keys": [
+            "XD-1017",
+            "XD-1203",
+            "XD-1206"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.04597701149425287,
+          "count": 8,
+          "example_keys": [
+            "XD-1722",
+            "XD-1774",
+            "XD-1823"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5153846153846153,
+    "positive_percent": 52,
+    "steps": 520
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-805",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-1189",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-1358",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "AMQP-83",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "AMQP-84",
+        "label": "Documentation and Build Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3698",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "XD-3707",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "XD-3721",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "XD-3737",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "INTEXT-224",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since September 2009, with a focus on various themes over the years. In the early phase, they primarily worked on Messaging Configuration Enhancements and Documentation Improvements, exemplified by tickets like INT-805 and AMQP-83. As they moved into the middle phase, their efforts shifted towards Spring XD Module Development, with notable contributions seen in tickets such as XD-35 and XD-49. Recently, they have concentrated heavily on Spring XD Module Development and Acceptance Test Failures, as highlighted by tickets XD-1006 and XD-1017. Overall, 52% of their steps aligned with the overall direction, demonstrating a consistent commitment to project goals."
+}

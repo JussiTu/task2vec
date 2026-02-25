@@ -1,0 +1,267 @@
+{
+  "assignee_id": "<<|author_key|8f4d135c-6b9f-4a5d-9138-c693c7fec301|>>",
+  "tickets": {
+    "count": 43,
+    "first_created": "2019-03-09T13:12:29.000+0000",
+    "last_created": "2021-09-21T14:08:26.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.4418604651162791,
+        "count": 19,
+        "example_keys": [
+          "ZOOKEEPER-3304",
+          "ZOOKEEPER-3351",
+          "ZOOKEEPER-3362"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Testability and Validation Improvements",
+        "share": 0.13953488372093023,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3376",
+          "ZOOKEEPER-3532",
+          "ZOOKEEPER-3620"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Netty library security upgrades",
+        "share": 0.11627906976744186,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3312",
+          "ZOOKEEPER-3545",
+          "ZOOKEEPER-3913"
+        ]
+      },
+      {
+        "cluster": 10,
+        "label": "jUnit Upgrade Tasks",
+        "share": 0.06976744186046512,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3785",
+          "ZOOKEEPER-4048",
+          "ZOOKEEPER-4382"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.046511627906976744,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3542",
+          "ZOOKEEPER-4333"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.6428571428571429,
+          "count": 9,
+          "example_keys": [
+            "ZOOKEEPER-3304",
+            "ZOOKEEPER-3351",
+            "ZOOKEEPER-3362"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3376",
+            "ZOOKEEPER-3532"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "C Client Build and Compilation Issues",
+          "share": 0.07142857142857142,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3302"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.5,
+          "count": 7,
+          "example_keys": [
+            "ZOOKEEPER-3552",
+            "ZOOKEEPER-3635",
+            "ZOOKEEPER-3661"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3677",
+            "ZOOKEEPER-3734"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.07142857142857142,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3542"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3785",
+            "ZOOKEEPER-4048",
+            "ZOOKEEPER-4382"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3797",
+            "ZOOKEEPER-3919",
+            "ZOOKEEPER-3980"
+          ]
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3874",
+            "ZOOKEEPER-4228",
+            "ZOOKEEPER-4312"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 1,
+          "label": "Testability and Validation Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "jUnit Upgrade Tasks"
+        },
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5238095238095238,
+    "positive_percent": 52,
+    "steps": 42
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3302",
+        "label": "C Client Build and Compilation Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3304",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3312",
+        "label": "Netty library security upgrades"
+      },
+      {
+        "key": "ZOOKEEPER-3351",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3362",
+        "label": "Maven and Release Cleanup"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-4048",
+        "label": "jUnit Upgrade Tasks"
+      },
+      {
+        "key": "ZOOKEEPER-4228",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-4312",
+        "label": "Testability and Validation Improvements"
+      },
+      {
+        "key": "ZOOKEEPER-4333",
+        "label": "Flaky test issues"
+      },
+      {
+        "key": "ZOOKEEPER-4382",
+        "label": "jUnit Upgrade Tasks"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since March 2019, focusing primarily on Maven and Release Cleanup, which accounts for a significant portion of their work. In the early phase, they tackled various tasks, including ZOOKEEPER-3304 and ZOOKEEPER-3351, demonstrating a strong commitment to improving project stability. As they progressed into the middle phase, they continued to address Maven-related issues while also taking on Jackson Databind Vulnerabilities, as seen in tickets like ZOOKEEPER-3677. Recently, their focus shifted towards jUnit Upgrade Tasks, with notable contributions to ZOOKEEPER-4048 and ZOOKEEPER-4312, while still maintaining involvement in Maven cleanup efforts. Overall, 52% of their steps aligned with the overall direction, showcasing their adaptability and dedication to project goals."
+}

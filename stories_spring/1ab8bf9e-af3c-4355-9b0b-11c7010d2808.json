@@ -1,0 +1,241 @@
+{
+  "assignee_id": "<<|author_key|1ab8bf9e-af3c-4355-9b0b-11c7010d2808|>>",
+  "tickets": {
+    "count": 76,
+    "first_created": "2010-07-26T02:02:02.000+0000",
+    "last_created": "2012-06-07T01:54:37.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.5131578947368421,
+        "count": 39,
+        "example_keys": [
+          "SECOAUTH-1",
+          "SECOAUTH-3",
+          "SECOAUTH-5"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.3815789473684211,
+        "count": 29,
+        "example_keys": [
+          "SECOAUTH-2",
+          "SECOAUTH-4",
+          "SECOAUTH-8"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.02631578947368421,
+        "count": 2,
+        "example_keys": [
+          "SECOAUTH-19",
+          "SECOAUTH-117"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.02631578947368421,
+        "count": 2,
+        "example_keys": [
+          "SECOAUTH-20",
+          "SECOAUTH-66"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.013157894736842105,
+        "count": 1,
+        "example_keys": [
+          "SECOAUTH-16"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.6,
+          "count": 15,
+          "example_keys": [
+            "SECOAUTH-1",
+            "SECOAUTH-3",
+            "SECOAUTH-5"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.24,
+          "count": 6,
+          "example_keys": [
+            "SECOAUTH-2",
+            "SECOAUTH-4",
+            "SECOAUTH-8"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.04,
+          "count": 1,
+          "example_keys": [
+            "SECOAUTH-16"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.56,
+          "count": 14,
+          "example_keys": [
+            "SECOAUTH-31",
+            "SECOAUTH-33",
+            "SECOAUTH-34"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.4,
+          "count": 10,
+          "example_keys": [
+            "SECOAUTH-32",
+            "SECOAUTH-36",
+            "SECOAUTH-40"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.04,
+          "count": 1,
+          "example_keys": [
+            "SECOAUTH-37"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.5,
+          "count": 13,
+          "example_keys": [
+            "SECOAUTH-61",
+            "SECOAUTH-62",
+            "SECOAUTH-63"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.38461538461538464,
+          "count": 10,
+          "example_keys": [
+            "SECOAUTH-65",
+            "SECOAUTH-67",
+            "SECOAUTH-71"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.038461538461538464,
+          "count": 1,
+          "example_keys": [
+            "SECOAUTH-66"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.52,
+    "positive_percent": 52,
+    "steps": 75
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SECOAUTH-1",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SECOAUTH-2",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SECOAUTH-3",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SECOAUTH-4",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SECOAUTH-5",
+        "label": "Session Authentication Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SECOAUTH-158",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SECOAUTH-207",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SECOAUTH-218",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SECOAUTH-267",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SECOAUTH-276",
+        "label": "Session Authentication Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in addressing session authentication issues and enhancing the authentication framework from early 2010 to mid-2012. In the early phase, they focused heavily on session authentication, contributing to tickets like SECOAUTH-1 and SECOAUTH-3, which made up 60% of their work. As they progressed into the middle phase, they continued to tackle similar issues while also enhancing the authentication framework, with notable contributions to SECOAUTH-32 and SECOAUTH-36. Recently, their efforts shifted towards further improving the authentication framework, as seen in tickets like SECOAUTH-61 and SECOAUTH-62, while still addressing session authentication challenges. Overall, 52% of their steps aligned with the overall direction of the project. This consistent focus on authentication themes highlights their commitment to improving security and user experience."
+}

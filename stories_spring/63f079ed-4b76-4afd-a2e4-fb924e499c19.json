@@ -1,0 +1,270 @@
+{
+  "assignee_id": "<<|author_key|63f079ed-4b76-4afd-a2e4-fb924e499c19|>>",
+  "tickets": {
+    "count": 32,
+    "first_created": "2008-11-18T11:28:54.000+0000",
+    "last_created": "2011-06-17T12:21:46.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.25,
+        "count": 8,
+        "example_keys": [
+          "SEDBFO-5",
+          "SEDBFO-12",
+          "SEDBFO-15"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.25,
+        "count": 8,
+        "example_keys": [
+          "SEDBFO-9",
+          "SEDBFO-10",
+          "SEDBFO-11"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.15625,
+        "count": 5,
+        "example_keys": [
+          "SEDBFO-6",
+          "SEDBFO-7",
+          "SEDBFO-13"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.125,
+        "count": 4,
+        "example_keys": [
+          "SEDBFO-2",
+          "SEDBFO-3",
+          "SEDBFO-16"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.09375,
+        "count": 3,
+        "example_keys": [
+          "SEDBFO-30",
+          "SEDBFO-31",
+          "SEDBFO-32"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.3,
+          "count": 3,
+          "example_keys": [
+            "SEDBFO-9",
+            "SEDBFO-10",
+            "SEDBFO-11"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.2,
+          "count": 2,
+          "example_keys": [
+            "SEDBFO-2",
+            "SEDBFO-3"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.2,
+          "count": 2,
+          "example_keys": [
+            "SEDBFO-4",
+            "SEDBFO-8"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.36363636363636365,
+          "count": 4,
+          "example_keys": [
+            "SEDBFO-12",
+            "SEDBFO-15",
+            "SEDBFO-20"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.36363636363636365,
+          "count": 4,
+          "example_keys": [
+            "SEDBFO-14",
+            "SEDBFO-17",
+            "SEDBFO-18"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SEDBFO-16",
+            "SEDBFO-22"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.2727272727272727,
+          "count": 3,
+          "example_keys": [
+            "SEDBFO-25",
+            "SEDBFO-26",
+            "SEDBFO-29"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2727272727272727,
+          "count": 3,
+          "example_keys": [
+            "SEDBFO-30",
+            "SEDBFO-31",
+            "SEDBFO-32"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.18181818181818182,
+          "count": 2,
+          "example_keys": [
+            "SEDBFO-23",
+            "SEDBFO-28"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5161290322580645,
+    "positive_percent": 52,
+    "steps": 31
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SEDBFO-2",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SEDBFO-3",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "SEDBFO-4",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SEDBFO-5",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "SEDBFO-6",
+        "label": "Spring Dependency Upgrades"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SEDBFO-29",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "SEDBFO-30",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SEDBFO-31",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SEDBFO-32",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SEDBFO-33",
+        "label": "Bean Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since November 2008, focusing on various themes throughout their work history. In the early phase, they primarily addressed \"Documentation and Build Improvements\" with tickets like SEDBFO-9 and SEDBFO-10, while also tackling \"OSGi Manifest and Dependency Issues\" (SEDBFO-2, SEDBFO-3). As they moved into the middle phase, their focus shifted towards \"Spring Data Commons Deprecation Updates\" (SEDBFO-12, SEDBFO-15) and continued improvements in documentation. Recently, they have been involved in enhancing \"Spring IDE Tooling\" (SEDBFO-30, SEDBFO-31) alongside ongoing deprecation updates (SEDBFO-25, SEDBFO-26). Overall, 52% of their steps aligned with the overall direction, demonstrating a consistent commitment to improving the project."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|27d8e768-801c-45ed-95d1-aef2cd86de78|>>",
+  "tickets": {
+    "count": 376,
+    "first_created": "2004-10-08T22:42:59.000+0000",
+    "last_created": "2007-07-18T10:44:39.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.449468085106383,
+        "count": 169,
+        "example_keys": [
+          "SPR-385",
+          "SPRNET-49",
+          "SPR-923"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.1356382978723404,
+        "count": 51,
+        "example_keys": [
+          "SPR-996",
+          "SPRNET-118",
+          "SPRNET-132"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.10638297872340426,
+        "count": 40,
+        "example_keys": [
+          "SPRNET-11",
+          "SPR-525",
+          "SPRNET-105"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.09574468085106383,
+        "count": 36,
+        "example_keys": [
+          "SPRNET-46",
+          "SPRNET-51",
+          "SPR-874"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.05585106382978723,
+        "count": 21,
+        "example_keys": [
+          "SPRNET-33",
+          "SPRNET-52",
+          "SPRNET-67"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.312,
+          "count": 39,
+          "example_keys": [
+            "SPR-385",
+            "SPRNET-49",
+            "SPR-923"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.208,
+          "count": 26,
+          "example_keys": [
+            "SPRNET-46",
+            "SPRNET-51",
+            "SPR-874"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.12,
+          "count": 15,
+          "example_keys": [
+            "SPRNET-33",
+            "SPRNET-52",
+            "SPRNET-67"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.416,
+          "count": 52,
+          "example_keys": [
+            "SPR-1958",
+            "SPR-1959",
+            "SPR-1994"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.176,
+          "count": 22,
+          "example_keys": [
+            "SPR-1991",
+            "SPR-2025",
+            "SPR-2087"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.136,
+          "count": 17,
+          "example_keys": [
+            "SPR-2044",
+            "SPR-2054",
+            "SPR-2060"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.6190476190476191,
+          "count": 78,
+          "example_keys": [
+            "SPR-2551",
+            "SPR-2557",
+            "SPR-2559"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.14285714285714285,
+          "count": 18,
+          "example_keys": [
+            "SPR-2553",
+            "SPR-2554",
+            "SPR-2573"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.07142857142857142,
+          "count": 9,
+          "example_keys": [
+            "SPR-2706",
+            "SPR-2712",
+            "SPR-2713"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5066666666666667,
+    "positive_percent": 51,
+    "steps": 375
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-385",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPRNET-3",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPRNET-7",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SPRNET-11",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-525",
+        "label": "Autowiring and Bean Configuration Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-3637",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-3655",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-3667",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-3671",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-3697",
+        "label": "Documentation Corrections and Edits"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since October 2004, focusing primarily on documentation corrections and edits. In the early phase, they worked on enhancing documentation and bean configurations, with notable tickets like SPR-385 and SPRNET-46. As they progressed into the middle phase, their emphasis shifted slightly to include validation and data binding issues, exemplified by tickets such as SPR-1991 and SPR-2044. Recently, their work has predominantly centered on documentation corrections, with a significant increase in contributions, as seen in tickets like SPR-2551 and SPR-2557. Overall, 51% of their steps aligned with the overall direction, demonstrating a strong commitment to improving project quality. Their diverse focus also included autowiring and bean configuration issues, ensuring a well-rounded contribution to the team."
+}

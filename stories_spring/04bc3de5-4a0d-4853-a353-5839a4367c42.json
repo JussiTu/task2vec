@@ -1,0 +1,272 @@
+{
+  "assignee_id": "<<|author_key|04bc3de5-4a0d-4853-a353-5839a4367c42|>>",
+  "tickets": {
+    "count": 164,
+    "first_created": "2008-03-25T12:00:27.000+0000",
+    "last_created": "2012-03-08T13:26:32.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.5609756097560976,
+        "count": 92,
+        "example_keys": [
+          "STS-189",
+          "STS-191",
+          "STS-196"
+        ]
+      },
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.21341463414634146,
+        "count": 35,
+        "example_keys": [
+          "STS-26",
+          "STS-630",
+          "STS-734"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.12195121951219512,
+        "count": 20,
+        "example_keys": [
+          "STS-522",
+          "STS-624",
+          "STS-789"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.024390243902439025,
+        "count": 4,
+        "example_keys": [
+          "STS-1417",
+          "STS-1544",
+          "STS-1652"
+        ]
+      },
+      {
+        "cluster": 1,
+        "label": "Spring Roo Initialization Errors",
+        "share": 0.024390243902439025,
+        "count": 4,
+        "example_keys": [
+          "STS-1595",
+          "STS-1629",
+          "STS-1884"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.9074074074074074,
+          "count": 49,
+          "example_keys": [
+            "STS-189",
+            "STS-191",
+            "STS-196"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.037037037037037035,
+          "count": 2,
+          "example_keys": [
+            "STS-26",
+            "STS-630"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.037037037037037035,
+          "count": 2,
+          "example_keys": [
+            "STS-522",
+            "STS-624"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.6363636363636364,
+          "count": 35,
+          "example_keys": [
+            "STS-675",
+            "STS-687",
+            "STS-759"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.2,
+          "count": 11,
+          "example_keys": [
+            "STS-789",
+            "STS-790",
+            "STS-794"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.09090909090909091,
+          "count": 5,
+          "example_keys": [
+            "STS-734",
+            "STS-1022",
+            "STS-1051"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.509090909090909,
+          "count": 28,
+          "example_keys": [
+            "STS-1545",
+            "STS-1567",
+            "STS-1577"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.14545454545454545,
+          "count": 8,
+          "example_keys": [
+            "STS-1632",
+            "STS-1633",
+            "STS-1720"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.12727272727272726,
+          "count": 7,
+          "example_keys": [
+            "STS-1561",
+            "STS-1587",
+            "STS-1615"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4723926380368098,
+    "positive_percent": 47,
+    "steps": 163
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "STS-26",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-189",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "STS-191",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "STS-196",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "STS-197",
+        "label": "Documentation and Build Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "STS-2446",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "STS-2474",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "STS-2477",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "STS-2478",
+        "label": "Workspace and Class Loading Issues"
+      },
+      {
+        "key": "STS-2492",
+        "label": "Workspace and Class Loading Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since March 2008, focusing primarily on improving documentation and build processes. In the early phase of their work, they tackled a significant number of tickets related to \"Documentation and Build Improvements,\" such as STS-189 and STS-191, which made up over 90% of their efforts. As they progressed into the middle phase, they continued to address documentation while also beginning to enhance Spring Web Flow, with tickets like STS-675 and STS-789 reflecting this shift. Recently, their focus has shifted towards resolving \"Workspace and Class Loading Issues,\" as seen in tickets like STS-1545 and STS-1567, while still maintaining some involvement in documentation improvements. Overall, 47% of their steps aligned with the overall direction of the project, demonstrating a consistent commitment to key themes throughout their tenure."
+}

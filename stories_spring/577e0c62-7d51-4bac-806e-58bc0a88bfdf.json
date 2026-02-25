@@ -1,0 +1,219 @@
+{
+  "assignee_id": "<<|author_key|577e0c62-7d51-4bac-806e-58bc0a88bfdf|>>",
+  "tickets": {
+    "count": 86,
+    "first_created": "2004-11-25T05:49:17.000+0000",
+    "last_created": "2009-02-04T05:27:27.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 28,
+        "label": "JSF and Spring Web Flow Issues",
+        "share": 0.7209302325581395,
+        "count": 62,
+        "example_keys": [
+          "SPR-881",
+          "SWF-22",
+          "SWF-16"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.11627906976744186,
+        "count": 10,
+        "example_keys": [
+          "SPR-1153",
+          "SWF-28",
+          "SWF-208"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.03488372093023256,
+        "count": 3,
+        "example_keys": [
+          "SWF-206",
+          "SWF-260",
+          "SWF-261"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.023255813953488372,
+        "count": 2,
+        "example_keys": [
+          "SWF-12",
+          "SWF-325"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.023255813953488372,
+        "count": 2,
+        "example_keys": [
+          "SWF-38",
+          "SWF-232"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.7857142857142857,
+          "count": 22,
+          "example_keys": [
+            "SPR-881",
+            "SWF-22",
+            "SWF-16"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.07142857142857142,
+          "count": 2,
+          "example_keys": [
+            "SPR-1153",
+            "SWF-28"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.03571428571428571,
+          "count": 1,
+          "example_keys": [
+            "SPR-490"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.7931034482758621,
+          "count": 23,
+          "example_keys": [
+            "SWF-150",
+            "SWF-179",
+            "SWF-185"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.10344827586206896,
+          "count": 3,
+          "example_keys": [
+            "SWF-208",
+            "SWF-199",
+            "SWF-225"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.034482758620689655,
+          "count": 1,
+          "example_keys": [
+            "SWF-206"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 28,
+          "label": "JSF and Spring Web Flow Issues",
+          "share": 0.5862068965517241,
+          "count": 17,
+          "example_keys": [
+            "SWF-251",
+            "SWF-255",
+            "SWF-262"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.1724137931034483,
+          "count": 5,
+          "example_keys": [
+            "SWF-250",
+            "SWF-264",
+            "SWF-268"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.06896551724137931,
+          "count": 2,
+          "example_keys": [
+            "SWF-260",
+            "SWF-261"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.5058823529411764,
+    "positive_percent": 51,
+    "steps": 85
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-490",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-881",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-22",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-16",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-19",
+        "label": "JSF and Spring Web Flow Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SWF-745",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-746",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SWF-747",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-748",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "SWF-1032",
+        "label": "JSF and Spring Web Flow Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from late 2004 to early 2009, focusing primarily on JSF and Spring Web Flow issues. In the early phase, they contributed significantly to this theme, working on tickets like SPR-881 and SWF-22. As they moved into the middle phase, their engagement continued with a strong emphasis on JSF and Spring Web Flow, addressing tickets such as SWF-150 and SWF-179. Recently, they maintained their focus on these issues while also tackling validation and data binding challenges, with examples like SWF-250 and SWF-264. Overall, their work reflects a consistent alignment with project goals, with 51% of steps aligned with the overall direction. Their contributions have been crucial in enhancing the functionality and reliability of the systems they worked on."
+}

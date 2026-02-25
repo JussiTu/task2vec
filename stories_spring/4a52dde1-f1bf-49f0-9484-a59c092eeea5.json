@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|4a52dde1-f1bf-49f0-9484-a59c092eeea5|>>",
+  "tickets": {
+    "count": 979,
+    "first_created": "2008-08-22T07:26:04.000+0000",
+    "last_created": "2017-10-25T19:22:25.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.38100102145045966,
+        "count": 373,
+        "example_keys": [
+          "SEC-1545",
+          "SEC-1578",
+          "SEC-1592"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.22778345250255363,
+        "count": 223,
+        "example_keys": [
+          "SEC-965",
+          "SEC-1536",
+          "SEC-1564"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.10010214504596528,
+        "count": 98,
+        "example_keys": [
+          "SEC-1585",
+          "SEC-1678",
+          "SEC-1698"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.0602655771195097,
+        "count": 59,
+        "example_keys": [
+          "SEC-1729",
+          "SEC-1906",
+          "SEC-1992"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.05515832482124617,
+        "count": 54,
+        "example_keys": [
+          "SEC-1617",
+          "SEC-1738",
+          "SEC-1907"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.401840490797546,
+          "count": 131,
+          "example_keys": [
+            "SEC-1545",
+            "SEC-1578",
+            "SEC-1592"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.26993865030674846,
+          "count": 88,
+          "example_keys": [
+            "SEC-965",
+            "SEC-1536",
+            "SEC-1564"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.08282208588957055,
+          "count": 27,
+          "example_keys": [
+            "SEC-1585",
+            "SEC-1678",
+            "SEC-1698"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.34355828220858897,
+          "count": 112,
+          "example_keys": [
+            "SEC-2275",
+            "SEC-2276",
+            "SEC-2277"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.23006134969325154,
+          "count": 75,
+          "example_keys": [
+            "SEC-2271",
+            "SEC-2273",
+            "SEC-2274"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.10429447852760736,
+          "count": 34,
+          "example_keys": [
+            "SEC-2269",
+            "SEC-2270",
+            "SEC-2280"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.39755351681957185,
+          "count": 130,
+          "example_keys": [
+            "SEC-2715",
+            "SEC-2719",
+            "SEC-2722"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.1834862385321101,
+          "count": 60,
+          "example_keys": [
+            "SEC-2713",
+            "SEC-2714",
+            "SEC-2734"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.11314984709480122,
+          "count": 37,
+          "example_keys": [
+            "SEC-2716",
+            "LDAP-315",
+            "SEC-2759"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.4897750511247444,
+    "positive_percent": 49,
+    "steps": 978
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SEC-965",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SPR-5172",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SEC-1536",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SEC-1545",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SEC-1564",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-15422",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-15423",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-15428",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-15694",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-16116",
+        "label": "Session Authentication Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in addressing various issues since they began working on tickets in August 2008, with their most recent contributions noted in October 2017. In the early phase of their work, they focused heavily on \"Session Authentication Issues\" and \"Authentication Framework Enhancements,\" exemplified by tickets like SEC-1545 and SEC-965. As they progressed into the middle phase, they continued to tackle similar themes, with a notable emphasis on resolving ongoing authentication challenges, as seen in SEC-2275 and SEC-2271. Recently, they maintained this focus, working on critical tickets such as SEC-2715 and SEC-2713, while also contributing to \"Documentation Corrections and Edits.\" Overall, 49% of their steps aligned with the overall direction of the project, showcasing a consistent commitment to improving authentication processes and related documentation throughout their tenure."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|35d92572-7983-4ae6-9fd1-874b73a781ac|>>",
+  "tickets": {
+    "count": 383,
+    "first_created": "2010-07-11T21:56:11.000+0000",
+    "last_created": "2019-07-17T22:54:45.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.44386422976501305,
+        "count": 170,
+        "example_keys": [
+          "XD-6",
+          "XD-11",
+          "XD-27"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.1227154046997389,
+        "count": 47,
+        "example_keys": [
+          "INT-1622",
+          "INT-2160",
+          "SGF-94"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.08093994778067885,
+        "count": 31,
+        "example_keys": [
+          "INT-1234",
+          "INT-1590",
+          "INT-1927"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.07571801566579635,
+        "count": 29,
+        "example_keys": [
+          "INT-1576",
+          "INT-1579",
+          "SGF-47"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.044386422976501305,
+        "count": 17,
+        "example_keys": [
+          "INT-2063",
+          "INT-2072",
+          "INT-2130"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2047244094488189,
+          "count": 26,
+          "example_keys": [
+            "INT-1576",
+            "INT-1579",
+            "SGF-47"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.13385826771653545,
+          "count": 17,
+          "example_keys": [
+            "INT-1234",
+            "INT-1590",
+            "INT-1927"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.11023622047244094,
+          "count": 14,
+          "example_keys": [
+            "INT-1622",
+            "INT-2160",
+            "SGF-94"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.65625,
+          "count": 84,
+          "example_keys": [
+            "XD-84",
+            "XD-85",
+            "XD-88"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.1015625,
+          "count": 13,
+          "example_keys": [
+            "XD-200",
+            "SGF-181",
+            "SGF-182"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.0625,
+          "count": 8,
+          "example_keys": [
+            "XD-97",
+            "XD-145",
+            "XD-162"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.6328125,
+          "count": 81,
+          "example_keys": [
+            "XD-1491",
+            "XD-1492",
+            "XD-1511"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.15625,
+          "count": 20,
+          "example_keys": [
+            "XD-1490",
+            "XD-1502",
+            "XD-1636"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.046875,
+          "count": 6,
+          "example_keys": [
+            "XD-1592",
+            "XD-1593",
+            "XD-1741"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5130890052356021,
+    "positive_percent": 51,
+    "steps": 382
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-1234",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "SGF-22",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "INT-1576",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "INT-1579",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "INT-1590",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3738",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3742",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-4522",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-4568",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "BATCH-2833",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since July 2010, with a focus on several key areas over the years. In the early phase, they worked on \"Spring IDE Tooling Enhancements\" and \"Messaging Configuration Enhancements,\" exemplified by tickets INT-1576 and INT-1234. As they progressed into the middle phase, their attention shifted significantly to \"Spring XD Module Development,\" where they handled numerous tasks, including tickets XD-84 and XD-85. Recently, they continued to excel in \"Spring XD Module Development,\" addressing challenges like those in tickets XD-1491 and XD-1492, while also managing \"Acceptance Test Failures.\" Overall, 51% of their steps aligned with the overall direction, demonstrating a strong commitment to the project's goals."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|59673641-e6a8-423e-ab9a-4ec96fd656ff|>>",
+  "tickets": {
+    "count": 494,
+    "first_created": "2010-11-19T08:22:02.000+0000",
+    "last_created": "2018-01-19T11:00:54.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 15,
+        "label": "JPA Entity Management Issues",
+        "share": 0.402834008097166,
+        "count": 199,
+        "example_keys": [
+          "DATAGRAPH-14",
+          "DATAGRAPH-30",
+          "DATAGRAPH-37"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.2550607287449393,
+        "count": 126,
+        "example_keys": [
+          "DATAGRAPH-12",
+          "DATAGRAPH-15",
+          "DATAGRAPH-17"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.08502024291497975,
+        "count": 42,
+        "example_keys": [
+          "DATAGRAPH-90",
+          "DATAGRAPH-155",
+          "DATAGRAPH-161"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.044534412955465584,
+        "count": 22,
+        "example_keys": [
+          "DATAGRAPH-2",
+          "DATAGRAPH-4",
+          "DATAGRAPH-5"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Transaction Management Issues",
+        "share": 0.03441295546558704,
+        "count": 17,
+        "example_keys": [
+          "DATAGRAPH-8",
+          "DATAGRAPH-24",
+          "DATAGRAPH-38"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.40853658536585363,
+          "count": 67,
+          "example_keys": [
+            "DATAGRAPH-12",
+            "DATAGRAPH-15",
+            "DATAGRAPH-17"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.25,
+          "count": 41,
+          "example_keys": [
+            "DATAGRAPH-14",
+            "DATAGRAPH-30",
+            "DATAGRAPH-37"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.07317073170731707,
+          "count": 12,
+          "example_keys": [
+            "DATAGRAPH-2",
+            "DATAGRAPH-4",
+            "DATAGRAPH-5"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.5333333333333333,
+          "count": 88,
+          "example_keys": [
+            "DATAGRAPH-201",
+            "DATAGRAPH-206",
+            "DATAGRAPH-208"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.20606060606060606,
+          "count": 34,
+          "example_keys": [
+            "DATAGRAPH-200",
+            "DATAGRAPH-202",
+            "DATAGRAPH-207"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.08484848484848485,
+          "count": 14,
+          "example_keys": [
+            "DATAGRAPH-220",
+            "DATAGRAPH-227",
+            "DATAGRAPH-280"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.42424242424242425,
+          "count": 70,
+          "example_keys": [
+            "DATAGRAPH-442",
+            "DATAGRAPH-444",
+            "DATAGRAPH-448"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.15151515151515152,
+          "count": 25,
+          "example_keys": [
+            "DATAGRAPH-447",
+            "DATAGRAPH-454",
+            "DATAGRAPH-483"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.15151515151515152,
+          "count": 25,
+          "example_keys": [
+            "DATAGRAPH-463",
+            "DATAGRAPH-475",
+            "DATAGRAPH-489"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5152129817444219,
+    "positive_percent": 52,
+    "steps": 493
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATAGRAPH-2",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATAGRAPH-4",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATAGRAPH-5",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATAGRAPH-8",
+        "label": "Transaction Management Issues"
+      },
+      {
+        "key": "DATAGRAPH-9",
+        "label": "Documentation and Build Improvements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATAGRAPH-961",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "DATAGRAPH-993",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "DATAGRAPH-996",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "DATAGRAPH-1000",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "DATAGRAPH-1057",
+        "label": "Spring Dependency Upgrades"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since November 2010, with a total of 494 tickets created by January 2018. In the early phase, they focused on \"QueryDSL and Projections Support,\" handling tickets like DATAGRAPH-12 and DATAGRAPH-15. As they progressed into the middle phase, their work shifted towards \"JPA Entity Management Issues,\" exemplified by tickets such as DATAGRAPH-201 and DATAGRAPH-206. Recently, they continued to address JPA-related challenges, with notable tickets including DATAGRAPH-442 and DATAGRAPH-444, while also engaging with \"Spring Dependency Upgrades.\" Overall, 52% of their steps aligned with the overall direction, demonstrating a consistent commitment to key project themes."
+}

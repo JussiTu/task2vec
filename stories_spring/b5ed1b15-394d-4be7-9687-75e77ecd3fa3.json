@@ -1,0 +1,233 @@
+{
+  "assignee_id": "<<|author_key|b5ed1b15-394d-4be7-9687-75e77ecd3fa3|>>",
+  "tickets": {
+    "count": 85,
+    "first_created": "2013-09-11T16:46:13.000+0000",
+    "last_created": "2015-10-28T18:46:20.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.5529411764705883,
+        "count": 47,
+        "example_keys": [
+          "XD-840",
+          "XD-1270",
+          "XD-1339"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.36470588235294116,
+        "count": 31,
+        "example_keys": [
+          "XD-1500",
+          "XD-1508",
+          "XD-1533"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.023529411764705882,
+        "count": 2,
+        "example_keys": [
+          "XD-1825",
+          "XD-1837"
+        ]
+      },
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.023529411764705882,
+        "count": 2,
+        "example_keys": [
+          "XD-2625",
+          "XD-3626"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.011764705882352941,
+        "count": 1,
+        "example_keys": [
+          "XD-1851"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.5357142857142857,
+          "count": 15,
+          "example_keys": [
+            "XD-1500",
+            "XD-1508",
+            "XD-1533"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.4642857142857143,
+          "count": 13,
+          "example_keys": [
+            "XD-840",
+            "XD-1270",
+            "XD-1339"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.42857142857142855,
+          "count": 12,
+          "example_keys": [
+            "XD-1850",
+            "XD-1899",
+            "XD-1944"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.39285714285714285,
+          "count": 11,
+          "example_keys": [
+            "XD-1834",
+            "XD-1843",
+            "XD-1844"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.07142857142857142,
+          "count": 2,
+          "example_keys": [
+            "XD-1825",
+            "XD-1837"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.7931034482758621,
+          "count": 23,
+          "example_keys": [
+            "XD-2797",
+            "XD-2877",
+            "XD-2914"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.13793103448275862,
+          "count": 4,
+          "example_keys": [
+            "XD-2851",
+            "XD-3078",
+            "XD-3117"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.034482758620689655,
+          "count": 1,
+          "example_keys": [
+            "XD-3625"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5,
+    "positive_percent": 50,
+    "steps": 84
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "XD-840",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1270",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1339",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1480",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-1483",
+        "label": "Spring XD Module Development"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3467",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3512",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3625",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "XD-3626",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "XD-3652",
+        "label": "Acceptance Test Failures"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from September 2013 to October 2015. In the early phase, they focused on \"Spring XD Module Development\" and \"Acceptance Test Failures,\" working on tickets like XD-840 and XD-1500. As they moved into the middle phase, they continued to address acceptance test issues while also contributing to module development, with tickets such as XD-1834 and XD-1850. Recently, their work has heavily leaned towards \"Spring XD Module Development,\" exemplified by tickets like XD-2797 and XD-2914, while still managing some acceptance test failures. Overall, 50% of their steps aligned with the overall direction of the projects. This diverse experience highlights their adaptability and commitment to improving both development and testing processes."
+}

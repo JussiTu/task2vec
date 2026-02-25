@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|9d4e719c-f24b-408f-8ab4-d8e51752475b|>>",
+  "tickets": {
+    "count": 446,
+    "first_created": "2008-07-16T00:46:03.000+0000",
+    "last_created": "2020-12-09T16:27:34.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.15246636771300448,
+        "count": 68,
+        "example_keys": [
+          "SESPRINGPYTHONPY-14",
+          "SESPRINGPYTHONPY-36",
+          "SESPRINGPYTHONPY-48"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.15246636771300448,
+        "count": 68,
+        "example_keys": [
+          "SESPRINGPYTHONPY-37",
+          "SESPRINGPYTHONPY-38",
+          "SESPRINGPYTHONPY-47"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.09192825112107623,
+        "count": 41,
+        "example_keys": [
+          "SESPRINGPYTHONPY-61",
+          "SESPRINGPYTHONPY-62",
+          "SESPRINGPYTHONPY-73"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.06950672645739911,
+        "count": 31,
+        "example_keys": [
+          "SESPRINGPYTHONPY-1",
+          "SESPRINGPYTHONPY-3",
+          "SESPRINGPYTHONPY-4"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.06950672645739911,
+        "count": 31,
+        "example_keys": [
+          "SESPRINGPYTHONPY-49",
+          "SESPRINGPYTHONPY-90",
+          "SESPRINGPYTHONPY-124"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.16891891891891891,
+          "count": 25,
+          "example_keys": [
+            "SESPRINGPYTHONPY-1",
+            "SESPRINGPYTHONPY-3",
+            "SESPRINGPYTHONPY-4"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.08783783783783784,
+          "count": 13,
+          "example_keys": [
+            "SESPRINGPYTHONPY-2",
+            "SESPRINGPYTHONPY-10",
+            "SESPRINGPYTHONPY-16"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.08108108108108109,
+          "count": 12,
+          "example_keys": [
+            "SESPRINGPYTHONPY-35",
+            "SESPRINGPYTHONPY-60",
+            "SESPRINGPYTHONPY-67"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.1610738255033557,
+          "count": 24,
+          "example_keys": [
+            "DATAREST-323",
+            "DATAREST-324",
+            "DATAREST-364"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.11409395973154363,
+          "count": 17,
+          "example_keys": [
+            "SWS-881",
+            "SWS-885",
+            "SWS-886"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.10067114093959731,
+          "count": 15,
+          "example_keys": [
+            "DATAREST-228",
+            "DATACASS-214",
+            "DATAREST-553"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.3288590604026846,
+          "count": 49,
+          "example_keys": [
+            "DATAJDBC-169",
+            "SWS-1021",
+            "SWS-1043"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.28859060402684567,
+          "count": 43,
+          "example_keys": [
+            "SWS-1027",
+            "SWS-1034",
+            "SWS-1048"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.06711409395973154,
+          "count": 10,
+          "example_keys": [
+            "DATACMNS-1232",
+            "SWS-1012",
+            "SWS-1020"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4764044943820225,
+    "positive_percent": 48,
+    "steps": 445
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SWS-400",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SESPRINGPYTHONPY-1",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESPRINGPYTHONPY-2",
+        "label": "JDBC Compatibility and Performance Issues"
+      },
+      {
+        "key": "SESPRINGPYTHONPY-3",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESPRINGPYTHONPY-4",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATACOUCH-614",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATALDAP-176",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "DATAGRAPH-1432",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "DATAREST-1584",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "DATAREDIS-1263",
+        "label": "RedisTemplate and Jedis Improvements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since July 2008, with a total of 446 tickets created by December 2020. In the early phase, they focused on \"Spring IDE Tooling Enhancements,\" with notable tickets like SESPRINGPYTHONPY-1 and SESPRINGPYTHONPY-3. As they progressed into the middle phase, their work shifted towards \"Documentation Corrections and Edits\" and \"Spring Dependency Upgrades,\" exemplified by tickets such as DATAREST-323 and SWS-881. Recently, they have concentrated on \"Documentation and Build Improvements\" and \"Spring Data Commons Deprecation Updates,\" with significant contributions seen in tickets like DATAJDBC-169 and SWS-1027. Overall, 48% of their steps aligned with the overall direction, reflecting a strong commitment to enhancing documentation and improving build processes."
+}

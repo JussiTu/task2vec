@@ -1,0 +1,227 @@
+{
+  "assignee_id": "<<|author_key|a0900f6f-57f7-4632-9ab2-ea327167ea9a|>>",
+  "tickets": {
+    "count": 102,
+    "first_created": "2008-03-06T02:45:55.000+0000",
+    "last_created": "2012-09-18T00:46:37.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.37254901960784315,
+        "count": 38,
+        "example_keys": [
+          "INT-144",
+          "INT-154",
+          "INT-241"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.2549019607843137,
+        "count": 26,
+        "example_keys": [
+          "INT-353",
+          "INT-356",
+          "SESIA-6"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.11764705882352941,
+        "count": 12,
+        "example_keys": [
+          "INT-382",
+          "INT-416",
+          "SESIA-1"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.058823529411764705,
+        "count": 6,
+        "example_keys": [
+          "INT-269",
+          "SESIA-7",
+          "SESIA-22"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.058823529411764705,
+        "count": 6,
+        "example_keys": [
+          "INT-396",
+          "INT-450",
+          "INT-563"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.38235294117647056,
+          "count": 13,
+          "example_keys": [
+            "INT-144",
+            "INT-154",
+            "INT-241"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "INT-353",
+            "INT-356",
+            "SESIA-6"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "INT-382",
+            "INT-416",
+            "SESIA-1"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.35294117647058826,
+          "count": 12,
+          "example_keys": [
+            "SESIA-19",
+            "INT-541",
+            "INT-567"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "INT-555",
+            "INT-604",
+            "INT-633"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.14705882352941177,
+          "count": 5,
+          "example_keys": [
+            "SESIA-16",
+            "SESIA-20",
+            "INT-573"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.38235294117647056,
+          "count": 13,
+          "example_keys": [
+            "INT-854",
+            "SESIA-27",
+            "INT-933"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.35294117647058826,
+          "count": 12,
+          "example_keys": [
+            "INT-838",
+            "INT-922",
+            "INT-950"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.08823529411764706,
+          "count": 3,
+          "example_keys": [
+            "INT-984",
+            "INT-1137",
+            "INT-1164"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.49504950495049505,
+    "positive_percent": 50,
+    "steps": 101
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-144",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-154",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-188",
+        "label": "Spring Data Commons Deprecation Updates"
+      },
+      {
+        "key": "INT-241",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-269",
+        "label": "Acceptance Test Failures"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "INT-1525",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "INT-1541",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-1790",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-1889",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "SESIA-30",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from early 2008 to late 2012, contributing to a total of 102 tickets. In the early phase, they focused on \"Messaging Configuration Enhancements,\" with notable tickets like INT-144 and INT-154, while also addressing \"JMS Message Listener Issues\" (e.g., INT-353). During the middle phase, they continued to enhance messaging configurations and tackled documentation improvements, as seen in tickets like SESIA-19 and INT-541. Recently, their work has remained centered on messaging enhancements and JMS issues, with examples including INT-854 and INT-838. Overall, 50% of their steps aligned with the overall direction, demonstrating a consistent commitment to key themes throughout their tenure."
+}

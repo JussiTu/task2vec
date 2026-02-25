@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|6b5f583c-e8ca-49ab-ac02-1fed7aea6f1b|>>",
+  "tickets": {
+    "count": 1713,
+    "first_created": "2011-04-05T06:11:40.000+0000",
+    "last_created": "2020-12-25T08:37:20.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.22942206654991243,
+        "count": 393,
+        "example_keys": [
+          "DATAMONGO-354",
+          "DATAMONGO-367",
+          "DATAMONGO-410"
+        ]
+      },
+      {
+        "cluster": 30,
+        "label": "MongoDB Feature Enhancements",
+        "share": 0.1727962638645651,
+        "count": 296,
+        "example_keys": [
+          "DATAMONGO-165",
+          "DATAMONGO-440",
+          "DATAMONGO-444"
+        ]
+      },
+      {
+        "cluster": 14,
+        "label": "RedisTemplate and Jedis Improvements",
+        "share": 0.14769410391126678,
+        "count": 253,
+        "example_keys": [
+          "DATAREDIS-68",
+          "DATAREDIS-73",
+          "DATAREDIS-226"
+        ]
+      },
+      {
+        "cluster": 2,
+        "label": "Release Version Updates",
+        "share": 0.11500291885580852,
+        "count": 197,
+        "example_keys": [
+          "DATASOLR-125",
+          "DATASOLR-126",
+          "DATASOLR-135"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.1044950379451255,
+        "count": 179,
+        "example_keys": [
+          "DATAMONGO-131",
+          "DATAMONGO-351",
+          "DATASOLR-7"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.2031523642732049,
+          "count": 116,
+          "example_keys": [
+            "DATAMONGO-354",
+            "DATAMONGO-367",
+            "DATAMONGO-410"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.1978984238178634,
+          "count": 113,
+          "example_keys": [
+            "DATAMONGO-131",
+            "DATAMONGO-351",
+            "DATASOLR-7"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.15761821366024517,
+          "count": 90,
+          "example_keys": [
+            "DATAMONGO-165",
+            "DATAMONGO-440",
+            "DATAMONGO-444"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.21015761821366025,
+          "count": 120,
+          "example_keys": [
+            "DATAMONGO-1394",
+            "DATAMONGO-1401",
+            "DATAMONGO-1421"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.19089316987740806,
+          "count": 109,
+          "example_keys": [
+            "DATAMONGO-1390",
+            "DATAMONGO-1399",
+            "DATAMONGO-1424"
+          ]
+        },
+        {
+          "cluster": 14,
+          "label": "RedisTemplate and Jedis Improvements",
+          "share": 0.1681260945709282,
+          "count": 96,
+          "example_keys": [
+            "DATAREDIS-471",
+            "DATAREDIS-472",
+            "DATAREDIS-481"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.27495621716287216,
+          "count": 157,
+          "example_keys": [
+            "DATAMONGO-2155",
+            "DATAMONGO-2166",
+            "DATAMONGO-2171"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates",
+          "share": 0.2224168126094571,
+          "count": 127,
+          "example_keys": [
+            "DATACMNS-1441",
+            "DATAJPA-1478",
+            "DATAKV-241"
+          ]
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements",
+          "share": 0.16987740805604204,
+          "count": 97,
+          "example_keys": [
+            "DATAMONGO-2154",
+            "DATAMONGO-2165",
+            "DATAMONGO-2192"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 30,
+          "label": "MongoDB Feature Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues"
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5064252336448598,
+    "positive_percent": 51,
+    "steps": 1712
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "DATAREDIS-68",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAMONGO-131",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "DATAMONGO-165",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATAREDIS-73",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAMONGO-351",
+        "label": "QueryDSL and Projections Support"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATASOLR-620",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "DATAREDIS-1264",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "DATAMONGO-2672",
+        "label": "MongoDB Feature Enhancements"
+      },
+      {
+        "key": "DATAREDIS-1265",
+        "label": "RedisTemplate and Jedis Improvements"
+      },
+      {
+        "key": "DATAMONGO-2673",
+        "label": "MongoDB Mapping Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since April 2011, with a focus on MongoDB and Redis improvements. In the early phase of their work, they tackled MongoDB Mapping Issues and QueryDSL support, exemplified by tickets like DATAMONGO-354 and DATAREDIS-68. As they progressed into the middle phase, they continued to address MongoDB Mapping Issues while also enhancing MongoDB features, as seen in tickets such as DATAMONGO-1394 and DATAMONGO-1390. Recently, their efforts have shifted towards Release Version Updates alongside ongoing MongoDB Mapping Issues, with notable tickets including DATACMNS-1441 and DATAMONGO-2155. Overall, 51% of their steps have aligned with the overall direction, demonstrating a consistent commitment to improving database functionalities."
+}

@@ -1,0 +1,238 @@
+{
+  "assignee_id": "<<|author_key|62de7b8a-687e-4027-9968-328b947aff9a|>>",
+  "tickets": {
+    "count": 27,
+    "first_created": "2019-03-10T22:48:14.000+0000",
+    "last_created": "2020-06-15T23:37:51.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 5,
+        "label": "Zookeeper Metrics Enhancement",
+        "share": 0.6296296296296297,
+        "count": 17,
+        "example_keys": [
+          "ZOOKEEPER-3305",
+          "ZOOKEEPER-3309",
+          "ZOOKEEPER-3310"
+        ]
+      },
+      {
+        "cluster": 15,
+        "label": "Performance optimization in Zookeeper",
+        "share": 0.18518518518518517,
+        "count": 5,
+        "example_keys": [
+          "ZOOKEEPER-3437",
+          "ZOOKEEPER-3492",
+          "ZOOKEEPER-3503"
+        ]
+      },
+      {
+        "cluster": 19,
+        "label": "Quorum Connection Management Issues",
+        "share": 0.1111111111111111,
+        "count": 3,
+        "example_keys": [
+          "ZOOKEEPER-3574",
+          "ZOOKEEPER-3774",
+          "ZOOKEEPER-3816"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Flaky test issues",
+        "share": 0.037037037037037035,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3379"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "ZooKeeper Client Connection Issues",
+        "share": 0.037037037037037035,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3864"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement",
+          "share": 1.0,
+          "count": 9,
+          "example_keys": [
+            "ZOOKEEPER-3305",
+            "ZOOKEEPER-3309",
+            "ZOOKEEPER-3310"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.4444444444444444,
+          "count": 4,
+          "example_keys": [
+            "ZOOKEEPER-3437",
+            "ZOOKEEPER-3492",
+            "ZOOKEEPER-3503"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement",
+          "share": 0.2222222222222222,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3383",
+            "ZOOKEEPER-3401"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues",
+          "share": 0.2222222222222222,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3574",
+            "ZOOKEEPER-3774"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement",
+          "share": 0.6666666666666666,
+          "count": 6,
+          "example_keys": [
+            "ZOOKEEPER-3844",
+            "ZOOKEEPER-3845",
+            "ZOOKEEPER-3846"
+          ]
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues",
+          "share": 0.1111111111111111,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3816"
+          ]
+        },
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper",
+          "share": 0.1111111111111111,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3863"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 15,
+          "label": "Performance optimization in Zookeeper"
+        },
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 5,
+          "label": "Zookeeper Metrics Enhancement"
+        },
+        {
+          "cluster": 19,
+          "label": "Quorum Connection Management Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.6538461538461539,
+    "positive_percent": 65,
+    "steps": 26
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3305",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3309",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3310",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3319",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3321",
+        "label": "Zookeeper Metrics Enhancement"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3847",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3856",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3858",
+        "label": "Zookeeper Metrics Enhancement"
+      },
+      {
+        "key": "ZOOKEEPER-3863",
+        "label": "Performance optimization in Zookeeper"
+      },
+      {
+        "key": "ZOOKEEPER-3864",
+        "label": "ZooKeeper Client Connection Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2019, focusing primarily on enhancing Zookeeper metrics. During this period, they worked on several key tickets, including ZOOKEEPER-3305 and ZOOKEEPER-3309. In the middle phase, they shifted some attention to performance optimization, while still addressing metrics enhancements, as seen in ZOOKEEPER-3437 and ZOOKEEPER-3383. Recently, their work has predominantly revolved around Zookeeper metrics, with notable contributions to tickets like ZOOKEEPER-3844 and ZOOKEEPER-3845, alongside tackling quorum connection management issues. Overall, 65% of their steps have aligned with the overall direction. Their consistent focus on Zookeeper metrics enhancement and performance optimization showcases their commitment to improving system reliability and efficiency."
+}

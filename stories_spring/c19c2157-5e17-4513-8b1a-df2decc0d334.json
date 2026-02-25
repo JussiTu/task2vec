@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|c19c2157-5e17-4513-8b1a-df2decc0d334|>>",
+  "tickets": {
+    "count": 89,
+    "first_created": "2006-10-07T04:34:01.000+0000",
+    "last_created": "2014-01-01T01:08:32.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.30337078651685395,
+        "count": 27,
+        "example_keys": [
+          "LDAP-8",
+          "LDAP-9",
+          "LDAP-17"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.11235955056179775,
+        "count": 10,
+        "example_keys": [
+          "LDAP-13",
+          "LDAP-26",
+          "LDAP-30"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.11235955056179775,
+        "count": 10,
+        "example_keys": [
+          "LDAP-254",
+          "LDAP-263",
+          "LDAP-264"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.10112359550561797,
+        "count": 9,
+        "example_keys": [
+          "LDAP-15",
+          "LDAP-37",
+          "LDAP-45"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.06741573033707865,
+        "count": 6,
+        "example_keys": [
+          "LDAP-43",
+          "LDAP-165",
+          "LDAP-258"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.3448275862068966,
+          "count": 10,
+          "example_keys": [
+            "LDAP-8",
+            "LDAP-9",
+            "LDAP-17"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.1724137931034483,
+          "count": 5,
+          "example_keys": [
+            "LDAP-13",
+            "LDAP-26",
+            "LDAP-30"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.13793103448275862,
+          "count": 4,
+          "example_keys": [
+            "LDAP-15",
+            "LDAP-37",
+            "LDAP-45"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.36666666666666664,
+          "count": 11,
+          "example_keys": [
+            "LDAP-87",
+            "LDAP-94",
+            "LDAP-103"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.16666666666666666,
+          "count": 5,
+          "example_keys": [
+            "LDAP-88",
+            "LDAP-89",
+            "LDAP-93"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.13333333333333333,
+          "count": 4,
+          "example_keys": [
+            "LDAP-96",
+            "LDAP-97",
+            "LDAP-177"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.3333333333333333,
+          "count": 10,
+          "example_keys": [
+            "LDAP-254",
+            "LDAP-263",
+            "LDAP-264"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.2,
+          "count": 6,
+          "example_keys": [
+            "LDAP-256",
+            "LDAP-261",
+            "LDAP-272"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.13333333333333333,
+          "count": 4,
+          "example_keys": [
+            "LDAP-258",
+            "LDAP-262",
+            "LDAP-265"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.48863636363636365,
+    "positive_percent": 49,
+    "steps": 88
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "LDAP-2",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "LDAP-5",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "LDAP-6",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "LDAP-8",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-9",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "LDAP-280",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "LDAP-281",
+        "label": "QueryDSL and Projections Support"
+      },
+      {
+        "key": "LDAP-282",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-283",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "LDAP-288",
+        "label": "Authentication Framework Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since October 2006, focusing primarily on enhancing authentication frameworks and addressing session authentication issues. In the early phase of their work, they tackled various enhancements, with notable tickets like LDAP-8 and LDAP-9. As they progressed into the middle phase, they continued to refine these frameworks while also addressing validation and data binding issues, exemplified by tickets such as LDAP-87 and LDAP-96.\n\nRecently, their focus shifted towards supporting QueryDSL and projections, with significant contributions seen in tickets like LDAP-254 and LDAP-263. Throughout their tenure, 49% of their steps aligned with the overall direction of the project. This consistent engagement across different themes showcases their adaptability and commitment to improving the system's functionality."
+}

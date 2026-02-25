@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|51ec25ce-a2d0-43d6-a711-dace2dc8e468|>>",
+  "tickets": {
+    "count": 1433,
+    "first_created": "2006-03-09T03:45:11.000+0000",
+    "last_created": "2015-11-02T17:12:57.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.44103279832519193,
+        "count": 632,
+        "example_keys": [
+          "SPR-3568",
+          "INT-1",
+          "INT-2"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.1612002791346825,
+        "count": 231,
+        "example_keys": [
+          "SPR-3791",
+          "INT-52",
+          "INT-54"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.0718771807397069,
+        "count": 103,
+        "example_keys": [
+          "INT-755",
+          "XD-20",
+          "XD-21"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.05861828332170272,
+        "count": 84,
+        "example_keys": [
+          "SPR-1772",
+          "SPR-1924",
+          "SPR-4120"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.03698534542916958,
+        "count": 53,
+        "example_keys": [
+          "INT-224",
+          "INT-336",
+          "INT-346"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.5283018867924528,
+          "count": 252,
+          "example_keys": [
+            "SPR-3568",
+            "INT-1",
+            "INT-2"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.1761006289308176,
+          "count": 84,
+          "example_keys": [
+            "SPR-3791",
+            "INT-52",
+            "INT-54"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.06079664570230608,
+          "count": 29,
+          "example_keys": [
+            "SPR-1772",
+            "SPR-1924",
+            "SPR-4120"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.48326359832635984,
+          "count": 231,
+          "example_keys": [
+            "INT-553",
+            "INT-578",
+            "INT-580"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.1694560669456067,
+          "count": 81,
+          "example_keys": [
+            "INT-554",
+            "INT-556",
+            "INT-557"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.05230125523012552,
+          "count": 25,
+          "example_keys": [
+            "INT-694",
+            "INT-695",
+            "INT-696"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.3117154811715481,
+          "count": 149,
+          "example_keys": [
+            "INT-1299",
+            "INT-1300",
+            "INT-1303"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.21338912133891214,
+          "count": 102,
+          "example_keys": [
+            "XD-20",
+            "XD-21",
+            "XD-22"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.13807531380753138,
+          "count": 66,
+          "example_keys": [
+            "INT-1301",
+            "AMQP-38",
+            "INT-1344"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.48533519553072624,
+    "positive_percent": 49,
+    "steps": 1432
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-1772",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPR-1924",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SPR-2024",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-2325",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-3044",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3595",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3596",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3624",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3660",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "XD-3674",
+        "label": "Documentation and Build Improvements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2006, focusing primarily on Messaging Configuration Enhancements, with significant involvement in JMS Message Listener Issues and Spring XD Module Development. In the early phase, they worked on enhancing messaging configurations, exemplified by tickets like SPR-3568 and INT-1. As they progressed into the middle phase, they continued to address messaging enhancements while also tackling JMS issues, with notable tickets such as INT-553 and INT-554. Recently, their focus has shifted towards Spring XD Module Development, alongside ongoing messaging improvements, as seen in tickets like XD-20 and INT-1299. Overall, 49% of their steps aligned with the overall direction, reflecting a consistent commitment to enhancing messaging systems and module development."
+}

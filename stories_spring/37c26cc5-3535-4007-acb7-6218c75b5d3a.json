@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|37c26cc5-3535-4007-acb7-6218c75b5d3a|>>",
+  "tickets": {
+    "count": 183,
+    "first_created": "2008-11-17T20:22:43.000+0000",
+    "last_created": "2018-09-21T12:50:51.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.2786885245901639,
+        "count": 51,
+        "example_keys": [
+          "SPR-5343",
+          "SPR-5439",
+          "SPR-5661"
+        ]
+      },
+      {
+        "cluster": 10,
+        "label": "Workspace and Class Loading Issues",
+        "share": 0.1912568306010929,
+        "count": 35,
+        "example_keys": [
+          "STS-1017",
+          "STS-1154",
+          "STS-1240"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.13114754098360656,
+        "count": 24,
+        "example_keys": [
+          "SPR-5307",
+          "SPR-5949",
+          "SPR-6525"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.12021857923497267,
+        "count": 22,
+        "example_keys": [
+          "SPR-5364",
+          "SPR-5664",
+          "SPR-6067"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.07103825136612021,
+        "count": 13,
+        "example_keys": [
+          "XD-196",
+          "XD-214",
+          "XD-216"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.3442622950819672,
+          "count": 21,
+          "example_keys": [
+            "SPR-5343",
+            "SPR-5439",
+            "SPR-5661"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.19672131147540983,
+          "count": 12,
+          "example_keys": [
+            "SPR-5364",
+            "SPR-5664",
+            "SPR-6067"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.18032786885245902,
+          "count": 11,
+          "example_keys": [
+            "STS-1017",
+            "STS-1154",
+            "STS-1240"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.2786885245901639,
+          "count": 17,
+          "example_keys": [
+            "STS-1839",
+            "STS-1843",
+            "STS-1868"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.16393442622950818,
+          "count": 10,
+          "example_keys": [
+            "STS-1724",
+            "STS-1758",
+            "STS-1759"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.14754098360655737,
+          "count": 9,
+          "example_keys": [
+            "XD-196",
+            "XD-214",
+            "XD-216"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.36065573770491804,
+          "count": 22,
+          "example_keys": [
+            "SPR-12035",
+            "SPR-12040",
+            "SPR-12045"
+          ]
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues",
+          "share": 0.11475409836065574,
+          "count": 7,
+          "example_keys": [
+            "STS-3822",
+            "STS-4037",
+            "IDE-1375"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.11475409836065574,
+          "count": 7,
+          "example_keys": [
+            "SPR-12973",
+            "SPR-14439",
+            "SPR-15260"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 10,
+          "label": "Workspace and Class Loading Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.554945054945055,
+    "positive_percent": 55,
+    "steps": 182
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-5307",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-5343",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-5364",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-5439",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-5518",
+        "label": "Spring IDE Tooling Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-16489",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-16929",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-17214",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SPR-17285",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-17294",
+        "label": "Validation and Data Binding Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since November 2008, with a focus on various technical issues over the years. In the early phase, they primarily tackled \"Validation and Data Binding Issues\" (e.g., SPR-5343, SPR-5439) and \"Bean Configuration Enhancements\" (e.g., SPR-5364). As they moved into the middle phase, their attention shifted towards \"Workspace and Class Loading Issues\" (e.g., STS-1839) and \"Autowiring and Bean Configuration Issues\" (e.g., STS-1724). Recently, they returned to \"Validation and Data Binding Issues\" (e.g., SPR-12035) while still addressing \"Workspace and Class Loading Issues\" (e.g., STS-3822). Overall, 55% of their steps aligned with the overall direction, showcasing their adaptability and commitment to resolving key challenges in the project."
+}

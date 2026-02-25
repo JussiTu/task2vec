@@ -1,0 +1,962 @@
+{
+  "0": {
+    "label": "Validation and Data Binding Issues",
+    "keywords": [
+      "java",
+      "org",
+      "code",
+      "value",
+      "string",
+      "springframework",
+      "property",
+      "class",
+      "spring",
+      "null"
+    ],
+    "size": 2868,
+    "examples": [
+      {
+        "key": "SPR-2294",
+        "summary": "Incorrect string parsing of mapped property names"
+      },
+      {
+        "key": "MOD-83",
+        "summary": "Mismatch between commons validator paths and Spring bean paths"
+      },
+      {
+        "key": "MOD-502",
+        "summary": "Mismatch between commons validator paths and Spring bean paths"
+      }
+    ]
+  },
+  "1": {
+    "label": "Spring Roo Initialization Errors",
+    "keywords": [
+      "roo",
+      "java",
+      "org",
+      "project",
+      "springframework",
+      "shell",
+      "org springframework",
+      "springframework roo",
+      "spring",
+      "roo shell"
+    ],
+    "size": 885,
+    "examples": [
+      {
+        "key": "ROO-3481",
+        "summary": "Spring Roo error"
+      },
+      {
+        "key": "ROO-3613",
+        "summary": "Roo does not start correctly"
+      },
+      {
+        "key": "ROO-1826",
+        "summary": "Upstream dependency is an invalid metadata identification string ('null')"
+      }
+    ]
+  },
+  "2": {
+    "label": "Release Version Updates",
+    "keywords": [
+      "release",
+      "lovelace",
+      "moore",
+      "kay",
+      "ingalls",
+      "m1",
+      "release m1",
+      "rc1",
+      "ga",
+      "release ga"
+    ],
+    "size": 2406,
+    "examples": [
+      {
+        "key": "DATAKV-162",
+        "summary": "Release 1.2.1 (Ingalls SR1)"
+      },
+      {
+        "key": "DATACMNS-1220",
+        "summary": "Release 2.0.3 (Kay SR3)"
+      },
+      {
+        "key": "DATAKV-164",
+        "summary": "Release 1.2.2 (Ingalls SR2)"
+      }
+    ]
+  },
+  "3": {
+    "label": "Content Negotiation Issues",
+    "keywords": [
+      "java",
+      "code",
+      "org",
+      "spring",
+      "springframework",
+      "org springframework",
+      "method",
+      "request",
+      "web",
+      "http"
+    ],
+    "size": 2364,
+    "examples": [
+      {
+        "key": "SPR-10334",
+        "summary": "MockServletContext always returns application/octet-stream for unknown filetypes or ContentNegotiationManager is not correct"
+      },
+      {
+        "key": "SPR-14762",
+        "summary": "Content negotiation conflict with Data REST Repository"
+      },
+      {
+        "key": "SPR-6780",
+        "summary": "@RequestMapping does not pick up encoded URL's"
+      }
+    ]
+  },
+  "4": {
+    "label": "JDBC Compatibility and Performance Issues",
+    "keywords": [
+      "jdbc",
+      "sql",
+      "java",
+      "org",
+      "spring",
+      "code",
+      "jdbctemplate",
+      "springframework",
+      "org springframework",
+      "add"
+    ],
+    "size": 1379,
+    "examples": [
+      {
+        "key": "SPR-10267",
+        "summary": "JdbcTemplate compatibility with Hibernate 4.1.9's proxied JDBC Statements"
+      },
+      {
+        "key": "SPR-7199",
+        "summary": "AbstractJdbcInsert failes with SqlLobValue type parameters"
+      },
+      {
+        "key": "SPR-13825",
+        "summary": "Oracle 12c JDBC driver throws inconsistent exception from getParameterType (affecting setNull calls)"
+      }
+    ]
+  },
+  "5": {
+    "label": "Spring IDE Tooling Enhancements",
+    "keywords": [
+      "support",
+      "spring",
+      "add",
+      "xml",
+      "code",
+      "bean",
+      "http",
+      "property",
+      "configuration",
+      "namespace"
+    ],
+    "size": 2522,
+    "examples": [
+      {
+        "key": "SEC-673",
+        "summary": "Spring IDE Tooling Support"
+      },
+      {
+        "key": "IDE-697",
+        "summary": "Support for context namespace"
+      },
+      {
+        "key": "MOD-164",
+        "summary": "Support for Quick Custom Namespaces using Convention over Configuration"
+      }
+    ]
+  },
+  "6": {
+    "label": "Authentication Framework Enhancements",
+    "keywords": [
+      "security",
+      "spring",
+      "authentication",
+      "support",
+      "user",
+      "add",
+      "use",
+      "method",
+      "spring security",
+      "code"
+    ],
+    "size": 2030,
+    "examples": [
+      {
+        "key": "SEC-1759",
+        "summary": "AbstractPreAuthenticatedProcessingFilter should be more subclass-friendly"
+      },
+      {
+        "key": "SEC-234",
+        "summary": "Allow WebAuthenticationDetails pluggable implementations"
+      },
+      {
+        "key": "SECOAUTH-366",
+        "summary": "Upgrade Authentication to OAuth2Authentication from UsernamePasswordAuthenticationToken after successful token grant"
+      }
+    ]
+  },
+  "7": {
+    "label": "JMS Message Listener Issues",
+    "keywords": [
+      "java",
+      "org",
+      "message",
+      "springframework",
+      "org springframework",
+      "code",
+      "channel",
+      "integration",
+      "spring",
+      "jms"
+    ],
+    "size": 2164,
+    "examples": [
+      {
+        "key": "SPR-13052",
+        "summary": "Remoting over JMS with receiveTimeout blocks service forever"
+      },
+      {
+        "key": "SPR-4938",
+        "summary": "DefaultMessageListenerContainer stops listening"
+      },
+      {
+        "key": "SPR-4590",
+        "summary": "MessageListenerAdapter is too eager when adapting (SessionAware)MessageListeners"
+      }
+    ]
+  },
+  "8": {
+    "label": "JPA and Entity Mapping Issues",
+    "keywords": [
+      "roo",
+      "java",
+      "field",
+      "code",
+      "entity",
+      "org",
+      "class",
+      "type",
+      "method",
+      "string"
+    ],
+    "size": 1229,
+    "examples": [
+      {
+        "key": "ROO-540",
+        "summary": "create.jspx and update.jspx missing fields from entity"
+      },
+      {
+        "key": "ROO-3140",
+        "summary": "Roo MVC Sometimes Improperly Names Labels in application.properties File for Subcomponents of Composite Keys"
+      },
+      {
+        "key": "ROO-12",
+        "summary": "Problem with 'user provided @javax.persistence.Id field'"
+      }
+    ]
+  },
+  "9": {
+    "label": "Autowiring and Bean Configuration Issues",
+    "keywords": [
+      "java",
+      "org",
+      "bean",
+      "springframework",
+      "org springframework",
+      "beans",
+      "class",
+      "spring",
+      "factory",
+      "context"
+    ],
+    "size": 3795,
+    "examples": [
+      {
+        "key": "SPR-12004",
+        "summary": "Non-stable BeanCurrentlyInCreationException with wrong Java config"
+      },
+      {
+        "key": "SPR-3686",
+        "summary": "Finding autowire candidates for properties autowired by type fails because of incorrect FactoryBean creation"
+      },
+      {
+        "key": "SPR-11458",
+        "summary": "Autowiring fails when bean with the same name yet different type exists in parent BeanFactory"
+      }
+    ]
+  },
+  "10": {
+    "label": "Workspace and Class Loading Issues",
+    "keywords": [
+      "java",
+      "eclipse",
+      "org",
+      "org eclipse",
+      "project",
+      "sts",
+      "grails",
+      "internal",
+      "spring",
+      "core"
+    ],
+    "size": 2679,
+    "examples": [
+      {
+        "key": "STS-274",
+        "summary": "STS unusable when using a certain workspace"
+      },
+      {
+        "key": "STS-269",
+        "summary": "Workspace hosed by ClassDefNotFound"
+      },
+      {
+        "key": "STS-619",
+        "summary": "java.lang.NoClassDefFoundError: com/springsource/server/ide/ui/editors/model/ImportBundleHeader"
+      }
+    ]
+  },
+  "11": {
+    "label": "Messaging Configuration Enhancements",
+    "keywords": [
+      "add",
+      "channel",
+      "support",
+      "message",
+      "adapter",
+      "spring",
+      "code",
+      "use",
+      "jms",
+      "outbound"
+    ],
+    "size": 2736,
+    "examples": [
+      {
+        "key": "INT-3931",
+        "summary": "Spring integration"
+      },
+      {
+        "key": "INT-1996",
+        "summary": "enable configuration of SimpleMessageListenerContainer properties on the AMQP 'inbound-gateway' element"
+      },
+      {
+        "key": "INT-837",
+        "summary": "Add support for direct configuration of message converter in jms channel adapters"
+      }
+    ]
+  },
+  "12": {
+    "label": "Documentation Corrections and Edits",
+    "keywords": [
+      "documentation",
+      "spring",
+      "reference",
+      "docs",
+      "javadoc",
+      "reference documentation",
+      "org",
+      "section",
+      "code",
+      "http"
+    ],
+    "size": 2903,
+    "examples": [
+      {
+        "key": "SPR-10798",
+        "summary": "Fix malformed code in documentation"
+      },
+      {
+        "key": "DATAJPA-1807",
+        "summary": "Small edit of reference doc"
+      },
+      {
+        "key": "DATAJPA-1712",
+        "summary": "Fix minor documentation typo"
+      }
+    ]
+  },
+  "13": {
+    "label": "Spring Data Commons Deprecation Updates",
+    "keywords": [
+      "spring",
+      "remove",
+      "data",
+      "use",
+      "tests",
+      "test",
+      "spring data",
+      "api",
+      "java",
+      "changes"
+    ],
+    "size": 2393,
+    "examples": [
+      {
+        "key": "DATACMNS-1781",
+        "summary": "Move off deprecated Spring Framework API"
+      },
+      {
+        "key": "DATAJPA-575",
+        "summary": "Adapt to deprecation removals in Spring Data Commons"
+      },
+      {
+        "key": "DATAES-439",
+        "summary": "Adapt to API changes in Spring Data Commons"
+      }
+    ]
+  },
+  "14": {
+    "label": "RedisTemplate and Jedis Improvements",
+    "keywords": [
+      "redis",
+      "java",
+      "support",
+      "add",
+      "spring",
+      "data",
+      "code",
+      "connection",
+      "org",
+      "data redis"
+    ],
+    "size": 954,
+    "examples": [
+      {
+        "key": "DATAREDIS-23",
+        "summary": "Improve pipeline usage on RedisTemplate"
+      },
+      {
+        "key": "DATAREDIS-414",
+        "summary": "Serialization occurs while pooled connection can be released"
+      },
+      {
+        "key": "DATAREDIS-857",
+        "summary": "Misuse of Java generics in RedisTemplate related API"
+      }
+    ]
+  },
+  "15": {
+    "label": "JPA Entity Management Issues",
+    "keywords": [
+      "java",
+      "code",
+      "org",
+      "data",
+      "springframework",
+      "org springframework",
+      "spring",
+      "query",
+      "id",
+      "class"
+    ],
+    "size": 2911,
+    "examples": [
+      {
+        "key": "DATAJPA-1466",
+        "summary": "Use wrong Entity class when the entity is defined several times with same class name"
+      },
+      {
+        "key": "DATAJPA-988",
+        "summary": "EntityGraph and QueryDSL not working together"
+      },
+      {
+        "key": "DATAJPA-793",
+        "summary": "Spring Boot has broken custom repository methods in Spring Data JPA"
+      }
+    ]
+  },
+  "16": {
+    "label": "Transaction Management Issues",
+    "keywords": [
+      "transaction",
+      "java",
+      "org",
+      "spring",
+      "springframework",
+      "hibernate",
+      "transactional",
+      "org springframework",
+      "method",
+      "session"
+    ],
+    "size": 1129,
+    "examples": [
+      {
+        "key": "SPR-8492",
+        "summary": "Transaction problem with AnnotationSessionFactoryBuilder and @EnableTransactionManagement"
+      },
+      {
+        "key": "SPR-3930",
+        "summary": "Shared EntityManager within the same JTA transaction across Spring transaction boundaries"
+      },
+      {
+        "key": "SPR-3438",
+        "summary": "\"IllegalStateException: Cannot deactivate transaction synchronization - not active\" thrown when when 'inner' transaction for unrelated datasource fails to get a connection"
+      }
+    ]
+  },
+  "17": {
+    "label": "Acceptance Test Failures",
+    "keywords": [
+      "java",
+      "org",
+      "test",
+      "xd",
+      "springframework",
+      "org springframework",
+      "job",
+      "spring",
+      "code",
+      "error"
+    ],
+    "size": 1651,
+    "examples": [
+      {
+        "key": "XD-2828",
+        "summary": "XD distributed tests are broken"
+      },
+      {
+        "key": "XD-1649",
+        "summary": "Spring XD using Redis as data transport is failing to start in CI Acceptance Test."
+      },
+      {
+        "key": "XD-3235",
+        "summary": "FileJdbc Job throws exception during Acceptance Tests"
+      }
+    ]
+  },
+  "18": {
+    "label": "Bean Configuration Enhancements",
+    "keywords": [
+      "bean",
+      "spring",
+      "class",
+      "code",
+      "method",
+      "property",
+      "context",
+      "beans",
+      "support",
+      "use"
+    ],
+    "size": 3878,
+    "examples": [
+      {
+        "key": "SPR-2253",
+        "summary": "Expand the scope of magic beans and application context meta information"
+      },
+      {
+        "key": "SPR-3511",
+        "summary": "Override Properties from JNDI context"
+      },
+      {
+        "key": "SPR-15172",
+        "summary": "Allow custom PropertySource objects to be easily injected."
+      }
+    ]
+  },
+  "19": {
+    "label": "Step Scope and Tasklet Issues",
+    "keywords": [
+      "batch",
+      "job",
+      "step",
+      "java",
+      "spring",
+      "org",
+      "add",
+      "springframework",
+      "org springframework",
+      "exception"
+    ],
+    "size": 2189,
+    "examples": [
+      {
+        "key": "BATCH-1521",
+        "summary": "Step Scope problem in TaskletStep"
+      },
+      {
+        "key": "BATCH-1775",
+        "summary": "Inner beans of same type inside <chunk/> elements with scope =\"step\" leads to mistaken override of bean definitions"
+      },
+      {
+        "key": "BATCH-244",
+        "summary": "Repeated processing of items does not work if exception is in first chunk"
+      }
+    ]
+  },
+  "20": {
+    "label": "Spring XD Module Development",
+    "keywords": [
+      "xd",
+      "module",
+      "spring",
+      "add",
+      "job",
+      "like",
+      "support",
+      "create",
+      "use",
+      "stream"
+    ],
+    "size": 2581,
+    "examples": [
+      {
+        "key": "XD-2465",
+        "summary": "Implement an XD module type that integrates with Spark Streaming, reactor etc.,"
+      },
+      {
+        "key": "XD-1863",
+        "summary": "Create way to deploy custom modules for XD on YARN"
+      },
+      {
+        "key": "XD-2744",
+        "summary": "Placeholder for Spring XD Lab"
+      }
+    ]
+  },
+  "21": {
+    "label": "Codebase Consistency and Refactoring",
+    "keywords": [
+      "roo",
+      "add",
+      "spring",
+      "code",
+      "support",
+      "use",
+      "command",
+      "addon",
+      "new",
+      "update"
+    ],
+    "size": 1737,
+    "examples": [
+      {
+        "key": "ROO-2113",
+        "summary": "Improve consistency of Roo code base"
+      },
+      {
+        "key": "ROO-232",
+        "summary": "Modification of Roo commands to enhance usability and consistency between add-ons"
+      },
+      {
+        "key": "ROO-2495",
+        "summary": "Minor changes for Add-on RooBot operations API to accommodate STS requirements"
+      }
+    ]
+  },
+  "22": {
+    "label": "Documentation and Build Improvements",
+    "keywords": [
+      "add",
+      "update",
+      "build",
+      "create",
+      "spring",
+      "documentation",
+      "test",
+      "support",
+      "integration",
+      "tests"
+    ],
+    "size": 2344,
+    "examples": [
+      {
+        "key": "DATAES-1004",
+        "summary": "Add version of Spring dependency to docs"
+      },
+      {
+        "key": "INT-3629",
+        "summary": "Fix Sonar Build"
+      },
+      {
+        "key": "DATAREST-93",
+        "summary": "General project cleanup"
+      }
+    ]
+  },
+  "23": {
+    "label": "RequestMapping Enhancements",
+    "keywords": [
+      "code",
+      "spring",
+      "method",
+      "request",
+      "support",
+      "http",
+      "java",
+      "add",
+      "string",
+      "use"
+    ],
+    "size": 2804,
+    "examples": [
+      {
+        "key": "SPR-9282",
+        "summary": "RequestMapping"
+      },
+      {
+        "key": "SPR-4419",
+        "summary": "Comprehensive REST Support"
+      },
+      {
+        "key": "SPR-7722",
+        "summary": "@RequestMapping should support alternative between a header and a url extension"
+      }
+    ]
+  },
+  "24": {
+    "label": "MongoDB Mapping Issues",
+    "keywords": [
+      "java",
+      "code",
+      "org",
+      "data",
+      "mongodb",
+      "query",
+      "springframework",
+      "org springframework",
+      "id",
+      "string"
+    ],
+    "size": 1429,
+    "examples": [
+      {
+        "key": "DATAMONGO-1357",
+        "summary": "mapping does not work correctly for custom map implementations"
+      },
+      {
+        "key": "DATAMONGO-1998",
+        "summary": "SpringDataMongodbSerializer cannot convert query on nested id"
+      },
+      {
+        "key": "DATAMONGO-2410",
+        "summary": "Using BasicDBObject as an entity caused java.lang.ClassCastException in runtime"
+      }
+    ]
+  },
+  "25": {
+    "label": "Spring Dependency Upgrades",
+    "keywords": [
+      "upgrade",
+      "spring",
+      "update",
+      "upgrade spring",
+      "version",
+      "release",
+      "neo4j",
+      "gradle",
+      "update spring",
+      "upgrade neo4j"
+    ],
+    "size": 2021,
+    "examples": [
+      {
+        "key": "DATACMNS-200",
+        "summary": "Upgrade Spring dependency to 3.1 branch"
+      },
+      {
+        "key": "DATACMNS-499",
+        "summary": "Upgrade to Spring 3.2.9"
+      },
+      {
+        "key": "INT-2784",
+        "summary": "upgrade spring-data-redis dependency to 1.0.2.RELEASE"
+      }
+    ]
+  },
+  "26": {
+    "label": "Spring Web Flow Enhancements",
+    "keywords": [
+      "user",
+      "add",
+      "project",
+      "support",
+      "view",
+      "like",
+      "spring",
+      "sts",
+      "grails",
+      "page"
+    ],
+    "size": 1995,
+    "examples": [
+      {
+        "key": "STS-598",
+        "summary": "Port the Spring Web Flow visual editor to also work with Grails flow definitions"
+      },
+      {
+        "key": "STS-1388",
+        "summary": "Improving the new spring webflow visual editor"
+      },
+      {
+        "key": "STS-1851",
+        "summary": "As a user I'd like Spring-specific default preferences in STS"
+      }
+    ]
+  },
+  "27": {
+    "label": "QueryDSL and Projections Support",
+    "keywords": [
+      "support",
+      "add",
+      "query",
+      "code",
+      "spring",
+      "data",
+      "spring data",
+      "repository",
+      "method",
+      "use"
+    ],
+    "size": 2826,
+    "examples": [
+      {
+        "key": "DATACMNS-1813",
+        "summary": "Add support for QueryDSL projections in JPA repositories"
+      },
+      {
+        "key": "DATAJPA-1237",
+        "summary": "Add Specification support to @Query methods"
+      },
+      {
+        "key": "DATACMNS-1194",
+        "summary": "Enhancement of QuerydslPredicateExecutor"
+      }
+    ]
+  },
+  "28": {
+    "label": "JSF and Spring Web Flow Issues",
+    "keywords": [
+      "flow",
+      "java",
+      "org",
+      "state",
+      "view",
+      "spring",
+      "springframework",
+      "webflow",
+      "web",
+      "jsf"
+    ],
+    "size": 1237,
+    "examples": [
+      {
+        "key": "SWF-290",
+        "summary": "SWF-JSF: JSF command buttons with action=\"flowId:XXX\" don't work when invoked from within flow execution"
+      },
+      {
+        "key": "STS-4118",
+        "summary": "Spring Web Flow"
+      },
+      {
+        "key": "SWF-303",
+        "summary": "SWF-JSF: Impossible to fallback to default navigation handler rules since flowExecutionKey is tracked automatically"
+      }
+    ]
+  },
+  "29": {
+    "label": "Session Authentication Issues",
+    "keywords": [
+      "java",
+      "org",
+      "security",
+      "springframework",
+      "spring",
+      "org springframework",
+      "code",
+      "authentication",
+      "user",
+      "session"
+    ],
+    "size": 1892,
+    "examples": [
+      {
+        "key": "SEC-2025",
+        "summary": "HttpSessionSecurityContextRepository restores authentication to the new session if session is invalidated from another thread"
+      },
+      {
+        "key": "SEC-1946",
+        "summary": "User's authentication is lost when redirect by tomcat on a 404"
+      },
+      {
+        "key": "SEC-2761",
+        "summary": "Java based config of Spring 4 + Spring Security 3.2 not working with JSF"
+      }
+    ]
+  },
+  "30": {
+    "label": "MongoDB Feature Enhancements",
+    "keywords": [
+      "add",
+      "support",
+      "mongodb",
+      "code",
+      "query",
+      "spring",
+      "add support",
+      "data",
+      "mongo",
+      "document"
+    ],
+    "size": 1140,
+    "examples": [
+      {
+        "key": "DATAMONGO-491",
+        "summary": "Release 1.1.0.M2"
+      },
+      {
+        "key": "DATAMONGO-1",
+        "summary": "MongoTemplate support for POJO serialization"
+      },
+      {
+        "key": "DATAMONGO-476",
+        "summary": "JavaConfig support for Mongo repositories"
+      }
+    ]
+  },
+  "31": {
+    "label": "OSGi Manifest and Dependency Issues",
+    "keywords": [
+      "spring",
+      "org",
+      "java",
+      "springframework",
+      "version",
+      "org springframework",
+      "jar",
+      "maven",
+      "osgi",
+      "dependency"
+    ],
+    "size": 2085,
+    "examples": [
+      {
+        "key": "OSGI-9",
+        "summary": "Spring Module OSGi bundle metadata is incorrect"
+      },
+      {
+        "key": "INT-1427",
+        "summary": "M7 release contains faulty manifest files for ip, jdbc, and core modules"
+      },
+      {
+        "key": "SPR-10218",
+        "summary": "Spring 3.2.1 POM missing certain compile time dependencies"
+      }
+    ]
+  }
+}

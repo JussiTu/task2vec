@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|68cfbfce-5a87-4039-81bb-366dc9279b4c|>>",
+  "tickets": {
+    "count": 161,
+    "first_created": "2007-11-24T07:45:38.000+0000",
+    "last_created": "2017-06-06T16:42:20.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.2981366459627329,
+        "count": 48,
+        "example_keys": [
+          "INT-24",
+          "INT-94",
+          "INT-95"
+        ]
+      },
+      {
+        "cluster": 20,
+        "label": "Spring XD Module Development",
+        "share": 0.2670807453416149,
+        "count": 43,
+        "example_keys": [
+          "XD-1695",
+          "XD-2055",
+          "XD-2069"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "JMS Message Listener Issues",
+        "share": 0.17391304347826086,
+        "count": 28,
+        "example_keys": [
+          "INT-229",
+          "INT-231",
+          "INT-236"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.08074534161490683,
+        "count": 13,
+        "example_keys": [
+          "XD-2214",
+          "XD-2310",
+          "XD-2516"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.037267080745341616,
+        "count": 6,
+        "example_keys": [
+          "XD-2146",
+          "XD-2147",
+          "XD-2549"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.4528301886792453,
+          "count": 24,
+          "example_keys": [
+            "INT-24",
+            "INT-94",
+            "INT-95"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.1509433962264151,
+          "count": 8,
+          "example_keys": [
+            "INT-229",
+            "INT-231",
+            "INT-236"
+          ]
+        },
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.11320754716981132,
+          "count": 6,
+          "example_keys": [
+            "XD-1695",
+            "XD-2055",
+            "XD-2069"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.37037037037037035,
+          "count": 20,
+          "example_keys": [
+            "XD-2228",
+            "XD-2258",
+            "XD-2304"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.24074074074074073,
+          "count": 13,
+          "example_keys": [
+            "XD-2251",
+            "XD-2322",
+            "INTEXT-124"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.14814814814814814,
+          "count": 8,
+          "example_keys": [
+            "XD-2325",
+            "XD-2503",
+            "XD-2509"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development",
+          "share": 0.3148148148148148,
+          "count": 17,
+          "example_keys": [
+            "XD-2843",
+            "XD-2880",
+            "XD-3016"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues",
+          "share": 0.2222222222222222,
+          "count": 12,
+          "example_keys": [
+            "INTEXT-156",
+            "XD-2865",
+            "INTEXT-159"
+          ]
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.2037037037037037,
+          "count": 11,
+          "example_keys": [
+            "XD-2879",
+            "XD-2996",
+            "INT-3748"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 20,
+          "label": "Spring XD Module Development"
+        },
+        {
+          "cluster": 7,
+          "label": "JMS Message Listener Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.49375,
+    "positive_percent": 49,
+    "steps": 160
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-24",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-94",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-95",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-103",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-107",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "XD-3673",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "XD-3702",
+        "label": "Spring XD Module Development"
+      },
+      {
+        "key": "XD-3718",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INTEXT-223",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-4288",
+        "label": "Messaging Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since November 2007, focusing on various themes throughout their career. In the early phase, they primarily worked on Messaging Configuration Enhancements, with notable tickets like INT-24 and INT-94, while also addressing JMS Message Listener Issues. As they moved into the middle phase, their focus shifted towards Spring XD Module Development, exemplified by tickets such as XD-2228 and XD-2258, alongside continued work on Messaging Configuration Enhancements. Recently, they have concentrated on Spring XD Module Development and JMS Message Listener Issues, with key tickets including XD-2843 and INTEXT-156. Overall, 49% of their steps have aligned with the overall direction of the projects they have been involved in. This diverse experience showcases their adaptability and commitment to enhancing messaging systems and module development."
+}

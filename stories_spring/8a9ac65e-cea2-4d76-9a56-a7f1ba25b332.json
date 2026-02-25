@@ -1,0 +1,226 @@
+{
+  "assignee_id": "<<|author_key|8a9ac65e-cea2-4d76-9a56-a7f1ba25b332|>>",
+  "tickets": {
+    "count": 229,
+    "first_created": "2007-05-29T15:32:39.000+0000",
+    "last_created": "2012-05-04T08:11:24.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 19,
+        "label": "Step Scope and Tasklet Issues",
+        "share": 0.777292576419214,
+        "count": 178,
+        "example_keys": [
+          "BATCH-8",
+          "BATCH-34",
+          "BATCH-151"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.09606986899563319,
+        "count": 22,
+        "example_keys": [
+          "BATCH-317",
+          "BATCH-481",
+          "BATCH-484"
+        ]
+      },
+      {
+        "cluster": 4,
+        "label": "JDBC Compatibility and Performance Issues",
+        "share": 0.043668122270742356,
+        "count": 10,
+        "example_keys": [
+          "BATCH-250",
+          "BATCH-309",
+          "BATCH-377"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.026200873362445413,
+        "count": 6,
+        "example_keys": [
+          "BATCH-236",
+          "BATCH-624",
+          "BATCH-768"
+        ]
+      },
+      {
+        "cluster": 13,
+        "label": "Spring Data Commons Deprecation Updates",
+        "share": 0.021834061135371178,
+        "count": 5,
+        "example_keys": [
+          "BATCH-670",
+          "BATCH-746",
+          "BATCH-852"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.8289473684210527,
+          "count": 63,
+          "example_keys": [
+            "BATCH-8",
+            "BATCH-34",
+            "BATCH-151"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.07894736842105263,
+          "count": 6,
+          "example_keys": [
+            "BATCH-317",
+            "BATCH-481",
+            "BATCH-484"
+          ]
+        },
+        {
+          "cluster": 4,
+          "label": "JDBC Compatibility and Performance Issues",
+          "share": 0.06578947368421052,
+          "count": 5,
+          "example_keys": [
+            "BATCH-250",
+            "BATCH-309",
+            "BATCH-377"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.7236842105263158,
+          "count": 55,
+          "example_keys": [
+            "BATCH-627",
+            "BATCH-652",
+            "BATCH-655"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.07894736842105263,
+          "count": 6,
+          "example_keys": [
+            "BATCH-674",
+            "BATCH-678",
+            "BATCH-691"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.05263157894736842,
+          "count": 4,
+          "example_keys": [
+            "BATCH-624",
+            "BATCH-768",
+            "BATCH-862"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 19,
+          "label": "Step Scope and Tasklet Issues",
+          "share": 0.7792207792207793,
+          "count": 60,
+          "example_keys": [
+            "BATCH-942",
+            "BATCH-955",
+            "BATCH-958"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.12987012987012986,
+          "count": 10,
+          "example_keys": [
+            "BATCH-998",
+            "BATCH-1035",
+            "BATCH-1040"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.025974025974025976,
+          "count": 2,
+          "example_keys": [
+            "BATCH-944",
+            "BATCH-1049"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [],
+  "alignment": {
+    "positive_rate": 0.5043859649122807,
+    "positive_percent": 50,
+    "steps": 228
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "BATCH-8",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-34",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-151",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-168",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-192",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "BATCH-1423",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1573",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1746",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1853",
+        "label": "Step Scope and Tasklet Issues"
+      },
+      {
+        "key": "BATCH-1854",
+        "label": "Step Scope and Tasklet Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since May 2007, focusing primarily on Step Scope and Tasklet Issues, which accounted for 78% of their work. In the early phase, they tackled numerous tickets, such as BATCH-8 and BATCH-34, addressing critical issues in this area. As they progressed into the middle phase, their involvement continued with tickets like BATCH-627 and BATCH-652, maintaining a strong emphasis on the same theme. Recently, they have remained dedicated to Step Scope and Tasklet Issues, with notable tickets including BATCH-942 and BATCH-955. Additionally, they have made contributions to Documentation Corrections and Edits, with examples like BATCH-998. Overall, 50% of their steps aligned with the overall direction, demonstrating a consistent focus on key project themes throughout their tenure."
+}

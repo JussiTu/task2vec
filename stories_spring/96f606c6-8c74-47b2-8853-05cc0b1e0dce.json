@@ -1,0 +1,248 @@
+{
+  "assignee_id": "<<|author_key|96f606c6-8c74-47b2-8853-05cc0b1e0dce|>>",
+  "tickets": {
+    "count": 46,
+    "first_created": "2008-02-17T23:21:52.000+0000",
+    "last_created": "2011-03-15T00:09:27.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 11,
+        "label": "Messaging Configuration Enhancements",
+        "share": 0.41304347826086957,
+        "count": 19,
+        "example_keys": [
+          "INT-117",
+          "INT-155",
+          "INT-261"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.17391304347826086,
+        "count": 8,
+        "example_keys": [
+          "INT-109",
+          "INT-260",
+          "INT-286"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.10869565217391304,
+        "count": 5,
+        "example_keys": [
+          "INT-419",
+          "INT-432",
+          "INT-587"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.08695652173913043,
+        "count": 4,
+        "example_keys": [
+          "INT-272",
+          "INT-324",
+          "INT-862"
+        ]
+      },
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.06521739130434782,
+        "count": 3,
+        "example_keys": [
+          "INT-218",
+          "INT-219",
+          "INT-420"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.4666666666666667,
+          "count": 7,
+          "example_keys": [
+            "INT-117",
+            "INT-155",
+            "INT-261"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.2,
+          "count": 3,
+          "example_keys": [
+            "INT-109",
+            "INT-260",
+            "INT-286"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "INT-218",
+            "INT-219"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.4666666666666667,
+          "count": 7,
+          "example_keys": [
+            "INT-360",
+            "INT-388",
+            "INT-389"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "INT-327",
+            "INT-394"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.13333333333333333,
+          "count": 2,
+          "example_keys": [
+            "INT-419",
+            "INT-432"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements",
+          "share": 0.3125,
+          "count": 5,
+          "example_keys": [
+            "INT-571",
+            "INT-582",
+            "INT-790"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.1875,
+          "count": 3,
+          "example_keys": [
+            "INT-587",
+            "INT-590",
+            "INT-615"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.1875,
+          "count": 3,
+          "example_keys": [
+            "INT-675",
+            "INT-835",
+            "INT-836"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 11,
+          "label": "Messaging Configuration Enhancements"
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5777777777777777,
+    "positive_percent": 58,
+    "steps": 45
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "INT-109",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "INT-117",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-155",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-218",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "INT-219",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "INT-876",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-897",
+        "label": "Messaging Configuration Enhancements"
+      },
+      {
+        "key": "INT-955",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "INT-1812",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "INT-1838",
+        "label": "JMS Message Listener Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since early 2008, focusing primarily on Messaging Configuration Enhancements, which accounted for 41% of their work. In the early phase, they tackled tickets like INT-117 and INT-155, demonstrating a strong commitment to improving messaging systems. As they progressed into the middle phase, they continued to enhance messaging features with tickets such as INT-360 and INT-388, while also addressing Documentation and Build Improvements. Recently, their focus shifted slightly, with a notable increase in Documentation efforts alongside ongoing Messaging work, as seen in tickets like INT-571 and INT-587. Overall, 58% of their steps aligned with the overall direction of the project, reflecting a consistent commitment to key themes throughout their tenure."
+}

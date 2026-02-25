@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|c1cb4cbe-ee79-4ab3-a4e1-6f69d8890919|>>",
+  "tickets": {
+    "count": 105,
+    "first_created": "2006-10-07T04:37:38.000+0000",
+    "last_created": "2010-11-15T15:02:08.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.22857142857142856,
+        "count": 24,
+        "example_keys": [
+          "LDAP-3",
+          "LDAP-4",
+          "LDAP-7"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.1523809523809524,
+        "count": 16,
+        "example_keys": [
+          "LDAP-22",
+          "LDAP-23",
+          "LDAP-40"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.12380952380952381,
+        "count": 13,
+        "example_keys": [
+          "LDAP-35",
+          "LDAP-51",
+          "LDAP-59"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.11428571428571428,
+        "count": 12,
+        "example_keys": [
+          "LDAP-36",
+          "LDAP-64",
+          "LDAP-66"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.10476190476190476,
+        "count": 11,
+        "example_keys": [
+          "LDAP-27",
+          "LDAP-53",
+          "LDAP-54"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.2,
+          "count": 7,
+          "example_keys": [
+            "LDAP-3",
+            "LDAP-4",
+            "LDAP-7"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.2,
+          "count": 7,
+          "example_keys": [
+            "LDAP-22",
+            "LDAP-23",
+            "LDAP-40"
+          ]
+        },
+        {
+          "cluster": 13,
+          "label": "Spring Data Commons Deprecation Updates",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "LDAP-33",
+            "LDAP-34",
+            "LDAP-42"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.22857142857142856,
+          "count": 8,
+          "example_keys": [
+            "LDAP-85",
+            "LDAP-107",
+            "LDAP-135"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.22857142857142856,
+          "count": 8,
+          "example_keys": [
+            "LDAP-114",
+            "LDAP-134",
+            "LDAP-141"
+          ]
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits",
+          "share": 0.11428571428571428,
+          "count": 4,
+          "example_keys": [
+            "LDAP-92",
+            "LDAP-95",
+            "LDAP-106"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.2571428571428571,
+          "count": 9,
+          "example_keys": [
+            "LDAP-185",
+            "LDAP-186",
+            "LDAP-187"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.2,
+          "count": 7,
+          "example_keys": [
+            "LDAP-194",
+            "LDAP-195",
+            "LDAP-206"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "LDAP-188",
+            "LDAP-196",
+            "LDAP-198"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 12,
+          "label": "Documentation Corrections and Edits"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5673076923076923,
+    "positive_percent": 57,
+    "steps": 104
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "LDAP-3",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-4",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-7",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-12",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-14",
+        "label": "Validation and Data Binding Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "LDAP-218",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "LDAP-219",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "LDAP-220",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "LDAP-221",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "LDAP-222",
+        "label": "Spring Dependency Upgrades"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since October 2006, focusing primarily on enhancing the authentication framework. In the early phase, they worked on key tickets like LDAP-3 and LDAP-4, which were part of the \"Authentication Framework Enhancements\" theme. As they progressed into the middle phase, they continued to address authentication issues while also tackling \"Session Authentication Issues,\" with notable tickets such as LDAP-114 and LDAP-134. Recently, their efforts shifted towards \"Spring Dependency Upgrades,\" alongside ongoing work in authentication, exemplified by tickets like LDAP-185 and LDAP-194. Overall, 57% of their steps aligned with the overall direction, demonstrating a strong commitment to the project's goals."
+}

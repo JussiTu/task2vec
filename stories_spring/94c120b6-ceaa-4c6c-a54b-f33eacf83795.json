@@ -1,0 +1,245 @@
+{
+  "assignee_id": "<<|author_key|94c120b6-ceaa-4c6c-a54b-f33eacf83795|>>",
+  "tickets": {
+    "count": 41,
+    "first_created": "2008-12-02T16:41:33.000+0000",
+    "last_created": "2015-04-28T08:11:23.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 6,
+        "label": "Authentication Framework Enhancements",
+        "share": 0.43902439024390244,
+        "count": 18,
+        "example_keys": [
+          "SES-1",
+          "SES-6",
+          "SES-9"
+        ]
+      },
+      {
+        "cluster": 29,
+        "label": "Session Authentication Issues",
+        "share": 0.2682926829268293,
+        "count": 11,
+        "example_keys": [
+          "SEC-1047",
+          "SES-19",
+          "SES-29"
+        ]
+      },
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.0975609756097561,
+        "count": 4,
+        "example_keys": [
+          "SES-21",
+          "SES-22",
+          "SES-27"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.04878048780487805,
+        "count": 2,
+        "example_keys": [
+          "SES-2",
+          "SES-25"
+        ]
+      },
+      {
+        "cluster": 2,
+        "label": "Release Version Updates",
+        "share": 0.04878048780487805,
+        "count": 2,
+        "example_keys": [
+          "SES-128",
+          "SES-143"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.5384615384615384,
+          "count": 7,
+          "example_keys": [
+            "SES-1",
+            "SES-6",
+            "SES-9"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "SEC-1047",
+            "SES-19"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.15384615384615385,
+          "count": 2,
+          "example_keys": [
+            "SES-21",
+            "SES-22"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.42857142857142855,
+          "count": 6,
+          "example_keys": [
+            "SES-24",
+            "SES-32",
+            "SEC-1406"
+          ]
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.2857142857142857,
+          "count": 4,
+          "example_keys": [
+            "SES-29",
+            "SES-30",
+            "SES-31"
+          ]
+        },
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "SES-27",
+            "SES-35"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues",
+          "share": 0.35714285714285715,
+          "count": 5,
+          "example_keys": [
+            "SES-64",
+            "SES-113",
+            "SES-119"
+          ]
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements",
+          "share": 0.35714285714285715,
+          "count": 5,
+          "example_keys": [
+            "SES-71",
+            "SES-92",
+            "SES-94"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates",
+          "share": 0.14285714285714285,
+          "count": 2,
+          "example_keys": [
+            "SES-128",
+            "SES-143"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        },
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 29,
+          "label": "Session Authentication Issues"
+        },
+        {
+          "cluster": 6,
+          "label": "Authentication Framework Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.4,
+    "positive_percent": 40,
+    "steps": 40
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SEC-1047",
+        "label": "Session Authentication Issues"
+      },
+      {
+        "key": "SES-1",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-2",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "SES-6",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-9",
+        "label": "Authentication Framework Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SES-128",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "SES-136",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SES-143",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "SES-152",
+        "label": "Acceptance Test Failures"
+      },
+      {
+        "key": "SES-164",
+        "label": "Session Authentication Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2008, focusing primarily on enhancing authentication frameworks and addressing session authentication issues. In the early phase, they worked on significant tickets like SES-1 and SES-6, which contributed to 54% of their efforts during that time. As they moved into the middle phase, they continued to tackle authentication enhancements and session issues, with notable tickets such as SES-24 and SES-29. Recently, their work has shifted towards resolving session authentication problems, as seen in tickets like SES-64 and SES-113, while still maintaining a focus on framework enhancements. Overall, 40% of their steps aligned with the overall direction of the project. Their contributions also included minor work on release version updates and documentation improvements, showcasing a well-rounded skill set."
+}

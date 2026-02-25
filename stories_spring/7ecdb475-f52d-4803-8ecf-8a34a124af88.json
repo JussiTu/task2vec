@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|7ecdb475-f52d-4803-8ecf-8a34a124af88|>>",
+  "tickets": {
+    "count": 5230,
+    "first_created": "2006-12-13T04:21:32.000+0000",
+    "last_created": "2020-12-28T16:05:47.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 15,
+        "label": "JPA Entity Management Issues",
+        "share": 0.2435946462715105,
+        "count": 1274,
+        "example_keys": [
+          "DATAJPA-11",
+          "DATAJPA-13",
+          "DATAJPA-23"
+        ]
+      },
+      {
+        "cluster": 27,
+        "label": "QueryDSL and Projections Support",
+        "share": 0.16730401529636713,
+        "count": 875,
+        "example_keys": [
+          "DATACMNS-3",
+          "DATACMNS-6",
+          "DATAJPA-2"
+        ]
+      },
+      {
+        "cluster": 2,
+        "label": "Release Version Updates",
+        "share": 0.1621414913957935,
+        "count": 848,
+        "example_keys": [
+          "DATAJPA-100",
+          "DATAJPA-101",
+          "DATAJPA-133"
+        ]
+      },
+      {
+        "cluster": 24,
+        "label": "MongoDB Mapping Issues",
+        "share": 0.10019120458891013,
+        "count": 524,
+        "example_keys": [
+          "DATAMONGO-37",
+          "DATAMONGO-49",
+          "DATACMNS-26"
+        ]
+      },
+      {
+        "cluster": 30,
+        "label": "MongoDB Feature Enhancements",
+        "share": 0.075717017208413,
+        "count": 396,
+        "example_keys": [
+          "DATAMONGO-6",
+          "DATAMONGO-17",
+          "DATAMONGO-20"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.18473895582329317,
+          "count": 322,
+          "example_keys": [
+            "DATAJPA-11",
+            "DATAJPA-13",
+            "DATAJPA-23"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.18359150889271372,
+          "count": 320,
+          "example_keys": [
+            "DATACMNS-3",
+            "DATACMNS-6",
+            "DATAJPA-2"
+          ]
+        },
+        {
+          "cluster": 24,
+          "label": "MongoDB Mapping Issues",
+          "share": 0.16351118760757316,
+          "count": 285,
+          "example_keys": [
+            "DATAMONGO-37",
+            "DATAMONGO-49",
+            "DATACMNS-26"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.25989672977624784,
+          "count": 453,
+          "example_keys": [
+            "DATAREST-298",
+            "DATACMNS-540",
+            "DATAJPA-526"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates",
+          "share": 0.20654044750430292,
+          "count": 360,
+          "example_keys": [
+            "DATACASS-127",
+            "SGF-283",
+            "DATACMNS-507"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.1549053356282272,
+          "count": 270,
+          "example_keys": [
+            "DATACMNS-497",
+            "DATAJPA-532",
+            "DATAJPA-533"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues",
+          "share": 0.2861238532110092,
+          "count": 499,
+          "example_keys": [
+            "DATAJPA-973",
+            "DATAJPA-974",
+            "DATACMNS-921"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates",
+          "share": 0.20011467889908258,
+          "count": 349,
+          "example_keys": [
+            "DATACMNS-922",
+            "DATAJPA-975",
+            "DATAKV-145"
+          ]
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support",
+          "share": 0.16341743119266056,
+          "count": 285,
+          "example_keys": [
+            "DATACMNS-920",
+            "DATACMNS-925",
+            "DATAKV-147"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        },
+        {
+          "cluster": 27,
+          "label": "QueryDSL and Projections Support"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 15,
+          "label": "JPA Entity Management Issues"
+        },
+        {
+          "cluster": 2,
+          "label": "Release Version Updates"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5033467202141901,
+    "positive_percent": 50,
+    "steps": 5229
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-2946",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-7477",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-7510",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-7561",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SPR-7602",
+        "label": "JDBC Compatibility and Performance Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "DATAREST-1589",
+        "label": "Release Version Updates"
+      },
+      {
+        "key": "DATAREST-1590",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "DATAREST-1591",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "DATAREST-1592",
+        "label": "JPA Entity Management Issues"
+      },
+      {
+        "key": "DATAREST-1593",
+        "label": "JPA Entity Management Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2006, with a total of 5,230 tickets created by the end of 2020. In the early phase, they focused on \"JPA Entity Management Issues\" and \"QueryDSL and Projections Support,\" exemplified by tickets like DATAJPA-11 and DATACMNS-3. As they moved into the middle phase, their work continued to emphasize these themes while also shifting towards \"Release Version Updates,\" with notable tickets such as DATACASS-127. Recently, they have concentrated heavily on \"JPA Entity Management Issues,\" contributing to 499 tickets, including DATAJPA-973, and maintaining a strong focus on release updates. Overall, 50% of their steps aligned with the overall direction, showcasing their consistent engagement with key project themes."
+}

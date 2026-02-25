@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|0125aac7-356b-4ea2-9ce7-b1183b4e0c14|>>",
+  "tickets": {
+    "count": 113,
+    "first_created": "2008-11-21T01:40:58.000+0000",
+    "last_created": "2013-05-30T00:10:28.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.24778761061946902,
+        "count": 28,
+        "example_keys": [
+          "SESPRINGACTIONSCRIPTAS-6",
+          "SESPRINGACTIONSCRIPTAS-10",
+          "SESPRINGACTIONSCRIPTAS-18"
+        ]
+      },
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.19469026548672566,
+        "count": 22,
+        "example_keys": [
+          "SESPRINGACTIONSCRIPTAS-5",
+          "SESPRINGACTIONSCRIPTAS-11",
+          "SESPRINGACTIONSCRIPTAS-25"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.17699115044247787,
+        "count": 20,
+        "example_keys": [
+          "SESPRINGACTIONSCRIPTAS-2",
+          "SESPRINGACTIONSCRIPTAS-3",
+          "SESPRINGACTIONSCRIPTAS-16"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.09734513274336283,
+        "count": 11,
+        "example_keys": [
+          "SESPRINGACTIONSCRIPTAS-13",
+          "SESPRINGACTIONSCRIPTAS-19",
+          "SESPRINGACTIONSCRIPTAS-21"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.08849557522123894,
+        "count": 10,
+        "example_keys": [
+          "SESPRINGACTIONSCRIPTAS-8",
+          "SESPRINGACTIONSCRIPTAS-9",
+          "SESPRINGACTIONSCRIPTAS-14"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.21621621621621623,
+          "count": 8,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-2",
+            "SESPRINGACTIONSCRIPTAS-3",
+            "SESPRINGACTIONSCRIPTAS-16"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.21621621621621623,
+          "count": 8,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-5",
+            "SESPRINGACTIONSCRIPTAS-11",
+            "SESPRINGACTIONSCRIPTAS-25"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.1891891891891892,
+          "count": 7,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-13",
+            "SESPRINGACTIONSCRIPTAS-19",
+            "SESPRINGACTIONSCRIPTAS-21"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.3684210526315789,
+          "count": 14,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-43",
+            "SESPRINGACTIONSCRIPTAS-45",
+            "SESPRINGACTIONSCRIPTAS-52"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.21052631578947367,
+          "count": 8,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-44",
+            "SESPRINGACTIONSCRIPTAS-49",
+            "SESPRINGACTIONSCRIPTAS-60"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.13157894736842105,
+          "count": 5,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-48",
+            "SESPRINGACTIONSCRIPTAS-67",
+            "SESPRINGACTIONSCRIPTAS-76"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.23684210526315788,
+          "count": 9,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-97",
+            "SESPRINGACTIONSCRIPTAS-127",
+            "SESPRINGACTIONSCRIPTAS-136"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.18421052631578946,
+          "count": 7,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-93",
+            "SESPRINGACTIONSCRIPTAS-94",
+            "SESPRINGACTIONSCRIPTAS-102"
+          ]
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.15789473684210525,
+          "count": 6,
+          "example_keys": [
+            "SESPRINGACTIONSCRIPTAS-95",
+            "SESPRINGACTIONSCRIPTAS-99",
+            "SESPRINGACTIONSCRIPTAS-125"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5535714285714286,
+    "positive_percent": 55,
+    "steps": 112
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-2",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-3",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-5",
+        "label": "Validation and Data Binding Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-6",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-7",
+        "label": "Workspace and Class Loading Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-144",
+        "label": "JMS Message Listener Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-145",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-146",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-147",
+        "label": "Autowiring and Bean Configuration Issues"
+      },
+      {
+        "key": "SESPRINGACTIONSCRIPTAS-148",
+        "label": "Autowiring and Bean Configuration Issues"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from late 2008 to mid-2013, contributing to a total of 113 tickets. In the early phase, they focused on \"Spring IDE Tooling Enhancements\" and \"Validation and Data Binding Issues,\" with notable tickets like SESPRINGACTIONSCRIPTAS-2 and SESPRINGACTIONSCRIPTAS-5. During the middle phase, their work shifted towards \"Autowiring and Bean Configuration Issues,\" exemplified by tickets such as SESPRINGACTIONSCRIPTAS-43 and SESPRINGACTIONSCRIPTAS-44. In the recent phase, they continued to address \"Autowiring and Bean Configuration Issues\" while also enhancing tooling, with tickets like SESPRINGACTIONSCRIPTAS-97 and SESPRINGACTIONSCRIPTAS-93. Overall, 55% of their steps aligned with the overall direction, reflecting a consistent focus on key themes throughout their tenure."
+}

@@ -1,0 +1,251 @@
+{
+  "assignee_id": "<<|author_key|73fc0b6b-f0ed-40ab-99f7-b50c1a0cce20|>>",
+  "tickets": {
+    "count": 511,
+    "first_created": "2005-12-22T07:23:32.000+0000",
+    "last_created": "2019-01-09T09:59:52.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.3561643835616438,
+        "count": 182,
+        "example_keys": [
+          "SPR-4033",
+          "SPR-5436",
+          "SPR-5700"
+        ]
+      },
+      {
+        "cluster": 3,
+        "label": "Content Negotiation Issues",
+        "share": 0.19765166340508805,
+        "count": 101,
+        "example_keys": [
+          "SPR-6458",
+          "SPR-7882",
+          "SPR-9184"
+        ]
+      },
+      {
+        "cluster": 18,
+        "label": "Bean Configuration Enhancements",
+        "share": 0.11154598825831702,
+        "count": 57,
+        "example_keys": [
+          "SPR-6835",
+          "SPR-6845",
+          "SPR-6903"
+        ]
+      },
+      {
+        "cluster": 9,
+        "label": "Autowiring and Bean Configuration Issues",
+        "share": 0.07436399217221135,
+        "count": 38,
+        "example_keys": [
+          "SPR-5456",
+          "SPR-5525",
+          "SPR-6829"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Documentation Corrections and Edits",
+        "share": 0.0547945205479452,
+        "count": 28,
+        "example_keys": [
+          "SPR-5363",
+          "SPR-6595",
+          "SPR-6803"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.28823529411764703,
+          "count": 49,
+          "example_keys": [
+            "SPR-4033",
+            "SPR-5436",
+            "SPR-5700"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues",
+          "share": 0.15294117647058825,
+          "count": 26,
+          "example_keys": [
+            "SPR-5456",
+            "SPR-5525",
+            "SPR-6829"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.11176470588235295,
+          "count": 19,
+          "example_keys": [
+            "SPR-6835",
+            "SPR-6845",
+            "SPR-6903"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.5058823529411764,
+          "count": 86,
+          "example_keys": [
+            "SPR-12597",
+            "SPR-12697",
+            "SPR-12699"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.28823529411764703,
+          "count": 49,
+          "example_keys": [
+            "SPR-12660",
+            "SPR-12698",
+            "SPR-12930"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.06470588235294118,
+          "count": 11,
+          "example_keys": [
+            "SPR-12594",
+            "SPR-12634",
+            "SPR-12983"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.27485380116959063,
+          "count": 47,
+          "example_keys": [
+            "SPR-15355",
+            "SPR-15368",
+            "SPR-15413"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.19883040935672514,
+          "count": 34,
+          "example_keys": [
+            "SPR-15310",
+            "SPR-15364",
+            "SPR-15697"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.15789473684210525,
+          "count": 27,
+          "example_keys": [
+            "SPR-15673",
+            "SPR-15755",
+            "SPR-15792"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        },
+        {
+          "cluster": 9,
+          "label": "Autowiring and Bean Configuration Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5098039215686274,
+    "positive_percent": 51,
+    "steps": 510
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "SPR-1561",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-3931",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "SPR-3939",
+        "label": "Authentication Framework Enhancements"
+      },
+      {
+        "key": "SPR-4033",
+        "label": "RequestMapping Enhancements"
+      },
+      {
+        "key": "SPR-5363",
+        "label": "Documentation Corrections and Edits"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "SPR-17626",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-17634",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "SPR-17642",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "SPR-17648",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "SPR-17652",
+        "label": "Spring Data Commons Deprecation Updates"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since December 2005, with a focus on various themes throughout their career. In the early phase, they primarily worked on \"RequestMapping Enhancements,\" contributing to tickets like SPR-4033 and SPR-5436. As they progressed into the middle phase, their emphasis shifted towards \"Content Negotiation Issues,\" with significant contributions to tickets such as SPR-12660 and SPR-12698. Recently, they have continued to enhance \"RequestMapping\" and \"Bean Configuration,\" addressing tickets like SPR-15355 and SPR-15673. Overall, 51% of their steps have aligned with the overall direction, showcasing a consistent commitment to improving the framework. Their work reflects a strong dedication to enhancing user experience and functionality across multiple areas."
+}

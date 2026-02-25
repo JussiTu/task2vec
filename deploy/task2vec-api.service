@@ -1,0 +1,38 @@
+# Systemd service for the task2vec API (gunicorn)
+# Place in /etc/systemd/system/task2vec-api.service
+# Enable with:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now task2vec-api
+
+[Unit]
+Description=task2vec Ticket Advisor API (gunicorn)
+After=network.target
+
+[Service]
+# Change User/Group to whatever user owns the project
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/task2vec
+
+# Path to the virtual environment's gunicorn
+ExecStart=/var/www/task2vec/venv/bin/gunicorn \
+    --workers 2 \
+    --bind 127.0.0.1:5001 \
+    --timeout 120 \
+    --log-level info \
+    --access-logfile /var/log/task2vec-api-access.log \
+    --error-logfile  /var/log/task2vec-api-error.log \
+    api.server:app
+
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Environment — set your OpenAI key here (or use a secrets file)
+Environment="OPENAI_API_KEY=sk-..."
+# Alternatively use EnvironmentFile:
+# EnvironmentFile=/etc/task2vec/secrets.env
+
+[Install]
+WantedBy=multi-user.target

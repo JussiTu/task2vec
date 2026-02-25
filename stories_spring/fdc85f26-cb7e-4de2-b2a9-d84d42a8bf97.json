@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|fdc85f26-cb7e-4de2-b2a9-d84d42a8bf97|>>",
+  "tickets": {
+    "count": 103,
+    "first_created": "2005-11-29T07:50:39.000+0000",
+    "last_created": "2010-10-25T02:26:30.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 0,
+        "label": "Validation and Data Binding Issues",
+        "share": 0.23300970873786409,
+        "count": 24,
+        "example_keys": [
+          "MOD-294",
+          "MOD-339",
+          "MOD-355"
+        ]
+      },
+      {
+        "cluster": 31,
+        "label": "OSGi Manifest and Dependency Issues",
+        "share": 0.18446601941747573,
+        "count": 19,
+        "example_keys": [
+          "MOD-335",
+          "MOD-337",
+          "MOD-347"
+        ]
+      },
+      {
+        "cluster": 5,
+        "label": "Spring IDE Tooling Enhancements",
+        "share": 0.0970873786407767,
+        "count": 10,
+        "example_keys": [
+          "MOD-91",
+          "MOD-222",
+          "MOD-243"
+        ]
+      },
+      {
+        "cluster": 16,
+        "label": "Transaction Management Issues",
+        "share": 0.08737864077669903,
+        "count": 9,
+        "example_keys": [
+          "MOD-325",
+          "MOD-363",
+          "MOD-368"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.07766990291262135,
+        "count": 8,
+        "example_keys": [
+          "MOD-333",
+          "MOD-445",
+          "MOD-460"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "MOD-335",
+            "MOD-337",
+            "MOD-347"
+          ]
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements",
+          "share": 0.17647058823529413,
+          "count": 6,
+          "example_keys": [
+            "MOD-91",
+            "MOD-222",
+            "MOD-243"
+          ]
+        },
+        {
+          "cluster": 18,
+          "label": "Bean Configuration Enhancements",
+          "share": 0.11764705882352941,
+          "count": 4,
+          "example_keys": [
+            "MOD-67",
+            "MOD-252",
+            "MOD-411"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.35294117647058826,
+          "count": 12,
+          "example_keys": [
+            "MOD-455",
+            "MOD-459",
+            "MOD-461"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.20588235294117646,
+          "count": 7,
+          "example_keys": [
+            "MOD-433",
+            "MOD-436",
+            "MOD-440"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.11764705882352941,
+          "count": 4,
+          "example_keys": [
+            "MOD-445",
+            "MOD-460",
+            "MOD-470"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues",
+          "share": 0.22857142857142856,
+          "count": 8,
+          "example_keys": [
+            "MOD-492",
+            "MOD-495",
+            "MOD-499"
+          ]
+        },
+        {
+          "cluster": 16,
+          "label": "Transaction Management Issues",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "MOD-483",
+            "MOD-484",
+            "MOD-485"
+          ]
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues",
+          "share": 0.14285714285714285,
+          "count": 5,
+          "example_keys": [
+            "MOD-496",
+            "MOD-497",
+            "MOD-513"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        },
+        {
+          "cluster": 5,
+          "label": "Spring IDE Tooling Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 31,
+          "label": "OSGi Manifest and Dependency Issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 0,
+          "label": "Validation and Data Binding Issues"
+        },
+        {
+          "cluster": 16,
+          "label": "Transaction Management Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5294117647058824,
+    "positive_percent": 53,
+    "steps": 102
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "MOD-67",
+        "label": "Bean Configuration Enhancements"
+      },
+      {
+        "key": "MOD-91",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-222",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-243",
+        "label": "Spring IDE Tooling Enhancements"
+      },
+      {
+        "key": "MOD-252",
+        "label": "Bean Configuration Enhancements"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "MOD-513",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-514",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-515",
+        "label": "OSGi Manifest and Dependency Issues"
+      },
+      {
+        "key": "MOD-516",
+        "label": "JSF and Spring Web Flow Issues"
+      },
+      {
+        "key": "MOD-517",
+        "label": "Bean Configuration Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been active from late 2005 to late 2010, contributing to a total of 103 tickets. In the early phase, they focused on \"OSGi Manifest and Dependency Issues\" and \"Spring IDE Tooling Enhancements,\" with notable tickets like MOD-335 and MOD-91. As they progressed into the middle phase, their work shifted towards \"Validation and Data Binding Issues,\" exemplified by tickets such as MOD-455 and MOD-459, while still addressing OSGi issues. Recently, they continued to tackle validation problems and began to engage with \"Transaction Management Issues,\" with tickets like MOD-483 and MOD-492 highlighting their efforts. Overall, 53% of their steps aligned with the overall direction, demonstrating a consistent focus on key themes throughout their work history."
+}

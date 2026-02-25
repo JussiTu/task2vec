@@ -1,0 +1,274 @@
+{
+  "assignee_id": "<<|author_key|f1d53830-aabf-4e7d-b894-9318eb43b30c|>>",
+  "tickets": {
+    "count": 337,
+    "first_created": "2010-06-01T11:49:18.000+0000",
+    "last_created": "2020-07-02T14:02:59.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 25,
+        "label": "Spring Dependency Upgrades",
+        "share": 0.2314540059347181,
+        "count": 78,
+        "example_keys": [
+          "ANDROID-23",
+          "ANDROID-39",
+          "ANDROID-41"
+        ]
+      },
+      {
+        "cluster": 26,
+        "label": "Spring Web Flow Enhancements",
+        "share": 0.16023738872403562,
+        "count": 54,
+        "example_keys": [
+          "GREENHOUSE-34",
+          "GREENHOUSE-35",
+          "GREENHOUSE-37"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Documentation and Build Improvements",
+        "share": 0.11275964391691394,
+        "count": 38,
+        "example_keys": [
+          "GREENHOUSE-36",
+          "GREENHOUSE-97",
+          "GREENHOUSE-98"
+        ]
+      },
+      {
+        "cluster": 17,
+        "label": "Acceptance Test Failures",
+        "share": 0.10089020771513353,
+        "count": 34,
+        "example_keys": [
+          "GREENHOUSE-225",
+          "GREENHOUSE-295",
+          "GREENHOUSE-299"
+        ]
+      },
+      {
+        "cluster": 23,
+        "label": "RequestMapping Enhancements",
+        "share": 0.09792284866468842,
+        "count": 33,
+        "example_keys": [
+          "ANDROID-7",
+          "ANDROID-33",
+          "ANDROID-36"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.24107142857142858,
+          "count": 27,
+          "example_keys": [
+            "GREENHOUSE-34",
+            "GREENHOUSE-35",
+            "GREENHOUSE-37"
+          ]
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures",
+          "share": 0.22321428571428573,
+          "count": 25,
+          "example_keys": [
+            "GREENHOUSE-225",
+            "GREENHOUSE-295",
+            "GREENHOUSE-299"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.15178571428571427,
+          "count": 17,
+          "example_keys": [
+            "GREENHOUSE-36",
+            "GREENHOUSE-97",
+            "GREENHOUSE-98"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.3392857142857143,
+          "count": 38,
+          "example_keys": [
+            "ANDROID-58",
+            "ANDROID-63",
+            "ANDROID-64"
+          ]
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements",
+          "share": 0.16071428571428573,
+          "count": 18,
+          "example_keys": [
+            "MOBILE-30",
+            "MOBILE-31",
+            "MOBILE-33"
+          ]
+        },
+        {
+          "cluster": 23,
+          "label": "RequestMapping Enhancements",
+          "share": 0.125,
+          "count": 14,
+          "example_keys": [
+            "ANDROID-60",
+            "MOBILE-27",
+            "ANDROID-73"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades",
+          "share": 0.30973451327433627,
+          "count": 35,
+          "example_keys": [
+            "ANDROID-123",
+            "MOBILE-60",
+            "ANDROID-125"
+          ]
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues",
+          "share": 0.1415929203539823,
+          "count": 16,
+          "example_keys": [
+            "ANDROID-120",
+            "MOBILE-63",
+            "MOBILE-68"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Documentation and Build Improvements",
+          "share": 0.12389380530973451,
+          "count": 14,
+          "example_keys": [
+            "ANDROID-119",
+            "ANDROID-121",
+            "MOBILE-66"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        },
+        {
+          "cluster": 17,
+          "label": "Acceptance Test Failures"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        },
+        {
+          "cluster": 26,
+          "label": "Spring Web Flow Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 25,
+          "label": "Spring Dependency Upgrades"
+        },
+        {
+          "cluster": 3,
+          "label": "Content Negotiation Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.5327380952380952,
+    "positive_percent": 53,
+    "steps": 336
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "GREENHOUSE-34",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-35",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-36",
+        "label": "Documentation and Build Improvements"
+      },
+      {
+        "key": "GREENHOUSE-37",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "GREENHOUSE-52",
+        "label": "Session Authentication Issues"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "MOBILE-115",
+        "label": "Spring Dependency Upgrades"
+      },
+      {
+        "key": "MOBILE-116",
+        "label": "Spring Web Flow Enhancements"
+      },
+      {
+        "key": "MOBILE-117",
+        "label": "Documentation Corrections and Edits"
+      },
+      {
+        "key": "MOBILE-118",
+        "label": "Content Negotiation Issues"
+      },
+      {
+        "key": "MOBILE-119",
+        "label": "Spring Web Flow Enhancements"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively contributing since June 2010, with a total of 337 tickets created by July 2020. In the early phase, they focused on \"Spring Web Flow Enhancements\" and \"Acceptance Test Failures,\" with notable tickets like GREENHOUSE-34 and GREENHOUSE-225. As they progressed into the middle phase, their work shifted towards \"Spring Dependency Upgrades,\" exemplified by tickets such as ANDROID-58 and ANDROID-63. Recently, they continued to prioritize \"Spring Dependency Upgrades\" while also addressing \"Content Negotiation Issues,\" with recent tickets including ANDROID-123 and ANDROID-120. Overall, 53% of their steps aligned with the overall direction, showcasing a consistent commitment to improving the project's quality and functionality."
+}

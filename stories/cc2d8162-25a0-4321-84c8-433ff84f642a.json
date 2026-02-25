@@ -1,0 +1,239 @@
+{
+  "assignee_id": "<<|author_key|cc2d8162-25a0-4321-84c8-433ff84f642a|>>",
+  "tickets": {
+    "count": 14,
+    "first_created": "2019-04-30T15:59:28.000+0000",
+    "last_created": "2021-12-15T11:44:12.000+0000"
+  },
+  "themes": {
+    "overall_top": [
+      {
+        "cluster": 13,
+        "label": "Maven and Release Cleanup",
+        "share": 0.42857142857142855,
+        "count": 6,
+        "example_keys": [
+          "ZOOKEEPER-3375",
+          "ZOOKEEPER-3462",
+          "ZOOKEEPER-3463"
+        ]
+      },
+      {
+        "cluster": 14,
+        "label": "SASL and Kerberos Authentication Issues",
+        "share": 0.14285714285714285,
+        "count": 2,
+        "example_keys": [
+          "ZOOKEEPER-3832",
+          "ZOOKEEPER-3905"
+        ]
+      },
+      {
+        "cluster": 22,
+        "label": "Authentication and Authorization Enhancements",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3451"
+        ]
+      },
+      {
+        "cluster": 12,
+        "label": "Netty library security upgrades",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3568"
+        ]
+      },
+      {
+        "cluster": 7,
+        "label": "Data inconsistency and leader issues",
+        "share": 0.07142857142857142,
+        "count": 1,
+        "example_keys": [
+          "ZOOKEEPER-3701"
+        ]
+      }
+    ],
+    "by_phase": {
+      "early": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.75,
+          "count": 3,
+          "example_keys": [
+            "ZOOKEEPER-3375",
+            "ZOOKEEPER-3462",
+            "ZOOKEEPER-3463"
+          ]
+        },
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements",
+          "share": 0.25,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3451"
+          ]
+        }
+      ],
+      "middle": [
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3568"
+          ]
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3701"
+          ]
+        },
+        {
+          "cluster": 9,
+          "label": "Flaky test issues",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3813"
+          ]
+        }
+      ],
+      "recent": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup",
+          "share": 0.4,
+          "count": 2,
+          "example_keys": [
+            "ZOOKEEPER-3957",
+            "ZOOKEEPER-4207"
+          ]
+        },
+        {
+          "cluster": 14,
+          "label": "SASL and Kerberos Authentication Issues",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-3905"
+          ]
+        },
+        {
+          "cluster": 2,
+          "label": "Jackson Databind Vulnerabilities",
+          "share": 0.2,
+          "count": 1,
+          "example_keys": [
+            "ZOOKEEPER-4017"
+          ]
+        }
+      ]
+    }
+  },
+  "shifts": [
+    {
+      "phase": "middle",
+      "from": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 22,
+          "label": "Authentication and Authorization Enhancements"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades"
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues"
+        }
+      ]
+    },
+    {
+      "phase": "recent",
+      "from": [
+        {
+          "cluster": 12,
+          "label": "Netty library security upgrades"
+        },
+        {
+          "cluster": 7,
+          "label": "Data inconsistency and leader issues"
+        }
+      ],
+      "to": [
+        {
+          "cluster": 13,
+          "label": "Maven and Release Cleanup"
+        },
+        {
+          "cluster": 14,
+          "label": "SASL and Kerberos Authentication Issues"
+        }
+      ]
+    }
+  ],
+  "alignment": {
+    "positive_rate": 0.6153846153846154,
+    "positive_percent": 62,
+    "steps": 13
+  },
+  "evidence": {
+    "sample_tickets_early": [
+      {
+        "key": "ZOOKEEPER-3375",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3451",
+        "label": "Authentication and Authorization Enhancements"
+      },
+      {
+        "key": "ZOOKEEPER-3462",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-3463",
+        "label": "Maven and Release Cleanup"
+      }
+    ],
+    "sample_tickets_recent": [
+      {
+        "key": "ZOOKEEPER-3905",
+        "label": "SASL and Kerberos Authentication Issues"
+      },
+      {
+        "key": "ZOOKEEPER-3957",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-4017",
+        "label": "Jackson Databind Vulnerabilities"
+      },
+      {
+        "key": "ZOOKEEPER-4207",
+        "label": "Maven and Release Cleanup"
+      },
+      {
+        "key": "ZOOKEEPER-4427",
+        "label": "Log Improvement and Cleanup"
+      }
+    ]
+  },
+  "narrative": "The assignee has been actively involved in various projects from early 2019 to late 2021, contributing to a total of 14 tickets. In the early phase, they focused primarily on \"Maven and Release Cleanup,\" with notable tickets like ZOOKEEPER-3375 and ZOOKEEPER-3462. As they progressed into the middle phase, they shifted their attention to \"Netty library security upgrades\" and \"Data inconsistency and leader issues,\" addressing concerns such as ZOOKEEPER-3568 and ZOOKEEPER-3701. Recently, they returned to \"Maven and Release Cleanup,\" while also tackling \"SASL and Kerberos Authentication Issues,\" exemplified by tickets like ZOOKEEPER-3905 and ZOOKEEPER-3957. Overall, 62% of their steps aligned with the overall direction of the projects they were involved in."
+}
