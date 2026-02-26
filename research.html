@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — task2vec</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d0d;
+  --bg2:     #111111;
+  --bg3:     #161616;
+  --border:  #1e1e1e;
+  --border2: #2a2a2a;
+  --purple:  #7b68ee;
+  --gold:    #ffd700;
+  --text:    #ddd;
+  --muted:   #666;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: #a99fff; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: #fff; }
+.logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: var(--muted); transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--purple); }
+
+@media (max-width: 600px) {
+  nav { padding: 12px 16px; }
+  .nav-links { gap: 14px; font-size: 12px; }
+}
+
+/* ── Page ── */
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 110px 28px 80px;
+}
+
+/* ── Header ── */
+.page-tag {
+  display: inline-block;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px; font-weight: 700; line-height: 1.15;
+  color: #fff; margin-bottom: 14px;
+}
+
+.subtitle {
+  font-size: 16px; color: var(--muted); line-height: 1.7;
+  max-width: 580px; margin-bottom: 56px;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px; margin-bottom: 24px;
+}
+
+/* ── Paper cards ── */
+.papers { display: flex; flex-direction: column; gap: 18px; margin-bottom: 56px; }
+
+.paper-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  transition: border-color .2s, background .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.paper-card:hover {
+  border-color: var(--purple);
+  background: #131320;
+  color: inherit;
+}
+
+.paper-meta {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+}
+.tag-results  { background: rgba(123,104,238,.15); color: #a99fff; }
+.tag-methods  { background: rgba(16,185,129,.12);  color: #34d399; }
+.tag-analysis { background: rgba(255,215,0,.1);    color: #fcd34d; }
+
+.paper-title {
+  font-size: 18px; font-weight: 700; color: #fff;
+  line-height: 1.3; margin-bottom: 8px;
+}
+.paper-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+}
+
+.paper-arrow {
+  font-size: 22px; color: var(--muted);
+  margin-top: 4px; flex-shrink: 0;
+  transition: color .2s, transform .2s;
+}
+.paper-card:hover .paper-arrow {
+  color: var(--purple);
+  transform: translateX(4px);
+}
+
+/* ── Data section ── */
+.data-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  margin-bottom: 56px;
+}
+.data-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+}
+.data-number {
+  font-size: 28px; font-weight: 700; color: var(--purple);
+  line-height: 1; margin-bottom: 6px;
+}
+.data-label {
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+}
+
+@media (max-width: 540px) {
+  .data-grid { grid-template-columns: repeat(2, 1fr); }
+  .paper-card { grid-template-columns: 1fr; }
+  .paper-arrow { display: none; }
+  h1 { font-size: 28px; }
+}
+
+/* ── Footer note ── */
+.footer-note {
+  font-size: 13px; color: #444; line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.footer-note a { color: #555; }
+.footer-note a:hover { color: var(--purple); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">task<span>2</span>vec</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#concepts">Concepts</a>
+    <a href="ai_readiness_chart.html">AI Readiness</a>
+    <a href="score.html">Score a ticket</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="cockpit.html">Cockpit</a>
+    <a href="stories_spring/spring_explorer.html">Live demo</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-tag">Research</div>
+  <h1>Published work</h1>
+  <p class="subtitle">
+    Empirical studies on AI-assisted software engineering, built on 69,000 Spring Framework
+    Jira tickets and the spring-projects/spring-framework git history.
+  </p>
+
+  <!-- ── Papers ── -->
+  <div class="section-label">Papers &amp; reports</div>
+  <div class="papers">
+
+    <a class="paper-card" href="eval_summary.html">
+      <div>
+        <div class="paper-meta">
+          <span class="tag tag-results">Evaluation</span>
+          <span class="tag tag-results">2026</span>
+        </div>
+        <div class="paper-title">Can LLMs Fix Spring Tickets? A Four-Model Comparison</div>
+        <div class="paper-desc">
+          We tested GPT-4o, GPT-4o-mini, Claude Sonnet, and Claude Opus on 65 real Spring
+          Framework bug tickets, scoring each against the actual commit that fixed the issue.
+          Claude Sonnet achieves 69% pass rate and 0.227 token overlap — 29% better than GPT.
+          Includes per-tier breakdown, cost comparison, and key findings.
+        </div>
+      </div>
+      <div class="paper-arrow">→</div>
+    </a>
+
+    <a class="paper-card" href="eval_methods.html">
+      <div>
+        <div class="paper-meta">
+          <span class="tag tag-methods">Methods</span>
+          <span class="tag tag-methods">Replication guide</span>
+          <span class="tag tag-methods">2026</span>
+        </div>
+        <div class="paper-title">Methods &amp; Replication: Git-Based Evaluation of LLM Code Generation</div>
+        <div class="paper-desc">
+          Scientific-grade methodology document. Covers corpus construction (exact Jira REST API
+          endpoint), outcome-based tier labelling with indicator function notation, git benchmark
+          extraction algorithm, evaluation protocol with verbatim prompts, Jaccard scoring
+          definition, per-model per-tier statistics with standard deviations, 7 documented
+          limitations, and a shell-script replication guide. Designed for independent replication
+          without access to private data or proprietary models.
+        </div>
+      </div>
+      <div class="paper-arrow">→</div>
+    </a>
+
+    <a class="paper-card" href="ai_readiness_chart.html">
+      <div>
+        <div class="paper-meta">
+          <span class="tag tag-analysis">Analysis</span>
+          <span class="tag tag-analysis">2025</span>
+        </div>
+        <div class="paper-title">AI Readiness Distribution Across 69,000 Spring Tickets</div>
+        <div class="paper-desc">
+          Outcome-based tier classification of the full Spring Framework Jira archive using
+          resolution time, watcher count, and assignee experience as ground-truth signals.
+          22% Automate · 30% Assist · 48% Escalate. Interactive chart showing how the
+          Escalate fraction grows from 36% (2010) to 68% (2020) as easy work is consumed.
+        </div>
+      </div>
+      <div class="paper-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- ── Dataset ── -->
+  <div class="section-label">Dataset</div>
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-number">69,156</div>
+      <div class="data-label">Spring Framework Jira tickets, 2002–2023</div>
+    </div>
+    <div class="data-card">
+      <div class="data-number">998</div>
+      <div class="data-label">Tickets matched to git commits (eval subset)</div>
+    </div>
+    <div class="data-card">
+      <div class="data-number">65</div>
+      <div class="data-label">Tickets used in model evaluation (seed 42)</div>
+    </div>
+    <div class="data-card">
+      <div class="data-number">4</div>
+      <div class="data-label">Models evaluated: GPT-4o, GPT-4o-mini, Sonnet, Opus</div>
+    </div>
+    <div class="data-card">
+      <div class="data-number">11,424</div>
+      <div class="data-label">SPR-#### commits scanned in git history</div>
+    </div>
+    <div class="data-card">
+      <div class="data-number">$8.95</div>
+      <div class="data-label">Total API cost across all model runs</div>
+    </div>
+  </div>
+
+  <!-- ── Footer note ── -->
+  <div class="footer-note">
+    Code and raw eval results are open source:
+    <a href="https://github.com/JussiTu/task2vec" target="_blank">github.com/JussiTu/task2vec</a>.
+    Data sourced from the publicly accessible
+    <a href="https://jira.spring.io" target="_blank">jira.spring.io</a>
+    and the
+    <a href="https://github.com/spring-projects/spring-framework" target="_blank">spring-projects/spring-framework</a>
+    repository under the Apache 2.0 licence.
+  </div>
+
+</div>
+</body>
+</html>
