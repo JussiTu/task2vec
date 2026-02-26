@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTKXE40LPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QTKXE40LPF');
+</script>
+<title>Commission a Study — task2vec</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0d0d;
+  --bg2:     #111111;
+  --bg3:     #161616;
+  --border:  #1e1e1e;
+  --border2: #2a2a2a;
+  --purple:  #7b68ee;
+  --green:   #10b981;
+  --gold:    #ffd700;
+  --text:    #ddd;
+  --muted:   #666;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: #a99fff; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
+.nav-logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--purple); }
+@media (max-width: 600px) { nav { padding: 12px 16px; } .nav-links { gap: 14px; font-size: 12px; } }
+
+/* ── Layout ── */
+.page { max-width: 820px; margin: 0 auto; padding: 110px 28px 100px; }
+
+/* ── Hero ── */
+.hero-tag {
+  display: inline-block;
+  border: 1px solid var(--purple); color: var(--purple);
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 40px; font-weight: 700; line-height: 1.15;
+  color: #fff; margin-bottom: 16px;
+}
+h1 em { font-style: normal; color: var(--purple); }
+
+.subtitle {
+  font-size: 17px; color: #999; line-height: 1.7;
+  max-width: 580px; margin-bottom: 40px;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px; margin: 56px 0 28px;
+}
+
+/* ── Proof bar ── */
+.proof-bar {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  padding: 24px 0; border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+.proof-stat { }
+.proof-number { font-size: 28px; font-weight: 700; color: var(--purple); line-height: 1; }
+.proof-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* ── Deliverables ── */
+.deliverables { display: flex; flex-direction: column; gap: 14px; }
+
+.deliverable {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px 24px;
+  display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start;
+}
+.deliverable-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(123,104,238,.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.deliverable-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.deliverable-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── Process steps ── */
+.steps { display: flex; flex-direction: column; gap: 0; }
+
+.step {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 20px; align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--purple);
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.step-note {
+  display: inline-block; margin-top: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--green); background: rgba(16,185,129,.1);
+  padding: 3px 10px; border-radius: 20px;
+}
+
+/* ── Pricing ── */
+.pricing-card {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 16px; padding: 36px;
+}
+.pricing-card.featured {
+  border-color: var(--purple);
+  background: #0e0d1a;
+}
+.pricing-badge {
+  display: inline-block;
+  background: var(--purple); color: #fff;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 20px; margin-bottom: 20px;
+}
+.price { font-size: 42px; font-weight: 700; color: #fff; line-height: 1; }
+.price-currency { font-size: 22px; vertical-align: top; padding-top: 8px; display: inline-block; color: #999; }
+.price-period { font-size: 14px; color: var(--muted); margin-top: 6px; margin-bottom: 24px; }
+.price-includes { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.price-includes li {
+  font-size: 13px; color: #bbb; display: flex; gap: 10px; align-items: flex-start;
+}
+.price-includes li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+/* ── Privacy callout ── */
+.privacy-card {
+  background: #0a140f; border: 1px solid #1a3a25;
+  border-radius: 12px; padding: 24px 28px;
+  display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start;
+}
+.privacy-card h3 { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+.privacy-card p { font-size: 13px; color: #888; line-height: 1.65; }
+
+/* ── FAQ ── */
+.faqs { display: flex; flex-direction: column; }
+.faq {
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.faq:last-child { border-bottom: none; }
+.faq-q { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.faq-a { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ── Form ── */
+.form-card {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: 16px; padding: 36px;
+}
+.form-card h2 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.form-card p { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 12px; font-weight: 600; color: #888; letter-spacing: .04em; text-transform: uppercase; }
+
+input, select, textarea {
+  background: #161616; color: #eee;
+  border: 1px solid var(--border2); border-radius: 8px;
+  padding: 11px 14px; font-size: 14px; font-family: inherit;
+  outline: none; transition: border-color .2s; width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--purple); }
+select option { background: #161616; }
+textarea { resize: vertical; }
+
+.form-fields { display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px; }
+
+.btn-submit {
+  background: var(--purple); color: #fff;
+  border: none; border-radius: 8px;
+  padding: 13px 28px; font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: background .2s, transform .1s;
+}
+.btn-submit:hover { background: #6a57dd; transform: translateY(-1px); }
+.btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+#form-msg { font-size: 13px; margin-top: 12px; display: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">task<span>2</span>vec</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#concepts">Concepts</a>
+    <a href="/ai_readiness_chart.html">AI Readiness</a>
+    <a href="/score.html">Score a ticket</a>
+    <a href="/research.html">Research</a>
+    <a href="/cockpit.html">Cockpit</a>
+    <a href="/stories_spring/spring_explorer.html">Live demo</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── Hero ── -->
+  <div class="hero-tag">Commission a study</div>
+  <h1>Know exactly what AI can do<br>for <em>your</em> engineering team</h1>
+  <p class="subtitle">
+    We ran our methodology on 69,000 public Spring Framework tickets. The same analysis
+    on your own Jira history gives you numbers your stakeholders will actually believe.
+  </p>
+
+  <!-- Proof bar -->
+  <div class="proof-bar">
+    <div class="proof-stat">
+      <div class="proof-number">69k</div>
+      <div class="proof-label">tickets already analysed</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-number">4</div>
+      <div class="proof-label">models benchmarked</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-number">~1 week</div>
+      <div class="proof-label">typical turnaround</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-number">peer-reviewed</div>
+      <div class="proof-label">methodology, fully open</div>
+    </div>
+  </div>
+
+  <!-- ── Deliverables ── -->
+  <div class="section-label">What you get</div>
+  <div class="deliverables">
+
+    <div class="deliverable">
+      <div class="deliverable-icon">📊</div>
+      <div>
+        <div class="deliverable-title">AI readiness distribution</div>
+        <div class="deliverable-desc">
+          Every ticket in your Jira classified as Automate / Assist / Escalate using
+          outcome signals from your own resolution history — not generic benchmarks.
+          Broken down by project, team, ticket type, and trend over time.
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable">
+      <div class="deliverable-icon">🤖</div>
+      <div>
+        <div class="deliverable-title">Model benchmark on your tickets</div>
+        <div class="deliverable-desc">
+          We run the same four-model evaluation (GPT-4o, GPT-4o-mini, Claude Sonnet,
+          Claude Opus) on a sample of your resolved tickets with git commits.
+          You get pass rates, token overlap scores, and cost-per-ticket estimates
+          specific to your codebase and ticket writing style.
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable">
+      <div class="deliverable-icon">💰</div>
+      <div>
+        <div class="deliverable-title">Cost model</div>
+        <div class="deliverable-desc">
+          Based on your distribution and the model benchmark, we project the actual
+          cost of running AI on your ticket backlog — and the expected time savings.
+          Gives you a concrete ROI number for internal investment decisions.
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable">
+      <div class="deliverable-icon">📄</div>
+      <div>
+        <div class="deliverable-title">Report + stakeholder deck</div>
+        <div class="deliverable-desc">
+          A written report with all findings, methodology, and limitations — modelled
+          on our <a href="/eval_methods.html">published methods paper</a>.
+          Plus a slide-ready summary your CTO or VP Engineering can present internally.
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable">
+      <div class="deliverable-icon">🌐</div>
+      <div>
+        <div class="deliverable-title">Interactive results page (optional)</div>
+        <div class="deliverable-desc">
+          A hosted or self-hosted version of the readiness chart and model comparison
+          page — same format as <a href="/eval_summary.html">our public results</a> —
+          populated with your data. Share internally or publish externally.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── How it works ── -->
+  <div class="section-label">How it works</div>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Share access</div>
+        <div class="step-desc">
+          Provide a read-only Jira API token and your project key(s), plus read access
+          to the corresponding git repository. We pull only resolved tickets and their
+          linked commits — no write access needed.
+        </div>
+        <span class="step-note">Your data never leaves your infrastructure if preferred</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">We run the pipeline</div>
+        <div class="step-desc">
+          The same open-source scripts used for the Spring study — adapted to your
+          project key and git history. We compute outcome signals, classify every
+          ticket, build the git benchmark, and run the model evaluation.
+          Typical runtime: 1–2 days of compute.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Review draft findings</div>
+        <div class="step-desc">
+          We share preliminary results and walk you through them in a 60-minute call.
+          You flag any surprises or context we're missing (e.g. certain ticket types
+          that should be excluded). We incorporate feedback.
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Receive final deliverables</div>
+        <div class="step-desc">
+          Final report, stakeholder deck, and (if included) the interactive results page.
+          All underlying data and scripts are yours — no lock-in.
+        </div>
+        <span class="step-note">Typical turnaround: 5–7 working days from access</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Privacy ── -->
+  <div style="margin-top: 32px;">
+    <div class="privacy-card">
+      <div style="font-size: 20px; margin-top: 2px;">🔒</div>
+      <div>
+        <h3>Data privacy</h3>
+        <p>
+          We sign an NDA before any access is granted. The pipeline can run entirely
+          inside your infrastructure — we provide the scripts and you run them locally,
+          sending back only the anonymised results JSON. No ticket content, source code,
+          or credentials need to leave your systems. We're happy to discuss a data
+          processing agreement if required by your legal team.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Pricing ── -->
+  <div class="section-label">Pricing</div>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div style="font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;">Starter</div>
+      <div class="price"><span class="price-currency">€</span>1,900</div>
+      <div class="price-period">one-time, up to 10k tickets</div>
+      <ul class="price-includes">
+        <li>AI readiness distribution</li>
+        <li>Model benchmark (2 models)</li>
+        <li>Written findings report</li>
+        <li>One review call</li>
+        <li>Raw data & scripts</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most popular</div>
+      <div class="price"><span class="price-currency">€</span>3,900</div>
+      <div class="price-period">one-time, up to 50k tickets</div>
+      <ul class="price-includes">
+        <li>AI readiness distribution</li>
+        <li>Full 4-model benchmark</li>
+        <li>Cost model & ROI projection</li>
+        <li>Written report + stakeholder deck</li>
+        <li>Interactive results page</li>
+        <li>Two review calls</li>
+        <li>Raw data & scripts</li>
+      </ul>
+    </div>
+
+  </div>
+  <p style="font-size:13px;color:#555;margin-top:14px;">
+    Larger archives or multiple projects? <a href="#contact-form">Get in touch</a> for a custom quote.
+    Enterprise pricing available with on-premise delivery and extended support.
+  </p>
+
+  <!-- ── FAQ ── -->
+  <div class="section-label">Common questions</div>
+  <div class="faqs">
+
+    <div class="faq">
+      <div class="faq-q">Which Jira and git setups do you support?</div>
+      <div class="faq-a">
+        Any Jira Cloud or Jira Server instance with REST API access. Git hosting on
+        GitHub, GitLab, Bitbucket, or self-hosted. The pipeline reads standard git
+        history — no special plugins needed.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Our ticket history isn't linked to git commits. Does that matter?</div>
+      <div class="faq-a">
+        The tier classification (Automate / Assist / Escalate) works on any resolved
+        ticket history — no git link needed. The model benchmark requires some tickets
+        with matching commits, but even 20–30 matched tickets is enough for a meaningful
+        evaluation. We'll report exact coverage upfront.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">How long does it take?</div>
+      <div class="faq-a">
+        Typically 5–7 working days from when we have access. Pulling and indexing
+        50k tickets takes a few hours; the model evaluation runs overnight.
+        The review call and final report add 1–2 days.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">Can we publish the results?</div>
+      <div class="faq-a">
+        Yes — with your permission we're happy to add your study to our
+        <a href="/research.html">research page</a> (anonymised or attributed, your choice).
+        Publishing your results increases their credibility with candidates and the
+        wider engineering community.
+      </div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-q">What if the results are inconvenient?</div>
+      <div class="faq-a">
+        We report what the data shows. If 80% of your tickets are Escalate, that's a
+        finding — it means your team is tackling genuinely hard problems, and AI tooling
+        should be scoped accordingly. We'll help you frame it constructively.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Contact form ── -->
+  <div class="section-label" id="contact-form">Get started</div>
+  <div class="form-card">
+    <h2>Tell us about your project</h2>
+    <p>
+      Fill in the form and we'll get back to you within one business day with
+      a proposed scope and timeline.
+    </p>
+
+    <form id="commission-form">
+      <div class="form-fields">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" name="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label>Team size</label>
+            <select name="team_size">
+              <option value="">Select…</option>
+              <option>1–10 engineers</option>
+              <option>10–50 engineers</option>
+              <option>50–200 engineers</option>
+              <option>200+ engineers</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Jira setup</label>
+            <select name="jira">
+              <option value="">Select…</option>
+              <option>Jira Cloud</option>
+              <option>Jira Server / Data Center</option>
+              <option>Not sure</option>
+              <option>We don't use Jira</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Roughly how many tickets?</label>
+            <select name="ticket_count">
+              <option value="">Select…</option>
+              <option>Under 1,000</option>
+              <option>1,000–10,000</option>
+              <option>10,000–50,000</option>
+              <option>50,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>What are you trying to decide?</label>
+          <textarea name="message" rows="4"
+            placeholder="e.g. We're evaluating AI coding tools and want to know which ticket types to target first. Or: our CTO wants evidence before approving headcount for AI tooling."></textarea>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn-submit" id="commission-btn">Send enquiry →</button>
+      <div id="form-msg"></div>
+    </form>
+  </div>
+
+</div>
+
+<script>
+document.getElementById('commission-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('commission-btn');
+  const msg = document.getElementById('form-msg');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  const data = new FormData(this);
+  // Prepend source so contact.php can distinguish commission enquiries
+  data.append('source', 'commission');
+  // Compose a message string from all fields for the contact handler
+  const company  = data.get('company')      || '—';
+  const size     = data.get('team_size')    || '—';
+  const jira     = data.get('jira')         || '—';
+  const tickets  = data.get('ticket_count') || '—';
+  const body     = data.get('message')      || '';
+  data.set('message',
+    `Company: ${company}\nTeam size: ${size}\nJira: ${jira}\nTickets: ${tickets}\n\n${body}`
+  );
+
+  try {
+    const r = await fetch('/api/contact.php', { method: 'POST', body: data });
+    const j = await r.json();
+    if (j.ok) {
+      msg.textContent = "Thanks — we'll be in touch within one business day.";
+      msg.style.color = '#10b981';
+      msg.style.display = 'block';
+      this.reset();
+    } else {
+      throw new Error(j.error || 'Server error');
+    }
+  } catch (err) {
+    msg.textContent = 'Something went wrong — please email us directly at hello@task2vec.com';
+    msg.style.color = '#f87171';
+    msg.style.display = 'block';
+  }
+  btn.textContent = 'Send enquiry →';
+  btn.disabled = false;
+});
+</script>
+
+</body>
+</html>
