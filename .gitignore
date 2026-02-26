@@ -6,11 +6,14 @@ __pycache__/
 *.pyd
 .env
 
-# Cache & generated data
-.cache/
+# Cache & generated data (large files)
+.cache/*
 *.npy
 *.npz
 *.db
+
+# But track eval results — small JSON files, meaningful research outputs
+!.cache/eval_results_*.json
 
 # Logs
 *.log

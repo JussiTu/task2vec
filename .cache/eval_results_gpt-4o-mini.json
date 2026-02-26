@@ -1,0 +1,1176 @@
+[
+  {
+    "key": "SPR-6296",
+    "tier": "Automate",
+    "model": "gpt-4o-mini",
+    "summary": "Spring:url tag should not use application/x-www-form-urlencoded encoding",
+    "sha": "67b5781dab2004905de4fe504e7583f59495ee1e",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.209,
+    "pass": true,
+    "input_tokens": 1728,
+    "output_tokens": 293,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java ---\n*** 52,53 ****\n--- 52,54 ----\nimport java.net.URLEncoder;\n+ import java.nio.charset.StandardCharsets;\n \n // ... (rest of the code)\n \n     /**\n      * Build the URL for the tag from the tag attributes and parameters.\n      * @return the URL value as a String\n      * @throws JspException\n  ",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java\nindex 5bc0c0a0d0..9c4d71a12b 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org/sp"
+  },
+  {
+    "key": "SPR-5298",
+    "tier": "Automate",
+    "model": "gpt-4o-mini",
+    "summary": "JSP tag for building URLs with URI templates",
+    "sha": "912c1234cdc6c451b6d029c32715a84bc95a7b03",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/ParamAware.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/ParamTag.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.116,
+    "pass": false,
+    "input_tokens": 270,
+    "output_tokens": 579,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java ---\n@@ -0,0 +1,40 @@\n+package org.springframework.web.servlet.tags;\n+\n+import javax.servlet.jsp.JspException;\n+import javax.servlet.jsp.tagext.TagSupport;\n+import java.io.IOException;\n+import ",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java\nnew file mode 100644\nindex 0000000000..b0adb36ddd\n--- /dev/null\n+++ b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java\n@@ -0,0 +1,66 @@\n+/*\n+ * Copyrigh"
+  },
+  {
+    "key": "SPR-5437",
+    "tier": "Automate",
+    "model": "gpt-4o-mini",
+    "summary": "JoinPoint and Singature toString, toShortString, and toLongString don't return useful information",
+    "sha": "c8d6c15a05556747318efa7a134d06309bd63208",
+    "files": [
+      "org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.131,
+    "pass": false,
+    "input_tokens": 1745,
+    "output_tokens": 372,
+    "answer_preview": "```diff\n--- org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java ---\n+++ org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java ---\n@@ -69,7 +69,7 @@\n \n \tpublic String toShortString() {\n-\t\treturn \"execution(\" + this.methodInvocation.getMethod().getName() + \")\";\n+\t\treturn \"execution(\" +",
+    "gt_diff_preview": "diff --git a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java b/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java\nindex 5e5a0b6397..13f88f63e0 100644\n--- a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java\n+++ b/org."
+  },
+  {
+    "key": "SPR-5605",
+    "tier": "Automate",
+    "model": "gpt-4o-mini",
+    "summary": "spring:url tag should use htmlEscape instead of escapeXml for entity encoding",
+    "sha": "99fa91d56e221fdcd8b55243d10e6905aef06ac4",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.152,
+    "pass": true,
+    "input_tokens": 1672,
+    "output_tokens": 358,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java ---\n*** 59,60 ****\n--- 59,61 ----\n\tprivate boolean escapeXml = false;\n+ \tprivate boolean htmlEscape = false;\n+ \tprivate boolean javaScriptEscape = false;\n\n*** 107,113 ****\n\t/**\n! \t * Instructs the tag to XML entity encode the resulting URL.\n! \t * <p>Defaults to false to maintain compatibility",
+    "gt_diff_preview": "diff --git a/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp b/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp\nindex e477037108..256cca1778 100644\n--- a/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp\n+++ b/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAcc"
+  },
+  {
+    "key": "SPR-5429",
+    "tier": "Automate",
+    "model": "gpt-4o-mini",
+    "summary": "Update Pet Clinic to use HSQL as an embedded database",
+    "sha": "7dcb3b5841ee5dec13b64cfd038c2134174a6a49",
+    "files": [
+      "org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.216,
+    "pass": true,
+    "input_tokens": 1394,
+    "output_tokens": 415,
+    "answer_preview": "```diff\n--- org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java ---\n+++ org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java ---\n@@ -1,5 +1,5 @@\n import org.hsqldb.jdbc.JDBCDataSource; // Added import for HSQLDB\n import org.apache.commons.dbcp.BasicDataSour",
+    "gt_diff_preview": "diff --git a/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java b/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java\nindex aaf71dca0b..16fe921483 100644\n--- a/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/confi"
+  },
+  {
+    "key": "SPR-7096",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Problem with spring:eval under Jetty but not Tomcat",
+    "sha": "7355dff9678cd027685e54865ab7281a25e31343",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.064,
+    "pass": false,
+    "input_tokens": 1796,
+    "output_tokens": 139,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java ---\n@@ -89,7 +89,7 @@\n \n \t@Override\n \tpublic int doEndTag() throws JspException {\n-\t\tif (this.var == null) {\n+\t\tif (this.var == null && this.expression != null) {\n \t\t\ttry {\n \t\t\t\tString res",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\nindex ab9163960a..9365f16c85 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org"
+  },
+  {
+    "key": "SPR-7430",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "The PortletWrappingController in spring-mvc-portlet is not supporting EventHandling for JSR268 wrapped portlets",
+    "sha": "4af36454baab2af290335963e46a1c0b35e7c326",
+    "files": [
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.255,
+    "pass": true,
+    "input_tokens": 1860,
+    "output_tokens": 186,
+    "answer_preview": "```diff\n--- org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java ---\n+++ org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java ---\n@@ -0,0 +1,4 @@\n+import javax.portlet.EventRequest;\n+import javax.portlet.EventResponse;\n+import org.springframework.web.portlet.EventAwareController;",
+    "gt_diff_preview": "diff --git a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java b/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java\nindex 9ff142f500..880c81b054 100644\n--- a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java\n+++ "
+  },
+  {
+    "key": "SPR-7657",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "StringToCollectionConverter does not trim parsed collection elements",
+    "sha": "e1dbb66798ae90f8cd91194d5380de4b7141b690",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToCollectionConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.3,
+    "pass": true,
+    "input_tokens": 1114,
+    "output_tokens": 194,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToCollectionConverter.java ---\n+++ org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToCollectionConverter.java ---\n@@ -25,7 +25,7 @@\n \t\tif (source == null) {\n \t\t\treturn null;\n \t\t}\n-\t\tString string = (String) source;\n+\t\tString string = ((String) source).trim();\n \t\tS",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java b/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java\nindex 53a648ea8c..d9f40cb419 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java\n+++ b/org.springfra"
+  },
+  {
+    "key": "SPR-5267",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Support for PUT and DELETE in spring:form tag",
+    "sha": "7d1f2bd1da3cff21d07da0f1c24eedbcc6e8e2c7",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.226,
+    "pass": true,
+    "input_tokens": 1634,
+    "output_tokens": 398,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java ---\n@@ -52,6 +52,7 @@\n \n private static final String TARGET_ATTRIBUTE = \"target\";\n \n private static final String ENCTYPE_ATTRIBUTE = \"enctype\";\n \n private static final String ACC",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java\nindex 81352b361c..8283043945 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java\n+++ b/org.springframework.web.servlet/sr"
+  },
+  {
+    "key": "SPR-8217",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Update MVC namespace to use HandlerMethod infrastructure",
+    "sha": "2710870d9e4bcca6aa9c1668307a8298b867a60f",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.153,
+    "pass": true,
+    "input_tokens": 146,
+    "output_tokens": 391,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java ---\n@@ -0,0 +1,30 @@\n+package org.springframework.web.servlet.mvc.method.annotation.su",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java\nnew file mode 100644\nindex 0000000000..fdf69b2e3c\n--- /dev/null\n+++ b/org.springframework.w"
+  },
+  {
+    "key": "SPR-6371",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Jaxb2Marshaller should use AnnotationUtils",
+    "sha": "211e36c249c90031baebefd8c0655bfc7a7a2a71",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.172,
+    "pass": true,
+    "input_tokens": 1422,
+    "output_tokens": 184,
+    "answer_preview": "```diff\n--- org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java ---\n*** 15,16 ****\n--- 15,17 ----\nimport org.springframework.util.Assert;\nimport org.springframework.util.ClassUtils;\n+ import org.springframework.util.AnnotationUtils;\n\n*** 123,124 ****\n--- 124,125 ----\n     * @param clazz the class to check\n     * @return whether the class is supported\n     */\n!  ",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex fb5669111c..30ac57a365 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-9021",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Two matching produces conditions compared incorrectly if media type in 'Accept' header contains a quality parameter",
+    "sha": "be4e6984836a087f52a160f0c92964a64937d814",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.063,
+    "pass": false,
+    "input_tokens": 1611,
+    "output_tokens": 240,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java ---\n*** 1000,1001 ****\n--- 1000,1002 ----\n+ import org.springframework.http.HttpHeaders;\n  \n      // ... existing code ...\n\n      public ProducesRequestCondition getMatchingCondition(HttpServletRequest request) {\n          if (isEmpty()) {\n              return this;",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java\nindex 0e46ffe4e1..78cee03827 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/Produce"
+  },
+  {
+    "key": "SPR-9079",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "RequestParamMethodArgumentResolver does not resolve multiparts using HTTP PUT",
+    "sha": "64a69f7cf826c39c0b72da4f910b8445c4627815",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestPartMethodArgumentResolver.java",
+      "org.springframework.web/src/main/java/org/springframework/web/method/annotation/RequestParamMethodArgumentResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.069,
+    "pass": false,
+    "input_tokens": 2899,
+    "output_tokens": 119,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/web/method/annotation/RequestParamMethodArgumentResolver.java ---\n@@ -187,7 +187,7 @@\n     private boolean isMultipartRequest(HttpServletRequest request) {\n         if (!\"post\".equals(request.getMethod().toLowerCase()) && \n-            !\"put\".equals(request.getMethod().toLowerCase())) {\n+            !\"put\".equals(request.getMeth",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex a5ddc80ba7..0597b8d235 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -30,6 +30,7 @@ Changes in version 3.1.1 (2012-02-06)\n * add property to RedirectView to disable expanding URI variables in redirect URL\n * fix req"
+  },
+  {
+    "key": "SPR-7547",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": " PropertiesLoaderSupport assumes file-based Resources",
+    "sha": "1a7aebb0dd8e18f339e33b4460b9f0121569092d",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.242,
+    "pass": true,
+    "input_tokens": 1609,
+    "output_tokens": 102,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java ---\n@@ -182,7 +182,7 @@\n \n \t\t\t\t\tString filename = null;\n \t\t\t\t\ttry {\n-\t\t\t\t\t\tfilename = location.getFilename();\n+\t\t\t\t\t\tfilename = location.getFilename() != null ? location.getFilename() : \"unknown resource\";\n \t\t\t\t\t} catch (IllegalStateException ex) {\n \t\t\t\t\t\t// resource is not file-base",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java b/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java\nindex e9289eed59..97b37690d4 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java\n+++ b/org.springframework.core/"
+  },
+  {
+    "key": "SPR-7120",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Filter out non-autowire candidates for calls to getBean(Class<?>) ",
+    "sha": "3f06a92b6b5fbd2f92444d10a25332f306dfb499",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.111,
+    "pass": false,
+    "input_tokens": 1478,
+    "output_tokens": 306,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java ---\n@@ -123,6 +123,7 @@\n \n     /** Map from dependency type to corresponding autowired value */\n     private final Map<Class, Object> resolvableDependen",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\nindex 9feecbc4ed..70b0063704 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\n+"
+  },
+  {
+    "key": "SPR-7068",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "A potential unresolved compilation problem",
+    "sha": "ecda2aee4a4fdcf1877c17647a61de713bfd0aaf",
+    "files": [
+      "org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.099,
+    "pass": false,
+    "input_tokens": 1820,
+    "output_tokens": 144,
+    "answer_preview": "```diff\n--- org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java ---\n+++ org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java ---\n@@ -236,6 +236,7 @@\n \n \tprotected final ParameterNameDiscoverer parameterNameDiscoverer;\n \n+\tprivate final String expression = \"\"; // Initialize",
+    "gt_diff_preview": "diff --git a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java b/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java\nindex a22602396b..cb09937a39 100644\n--- a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory."
+  },
+  {
+    "key": "SPR-5746",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Allow XStreamMarshaller subclasses to customise XStream object",
+    "sha": "9cbc1d502d0c0ead391ffd65bf1cbd812ed53654",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.263,
+    "pass": true,
+    "input_tokens": 1642,
+    "output_tokens": 182,
+    "answer_preview": "```diff\n--- org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java ---\n+++ org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java ---\n@@ -51,6 +51,21 @@\n \n \t/**\n \t * Returns the XStream instance used by this marshaller.\n \t */\n+\tprotected void initXStream() {\n+\t\t// Subclasses can override this method to customize the XStrea",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java\nindex 81f5b92813..68026ab490 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/"
+  },
+  {
+    "key": "SPR-9076",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "ServletUriComponentsBuilder should allow normalizing URIs created",
+    "sha": "8530828eb474702673094e719d72d834cb45080f",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.214,
+    "pass": true,
+    "input_tokens": 1598,
+    "output_tokens": 198,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java ---\n+++ org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java ---\n@@ -116,6 +116,12 @@\n     /**\n      * Returns the fragment.\n      *\n      * @return the fragment. Can be {@code null}.\n      */\n     public String getFragment() {\n         return fragment;\n     }\n \n+    /",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java b/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java\nindex a5b4ec74b9..6123223e79 100644\n--- a/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java\n+++ b/org.springframework.web/src/main/java/org/springframework/web/util/UriComponent"
+  },
+  {
+    "key": "SPR-7199",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "AbstractJdbcInsert failes with SqlLobValue type parameters",
+    "sha": "d22a6f9da984202335d12fb150934dffce80c1e6",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.286,
+    "pass": true,
+    "input_tokens": 1520,
+    "output_tokens": 89,
+    "answer_preview": "```diff\n--- org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java ---\n+++ org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java ---\n@@ -1,4 +1,4 @@\n- if (columnTypes == null || colIndex < columnTypes.length) {\n+ if (columnTypes == null || colIndex >= columnTypes.length) {\n```",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java\nindex 8c7e1db428..aef3a3a962 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java\n+++ b/org.springframework.jdbc/src/main/jav"
+  },
+  {
+    "key": "SPR-6390",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "AbstractJasperReportsView doc is out of date",
+    "sha": "856fefeaad8be5c456c1c517252c86408e5f9bf2",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.266,
+    "pass": true,
+    "input_tokens": 1690,
+    "output_tokens": 238,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java\n@@ -80,8 +80,8 @@\n * been provided to the view. The default implementation checks for a model object\n * under the specified <cod",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java\nindex f95a308cdb..8cab5f293d 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasp"
+  },
+  {
+    "key": "SPR-7112",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "SelectTag fails when items is an Enumeration",
+    "sha": "399b388ea5f294c22f7b93e5e4713f9b85c626f7",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.3,
+    "pass": true,
+    "input_tokens": 1904,
+    "output_tokens": 78,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java ---\n@@ -138,7 +138,7 @@\n \t\telse if (this.optionSource instanceof Class && this.optionSource.getClass().isEnum()) {\n-\t\t\trenderFromEnum(tagWriter);\n+\t\t\trenderFromEnum(tagWriter);\n \t\t}\n```",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java\nindex 0284d86ca3..41eb9296db 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java\n+++ b/org.springframework"
+  },
+  {
+    "key": "SPR-6230",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "[spel] performance for property access is less than ideal",
+    "sha": "c9057fd1daae0d01e1e5072e09ae15e1d93630ab",
+    "files": [
+      "org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/Expression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/ExpressionException.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/PropertyAccessor.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/TypedValue.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/common/CompositeStringExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/common/LiteralExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ExpressionState.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/SpelExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/Indexer.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/MethodReference.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/Projection.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/PropertyOrFieldReference.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/support/ReflectivePropertyResolver.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/support/StandardEvaluationContext.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.242,
+    "pass": true,
+    "input_tokens": 2660,
+    "output_tokens": 1500,
+    "answer_preview": "```diff\n--- org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\n+++ org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\n@@ -1,6 +1,7 @@\n package org.springframework.expression;\n\n import java.util.List;\n\n+import java.util.Map;\n\n /**\n  * Expressions are executed in an evaluation context. It is in this conte",
+    "gt_diff_preview": "diff --git a/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java b/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\nindex 9930e2131f..80f2819741 100644\n--- a/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\n+++ b/org.springframework.expression/src/main/"
+  },
+  {
+    "key": "SPR-6923",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "SpEL resolving nested property as outer object",
+    "sha": "50c55937404d1ece094dec6ccb5a89f5d3cc567e",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.206,
+    "pass": true,
+    "input_tokens": 1681,
+    "output_tokens": 174,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java ---\n@@ -118,7 +118,7 @@\n \n     public TypedValue read(EvaluationContext context, Object target, String name) throws AccessException {\n         Object implicitVar = resolveImplicitVariable(",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\nindex 3a083c7516..f6a22896cf 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org"
+  },
+  {
+    "key": "SPR-16483",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Supports ConversionService on SingleColumnRowMapper",
+    "sha": "8c623c8a429afe83d3d6fed008eec0a9a45d29e2",
+    "files": [
+      "spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.238,
+    "pass": true,
+    "input_tokens": 1941,
+    "output_tokens": 791,
+    "answer_preview": "```diff\n--- spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java ---\n+++ spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java ---\n@@ -1,5 +1,6 @@\n package org.springframework.jdbc.core;\n \n+import org.springframework.core.convert.ConversionService;\n import java.sql.ResultSet;\n import java.sql.ResultSetMetaData;\n import java.sql.SQLExceptio",
+    "gt_diff_preview": "diff --git a/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java b/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\nindex 2b6b66a74b..510fa9d71c 100644\n--- a/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\n+++ b/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\n@@ -1"
+  },
+  {
+    "key": "SPR-7360",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "JmsResourceHolder.commit should not ignores IllegalStateException",
+    "sha": "d1d5e2d52ac732d05c5277b3337fe05b9d0cc712",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.027,
+    "pass": false,
+    "input_tokens": 1704,
+    "output_tokens": 165,
+    "answer_preview": "```diff\n--- org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java ---\n*** 133,139 ****\n\t\t\tcatch (TransactionInProgressException ex) {\n\t\t\t\t// Ignore -> can only happen in case of a JTA transaction.\n! \t\t\t}\n! \t\t\tcatch (javax.jms.IllegalStateException ex) {\n\t\t\t\t// Ignore -> can only happen in case of a JTA transaction.\n! \t\t\t}\n--- 133,139 ----\n\t\t\tcatch (Transac",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java b/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java\nindex e9335a38cd..1a96d900e2 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java\n+++ b/org.springframework.jms/src/main/java/org/springf"
+  },
+  {
+    "key": "SPR-6765",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "LinkedMultiValueMap should implement Serializable",
+    "sha": "0968e9fbd063c3200586e2454322f2ede6cc7ee8",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.342,
+    "pass": true,
+    "input_tokens": 1179,
+    "output_tokens": 180,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java ---\n+++ org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java ---\n@@ -1,6 +1,7 @@\n package org.springframework.util;\n \n import java.util.Collection;\n import java.util.LinkedHashMap;\n import java.util.LinkedList;\n import java.util.List;\n import java.util.Map;\n impo",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java b/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\nindex 28b3c7ac08..730047f7d1 100644\n--- a/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\n+++ b/org.springframework.core/src/main/java/org/springframework/util/Linked"
+  },
+  {
+    "key": "SPR-7384",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Cron expressions use months based at 0-11 (should be 1-12)",
+    "sha": "e26fc66523c22b43b636c2833dc1ad7fef6f35af",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.106,
+    "pass": false,
+    "input_tokens": 1743,
+    "output_tokens": 143,
+    "answer_preview": "```diff\n--- org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java ---\n+++ org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java ---\n@@ -49,7 +49,7 @@\n \tprivate final BitSet months = new BitSet(12);\n \n \t// ...\n \n-\tint month = calendar.get(Calendar.MONTH);\n+\tint month = calendar.get(Calendar.M",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java b/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java\nindex c3e8e2035f..f1c1ce9eb5 100644\n--- a/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java\n+++ b/org.springfra"
+  },
+  {
+    "key": "SPR-7118",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Refactor InternalResourceView to expose getRequestDispatcher for overriding",
+    "sha": "101a5cd8ff6cd307cfcff08db31c62ae8e9b0082",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.218,
+    "pass": true,
+    "input_tokens": 1583,
+    "output_tokens": 379,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java ---\n@@ -60,6 +60,19 @@\n \t}\n \n \t/**\n+\t * Obtain the RequestDispatcher for the given URL.\n+\t * Can be overridden by subclasses to customize the RequestDispatcher re",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java\nindex 3a84342a1a..36f0af33ae 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-6779",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "imported @Configuration classes do not get enhanced and fail to satisfy scoping requirements",
+    "sha": "fbd797e50b2f1c5b0dfef944ee218d826f1a0694",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassPostProcessor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.069,
+    "pass": false,
+    "input_tokens": 4193,
+    "output_tokens": 274,
+    "answer_preview": "```diff\n--- org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java ---\n+++ org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java ---\n@@ -1,4 +1,4 @@\n // ... existing code ...\n \n-\t\tdoLoadBeanDefinitionForConfigurationClass(configClass);\n+\t\tdoLoadBeanDefinition",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java\nindex 70669481ad..ccd66d6534 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuratio"
+  },
+  {
+    "key": "SPR-6552",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "DataBinder.setRequiredFields is broken",
+    "sha": "86475593bbb7e660e0e34f8fd119a95c4581a35b",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.051,
+    "pass": false,
+    "input_tokens": 1788,
+    "output_tokens": 294,
+    "answer_preview": "```diff\n--- org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java ---\n+++ org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java ---\n@@ -80,6 +80,7 @@\n \n     private String[] requiredFields;\n \n+    private boolean requiredFieldsSet = false;\n \n     private BindingErrorProcessor bindingErrorProcessor = new DefaultBindingErrorProces",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java b/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java\nindex b5d13ef184..dbc25972df 100644\n--- a/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java\n+++ b/org.springframework.context/src/main/java/org/springframework/validati"
+  },
+  {
+    "key": "SPR-7695",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Add ETag version of WebRequest.checkNotModified()",
+    "sha": "7cc3f49910b6ed281f1aee0851e603dfa96ed48a",
+    "files": [
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/FacesWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/ServletWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/WebRequest.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.237,
+    "pass": true,
+    "input_tokens": 3763,
+    "output_tokens": 704,
+    "answer_preview": "```diff\n--- org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java ---\n+++ org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java ---\n@@ -70,6 +70,21 @@\n \t/**\n+\t * Check if the request has not been modified based on the ETag.\n+\t * @param etag the ETag to check against\n+\t * @return {@code tru",
+    "gt_diff_preview": "diff --git a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java b/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java\nindex 9be71736c4..3eedfb651b 100644\n--- a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-6668",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Small Connection leak in DataSourceInitializer",
+    "sha": "e4d8651aa94cf8611b4096ae37bfa7b5953d0e84",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.19,
+    "pass": true,
+    "input_tokens": 671,
+    "output_tokens": 120,
+    "answer_preview": "```diff\n--- org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java ---\n+++ org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java ---\n@@ -30,6 +30,7 @@\n \t\t\tAssert.state(databasePopulator != null, \"DatabasePopulator must be provided\");\n-\t\t\tdatabasePopulator.populate(dataSource.getConnection());\n+",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java\nindex f90d32a155..e927847826 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java\n+++ b/org.springframew"
+  },
+  {
+    "key": "SPR-6742",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "FormattingConversionServiceFactoryBean.setConverters declares Set<Object> ParameterizedType restricting programmatic usage",
+    "sha": "6fcca3cd939af78b83bc80cd295996df2d198b81",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java",
+      "org.springframework.context/src/main/java/org/springframework/format/support/FormattingConversionServiceFactoryBean.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ConversionServiceFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.231,
+    "pass": true,
+    "input_tokens": 2716,
+    "output_tokens": 87,
+    "answer_preview": "```diff\n--- org.springframework.format/src/main/java/org/springframework/format/support/FormattingConversionServiceFactoryBean.java ---\n*** 17,18 ****\n--- 17,18 ----\n  private Set<Object> converters;\n  \n! public void setConverters(Set<Object> converters) {\n--- 17,18 ----\n  private Set<Object> converters;\n  \n! public void setConverters(Set<? extends Object> converters) {\n```",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java b/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java\nindex cc01b73f6e..4afbb314e8 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java\n+++ b/o"
+  },
+  {
+    "key": "SPR-6975",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "JPA 2.0 support not enabled for OpenJPA (and others?)",
+    "sha": "7da13e7ad1867b8ccf7947671cfb3e090654aa85",
+    "files": [
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.148,
+    "pass": false,
+    "input_tokens": 1457,
+    "output_tokens": 163,
+    "answer_preview": "```diff\n--- org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java ---\n***\n// [file truncated \u2014 rest not shown]\n***\n\n\n\t/**\n\t * Parse the validated document and add entries to the given unit info list.\n\t */\n\tprotected List<SpringPersistenceUnitInfo> parseDocument(\n+\t\t\tResource resource, Document document, List<SpringPersistenceUnitInfo> infos) {",
+    "gt_diff_preview": "diff --git a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java b/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java\nindex 4862d97808..f8d474ea18 100644\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-8892",
+    "tier": "Assist",
+    "model": "gpt-4o-mini",
+    "summary": "Add String constants to MediaType for use in @RequestMapping consumes and produces conditions",
+    "sha": "4bfcb79ae35320b55cfe8f8a985d229d6c2c9265",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/MediaType.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.157,
+    "pass": true,
+    "input_tokens": 1739,
+    "output_tokens": 216,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/http/MediaType.java ---\n+++ org.springframework.web/src/main/java/org/springframework/http/MediaType.java ---\n@@ -1,6 +1,7 @@\n package org.springframework.http;\n \n import java.nio.charset.Charset;\n+import java.util.Collections;\n import java.util.ArrayList;\n import java.util.BitSet;\n import java.util.Collection;\n@@ -50,6 +51,9 @@",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex 0a594e3f14..29f77a493e 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -7,6 +7,7 @@ Changes in version 3.1 GA (2011-12-12)\n --------------------------------------\n \n * fixed QuartzJobBean to work with Quartz 2.0/2.1 a"
+  },
+  {
+    "key": "SPR-6408",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Add full support for JPA 2.0 PersistenceUnitInfo",
+    "sha": "0ba83755467dabdc6c133d663ece66815407913d",
+    "files": [
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/DefaultPersistenceUnitManager.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/MutablePersistenceUnitInfo.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/SmartPersistenceUnitInfo.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/SpringPersistenceUnitInfo.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.112,
+    "pass": false,
+    "input_tokens": 4028,
+    "output_tokens": 230,
+    "answer_preview": "```diff\n--- org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/MutablePersistenceUnitInfo.java\n+++ org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/MutablePersistenceUnitInfo.java\n@@ -50,6 +50,9 @@\n import javax.persistence.spi.PersistenceUnitTransactionType;\n import javax.persistence.spi.SharedCacheMode; // Import for SharedCacheMode",
+    "gt_diff_preview": "diff --git a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java b/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java\nindex 62a5734e63..6f6fd9219d 100644\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java\n+++ b/org.spr"
+  },
+  {
+    "key": "SPR-6240",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Add namespace support for ErrorHandler on MessageListener containers",
+    "sha": "0400b68afbbacc6229a25c6b278cc8cb23be6dc3",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.185,
+    "pass": true,
+    "input_tokens": 1443,
+    "output_tokens": 305,
+    "answer_preview": "```diff\n--- org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java ---\n+++ org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java ---\n@@ -20,6 +20,7 @@\n \n private static final String TASK_EXECUTOR_ATTRIBUTE = \"task-executor\";\n \n+private static final String ERROR_HANDLER_ATTRIBUTE = \"error-handler\";\n \n prote",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java b/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\nindex c6f6bf2df4..bd052175e9 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\n+++ b/org.springframework.jms/src/main/j"
+  },
+  {
+    "key": "SPR-7863",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Poor multithread performance in AbstractAutowireCapableBeanFactory.filterPropertyDescriptorsForDependencyCheck method",
+    "sha": "a9f28575b13d8adf1f7bab92f84c96ad471f7159",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.112,
+    "pass": false,
+    "input_tokens": 1520,
+    "output_tokens": 1370,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java ---\n@@ -1,4 +1,4 @@\n // [file header unchanged]\n \n import java.beans.PropertyDescriptor;\n import java.lang.reflect.Constructor;\n import ",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java\nindex efe8e7a21b..e53e5cf504 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireC"
+  },
+  {
+    "key": "SPR-6998",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Provide mechanism for injecting a Serializable Provider<T> or ObjectFactory<T> via XML",
+    "sha": "16eb915c95cebe263fd3b33c99d493fd9fb84e1d",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ProviderCreatingFactoryBean.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.256,
+    "pass": true,
+    "input_tokens": 1533,
+    "output_tokens": 587,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java ---\n@@ -1,6 +1,7 @@\n import org.springframework.beans.BeansException;\n import org.springframework.beans.factory.ObjectFactory;\n+import java.io",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java\nindex 2a682a6755..ef479927dc 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFac"
+  },
+  {
+    "key": "SPR-6373",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Support for validation groups in @Valid used by spring MVC",
+    "sha": "00133179df27fc8b2c8c3b5d9377985279122691",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.354,
+    "pass": true,
+    "input_tokens": 1441,
+    "output_tokens": 151,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java ---\n*** 64,65 ****\n--- 64,66 ----\n\t/**\n\t * Whether to validate the model attribute.\n\t * The default implementation checks for {@code @javax.validation.Valid}. \n\t * @param modelAttribute the model attribut\n\t */\n+ \tprotected boolean isValidationApplicable(Object mode",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java b/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java\nindex da90c809ad..25fd19968b 100644\n--- a/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttr"
+  },
+  {
+    "key": "SPR-5682",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Provide dedicated ApplicationContext implementations for use with (JavaConfig) @Configuration classes",
+    "sha": "cbadf350e1a378eeb6a0a90e14afd5e3df7657e7",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/support/ConfigurationClassWebApplicationContext.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.095,
+    "pass": false,
+    "input_tokens": 2762,
+    "output_tokens": 273,
+    "answer_preview": "```diff\n--- org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java ---\n+++ org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java ---\n@@ -1,3 +1,4 @@\n+package org.springframework.context.annotation;\n \n import java.io.IOException;\n import java.util.LinkedHashSet;\n@",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java\nindex 01d68da30c..ab1cd69334 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationCla"
+  },
+  {
+    "key": "SPR-7505",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "JaxWsPortClientInterceptor gets an incorrect PortName",
+    "sha": "66a5bb7c22ad08c892b9f43f83cb3d7b326159cf",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.0,
+    "pass": false,
+    "input_tokens": 1840,
+    "output_tokens": 240,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java ---\n+++ org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java ---\n@@ -60,11 +60,10 @@\n \n \t/**\n \t * Set the name of the port.\n-\t * Corresponds to the \"wsdl:port\" name.\n+\t * Corresponds to the \"wsdl:port\" name. Should not be derived f",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java b/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\nindex 0a1ba6930e..f1d76fdb75 100644\n--- a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-5766",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "@ResponseBody",
+    "sha": "6cb7f2cfc8332da7823c3781604ae7e028e0af61",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/ResponseBody.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.287,
+    "pass": true,
+    "input_tokens": 1597,
+    "output_tokens": 397,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/ResponseBody.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/ResponseBody.java ---\n@@ -0,0 +1,10 @@\n+package org.springframework.web.bind.annotation;\n+\n+import java.lang.annotation.Documented;\n+import java.lang.annotation.ElementType;\n+import java.lan",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java\nindex 540540fa8c..ebf36beab6 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java\n+++ b/org.springframework.web.serv"
+  },
+  {
+    "key": "SPR-5745",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Support lazy initialization within Jaxb2 OXM classes",
+    "sha": "58d3e704bff9a5aa28e364608f2341b61fca74c7",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.212,
+    "pass": true,
+    "input_tokens": 1488,
+    "output_tokens": 188,
+    "answer_preview": "```diff\n--- org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java ---\n*** 107,108 ****\n--- 107,109 ----\n  \n  private JAXBContext jaxbContext;\n  \n+     private boolean jaxbContextInitialized = false;\n\n  /**\n   * Set a JAXB context path.\n   */\n  public void setContextPath(String contextPath) {\n      Assert.hasText(contextPath, \"'contextPath' must not be null\");\n    ",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex 59c69c3338..fb5669111c 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-7117",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Add ability for CNVR to search view names that use file extensions",
+    "sha": "c1f18582e7412fd9fe08c23fd172fe840df4f7e2",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.124,
+    "pass": false,
+    "input_tokens": 1593,
+    "output_tokens": 289,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java ---\n@@ -100,6 +100,7 @@\n import org.springframework.web.servlet.ViewResolver;\n import org.springframework.web.util.UrlPathHelper;\n import org.",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java\nindex 72facd21e9..1146a7ea48 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingView"
+  },
+  {
+    "key": "SPR-5871",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "\"primary\" bean definitions in child context should take preference over those in parent context",
+    "sha": "634d4b4d4c263f6a734fed142fa15ca48acb9262",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.095,
+    "pass": false,
+    "input_tokens": 1478,
+    "output_tokens": 201,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java ---\n@@ -123,6 +123,9 @@\n \n     /** Resolver to use for checking if a bean definition is an autowire candidate */\n     private AutowireCandidateResolver ",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\nindex e5869b0e1c..52211c2fd2 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\n+"
+  },
+  {
+    "key": "SPR-7931",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Checking for @XmlRootElement annotation should be made optional in Jaxb2Marshaller ",
+    "sha": "01d2082090fa59dfadff6bf092f99a4cd37f82f6",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.162,
+    "pass": true,
+    "input_tokens": 1646,
+    "output_tokens": 356,
+    "answer_preview": "```diff\n--- org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java ---\n***\n// [file truncated \u2014 rest not shown]\n***\n\n\n\t/**\n\t * Set multiple JAXB context paths. The given array of context paths is converted to a\n\t * colon-delimited string, as supported by JAXB.\n\t */\n\tpublic void setContextPaths(String... contextPaths) {\n\t\tAssert.notEmpty(contextPaths, \"'contextPaths",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex 890ce18c67..2d23572100 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-8828",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Using DataBinder with an auto-growing list is broken",
+    "sha": "569426dfdfec186e98a6ae4bd8ebf946720206b1",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/GenericTypeAwarePropertyDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/AbstractDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/BeanPropertyDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/FieldDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/Property.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/TypeDescriptor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.086,
+    "pass": false,
+    "input_tokens": 3810,
+    "output_tokens": 165,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n+++ org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n@@ -980,6 +980,7 @@\n         int size = list.size();\n         Object oldValue = null;\n         if (isExtractOldValueForEditor() && index < size) {\n+            if (index >= size) {\n+                size = index",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\nindex 5dfd2b5b6f..b57cada675 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n+++ b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrappe"
+  },
+  {
+    "key": "SPR-9016",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Provide property in RedirectView to disable treating the redirect URL as a URI template",
+    "sha": "21966990c89a51fbcc36a778682b021d983aabd8",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/RedirectView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.173,
+    "pass": true,
+    "input_tokens": 1566,
+    "output_tokens": 313,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/RedirectView.java ---\n***\n// [file truncated \u2014 rest not shown]\n*** private boolean exposeModelAttributes = true;\n*** private boolean disableUriTemplate = false; // New line to add property\n*** \n*** /**\n***  * Create a new RedirectView with the given URL.\n***  * @param url the URL to redirect to\n***  * @p",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex eff2824e93..ce2299703b 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -27,6 +27,7 @@ Changes in version 3.1.1 (2012-02-06)\n * allow adding flash attributes in methods with a ModelAndView return value\n * preserve quot"
+  },
+  {
+    "key": "SPR-5596",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Test @Autowired @Configuration class constructors",
+    "sha": "aee7f1ce530b60dd61d3840d3a54409620655748",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.188,
+    "pass": true,
+    "input_tokens": 659,
+    "output_tokens": 261,
+    "answer_preview": "```diff\n--- org.springframework.context/src/test/java/org/springframework/context/annotation/ConfigurationTests.java (new file)\n+++ org.springframework.context/src/test/java/org/springframework/context/annotation/ConfigurationTests.java\n@@ -0,0 +1,30 @@\n+package org.springframework.context.annotation;\n+\n+import org.junit.jupiter.api.Test;\n+import org.springframework.beans.factory.annotation.Autowi",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java\nindex 84d406592f..33e79acbae 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java\n+++ b/org.springframework.context/src/main/"
+  },
+  {
+    "key": "SPR-7971",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Cache KeyGenerator.extract() should allow to use the bean identity",
+    "sha": "5c3ceb8ef0b0a400e46616f210be1505aeed7c22",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java",
+      "org.springframework.context/src/main/java/org/springframework/cache/interceptor/CacheAspectSupport.java",
+      "org.springframework.context/src/main/java/org/springframework/cache/support/DefaultKeyGenerator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.119,
+    "pass": false,
+    "input_tokens": 2086,
+    "output_tokens": 393,
+    "answer_preview": "```diff\n--- org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java ---\n+++ org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java ---\n@@ -10,7 +10,8 @@\n  * \n  * @author Costin Leau\n  */\n public interface KeyGenerator<K> {\n \n-\tK extract(Method method, Object... params);\n+\tK extract(Method method, Object... params, String beanId);\n+\t\n }\n\n",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java b/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java\nindex ae5dd9b89a..d089dbfa48 100644\n--- a/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java\n+++ b/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerato"
+  },
+  {
+    "key": "SPR-7523",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Registering null singleton results in BNFE on context refresh",
+    "sha": "05a3f3ad8d91e5181ebbbe7f7adcffd41ff5423e",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.118,
+    "pass": false,
+    "input_tokens": 1457,
+    "output_tokens": 149,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java ---\n@@ -1231,7 +1231,8 @@\n         Object singletonInstance = getSingleton(beanName);\n         if (singletonInstance == null) {\n             // Check if the bean is r",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java\nindex b764e2efdb..bab5762070 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java\n+++ b/org.springframew"
+  },
+  {
+    "key": "SPR-8809",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "RestTemplate headers not sent when bufferRequestBody is false",
+    "sha": "53cb529162b9382faa5ae345621b40581fdea873",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/http/client/SimpleStreamingClientHttpRequest.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.061,
+    "pass": false,
+    "input_tokens": 1640,
+    "output_tokens": 110,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/http/client/SimpleStreamingClientHttpRequest.java ---\n+++ org.springframework.web/src/main/java/org/springframework/http/client/SimpleStreamingClientHttpRequest.java ---\n@@ -32,6 +32,7 @@\n \n \tSimpleStreamingClientHttpRequest(HttpURLConnection connection, int chunkSize) {\n \t\tthis.connection = connection;\n+\t\tthis.connection.setReq",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java b/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java\nindex 9798293ecf..37008ee8cf 100644\n--- a/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-6932",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Support for single value responses using ContentNegotiatingViewResolver",
+    "sha": "386d8fdaa6bde6e1e73dcc2edf2e80e830d27fe5",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.175,
+    "pass": true,
+    "input_tokens": 1702,
+    "output_tokens": 218,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java ---\n@@ -90,6 +90,12 @@\n     /**\n      * Filters out undesired attributes from the given model. The return value can be either another {@link Map}, o",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java\nindex c06ba11478..c74ea2ba9d 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView."
+  },
+  {
+    "key": "SPR-8605",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "MappingJacksonHttpMessageConverter should have getObjectMapper() method",
+    "sha": "540845e61315f811e87dc96984bcbc036633a987",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.343,
+    "pass": true,
+    "input_tokens": 1499,
+    "output_tokens": 197,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java ---\n+++ org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java ---\n@@ -40,6 +40,12 @@\n \n \t/**\n \t * Sets the {@code ObjectMapper} for this view. If not set, a default\n \t * {@link ObjectMapper#ObjectMapper() O",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java b/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java\nindex ba1bf128f3..48a3cfd932 100644\n--- a/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConv"
+  },
+  {
+    "key": "SPR-6861",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "enable overwriting of createHttpInputMessage and createHttpOutputMessage in AnnotationMethodHandlerAdapter",
+    "sha": "63dc53a5ea1ab1e38c19f6f10316401c8bcfc333",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java",
+      "org.springframework.web/src/main/java/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.327,
+    "pass": true,
+    "input_tokens": 2420,
+    "output_tokens": 414,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java ---\n+++ org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java ---\n@@ -50,6 +50,10 @@\n import org.springframework.http.server.ServletServerHttpResponse;\n import org.springframework.web.",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java\nindex fac5088ca2..88f34b6a90 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/ann"
+  },
+  {
+    "key": "SPR-7574",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "PropertyPlaceholderHelper#findPlaceholderEndIndex does not work for custom placeholderPrefix",
+    "sha": "eda6268d9deed787b3b656843ed5fad02c7b15f1",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.167,
+    "pass": true,
+    "input_tokens": 1492,
+    "output_tokens": 113,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java ---\n@@ -170,7 +170,7 @@\n \t\t\t}\n \t\t\t// Move index to the end of the placeholder\n \t\t\tindex = index + this.placeholderPrefix.length() - 1;\n-\t\t\tindex = index + this.placeholderPrefix.length() - 1;\n+\t\t\tindex = index + this.placeholderSuffix.length();\n \t\t\t// Continue searching for the next placehold",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java b/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java\nindex 9ec877213f..4b1b2c37b1 100644\n--- a/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java\n+++ b/org.springframework.core/src/main/java/org/springfra"
+  },
+  {
+    "key": "SPR-6232",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Property Placeholder does not work for \"concurrency\" attribute for the jms namespace",
+    "sha": "0cc0a9bc2b07e95ccf73adebc36caa65d8b3e90d",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JcaListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/DefaultMessageListenerContainer.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/SimpleMessageListenerContainer.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/endpoint/JmsActivationSpecConfig.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.074,
+    "pass": false,
+    "input_tokens": 3784,
+    "output_tokens": 168,
+    "answer_preview": "```diff\n--- org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java ---\n+++ org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java ---\n@@ -88,6 +88,9 @@\n \n \t\tInteger acknowledgeMode = parseAcknowledgeMode(containerEle, parserContext);\n \t\tif (acknowledgeMode != null) {\n+\t\t\tif (containerEle.hasAttribute(CONCUR",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java b/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java\nindex 566cccb5b8..7b470f949d 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java\n+++ b/org.springframework"
+  },
+  {
+    "key": "SPR-5732",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "When no type conversion strategy is found on a @Controller handler method bind target, a 500 error code should be returned not a 400.",
+    "sha": "bf7a947559d8f9918cc738780bf04caf8ea46962",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/ConversionNotSupportedException.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/SimpleTypeConverter.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/TypeConverterDelegate.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.337,
+    "pass": true,
+    "input_tokens": 2694,
+    "output_tokens": 1154,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java\n+++ org.springframework.beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java\n@@ -1,6 +1,7 @@\n /*\n  * Copyright 2002-2008 the original author or authors.\n  *\n  * Licensed under the Apache License, Version 2.0 (the \"License\");\n  * you may not use this file except in compliance wit",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\nindex 0f169da8b7..e8a9ef385f 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n+++ b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrappe"
+  },
+  {
+    "key": "SPR-7099",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Constructor resolution uses InputSource instead of URL argument for DBUnit FlatXmlDataSet",
+    "sha": "b28310b05110edcf81cba09247a2f138464d28c6",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputSourceEditor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputStreamEditor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.394,
+    "pass": true,
+    "input_tokens": 2335,
+    "output_tokens": 493,
+    "answer_preview": "```diff\n--- org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputStreamEditor.java ---\n+++ org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputStreamEditor.java ---\n@@ -19,6 +19,7 @@\n import org.springframework.core.io.Resource;\n import org.springframework.core.io.ResourceEditor;\n import org.springframework.util.Assert;\n+import o",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java b/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java\nindex 669806bbef..0735f2003c 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java\n+++ b/org.springframework.beans/src/main"
+  },
+  {
+    "key": "SPR-8231",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "ExceptionDepthComparator handle comparison of exact object is incorrect",
+    "sha": "3edf8566ed35fc284e5181127a1cc21f7e0c460f",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.083,
+    "pass": false,
+    "input_tokens": 1175,
+    "output_tokens": 126,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java ---\n+++ org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java ---\n@@ -37,7 +37,7 @@\n \t\t// If we've gone as far as we can go and haven't found it...\n \t\tif (Throwable.class.equals(exceptionToMatch)) {\n-\t\t\treturn -1;\n+\t\t\treturn 10000;  // Changed this from ",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\nindex 2b8bff535e..c856b86a03 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\n+++ b/org.springframework.core/src/main/java/org/springframew"
+  },
+  {
+    "key": "SPR-7085",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "AnnotationMethodHandlerExceptionResolver incorrectly resolving exceptions",
+    "sha": "33252495cfea895f61aef38c56b59a660ef5ae75",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java",
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.033,
+    "pass": false,
+    "input_tokens": 2950,
+    "output_tokens": 114,
+    "answer_preview": "```diff\n--- org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java ---\n***************\n*** 1330,1331 ****\n--- 1330,1332 ----\n          if (handledException.isAssignableFrom(thrownExceptionType)) {\n+             if (handledException == ConversionNotSupportedException.class) {\n+                 continue; // Skip Conv",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\nnew file mode 100644\nindex 0000000000..2b8bff535e\n--- /dev/null\n+++ b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\n@@ -0,0 +1,96 @@\n+/*\n+ * Copyrigh"
+  },
+  {
+    "key": "SPR-5712",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Add support for WebServiceFeature's to JaxWsPortProxyFactoryBean",
+    "sha": "4955a7304787ece2e53094f0633a56ffaa0da23c",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java",
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortProxyFactoryBean.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.196,
+    "pass": true,
+    "input_tokens": 2205,
+    "output_tokens": 746,
+    "answer_preview": "```diff\n--- org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java ---\n*** \n*** \t/**\n*** \t* Set custom properties to be set on the stub.\n*** \t* <p>Can be populated with a String \"value\" (parsed via PropertiesEditor)\n*** \t* or a \"props\" element in XML bean definitions.\n*** \t* @see javax.xml.ws.BindingProvider#getRequestContext()\n*** \t*/\n*** \tpublic ",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java b/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\nindex 51b39b3dad..60039cb431 100644\n--- a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-8306",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "ConversionServiceFactory.addDefaultConverters() should add symetric converters",
+    "sha": "e25fbf2533a809c7c4eacc59a90169da73ad6c0b",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/EnumToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/FallbackObjectToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/GenericConversionService.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ObjectToObjectConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ObjectToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToBooleanConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.049,
+    "pass": false,
+    "input_tokens": 1014,
+    "output_tokens": 175,
+    "answer_preview": "```diff\n--- org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java ---\n+++ org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java ---\n@@ -24,6 +24,10 @@\n \n \t\tconversionService.addConverter(new StringToBooleanConverter());\n \t\tconversionService.addConverter(new StringToCharacterConverter());",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java b/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java\nindex 466588b608..85d6c4542a 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java\n+++ b/org.spr"
+  },
+  {
+    "key": "SPR-4899",
+    "tier": "Escalate",
+    "model": "gpt-4o-mini",
+    "summary": "Adding hook into SQL State based exception translation",
+    "sha": "9b1edea8a0b2be4244d03c8a7846475054af970b",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.123,
+    "pass": false,
+    "input_tokens": 1644,
+    "output_tokens": 343,
+    "answer_preview": "```diff\n--- org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java ---\n+++ org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java ---\n@@ -10,6 +10,7 @@\n \n /**\n  * JavaBean for holding JDBC error codes for a particular database.\n  * Instances of this class are normally loaded through a bean factory.\n+ * \n  * <p>Used by Spring's",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java\nindex 5c35899ad3..c7d49126ab 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java\n+++ b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/"
+  }
+]

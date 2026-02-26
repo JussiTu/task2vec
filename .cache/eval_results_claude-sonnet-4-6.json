@@ -1,0 +1,1176 @@
+[
+  {
+    "key": "SPR-6296",
+    "tier": "Automate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Spring:url tag should not use application/x-www-form-urlencoded encoding",
+    "sha": "67b5781dab2004905de4fe504e7583f59495ee1e",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.138,
+    "pass": false,
+    "input_tokens": 2245,
+    "output_tokens": 1066,
+    "answer_preview": "Looking at the issue, the problem is in the `replaceUriTemplateParams` method where `URLEncoder.encode()` is used, which encodes spaces as `+` instead of `%20`.\n\nThe fix is to use `UriUtils.encodeUri` or implement proper URL encoding. Spring has `UriUtils` which provides proper URL encoding. Let me write the fix:\n\n```diff\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java\nindex 5bc0c0a0d0..9c4d71a12b 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org/sp"
+  },
+  {
+    "key": "SPR-5298",
+    "tier": "Automate",
+    "model": "claude-sonnet-4-6",
+    "summary": "JSP tag for building URLs with URI templates",
+    "sha": "912c1234cdc6c451b6d029c32715a84bc95a7b03",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/ParamAware.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/ParamTag.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.259,
+    "pass": true,
+    "input_tokens": 315,
+    "output_tokens": 1499,
+    "answer_preview": "Looking at this ticket, I need to create three new classes for a URL tag that supports URI template variables in JSP:\n\n1. `Param` - A simple value object to hold parameter name/value pairs\n2. `ParamAware` - Interface for tags that accept nested `<param>` tags\n3. `ParamTag` - The JSP tag implementation for `<spring:param>`\n\nHere are the implementations:\n\n---\n\n**Param.java** (new file):\n\n```java\n/*\n",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java\nnew file mode 100644\nindex 0000000000..b0adb36ddd\n--- /dev/null\n+++ b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/Param.java\n@@ -0,0 +1,66 @@\n+/*\n+ * Copyrigh"
+  },
+  {
+    "key": "SPR-5437",
+    "tier": "Automate",
+    "model": "claude-sonnet-4-6",
+    "summary": "JoinPoint and Singature toString, toShortString, and toLongString don't return useful information",
+    "sha": "c8d6c15a05556747318efa7a134d06309bd63208",
+    "files": [
+      "org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.191,
+    "pass": true,
+    "input_tokens": 2356,
+    "output_tokens": 1318,
+    "answer_preview": "Looking at the issue, the `toString()`, `toShortString()`, and `toLongString()` methods on both `MethodInvocationProceedingJoinPoint` and its inner `MethodSignatureImpl` need to produce output consistent with AspectJ weaving.\n\nHere's the fix:\n\n```diff\n--- a/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java\n+++ b/org/springframework/aop/aspectj/MethodInvocationProceedingJoinP",
+    "gt_diff_preview": "diff --git a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java b/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java\nindex 5e5a0b6397..13f88f63e0 100644\n--- a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/MethodInvocationProceedingJoinPoint.java\n+++ b/org."
+  },
+  {
+    "key": "SPR-5605",
+    "tier": "Automate",
+    "model": "claude-sonnet-4-6",
+    "summary": "spring:url tag should use htmlEscape instead of escapeXml for entity encoding",
+    "sha": "99fa91d56e221fdcd8b55243d10e6905aef06ac4",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/UrlTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.251,
+    "pass": true,
+    "input_tokens": 2154,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, the `UrlTag` needs to:\n1. Replace `escapeXml` with `htmlEscape` (supporting page-wide setting via `HtmlEscapeTag`)\n2. Add `javaScriptEscape` support\n3. Extend `HtmlEscapingAwareTag` instead of `TagSupport`\n\nHere's the fix:\n\n```diff\n--- a/UrlTag.java\n+++ b/UrlTag.java\n@@ -20,11 +20,11 @@ import java.io.IOException;\n import java.io.UnsupportedEncodingException;\n import java.ne",
+    "gt_diff_preview": "diff --git a/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp b/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp\nindex e477037108..256cca1778 100644\n--- a/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAccessFailure.jsp\n+++ b/org.springframework.samples.petclinic/src/main/webapp/WEB-INF/jsp/dataAcc"
+  },
+  {
+    "key": "SPR-5429",
+    "tier": "Automate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Update Pet Clinic to use HSQL as an embedded database",
+    "sha": "7dcb3b5841ee5dec13b64cfd038c2134174a6a49",
+    "files": [
+      "org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.172,
+    "pass": true,
+    "input_tokens": 1722,
+    "output_tokens": 1130,
+    "answer_preview": "Looking at the ticket, I need to update the Pet Clinic to use an embedded HSQL database. The main changes needed are in the Spring configuration files to add an embedded database configuration. However, based on the source file provided, I can also see the `DbcpDataSourceFactory` is truncated with a syntax error (`cat` instead of `catch`).\n\nLet me provide the fix for the truncated source file and ",
+    "gt_diff_preview": "diff --git a/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java b/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/config/DbcpDataSourceFactory.java\nindex aaf71dca0b..16fe921483 100644\n--- a/org.springframework.samples.petclinic/src/main/java/org/springframework/samples/petclinic/confi"
+  },
+  {
+    "key": "SPR-7096",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Problem with spring:eval under Jetty but not Tomcat",
+    "sha": "7355dff9678cd027685e54865ab7281a25e31343",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.135,
+    "pass": false,
+    "input_tokens": 2526,
+    "output_tokens": 580,
+    "answer_preview": "Looking at the issue, the problem is in `JspPropertyAccessor.resolveImplicitVariable()`. On Jetty, `pageContext.getVariableResolver()` returns `null`, causing a NullPointerException when `resolveVariable(name)` is called on it.\n\nHere's the fix:\n\n```diff\n--- a/EvalTag.java\n+++ b/EvalTag.java\n@@ -155,7 +155,11 @@ public class EvalTag extends HtmlEscapingAwareTag {\n \t\tprivate Object resolveImplicitVa",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\nindex ab9163960a..9365f16c85 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org"
+  },
+  {
+    "key": "SPR-7430",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "The PortletWrappingController in spring-mvc-portlet is not supporting EventHandling for JSR268 wrapped portlets",
+    "sha": "4af36454baab2af290335963e46a1c0b35e7c326",
+    "files": [
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.247,
+    "pass": true,
+    "input_tokens": 2493,
+    "output_tokens": 1266,
+    "answer_preview": "Looking at the ticket, the fix is to implement `EventAwareController` in `PortletWrappingController` and delegate event handling to the wrapped portlet if it's a JSR-268 `EventPortlet` (or `GenericPortlet`).\n\nHere's the minimal fix:\n\n```diff\n--- a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java\n+++ b/org.springframework.web.portlet/s",
+    "gt_diff_preview": "diff --git a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java b/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java\nindex 9ff142f500..880c81b054 100644\n--- a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/PortletWrappingController.java\n+++ "
+  },
+  {
+    "key": "SPR-7657",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "StringToCollectionConverter does not trim parsed collection elements",
+    "sha": "e1dbb66798ae90f8cd91194d5380de4b7141b690",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToCollectionConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.241,
+    "pass": true,
+    "input_tokens": 1481,
+    "output_tokens": 447,
+    "answer_preview": "Looking at the ticket, the fix needs to trim whitespace from parsed elements in both `StringToCollectionConverter` and `StringToArrayConverter`.\n\n**StringToCollectionConverter.java** \u2014 trim `sourceElement` before conversion:\n\n```diff\n--- a/StringToCollectionConverter.java\n+++ b/StringToCollectionConverter.java\n@@ -57,7 +57,7 @@ final class StringToCollectionConverter implements ConditionalGenericC",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java b/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java\nindex 53a648ea8c..d9f40cb419 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToArrayConverter.java\n+++ b/org.springfra"
+  },
+  {
+    "key": "SPR-5267",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Support for PUT and DELETE in spring:form tag",
+    "sha": "7d1f2bd1da3cff21d07da0f1c24eedbcc6e8e2c7",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.211,
+    "pass": true,
+    "input_tokens": 2086,
+    "output_tokens": 1139,
+    "answer_preview": "Looking at this ticket, I need to add support for PUT and DELETE methods in the FormTag by:\n1. When method is PUT or DELETE, render the form with `method=\"post\"` and add a hidden `_method` field\n\nHere's the fix:\n\n```diff\n--- a/FormTag.java\n+++ b/FormTag.java\n@@ -50,6 +50,9 @@ public class FormTag extends AbstractHtmlElementTag {\n \t/** The default HTTP method using which form values are sent to the",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java\nindex 81352b361c..8283043945 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/FormTag.java\n+++ b/org.springframework.web.servlet/sr"
+  },
+  {
+    "key": "SPR-8217",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Update MVC namespace to use HandlerMethod infrastructure",
+    "sha": "2710870d9e4bcca6aa9c1668307a8298b867a60f",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.596,
+    "pass": true,
+    "input_tokens": 165,
+    "output_tokens": 671,
+    "answer_preview": "Looking at SPR-8217, this ticket is about updating the MVC namespace to use HandlerMethod infrastructure. The `ServletWebArgumentResolverAdapter` class needs to be created/updated to bridge the old `WebArgumentResolver` interface with the new `HandlerMethodArgumentResolver` infrastructure.\n\nBased on the context of the Spring Framework codebase at this time, here's the fix:\n\n```java\n/*\n * Copyright",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/support/ServletWebArgumentResolverAdapter.java\nnew file mode 100644\nindex 0000000000..fdf69b2e3c\n--- /dev/null\n+++ b/org.springframework.w"
+  },
+  {
+    "key": "SPR-6371",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Jaxb2Marshaller should use AnnotationUtils",
+    "sha": "211e36c249c90031baebefd8c0655bfc7a7a2a71",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.109,
+    "pass": false,
+    "input_tokens": 2057,
+    "output_tokens": 910,
+    "answer_preview": "Looking at the ticket, the fix is to replace `clazz.getAnnotation(XmlRootElement.class)` with `AnnotationUtils.findAnnotation(clazz, XmlRootElement.class)` in the `supports` method of `Jaxb2Marshaller`.\n\nI need to also add the import for `AnnotationUtils`.\n\nHere's the minimal fix as a unified diff:\n\n```diff\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.ja",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex fb5669111c..30ac57a365 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-9021",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Two matching produces conditions compared incorrectly if media type in 'Accept' header contains a quality parameter",
+    "sha": "be4e6984836a087f52a160f0c92964a64937d814",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.088,
+    "pass": false,
+    "input_tokens": 2035,
+    "output_tokens": 1042,
+    "answer_preview": "Looking at the issue, the problem is in the `compareTo` method of `ProducesRequestCondition`. When comparing two matching produces conditions, it needs to find the best matching media type from the Accept header. The comparison logic likely uses `MediaType.sortByQualityValue` or similar, but when quality parameters are present, the matching media types from the Accept header need to be properly id",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/ProducesRequestCondition.java\nindex 0e46ffe4e1..78cee03827 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/condition/Produce"
+  },
+  {
+    "key": "SPR-9079",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "RequestParamMethodArgumentResolver does not resolve multiparts using HTTP PUT",
+    "sha": "64a69f7cf826c39c0b72da4f910b8445c4627815",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/method/annotation/RequestPartMethodArgumentResolver.java",
+      "org.springframework.web/src/main/java/org/springframework/web/method/annotation/RequestParamMethodArgumentResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.128,
+    "pass": false,
+    "input_tokens": 3865,
+    "output_tokens": 539,
+    "answer_preview": "Looking at the issue, the `isMultipartRequest` method in both resolvers checks if the HTTP method is POST, but when `HiddenHttpMethodFilter` wraps the request to change POST to PUT, this check fails even though the underlying content-type is still `multipart/`.\n\nThe fix is to remove the HTTP method check and rely solely on the content-type header.\n\nHere are the fixes:\n\n**RequestParamMethodArgument",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex a5ddc80ba7..0597b8d235 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -30,6 +30,7 @@ Changes in version 3.1.1 (2012-02-06)\n * add property to RedirectView to disable expanding URI variables in redirect URL\n * fix req"
+  },
+  {
+    "key": "SPR-7547",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": " PropertiesLoaderSupport assumes file-based Resources",
+    "sha": "1a7aebb0dd8e18f339e33b4460b9f0121569092d",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.104,
+    "pass": false,
+    "input_tokens": 2152,
+    "output_tokens": 837,
+    "answer_preview": "Looking at the truncated source, the issue is in `loadProperties()` where `location.getFilename()` is called and can throw `IllegalStateException` for non-file-based resources (like `ByteArrayResource`). The comment in the code already mentions SPR-7552, but the fix needs to handle the case where `filename` is null after the caught exception \u2014 it should still load the properties as a regular (non-",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java b/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java\nindex e9289eed59..97b37690d4 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/io/support/PropertiesLoaderSupport.java\n+++ b/org.springframework.core/"
+  },
+  {
+    "key": "SPR-7120",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Filter out non-autowire candidates for calls to getBean(Class<?>) ",
+    "sha": "3f06a92b6b5fbd2f92444d10a25332f306dfb499",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.146,
+    "pass": false,
+    "input_tokens": 1978,
+    "output_tokens": 1029,
+    "answer_preview": "Looking at the ticket, I need to modify the `getBean(Class<T> requiredType)` method in `DefaultListableBeanFactory` to filter out non-autowire candidates when multiple beans of the same type are found.\n\nLet me identify the relevant section. The `getBean(Class<?> requiredType)` method calls `getBeanNamesForType` and then checks for ambiguity. The fix should filter out beans that are not autowire ca",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\nindex 9feecbc4ed..70b0063704 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\n+"
+  },
+  {
+    "key": "SPR-7068",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "A potential unresolved compilation problem",
+    "sha": "ecda2aee4a4fdcf1877c17647a61de713bfd0aaf",
+    "files": [
+      "org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.178,
+    "pass": true,
+    "input_tokens": 2406,
+    "output_tokens": 1149,
+    "answer_preview": "Looking at the ticket, the issue is that `expression` and `argNames` are declared as `final` fields but never initialized in the constructor of `AspectJAnnotation`. The fix requires initializing these fields in the constructor by extracting the values from the annotation.\n\nLet me analyze what the constructor should do \u2014 it needs to extract `expression` and `argNames` from the various AspectJ annot",
+    "gt_diff_preview": "diff --git a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java b/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory.java\nindex a22602396b..cb09937a39 100644\n--- a/org.springframework.aop/src/main/java/org/springframework/aop/aspectj/annotation/AbstractAspectJAdvisorFactory."
+  },
+  {
+    "key": "SPR-5746",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Allow XStreamMarshaller subclasses to customise XStream object",
+    "sha": "9cbc1d502d0c0ead391ffd65bf1cbd812ed53654",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.288,
+    "pass": true,
+    "input_tokens": 2155,
+    "output_tokens": 1165,
+    "answer_preview": "Looking at the ticket, the fix is straightforward: add a protected `customizeXStream(XStream xstream)` method that subclasses can override, and call it during initialization (via `afterPropertiesSet` or similar lifecycle method).\n\nHere's the minimal fix:\n\n```diff\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java\n+++ b/org.springframework.oxm/src/mai",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java\nindex 81f5b92813..68026ab490 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/xstream/XStreamMarshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/"
+  },
+  {
+    "key": "SPR-9076",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "ServletUriComponentsBuilder should allow normalizing URIs created",
+    "sha": "8530828eb474702673094e719d72d834cb45080f",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.262,
+    "pass": true,
+    "input_tokens": 2005,
+    "output_tokens": 586,
+    "answer_preview": "Looking at the ticket, I need to add a `normalize()` method to `UriComponents` that normalizes the path (resolving `.` and `..` segments).\n\nHere's the fix \u2014 adding a `normalize()` method to `UriComponents.java`:\n\n```diff\n--- a/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java\n+++ b/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java b/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java\nindex a5b4ec74b9..6123223e79 100644\n--- a/org.springframework.web/src/main/java/org/springframework/web/util/UriComponents.java\n+++ b/org.springframework.web/src/main/java/org/springframework/web/util/UriComponent"
+  },
+  {
+    "key": "SPR-7199",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "AbstractJdbcInsert failes with SqlLobValue type parameters",
+    "sha": "d22a6f9da984202335d12fb150934dffce80c1e6",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.055,
+    "pass": false,
+    "input_tokens": 2052,
+    "output_tokens": 499,
+    "answer_preview": "Looking at the bug, the condition in `setParameterValues()` is inverted. When `colIndex < columnTypes.length`, it means we're within the bounds of the `columnTypes` array and **should** use the type from `columnTypes`, not `TYPE_UNKNOWN`. The current code does the opposite.\n\nHere's the fix:\n\n```diff\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInser",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java\nindex 8c7e1db428..aef3a3a962 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/core/simple/AbstractJdbcInsert.java\n+++ b/org.springframework.jdbc/src/main/jav"
+  },
+  {
+    "key": "SPR-6390",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "AbstractJasperReportsView doc is out of date",
+    "sha": "856fefeaad8be5c456c1c517252c86408e5f9bf2",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.193,
+    "pass": true,
+    "input_tokens": 2157,
+    "output_tokens": 1111,
+    "answer_preview": "Looking at the ticket, the issue is that `getReportData` javadoc claims it checks for a model object under the specified \"reportDataKey\" first, but it actually doesn't \u2014 that lookup happens in `fillReport`. I need to find the relevant javadoc comments and fix them.\n\nBased on the description, the fix is purely a javadoc correction. Let me identify the methods that need updated documentation:\n\n1. `g",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasperreports/AbstractJasperReportsView.java\nindex f95a308cdb..8cab5f293d 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/jasp"
+  },
+  {
+    "key": "SPR-7112",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "SelectTag fails when items is an Enumeration",
+    "sha": "399b388ea5f294c22f7b93e5e4713f9b85c626f7",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.12,
+    "pass": false,
+    "input_tokens": 2349,
+    "output_tokens": 374,
+    "answer_preview": "Looking at the bug, the condition `this.optionSource.getClass().isEnum()` checks if the runtime class of `optionSource` (which is `java.lang.Class`) is an enum, rather than checking if the `Class` object itself represents an enum type.\n\nThe fix is straightforward:\n\n```diff\n--- a/OptionWriter.java\n+++ b/OptionWriter.java\n@@ -135,7 +135,7 @@ class OptionWriter {\n \t\telse if (this.optionSource instanc",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java\nindex 0284d86ca3..41eb9296db 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/form/OptionWriter.java\n+++ b/org.springframework"
+  },
+  {
+    "key": "SPR-6230",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "[spel] performance for property access is less than ideal",
+    "sha": "c9057fd1daae0d01e1e5072e09ae15e1d93630ab",
+    "files": [
+      "org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/Expression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/ExpressionException.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/PropertyAccessor.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/TypedValue.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/common/CompositeStringExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/common/LiteralExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ExpressionState.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/SpelExpression.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/Indexer.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/MethodReference.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/Projection.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/ast/PropertyOrFieldReference.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/support/ReflectivePropertyResolver.java",
+      "org.springframework.expression/src/main/java/org/springframework/expression/spel/support/StandardEvaluationContext.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.235,
+    "pass": true,
+    "input_tokens": 3380,
+    "output_tokens": 1479,
+    "answer_preview": "Looking at the ticket SPR-6230, there are two issues:\n\n1. Users creating multiple `StandardEvaluationContext` objects just to switch the root object (the API should support evaluating with a different root object without a full context)\n2. The reflective property resolver doing more cache lookups than needed\n\nThe fix for issue #1 is to add `getValue`/`setValue`/etc. methods to the `Expression` int",
+    "gt_diff_preview": "diff --git a/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java b/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\nindex 9930e2131f..80f2819741 100644\n--- a/org.springframework.expression/src/main/java/org/springframework/expression/EvaluationContext.java\n+++ b/org.springframework.expression/src/main/"
+  },
+  {
+    "key": "SPR-6923",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "SpEL resolving nested property as outer object",
+    "sha": "50c55937404d1ece094dec6ccb5a89f5d3cc567e",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.122,
+    "pass": false,
+    "input_tokens": 2283,
+    "output_tokens": 472,
+    "answer_preview": "Looking at the bug, the issue is in `JspPropertyAccessor.canRead()`. It returns `true` for any target object as long as the attribute name exists in the page context. This means when SpEL tries to resolve `resource.resource.server`, after getting the first `resource` (a `ResourceSummary`), it then tries to find `resource` on that object. The `canRead` method incorrectly says \"yes, I can read `reso",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\nindex 3a083c7516..f6a22896cf 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/tags/EvalTag.java\n+++ b/org.springframework.web.servlet/src/main/java/org"
+  },
+  {
+    "key": "SPR-16483",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Supports ConversionService on SingleColumnRowMapper",
+    "sha": "8c623c8a429afe83d3d6fed008eec0a9a45d29e2",
+    "files": [
+      "spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.317,
+    "pass": true,
+    "input_tokens": 2506,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the issue, `SingleColumnRowMapper` needs to support `ConversionService` like `BeanPropertyRowMapper` does. The fix involves:\n\n1. Adding a `ConversionService` field\n2. Adding constructors/setters for it\n3. Using it in `convertValueToRequiredType` when standard conversion fails\n\nHere's the unified diff:\n\n```diff\n--- a/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRow",
+    "gt_diff_preview": "diff --git a/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java b/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\nindex 2b6b66a74b..510fa9d71c 100644\n--- a/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\n+++ b/spring-jdbc/src/main/java/org/springframework/jdbc/core/SingleColumnRowMapper.java\n@@ -1"
+  },
+  {
+    "key": "SPR-7360",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "JmsResourceHolder.commit should not ignores IllegalStateException",
+    "sha": "d1d5e2d52ac732d05c5277b3337fe05b9d0cc712",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.047,
+    "pass": false,
+    "input_tokens": 2150,
+    "output_tokens": 389,
+    "answer_preview": "Looking at the ticket, the issue is that `commitAll()` silently ignores `javax.jms.IllegalStateException`, but this exception can also be thrown when a session is closed (e.g., when the JMS broker goes down). Only `TransactionInProgressException` should be silently ignored (it's a subclass of `IllegalStateException` specific to JTA scenarios), not all `IllegalStateException`s.\n\nHere's the fix:\n\n``",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java b/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java\nindex e9335a38cd..1a96d900e2 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/connection/JmsResourceHolder.java\n+++ b/org.springframework.jms/src/main/java/org/springf"
+  },
+  {
+    "key": "SPR-6765",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "LinkedMultiValueMap should implement Serializable",
+    "sha": "0968e9fbd063c3200586e2454322f2ede6cc7ee8",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.385,
+    "pass": true,
+    "input_tokens": 1547,
+    "output_tokens": 278,
+    "answer_preview": "Here is the minimal fix:\n\n```diff\n--- a/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\n+++ b/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\n@@ -17,6 +17,7 @@\n package org.springframework.util;\n \n+import java.io.Serializable;\n import java.util.Collection;\n import java.util.LinkedHashMap;\n import java.util.LinkedList",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java b/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\nindex 28b3c7ac08..730047f7d1 100644\n--- a/org.springframework.core/src/main/java/org/springframework/util/LinkedMultiValueMap.java\n+++ b/org.springframework.core/src/main/java/org/springframework/util/Linked"
+  },
+  {
+    "key": "SPR-7384",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Cron expressions use months based at 0-11 (should be 1-12)",
+    "sha": "e26fc66523c22b43b636c2833dc1ad7fef6f35af",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.145,
+    "pass": false,
+    "input_tokens": 2213,
+    "output_tokens": 1237,
+    "answer_preview": "Looking at the bug: months in `java.util.Calendar` are 0-based (0-11), but cron expressions should use 1-12. The `BitSet months` is sized 12 but needs to be 13, and when reading/comparing the month from Calendar, we need to account for the offset.\n\nThe fix needs to:\n1. Size the months BitSet to 13 (to hold values 1-12)\n2. When getting the current month from Calendar (which returns 0-11), add 1 bef",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java b/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java\nindex c3e8e2035f..f1c1ce9eb5 100644\n--- a/org.springframework.context/src/main/java/org/springframework/scheduling/support/CronSequenceGenerator.java\n+++ b/org.springfra"
+  },
+  {
+    "key": "SPR-7118",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Refactor InternalResourceView to expose getRequestDispatcher for overriding",
+    "sha": "101a5cd8ff6cd307cfcff08db31c62ae8e9b0082",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.355,
+    "pass": true,
+    "input_tokens": 2034,
+    "output_tokens": 817,
+    "answer_preview": "Looking at the ticket, I need to refactor `InternalResourceView` to extract the `RequestDispatcher` retrieval logic into a protected `getRequestDispatcher` method.\n\nLet me find the relevant section in `renderMergedOutputModel` where `RequestDispatcher` is obtained and extract it into a new protected method.\n\nHere's the fix as a unified diff:\n\n```diff\n--- a/org/springframework/web/servlet/view/Inte",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java\nindex 3a84342a1a..36f0af33ae 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/InternalResourceView.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-6779",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "imported @Configuration classes do not get enhanced and fail to satisfy scoping requirements",
+    "sha": "fbd797e50b2f1c5b0dfef944ee218d826f1a0694",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java",
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassPostProcessor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.162,
+    "pass": true,
+    "input_tokens": 5718,
+    "output_tokens": 1108,
+    "answer_preview": "Looking at the issue, the problem is in `ConfigurationClassBeanDefinitionReader.doLoadBeanDefinitionForConfigurationClass()`. When an imported `@Configuration` class is registered, it's registered as a plain `GenericBeanDefinition` without being marked as a full configuration class candidate that would later get enhanced by `ConfigurationClassPostProcessor`.\n\nThe key is that `ConfigurationClassPos",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.java\nindex 70669481ad..ccd66d6534 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuratio"
+  },
+  {
+    "key": "SPR-6552",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "DataBinder.setRequiredFields is broken",
+    "sha": "86475593bbb7e660e0e34f8fd119a95c4581a35b",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.061,
+    "pass": false,
+    "input_tokens": 2359,
+    "output_tokens": 886,
+    "answer_preview": "Looking at the ticket, `DataBinder.setRequiredFields` is broken in Spring 3.0. The issue is in how required fields are checked after binding. Let me analyze the `checkRequiredFields` method in `DataBinder.java`.\n\nThe bug is that when checking required fields, the code needs to check if a field was actually present in the submitted values. In Spring 3.0, with the new type conversion infrastructure,",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java b/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java\nindex b5d13ef184..dbc25972df 100644\n--- a/org.springframework.context/src/main/java/org/springframework/validation/DataBinder.java\n+++ b/org.springframework.context/src/main/java/org/springframework/validati"
+  },
+  {
+    "key": "SPR-7695",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add ETag version of WebRequest.checkNotModified()",
+    "sha": "7cc3f49910b6ed281f1aee0851e603dfa96ed48a",
+    "files": [
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/FacesWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/ServletWebRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/request/WebRequest.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.274,
+    "pass": true,
+    "input_tokens": 4984,
+    "output_tokens": 1267,
+    "answer_preview": "Looking at the ticket, I need to add a `checkNotModified(String etag)` method to the `WebRequest` interface and its implementations.\n\nLet me provide the fixes:\n\n### 1. WebRequest interface (add new method)\n\n```diff\n--- a/org.springframework.web/src/main/java/org/springframework/web/context/request/WebRequest.java\n+++ b/org.springframework.web/src/main/java/org/springframework/web/context/request/W",
+    "gt_diff_preview": "diff --git a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java b/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java\nindex 9be71736c4..3eedfb651b 100644\n--- a/org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/context/PortletWebRequest.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-6668",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Small Connection leak in DataSourceInitializer",
+    "sha": "e4d8651aa94cf8611b4096ae37bfa7b5953d0e84",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.198,
+    "pass": true,
+    "input_tokens": 836,
+    "output_tokens": 473,
+    "answer_preview": "Looking at the code, the connection leak is clear: `dataSource.getConnection()` is called and the `Connection` is passed to `databasePopulator.populate()`, but the connection is never closed if an exception occurs (or even in the normal case, depending on what `populate()` does).\n\nThe fix is to obtain the connection, use it, and ensure it's closed in a `finally` block.\n\n```diff\n--- a/org.springfra",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java\nindex f90d32a155..e927847826 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/datasource/init/DataSourceInitializer.java\n+++ b/org.springframew"
+  },
+  {
+    "key": "SPR-6742",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "FormattingConversionServiceFactoryBean.setConverters declares Set<Object> ParameterizedType restricting programmatic usage",
+    "sha": "6fcca3cd939af78b83bc80cd295996df2d198b81",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java",
+      "org.springframework.context/src/main/java/org/springframework/format/support/FormattingConversionServiceFactoryBean.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ConversionServiceFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.367,
+    "pass": true,
+    "input_tokens": 3759,
+    "output_tokens": 228,
+    "answer_preview": "Here are the minimal changes needed to fix the wildcard type declarations:\n\n**ConversionServiceFactory.java:**\n```diff\n-\tpublic static void registerConverters(Set<Object> converters, ConverterRegistry registry) {\n+\tpublic static void registerConverters(Set<?> converters, ConverterRegistry registry) {\n```\n\n**ConversionServiceFactoryBean.java:**\n```diff\n-\tprivate Set<Object> converters;\n+\tprivate Se",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java b/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java\nindex cc01b73f6e..4afbb314e8 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/support/ConversionServiceFactoryBean.java\n+++ b/o"
+  },
+  {
+    "key": "SPR-6975",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "JPA 2.0 support not enabled for OpenJPA (and others?)",
+    "sha": "7da13e7ad1867b8ccf7947671cfb3e090654aa85",
+    "files": [
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.178,
+    "pass": true,
+    "input_tokens": 1983,
+    "output_tokens": 1106,
+    "answer_preview": "Looking at the bug, the `parseDocument` method reads persistence unit elements but never extracts the `version` attribute from the root `<persistence>` element and sets it on the `SpringPersistenceUnitInfo` instances.\n\nHere's the fix:\n\n```diff\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java\n+++ b/org.springframework.orm/src/main/ja",
+    "gt_diff_preview": "diff --git a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java b/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java\nindex 4862d97808..f8d474ea18 100644\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java\n+++ b/org.spring"
+  },
+  {
+    "key": "SPR-8892",
+    "tier": "Assist",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add String constants to MediaType for use in @RequestMapping consumes and produces conditions",
+    "sha": "4bfcb79ae35320b55cfe8f8a985d229d6c2c9265",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/MediaType.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.589,
+    "pass": true,
+    "input_tokens": 2200,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, I need to add String value constants for each existing MediaType constant, following the pattern `APPLICATION_JSON_VALUE = \"application/json\"`, and update the MediaType instances to use `valueOf(APPLICATION_JSON_VALUE)`.\n\nHere's the minimal fix:\n\n```diff\n--- a/org/springframework/http/MediaType.java\n+++ b/org/springframework/http/MediaType.java\n@@ -50,54 +50,110 @@ public cl",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex 0a594e3f14..29f77a493e 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -7,6 +7,7 @@ Changes in version 3.1 GA (2011-12-12)\n --------------------------------------\n \n * fixed QuartzJobBean to work with Quartz 2.0/2.1 a"
+  },
+  {
+    "key": "SPR-6408",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add full support for JPA 2.0 PersistenceUnitInfo",
+    "sha": "0ba83755467dabdc6c133d663ece66815407913d",
+    "files": [
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/DefaultPersistenceUnitManager.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/MutablePersistenceUnitInfo.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/PersistenceUnitReader.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/SmartPersistenceUnitInfo.java",
+      "org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/SpringPersistenceUnitInfo.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.165,
+    "pass": true,
+    "input_tokens": 5640,
+    "output_tokens": 854,
+    "answer_preview": "Looking at the ticket, I need to add the three JPA 2.0 methods to `MutablePersistenceUnitInfo`: `getPersistenceXMLSchemaVersion()`, `getSharedCacheMode()`, and `getValidationMode()`, along with their setters for mutability.\n\n```diff\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/persistenceunit/MutablePersistenceUnitInfo.java\n+++ b/org.springframework.orm/src/main/java/org",
+    "gt_diff_preview": "diff --git a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java b/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java\nindex 62a5734e63..6f6fd9219d 100644\n--- a/org.springframework.orm/src/main/java/org/springframework/orm/jpa/LocalContainerEntityManagerFactoryBean.java\n+++ b/org.spr"
+  },
+  {
+    "key": "SPR-6240",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add namespace support for ErrorHandler on MessageListener containers",
+    "sha": "0400b68afbbacc6229a25c6b278cc8cb23be6dc3",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.174,
+    "pass": true,
+    "input_tokens": 1889,
+    "output_tokens": 968,
+    "answer_preview": "Looking at the ticket, I need to add support for an `error-handler` attribute on the `<listener-container/>` element.\n\nHere's the minimal fix:\n\n```diff\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\n+++ b/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\n@@ -40,6 +40,8 @@ class JmsListene",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java b/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\nindex c6f6bf2df4..bd052175e9 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java\n+++ b/org.springframework.jms/src/main/j"
+  },
+  {
+    "key": "SPR-7863",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Poor multithread performance in AbstractAutowireCapableBeanFactory.filterPropertyDescriptorsForDependencyCheck method",
+    "sha": "a9f28575b13d8adf1f7bab92f84c96ad471f7159",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.212,
+    "pass": true,
+    "input_tokens": 2109,
+    "output_tokens": 999,
+    "answer_preview": "Looking at the ticket, the issue is that `filterPropertyDescriptorsForDependencyCheck` uses a `ConcurrentHashMap` but with improper locking \u2014 it checks for existence and puts separately, causing redundant work in multithreaded scenarios. The fix should use `ConcurrentHashMap` with a check-then-act pattern properly, or switch to synchronizing on the cache map itself as suggested.\n\nLet me look at th",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java\nindex efe8e7a21b..e53e5cf504 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractAutowireC"
+  },
+  {
+    "key": "SPR-6998",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Provide mechanism for injecting a Serializable Provider<T> or ObjectFactory<T> via XML",
+    "sha": "16eb915c95cebe263fd3b33c99d493fd9fb84e1d",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ProviderCreatingFactoryBean.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.467,
+    "pass": true,
+    "input_tokens": 1960,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, I need to:\n\n1. Make `ObjectFactoryCreatingFactoryBean` return a **serializable** `ObjectFactory`\n2. Create a new `ProviderCreatingFactoryBean` that returns a serializable `javax.inject.Provider<T>`\n\nHere are the fixes:\n\n### Fix 1: `ObjectFactoryCreatingFactoryBean.java`\n\n```diff\n--- a/ObjectFactoryCreatingFactoryBean.java\n+++ b/ObjectFactoryCreatingFactoryBean.java\n@@ -17,8 ",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFactoryBean.java\nindex 2a682a6755..ef479927dc 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/config/ObjectFactoryCreatingFac"
+  },
+  {
+    "key": "SPR-6373",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Support for validation groups in @Valid used by spring MVC",
+    "sha": "00133179df27fc8b2c8c3b5d9377985279122691",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.186,
+    "pass": true,
+    "input_tokens": 1863,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, I need to support validation groups specified via a `@Validated` annotation (since `@Valid` from JSR-303 doesn't support a `groups` attribute, Spring introduced `@org.springframework.validation.annotation.Validated` for this purpose).\n\nThe key change is in `isValidationApplicable` and the `resolveArgument` method \u2014 we need to detect validation groups from an annotation and p",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java b/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttributeMethodProcessor.java\nindex da90c809ad..25fd19968b 100644\n--- a/org.springframework.web/src/main/java/org/springframework/web/method/annotation/support/ModelAttr"
+  },
+  {
+    "key": "SPR-5682",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Provide dedicated ApplicationContext implementations for use with (JavaConfig) @Configuration classes",
+    "sha": "cbadf350e1a378eeb6a0a90e14afd5e3df7657e7",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java",
+      "org.springframework.web/src/main/java/org/springframework/web/context/support/ConfigurationClassWebApplicationContext.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.345,
+    "pass": true,
+    "input_tokens": 3613,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, the task is to provide dedicated ApplicationContext implementations for use with `@Configuration` classes. The existing code has several issues that need to be fixed:\n\n1. `ConfigurationClassApplicationContext` uses a manual `new ConfigurationClassPostProcessor()` instead of relying on the registered processors\n2. Both classes use `new DefaultBeanNameGenerator()` instantiatio",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationClassApplicationContext.java\nindex 01d68da30c..ab1cd69334 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/ConfigurationCla"
+  },
+  {
+    "key": "SPR-7505",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "JaxWsPortClientInterceptor gets an incorrect PortName",
+    "sha": "66a5bb7c22ad08c892b9f43f83cb3d7b326159cf",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.0,
+    "pass": false,
+    "input_tokens": 2491,
+    "output_tokens": 978,
+    "answer_preview": "Looking at the issue, the problem is in `JaxWsPortClientInterceptor` where it incorrectly derives the port name from `@WebService` annotation (via SPR-7412 fix). The port name should not be assumed from the service name annotation since a service can have multiple ports.\n\nLet me find the relevant code section. The issue is in the `getPortName()` or the port QName construction logic where it falls ",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java b/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\nindex 0a1ba6930e..f1d76fdb75 100644\n--- a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-5766",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "@ResponseBody",
+    "sha": "6cb7f2cfc8332da7823c3781604ae7e028e0af61",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/ResponseBody.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.311,
+    "pass": true,
+    "input_tokens": 2254,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at this ticket, I need to:\n\n1. Create the `@ResponseBody` annotation\n2. Update `HandlerMethodInvoker` to handle `@ResponseBody` on handler methods by writing the return value using `HttpMessageConverter`\n\nLet me analyze the existing `@RequestBody` handling in `HandlerMethodInvoker` to understand the pattern, then implement the symmetric `@ResponseBody` support.\n\nHere are the changes:\n\n---\n",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java\nindex 540540fa8c..ebf36beab6 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/bind/annotation/RequestBody.java\n+++ b/org.springframework.web.serv"
+  },
+  {
+    "key": "SPR-5745",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Support lazy initialization within Jaxb2 OXM classes",
+    "sha": "58d3e704bff9a5aa28e364608f2341b61fca74c7",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.363,
+    "pass": true,
+    "input_tokens": 2141,
+    "output_tokens": 1312,
+    "answer_preview": "Looking at the ticket, I need to add lazy initialization support to `Jaxb2Marshaller` so the `JAXBContext` is created on first use rather than during `afterPropertiesSet()`.\n\nThe key changes needed:\n1. Add a `lazyInit` flag\n2. Move JAXBContext creation to a lazy-init method that's called before first use\n3. Ensure thread safety with synchronization\n\nHere's the minimal fix:\n\n```diff\n--- a/org.sprin",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex 59c69c3338..fb5669111c 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-7117",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add ability for CNVR to search view names that use file extensions",
+    "sha": "c1f18582e7412fd9fe08c23fd172fe840df4f7e2",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.263,
+    "pass": true,
+    "input_tokens": 1986,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, I need to add functionality to `ContentNegotiatingViewResolver` so that when resolving views, it also tries appending file extensions to the view name (e.g., \"view.xls\", \"view.pdf\") based on the requested media types.\n\nLet me analyze the existing code and provide the fix:\n\n```diff\n--- a/ContentNegotiatingViewResolver.java\n+++ b/ContentNegotiatingViewResolver.java\n@@ -20,6 +2",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingViewResolver.java\nindex 72facd21e9..1146a7ea48 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/ContentNegotiatingView"
+  },
+  {
+    "key": "SPR-5871",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "\"primary\" bean definitions in child context should take preference over those in parent context",
+    "sha": "634d4b4d4c263f6a734fed142fa15ca48acb9262",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.122,
+    "pass": false,
+    "input_tokens": 1963,
+    "output_tokens": 1321,
+    "answer_preview": "Looking at the issue, the problem is in the `determinePrimaryCandidate` method in `DefaultListableBeanFactory`. When resolving primary beans, it doesn't distinguish between beans defined in the current (child) context versus those inherited from a parent context. A primary bean in the child context should take precedence over a primary bean in the parent context.\n\nLet me trace through the relevant",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\nindex e5869b0e1c..52211c2fd2 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java\n+"
+  },
+  {
+    "key": "SPR-7931",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Checking for @XmlRootElement annotation should be made optional in Jaxb2Marshaller ",
+    "sha": "01d2082090fa59dfadff6bf092f99a4cd37f82f6",
+    "files": [
+      "org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.193,
+    "pass": true,
+    "input_tokens": 2359,
+    "output_tokens": 1378,
+    "answer_preview": "Looking at the ticket, the fix needs to:\n1. Add a `checkForXmlRootElement` boolean property (default `true` for backward compatibility)\n2. Use this property in `supportsInternal` to optionally skip the `@XmlRootElement` check\n\nLet me trace through the relevant parts of the code to write the minimal fix:\n\n```diff\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshall",
+    "gt_diff_preview": "diff --git a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\nindex 890ce18c67..2d23572100 100644\n--- a/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2Marshaller.java\n+++ b/org.springframework.oxm/src/main/java/org/springframework/oxm/jaxb/Jaxb2M"
+  },
+  {
+    "key": "SPR-8828",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Using DataBinder with an auto-growing list is broken",
+    "sha": "569426dfdfec186e98a6ae4bd8ebf946720206b1",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/GenericTypeAwarePropertyDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/AbstractDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/BeanPropertyDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/FieldDescriptor.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/Property.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/TypeDescriptor.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.174,
+    "pass": true,
+    "input_tokens": 4966,
+    "output_tokens": 1105,
+    "answer_preview": "Looking at the bug description, there are two issues:\n\n1. **3.0.6 bug**: In `BeanWrapperImpl`, the list size is captured before `convertIfNecessary` is called. If `convertIfNecessary` causes the auto-growing list to grow (via a `get()` call), the stale `size` variable causes `list.add()` to be used instead of `list.set()`, writing to the wrong index.\n\n2. **3.1 bug**: In `AbstractDescriptor.nested(",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\nindex 5dfd2b5b6f..b57cada675 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n+++ b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrappe"
+  },
+  {
+    "key": "SPR-9016",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Provide property in RedirectView to disable treating the redirect URL as a URI template",
+    "sha": "21966990c89a51fbcc36a778682b021d983aabd8",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/RedirectView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.219,
+    "pass": true,
+    "input_tokens": 2035,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, the issue is that `RedirectView` processes the entire URL (including the fragment/anchor `#...` part) as a URI template, which breaks when the fragment contains JSON with `{` and `}` characters.\n\nThe fix should:\n1. Add a property `expandUriTemplateVariables` to allow disabling URI template expansion entirely\n2. Also fix the URI template expansion to ignore the fragment porti",
+    "gt_diff_preview": "diff --git a/build-spring-framework/resources/changelog.txt b/build-spring-framework/resources/changelog.txt\nindex eff2824e93..ce2299703b 100644\n--- a/build-spring-framework/resources/changelog.txt\n+++ b/build-spring-framework/resources/changelog.txt\n@@ -27,6 +27,7 @@ Changes in version 3.1.1 (2012-02-06)\n * allow adding flash attributes in methods with a ModelAndView return value\n * preserve quot"
+  },
+  {
+    "key": "SPR-5596",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Test @Autowired @Configuration class constructors",
+    "sha": "aee7f1ce530b60dd61d3840d3a54409620655748",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.161,
+    "pass": true,
+    "input_tokens": 833,
+    "output_tokens": 1130,
+    "answer_preview": "Looking at this ticket, I need to add tests that verify `@Autowired` constructors work in `@Configuration` classes. The ticket says the documentation advertises this feature - we need to verify it with tests.\n\nLet me create the test file:\n\n```java\n--- /dev/null\n+++ org.springframework.context/src/test/java/org/springframework/context/annotation/ConfigurationClassWithAutowiredConstructorTests.java\n",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java b/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java\nindex 84d406592f..33e79acbae 100644\n--- a/org.springframework.context/src/main/java/org/springframework/context/annotation/Configuration.java\n+++ b/org.springframework.context/src/main/"
+  },
+  {
+    "key": "SPR-7971",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Cache KeyGenerator.extract() should allow to use the bean identity",
+    "sha": "5c3ceb8ef0b0a400e46616f210be1505aeed7c22",
+    "files": [
+      "org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java",
+      "org.springframework.context/src/main/java/org/springframework/cache/interceptor/CacheAspectSupport.java",
+      "org.springframework.context/src/main/java/org/springframework/cache/support/DefaultKeyGenerator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.102,
+    "pass": false,
+    "input_tokens": 2711,
+    "output_tokens": 777,
+    "answer_preview": "Looking at the ticket, the fix requires adding the target object (bean instance) and its class to the `KeyGenerator.extract()` method signature, so implementations can use the bean identity when generating cache keys.\n\nHere are the changes:\n\n### 1. KeyGenerator.java\n\n```diff\n--- a/KeyGenerator.java\n+++ b/KeyGenerator.java\n@@ -22,7 +22,11 @@ import java.lang.reflect.Method;\n  * Cache 'key' extracto",
+    "gt_diff_preview": "diff --git a/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java b/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java\nindex ae5dd9b89a..d089dbfa48 100644\n--- a/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerator.java\n+++ b/org.springframework.context/src/main/java/org/springframework/cache/KeyGenerato"
+  },
+  {
+    "key": "SPR-7523",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Registering null singleton results in BNFE on context refresh",
+    "sha": "05a3f3ad8d91e5181ebbbe7f7adcffd41ff5423e",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.107,
+    "pass": false,
+    "input_tokens": 1982,
+    "output_tokens": 898,
+    "answer_preview": "Looking at the issue, I need to find the `isFactoryBean()` method in `AbstractBeanFactory` and fix it to handle the case where `getSingleton()` returns `null` because a null singleton was explicitly registered.\n\nThe fix should check `containsSingleton(beanName)` to distinguish between \"no singleton registered\" and \"null singleton registered\".\n\nHere's the fix:\n\n```diff\n--- a/AbstractBeanFactory.jav",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java b/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java\nindex b764e2efdb..bab5762070 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java\n+++ b/org.springframew"
+  },
+  {
+    "key": "SPR-8809",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "RestTemplate headers not sent when bufferRequestBody is false",
+    "sha": "53cb529162b9382faa5ae345621b40581fdea873",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java",
+      "org.springframework.web/src/main/java/org/springframework/http/client/SimpleStreamingClientHttpRequest.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.268,
+    "pass": true,
+    "input_tokens": 2083,
+    "output_tokens": 814,
+    "answer_preview": "Looking at the bug, when `bufferRequestBody=false`, `SimpleStreamingClientHttpRequest` is used instead of `SimpleBufferingClientHttpRequest`. The headers are only written in `getBodyInternal()` \u2014 but if no body is written (e.g., GET request), `getBodyInternal()` is never called, so headers never get set on the connection. Also, in `executeInternal()`, the headers are not applied if `body` is null.",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java b/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java\nindex 9798293ecf..37008ee8cf 100644\n--- a/org.springframework.web/src/main/java/org/springframework/http/client/InterceptingClientHttpRequest.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-6932",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Support for single value responses using ContentNegotiatingViewResolver",
+    "sha": "386d8fdaa6bde6e1e73dcc2edf2e80e830d27fe5",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.26,
+    "pass": true,
+    "input_tokens": 2167,
+    "output_tokens": 1027,
+    "answer_preview": "Looking at the ticket, the request is to support rendering a single value (without the map key wrapper) when there's only one item in the model. The fix should add a `extractValueFromSingleKeyModel` property to `MappingJacksonJsonView` that, when enabled, extracts the single value from the model map instead of rendering the whole map.\n\nHere's the fix:\n\n```diff\n--- a/MappingJacksonJsonView.java\n+++",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView.java\nindex c06ba11478..c74ea2ba9d 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/view/json/MappingJacksonJsonView."
+  },
+  {
+    "key": "SPR-8605",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "MappingJacksonHttpMessageConverter should have getObjectMapper() method",
+    "sha": "540845e61315f811e87dc96984bcbc036633a987",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.295,
+    "pass": true,
+    "input_tokens": 1986,
+    "output_tokens": 519,
+    "answer_preview": "Looking at the ticket, the fix is simple: add a `getObjectMapper()` method to the class.\n\n```diff\n--- a/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java\n+++ b/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java\n@@ -70,6 +70,14 @@ public class MappingJacksonHttpMess",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java b/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConverter.java\nindex ba1bf128f3..48a3cfd932 100644\n--- a/org.springframework.web/src/main/java/org/springframework/http/converter/json/MappingJacksonHttpMessageConv"
+  },
+  {
+    "key": "SPR-6861",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "enable overwriting of createHttpInputMessage and createHttpOutputMessage in AnnotationMethodHandlerAdapter",
+    "sha": "63dc53a5ea1ab1e38c19f6f10316401c8bcfc333",
+    "files": [
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java",
+      "org.springframework.web/src/main/java/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.342,
+    "pass": true,
+    "input_tokens": 3565,
+    "output_tokens": 1492,
+    "answer_preview": "Looking at the ticket, I need to find where `ServletServerHttpRequest` and `ServletServerHttpResponse` are instantiated in `AnnotationMethodHandlerAdapter` and extract those into overridable protected methods.\n\nLet me analyze the code and provide the fix:\n\n```diff\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java\n",
+    "gt_diff_preview": "diff --git a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java b/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerAdapter.java\nindex fac5088ca2..88f34b6a90 100644\n--- a/org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/ann"
+  },
+  {
+    "key": "SPR-7574",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "PropertyPlaceholderHelper#findPlaceholderEndIndex does not work for custom placeholderPrefix",
+    "sha": "eda6268d9deed787b3b656843ed5fad02c7b15f1",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.05,
+    "pass": false,
+    "input_tokens": 2017,
+    "output_tokens": 442,
+    "answer_preview": "Looking at the bug, the `findPlaceholderEndIndex` method incorrectly advances the index when it finds a nested prefix. It uses `this.placeholderPrefix.length() - 1` instead of `this.placeholderSuffix.length()`.\n\nThe comment in the ticket explains it: with default `${` (length 2) and `}` (length 1), `prefix.length() - 1 = 1` which accidentally equals `suffix.length() = 1`. But with any other combin",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java b/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java\nindex 9ec877213f..4b1b2c37b1 100644\n--- a/org.springframework.core/src/main/java/org/springframework/util/PropertyPlaceholderHelper.java\n+++ b/org.springframework.core/src/main/java/org/springfra"
+  },
+  {
+    "key": "SPR-6232",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Property Placeholder does not work for \"concurrency\" attribute for the jms namespace",
+    "sha": "0cc0a9bc2b07e95ccf73adebc36caa65d8b3e90d",
+    "files": [
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JcaListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/config/JmsListenerContainerParser.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/DefaultMessageListenerContainer.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/SimpleMessageListenerContainer.java",
+      "org.springframework.jms/src/main/java/org/springframework/jms/listener/endpoint/JmsActivationSpecConfig.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.204,
+    "pass": true,
+    "input_tokens": 5096,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the issue, the `concurrency` attribute value like `${concurrent.consumers}` needs to support property placeholders. The problem is in `AbstractListenerContainerParser.parseConcurrency()` method which tries to parse the concurrency value as integers directly, without supporting placeholder strings.\n\nI need to see how `parseConcurrency` works and fix it to handle placeholder values by pas",
+    "gt_diff_preview": "diff --git a/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java b/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java\nindex 566cccb5b8..7b470f949d 100644\n--- a/org.springframework.jms/src/main/java/org/springframework/jms/config/AbstractListenerContainerParser.java\n+++ b/org.springframework"
+  },
+  {
+    "key": "SPR-5732",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "When no type conversion strategy is found on a @Controller handler method bind target, a 500 error code should be returned not a 400.",
+    "sha": "bf7a947559d8f9918cc738780bf04caf8ea46962",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/ConversionNotSupportedException.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/DirectFieldAccessor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/SimpleTypeConverter.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/TypeConverterDelegate.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.43,
+    "pass": true,
+    "input_tokens": 3535,
+    "output_tokens": 1403,
+    "answer_preview": "Looking at the ticket, the issue is that when no type converter is found (a programmer error), a `ConversionNotSupportedException` should be thrown (resulting in 500), but instead a `TypeMismatchException` is thrown (resulting in 400).\n\nI need to:\n1. Create `ConversionNotSupportedException` as a subclass of `TypeMismatchException` that signals a server-side error\n2. Throw it from `BeanWrapperImpl`",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\nindex 0f169da8b7..e8a9ef385f 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrapperImpl.java\n+++ b/org.springframework.beans/src/main/java/org/springframework/beans/BeanWrappe"
+  },
+  {
+    "key": "SPR-7099",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Constructor resolution uses InputSource instead of URL argument for DBUnit FlatXmlDataSet",
+    "sha": "b28310b05110edcf81cba09247a2f138464d28c6",
+    "files": [
+      "org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputSourceEditor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/propertyeditors/InputStreamEditor.java",
+      "org.springframework.beans/src/main/java/org/springframework/beans/support/ResourceEditorRegistrar.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.637,
+    "pass": true,
+    "input_tokens": 3131,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at this issue, the problem is that Spring 3.x is resolving the constructor argument `classpath:...` to an `InputSource` instead of a `URL` when calling `FlatXmlDataSet`'s constructor. The `FlatXmlDataSet` has constructors taking `URL`, `File`, `InputStream`, and `InputSource`. Spring is picking `InputSource` but then the classpath URL can't be resolved by Xerces.\n\nThe fix is to add an `Inp",
+    "gt_diff_preview": "diff --git a/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java b/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java\nindex 669806bbef..0735f2003c 100644\n--- a/org.springframework.beans/src/main/java/org/springframework/beans/PropertyEditorRegistrySupport.java\n+++ b/org.springframework.beans/src/main"
+  },
+  {
+    "key": "SPR-8231",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "ExceptionDepthComparator handle comparison of exact object is incorrect",
+    "sha": "3edf8566ed35fc284e5181127a1cc21f7e0c460f",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.08,
+    "pass": false,
+    "input_tokens": 1507,
+    "output_tokens": 474,
+    "answer_preview": "Looking at the bug: when `declaredException` is not in the hierarchy of `exceptionToMatch`, the method returns `-1`. Since the comparator does `depth1 - depth2`, a `-1` depth (no match) incorrectly sorts *before* a valid depth of `0` (exact match), which is wrong.\n\nThe fix is to return a large integer (indicating \"very far away\" / no match) instead of `-1`:\n\n```diff\n--- a/org/springframework/core/",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\nindex 2b8bff535e..c856b86a03 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\n+++ b/org.springframework.core/src/main/java/org/springframew"
+  },
+  {
+    "key": "SPR-7085",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "AnnotationMethodHandlerExceptionResolver incorrectly resolving exceptions",
+    "sha": "33252495cfea895f61aef38c56b59a660ef5ae75",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java",
+      "org.springframework.web.portlet/src/main/java/org/springframework/web/portlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java",
+      "org.springframework.web.servlet/src/main/java/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.176,
+    "pass": true,
+    "input_tokens": 4058,
+    "output_tokens": 1037,
+    "answer_preview": "Looking at the bug, the `DepthComparator` returns `-1` when the exception type is not found in the hierarchy, but `-1` is also a valid depth value, causing incorrect comparisons. The fix is to return `Integer.MAX_VALUE` (or a large number) when not found, so that non-matching handlers are sorted last rather than being treated as equal or better matches.\n\nHere's the fix for both servlet and portlet",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\nnew file mode 100644\nindex 0000000000..2b8bff535e\n--- /dev/null\n+++ b/org.springframework.core/src/main/java/org/springframework/core/ExceptionDepthComparator.java\n@@ -0,0 +1,96 @@\n+/*\n+ * Copyrigh"
+  },
+  {
+    "key": "SPR-5712",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Add support for WebServiceFeature's to JaxWsPortProxyFactoryBean",
+    "sha": "4955a7304787ece2e53094f0633a56ffaa0da23c",
+    "files": [
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java",
+      "org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortProxyFactoryBean.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.187,
+    "pass": true,
+    "input_tokens": 2996,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, I need to add support for `WebServiceFeature` parameters when calling `Service.getPort(...)` in `JaxWsPortClientInterceptor`.\n\nLet me analyze the truncated source file and provide the fix:\n\n**Fix for `JaxWsPortClientInterceptor.java`** \u2014 add a `webServiceFeatures` field, its getter/setter, and use it in `getPortStub()`:\n\n```diff\n--- a/JaxWsPortClientInterceptor.java\n+++ b/Ja",
+    "gt_diff_preview": "diff --git a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java b/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\nindex 51b39b3dad..60039cb431 100644\n--- a/org.springframework.web/src/main/java/org/springframework/remoting/jaxws/JaxWsPortClientInterceptor.java\n+++ b/org.springframework.we"
+  },
+  {
+    "key": "SPR-8306",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "ConversionServiceFactory.addDefaultConverters() should add symetric converters",
+    "sha": "e25fbf2533a809c7c4eacc59a90169da73ad6c0b",
+    "files": [
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/EnumToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/FallbackObjectToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/GenericConversionService.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ObjectToObjectConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/ObjectToStringConverter.java",
+      "org.springframework.core/src/main/java/org/springframework/core/convert/support/StringToBooleanConverter.java"
+    ],
+    "file_hit": true,
+    "token_overlap": 0.529,
+    "pass": true,
+    "input_tokens": 1303,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at this ticket, I need to:\n\n1. Create an `EnumToStringConverter` (symmetric to `StringToEnumConverterFactory`)\n2. Create a `FallbackObjectToStringConverter` that only acts as fallback\n3. Add converters for `Boolean\u2192String`, `Character\u2192String`, `Locale\u2192String`\n4. Replace `ObjectToStringConverter` with `FallbackObjectToStringConverter`\n\n**EnumToStringConverter.java** (new file):\n\n```java\n---",
+    "gt_diff_preview": "diff --git a/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java b/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java\nindex 466588b608..85d6c4542a 100644\n--- a/org.springframework.core/src/main/java/org/springframework/core/convert/support/DefaultConversionService.java\n+++ b/org.spr"
+  },
+  {
+    "key": "SPR-4899",
+    "tier": "Escalate",
+    "model": "claude-sonnet-4-6",
+    "summary": "Adding hook into SQL State based exception translation",
+    "sha": "9b1edea8a0b2be4244d03c8a7846475054af970b",
+    "files": [
+      "org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java"
+    ],
+    "file_hit": false,
+    "token_overlap": 0.185,
+    "pass": false,
+    "input_tokens": 2250,
+    "output_tokens": 1500,
+    "answer_preview": "Looking at the ticket, the main issue is that `SQLStateSQLExceptionTranslator` has hardcoded SQL state classification logic with no extensibility. I need to see the actual `SQLStateSQLExceptionTranslator` source to provide the fix. Based on the ticket description, I'll provide the fix for that class.\n\nThe fix needs to:\n1. Add support for `TransientDataAccessResourceException`\n2. Make the SQL state",
+    "gt_diff_preview": "diff --git a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java\nindex 5c35899ad3..c7d49126ab 100644\n--- a/org.springframework.jdbc/src/main/java/org/springframework/jdbc/support/SQLErrorCodes.java\n+++ b/org.springframework.jdbc/src/main/java/org/springframework/jdbc/"
+  }
+]
