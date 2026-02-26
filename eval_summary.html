@@ -12,18 +12,27 @@
     background: #f8f9fc;
     color: #1a1d23;
     min-height: 100vh;
-    padding: 32px 20px 80px;
+    padding: 88px 20px 80px;
   }
 
   .page { max-width: 800px; margin: 0 auto; }
 
-  /* ── Header ── */
-  .back-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; color: #6b7280; text-decoration: none;
-    margin-bottom: 24px; transition: color .15s;
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1e1e1e;
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .back-link:hover { color: #6c63ff; }
+  .nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
+  .nav-logo span { color: #7b68ee; }
+  .nav-links { display: flex; gap: 20px; font-size: 13px; flex-wrap: wrap; justify-content: flex-end; }
+  .nav-links a { color: #666; text-decoration: none; transition: color .2s; white-space: nowrap; }
+  .nav-links a:hover { color: #ddd; }
+  .nav-links a.active { color: #7b68ee; }
+  @media (max-width: 600px) { nav { padding: 12px 16px; } .nav-links { gap: 14px; font-size: 12px; } }
 
   .logo {
     font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
@@ -204,9 +213,22 @@
 </style>
 </head>
 <body>
-<div class="page">
 
-  <a href="/" class="back-link">← task2vec.com</a>
+<nav>
+  <a href="/" class="nav-logo">task<span>2</span>vec</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/#concepts">Concepts</a>
+    <a href="/ai_readiness_chart.html">AI Readiness</a>
+    <a href="/score.html">Score a ticket</a>
+    <a href="/research.html" class="active">Research</a>
+    <a href="/cockpit.html">Cockpit</a>
+    <a href="/stories_spring/spring_explorer.html">Live demo</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
 
   <div class="logo">task2vec · Research</div>
   <h1>Which AI model should fix your tickets?</h1>
