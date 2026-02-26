@@ -27,9 +27,9 @@
   --red:     #ff5566;
   --gold:    #ffd700;
   --orange:  #ff6b35;
-  --text:    #ddd;
-  --muted:   #555;
-  --dim:     #333;
+  --text:    #eee;
+  --muted:   #888;
+  --dim:     #666;
 }
 body {
   background: var(--bg); color: var(--text);
@@ -119,7 +119,7 @@ body {
   font-size: 12px; font-weight: 600; color: #eee; margin-bottom: 5px;
 }
 .ac-icon { font-size: 13px; }
-.ac-body { font-size: 11px; color: #888; line-height: 1.6; }
+.ac-body { font-size: 11px; color: #aaa; line-height: 1.6; }
 .ac-link {
   display: inline-block; margin-top: 6px; font-size: 10px;
   color: var(--purple); cursor: pointer; text-decoration: underline;
@@ -130,11 +130,11 @@ body {
 
 .activity-item {
   display: flex; gap: 8px; align-items: flex-start;
-  font-size: 11px; color: #777; padding: 5px 0;
+  font-size: 11px; color: #999; padding: 5px 0;
   border-bottom: 1px solid #181818;
 }
 .activity-item:last-child { border-bottom: none; }
-.act-day { font-size: 10px; color: #444; min-width: 58px; flex-shrink: 0; }
+.act-day { font-size: 10px; color: #999; min-width: 58px; flex-shrink: 0; }
 .act-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
 .act-text { flex: 1; line-height: 1.5; }
 .act-text b { color: #bbb; }
@@ -152,9 +152,9 @@ body {
 .bar-label { font-size: 10px; color: var(--muted); min-width: 90px; }
 .bar-track { flex: 1; background: #1a1a1a; border-radius: 3px; height: 6px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 3px; }
-.bar-pct { font-size: 10px; color: #555; min-width: 28px; text-align: right; }
+.bar-pct { font-size: 10px; color: #aaa; min-width: 28px; text-align: right; }
 .override-item {
-  font-size: 11px; color: #777; padding: 5px 0;
+  font-size: 11px; color: #999; padding: 5px 0;
   border-bottom: 1px solid #181818; line-height: 1.5;
 }
 .override-item:last-child { border-bottom: none; }
@@ -162,7 +162,7 @@ body {
 .reasoning-box {
   background: var(--bg3); border: 1px solid var(--border);
   border-radius: 6px; padding: 10px 12px; font-size: 11px;
-  color: #888; line-height: 1.7; font-style: italic;
+  color: #aaa; line-height: 1.7; font-style: italic;
   border-left: 3px solid var(--purple);
 }
 .conf-badge {
@@ -196,7 +196,7 @@ body {
 }
 #time-labels {
   display: flex; justify-content: space-between;
-  font-size: 9px; color: #333;
+  font-size: 9px; color: #666;
 }
 #time-now { font-size: 10px; color: var(--muted); text-align: center; margin-bottom: 4px; }
 
@@ -218,7 +218,7 @@ body {
 }
 .modal-title { font-size: 15px; font-weight: 600; color: #eee; }
 .close-btn {
-  background: none; border: none; color: #555; font-size: 20px;
+  background: none; border: none; color: #aaa; font-size: 20px;
   cursor: pointer; line-height: 1; padding: 0;
 }
 .close-btn:hover { color: #aaa; }
@@ -241,7 +241,7 @@ body {
 }
 .q-chip {
   display: inline-block; background: var(--bg3); border: 1px solid var(--border2);
-  border-radius: 6px; padding: 5px 10px; font-size: 11px; color: #888;
+  border-radius: 6px; padding: 5px 10px; font-size: 11px; color: #aaa;
   margin: 3px 3px 0 0; cursor: pointer; transition: border-color .2s;
 }
 .q-chip:hover { border-color: var(--purple); color: #ccc; }
@@ -269,10 +269,10 @@ body {
 <!-- Header -->
 <div id="header">
   <div style="display:flex;gap:14px;align-items:center;flex-shrink:0;">
-    <a href="/" style="font-size:12px;color:#555;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Home</a>
-    <a href="/research.html" style="font-size:12px;color:#555;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Research</a>
-    <a href="/score.html" style="font-size:12px;color:#555;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Score</a>
-    <a href="/stories_spring/spring_explorer.html" style="font-size:12px;color:#555;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Explorer</a>
+    <a href="/" style="font-size:12px;color:#aaa;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Home</a>
+    <a href="/research.html" style="font-size:12px;color:#aaa;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Research</a>
+    <a href="/score.html" style="font-size:12px;color:#aaa;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Score</a>
+    <a href="/stories_spring/spring_explorer.html" style="font-size:12px;color:#aaa;text-decoration:none;white-space:nowrap;transition:color .2s;" onmouseover="this.style.color='#7b68ee'" onmouseout="this.style.color='#555'">Explorer</a>
     <a href="/commission.html" style="font-size:12px;color:#7b68ee;text-decoration:none;white-space:nowrap;transition:color .2s;font-weight:600;" onmouseover="this.style.color='#a99fff'" onmouseout="this.style.color='#7b68ee'">Commission →</a>
   </div>
   <div class="logo">task<span>2</span>vec</div>
@@ -394,7 +394,7 @@ body {
       <div id="cluster-panel">
         <button class="back-btn" onclick="showOverview()">← Overview</button>
         <div style="font-size:16px;font-weight:700;color:#eee;margin-bottom:2px" id="cl-name"></div>
-        <div style="font-size:11px;color:#555;margin-bottom:14px" id="cl-meta"></div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:14px" id="cl-meta"></div>
 
         <div class="panel-title">Work Breakdown</div>
         <div class="breakdown-bar" id="cl-breakdown"></div>
@@ -418,7 +418,7 @@ body {
 
 <!-- Timeline -->
 <div id="timeline">
-  <div id="time-now">Showing work through: <b id="time-label">Feb 2026</b> &nbsp;·&nbsp; <span style="color:#555">drag to replay AI work history</span></div>
+  <div id="time-now">Showing work through: <b id="time-label">Feb 2026</b> &nbsp;·&nbsp; <span style="color:#aaa">drag to replay AI work history</span></div>
   <input type="range" id="time-scrubber" min="0" max="25" value="25" oninput="onTimeScrub(this.value)">
   <div id="time-labels">
     <span>Jan 2024</span><span>Jul 2024</span>
@@ -731,7 +731,7 @@ function selectCluster(id) {
   var ovEl = document.getElementById('cl-overrides');
   var ovTitle = document.getElementById('cl-override-title');
   if (cl.overrideList.length === 0) {
-    ovEl.innerHTML = '<div style="font-size:11px;color:#444;padding:4px 0">No overrides — fully aligned ✓</div>';
+    ovEl.innerHTML = '<div style="font-size:11px;color:#999;padding:4px 0">No overrides — fully aligned ✓</div>';
     ovTitle.textContent = 'Overrides';
   } else {
     ovTitle.textContent = 'Recent Overrides (' + cl.overrideList.length + ')';
