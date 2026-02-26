@@ -366,6 +366,44 @@ body {
   <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
 </div>
 
+<div class="instructions" style="margin-bottom: 24px;">
+  <h2>Post text (copy before uploading)</h2>
+  <p style="margin-bottom:12px; color:#666; font-size:12px;">Paste into the LinkedIn post body. Put the link in the <strong style="color:#ccc">first comment</strong> — LinkedIn suppresses links in post text.</p>
+  <textarea id="post-text" readonly style="
+    width:100%; height:220px; resize:vertical;
+    background:#0d0d0d; color:#ddd; border:1px solid #2a2a2a;
+    border-radius:8px; padding:14px; font-size:13px;
+    line-height:1.7; font-family:'Segoe UI',system-ui,sans-serif;
+  ">We analysed 69,000 Jira tickets and 11,000 Git commits from the Spring Framework project.
+
+In 2005, 39% of the work was routine enough for AI to handle safely.
+
+By 2020: 5%.
+
+That's not a failure of AI. That's what a maturing codebase looks like.
+
+The easy problems got solved. What remains is architecture decisions, concurrency bugs, and cross-cutting concerns that genuinely need a senior engineer.
+
+We classified every ticket into three tiers:
+→ Automate — safe for AI, no human review needed
+→ Assist — AI draft + human sign-off
+→ Escalate — senior engineer required
+
+Current split across the full dataset: 22% / 30% / 48%
+
+Swipe to see the 15-year trend — and why your team's split is probably very different.
+
+#SoftwareEngineering #AI #Jira #DeveloperProductivity #OpenSource</textarea>
+  <button class="print-btn" style="background:#333; margin-top:10px;"
+    onclick="navigator.clipboard.writeText(document.getElementById('post-text').value).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy post text',2000})">
+    Copy post text
+  </button>
+  <div style="margin-top:16px; padding:12px 14px; background:#0d0d0d; border:1px solid #2a2a2a; border-radius:8px;">
+    <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;">First comment text</div>
+    <div style="font-size:13px; color:#aaa;">Full research + interactive explorer: task2vec.com/research<br>Commission a study on your own data: task2vec.com/commission</div>
+  </div>
+</div>
+
 <div class="slides">
 
   <!-- ══ SLIDE 1 — Cover ══ -->
