@@ -265,7 +265,15 @@ body {
 
 .s5-not {
   font-size: 14px; color: #777; margin-bottom: 8px;
-  text-decoration: line-through; text-decoration-color: #666;
+  position: relative; display: inline-block;
+}
+.s5-not::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1.5px;
+  background: #666;
+  transform: translateY(-50%);
 }
 .s5-question {
   font-size: 32px; font-weight: 800; color: #fff;
@@ -584,21 +592,18 @@ Swipe to see the 15-year trend — and why your team's split is probably very di
 
       <div class="s5-cards">
         <div class="s5-card">
-          <div class="s5-card-icon">📊</div>
           <div>
             <div class="s5-card-title">Every team has a different split</div>
             <div class="s5-card-desc">Spring's 22/30/48 is from an open-source framework. Your product codebase will be different — possibly much more automatable if it's younger.</div>
           </div>
         </div>
         <div class="s5-card">
-          <div class="s5-card-icon">⚠️</div>
           <div>
             <div class="s5-card-title">Getting it wrong is expensive</div>
             <div class="s5-card-desc">An AI-drafted PR for an escalate-level ticket doesn't save time. It creates review burden, subtle bugs, and erodes trust in the tooling.</div>
           </div>
         </div>
         <div class="s5-card">
-          <div class="s5-card-icon">🎯</div>
           <div>
             <div class="s5-card-title">Triage first. Automate second.</div>
             <div class="s5-card-desc">The same methodology we used on Spring can be run on your own Jira history.</div>
