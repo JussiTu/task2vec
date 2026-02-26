@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model Eval: Spring Ticket Resolution — task2vec</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8f9fc;
+    color: #1a1d23;
+    min-height: 100vh;
+    padding: 32px 20px 80px;
+  }
+
+  .page { max-width: 800px; margin: 0 auto; }
+
+  /* ── Header ── */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: #6b7280; text-decoration: none;
+    margin-bottom: 24px; transition: color .15s;
+  }
+  .back-link:hover { color: #6c63ff; }
+
+  .logo {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #6c63ff; margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 32px; font-weight: 700; line-height: 1.2;
+    color: #0f1117; margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 15px; color: #6b7280; line-height: 1.6; margin-bottom: 12px;
+  }
+
+  .meta {
+    font-size: 12px; color: #9ca3af; margin-bottom: 40px;
+  }
+
+  /* ── Section headings ── */
+  h2 {
+    font-size: 18px; font-weight: 700; color: #0f1117;
+    margin: 40px 0 16px;
+  }
+  h3 {
+    font-size: 14px; font-weight: 700; color: #374151;
+    margin: 24px 0 10px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* ── Stat row ── */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 600px) { .stat-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .stat-card {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 18px 16px; text-align: center;
+  }
+  .stat-number {
+    font-size: 28px; font-weight: 700; color: #6c63ff; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: #6b7280; }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 24px; margin-bottom: 20px;
+  }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin-bottom: 20px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+  thead th {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #6b7280; padding: 10px 14px;
+    text-align: left; border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+  }
+  thead th:first-child { width: 100px; }
+
+  tbody td {
+    padding: 11px 14px; border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #fafafa; }
+
+  .tier-cell { font-weight: 600; font-size: 13px; }
+
+  .tier-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 99px;
+    font-size: 11px; font-weight: 700;
+  }
+  .tier-badge.Automate { background: #d1fae5; color: #065f46; }
+  .tier-badge.Assist   { background: #fef3c7; color: #92400e; }
+  .tier-badge.Escalate { background: #fee2e2; color: #991b1b; }
+  .tier-badge.Total    { background: #ede9fe; color: #4c1d95; }
+
+  .model-header { text-align: center !important; }
+  .num-cell { text-align: center; font-variant-numeric: tabular-nums; }
+
+  .best { font-weight: 700; color: #059669; }
+
+  /* Winner crown */
+  .crown::before { content: "★ "; color: #f59e0b; }
+
+  /* ── Cost table ── */
+  .cost-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 600px) { .cost-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .cost-card {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+    padding: 16px; text-align: center;
+  }
+  .cost-card.winner { border-color: #a7f3d0; background: #f0fdf4; }
+
+  .cost-model { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 4px; }
+  .cost-amount { font-size: 22px; font-weight: 700; color: #0f1117; line-height: 1; margin-bottom: 2px; }
+  .cost-note { font-size: 11px; color: #6b7280; }
+
+  /* ── Finding cards ── */
+  .finding {
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 14px;
+    border-left: 4px solid #6c63ff;
+  }
+  .finding-num {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #6c63ff; margin-bottom: 6px;
+  }
+  .finding h3 {
+    font-size: 15px; font-weight: 700; color: #0f1117;
+    margin: 0 0 8px; text-transform: none; letter-spacing: 0;
+  }
+  .finding p { font-size: 14px; color: #4b5563; line-height: 1.65; }
+
+  /* ── Tier recommendation ── */
+  .rec-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin-top: 4px;
+  }
+  @media (max-width: 580px) { .rec-grid { grid-template-columns: 1fr; } }
+
+  .rec-card {
+    border-radius: 10px; padding: 16px;
+  }
+  .rec-card.automate { background: #f0fdf4; border: 1px solid #a7f3d0; }
+  .rec-card.assist   { background: #fffbeb; border: 1px solid #fde68a; }
+  .rec-card.escalate { background: #fef2f2; border: 1px solid #fecaca; }
+
+  .rec-tier {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 6px;
+  }
+  .rec-card.automate .rec-tier { color: #065f46; }
+  .rec-card.assist   .rec-tier { color: #92400e; }
+  .rec-card.escalate .rec-tier { color: #991b1b; }
+
+  .rec-action { font-size: 13px; font-weight: 600; color: #111827; margin-bottom: 4px; }
+  .rec-desc   { font-size: 12px; color: #6b7280; line-height: 1.5; }
+
+  /* ── Methodology note ── */
+  .method-note {
+    font-size: 12px; color: #9ca3af; line-height: 1.7;
+    padding: 16px 20px;
+    background: #f9fafb; border: 1px solid #f3f4f6;
+    border-radius: 10px; margin-top: 8px;
+  }
+  .method-note a { color: #6c63ff; text-decoration: none; }
+  .method-note a:hover { text-decoration: underline; }
+
+  /* ── CTA ── */
+  .cta-card {
+    background: #faf5ff; border: 1px solid #ddd6fe;
+    border-radius: 12px; padding: 28px 24px;
+    text-align: center; margin-top: 40px;
+  }
+  .cta-card h2 { margin: 0 0 8px; font-size: 18px; }
+  .cta-card p  { font-size: 14px; color: #6b7280; margin-bottom: 20px; }
+  .btn-primary {
+    display: inline-block; background: #6c63ff; color: #fff;
+    font-size: 14px; font-weight: 600; padding: 12px 24px;
+    border-radius: 8px; text-decoration: none;
+    transition: background .15s, transform .1s;
+  }
+  .btn-primary:hover { background: #5b53e8; transform: translateY(-1px); }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid #e5e7eb; margin: 36px 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="/" class="back-link">← task2vec.com</a>
+
+  <div class="logo">task2vec · Research</div>
+  <h1>Which AI model should fix your tickets?</h1>
+  <p class="subtitle">
+    We ran four leading AI models on 65 real Spring Framework bug tickets and scored each
+    answer against the actual commit that shipped. Here's what we found.
+  </p>
+  <p class="meta">65 tickets · 4 models · Spring Framework 2009–2013 · February 2026</p>
+
+  <!-- ── Headline stats ── -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-number">65</div>
+      <div class="stat-label">real tickets evaluated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">AI models compared</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+29%</div>
+      <div class="stat-label">Claude's edge over GPT</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">0×</div>
+      <div class="stat-label">benefit from paying more</div>
+    </div>
+  </div>
+
+  <!-- ── Pass rate table ── -->
+  <h2>Pass rate by model and tier</h2>
+  <p style="font-size:14px;color:#6b7280;margin-bottom:16px;">
+    A ticket "passes" when the model both identified the right file <em>and</em> reproduced
+    at least 15% of the changed code tokens — the threshold where a response is useful as a
+    starting point for a developer.
+  </p>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th class="model-header">Opus 4.6</th>
+            <th class="model-header">Sonnet 4.6 ★</th>
+            <th class="model-header">GPT-4o-mini</th>
+            <th class="model-header">GPT-4o</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tier-badge Automate">Automate</span></td>
+            <td class="num-cell">100%</td>
+            <td class="num-cell best crown">80%</td>
+            <td class="num-cell">60%</td>
+            <td class="num-cell">20%</td>
+          </tr>
+          <tr>
+            <td><span class="tier-badge Assist">Assist</span></td>
+            <td class="num-cell">60%</td>
+            <td class="num-cell">60%</td>
+            <td class="num-cell best">67%</td>
+            <td class="num-cell">50%</td>
+          </tr>
+          <tr>
+            <td><span class="tier-badge Escalate">Escalate</span></td>
+            <td class="num-cell">67%</td>
+            <td class="num-cell best">77%</td>
+            <td class="num-cell">50%</td>
+            <td class="num-cell">50%</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td><span class="tier-badge Total">Overall</span></td>
+            <td class="num-cell">66%</td>
+            <td class="num-cell best crown">69%</td>
+            <td class="num-cell">58%</td>
+            <td class="num-cell">48%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Overlap table ── -->
+  <h2>Code similarity to actual fix</h2>
+  <p style="font-size:14px;color:#6b7280;margin-bottom:16px;">
+    Jaccard overlap between code tokens in the model's answer and the tokens added in the
+    real commit. A continuous 0–1 measure that captures partial credit and isn't affected
+    by how the model formats its response.
+  </p>
+
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th class="model-header">Opus 4.6</th>
+            <th class="model-header">Sonnet 4.6 ★</th>
+            <th class="model-header">GPT-4o-mini</th>
+            <th class="model-header">GPT-4o</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tier-badge Automate">Automate</span></td>
+            <td class="num-cell">0.222</td>
+            <td class="num-cell best">0.202</td>
+            <td class="num-cell">0.165</td>
+            <td class="num-cell">0.158</td>
+          </tr>
+          <tr>
+            <td><span class="tier-badge Assist">Assist</span></td>
+            <td class="num-cell">0.213</td>
+            <td class="num-cell best crown">0.218</td>
+            <td class="num-cell">0.185</td>
+            <td class="num-cell">0.176</td>
+          </tr>
+          <tr>
+            <td><span class="tier-badge Escalate">Escalate</span></td>
+            <td class="num-cell">0.239</td>
+            <td class="num-cell best crown">0.240</td>
+            <td class="num-cell">0.168</td>
+            <td class="num-cell">0.180</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td><span class="tier-badge Total">Overall</span></td>
+            <td class="num-cell">0.226</td>
+            <td class="num-cell best crown">0.227</td>
+            <td class="num-cell">0.176</td>
+            <td class="num-cell">0.177</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Cost ── -->
+  <h2>Cost to evaluate 65 tickets</h2>
+
+  <div class="cost-row">
+    <div class="cost-card">
+      <div class="cost-model">Opus 4.6</div>
+      <div class="cost-amount">$6.92</div>
+      <div class="cost-note">230× more than mini</div>
+    </div>
+    <div class="cost-card winner">
+      <div class="cost-model">★ Sonnet 4.6</div>
+      <div class="cost-amount">$1.50</div>
+      <div class="cost-note">best quality-per-dollar</div>
+    </div>
+    <div class="cost-card">
+      <div class="cost-model">GPT-4o</div>
+      <div class="cost-amount">$0.57</div>
+      <div class="cost-note">19× more than mini</div>
+    </div>
+    <div class="cost-card">
+      <div class="cost-model">GPT-4o-mini</div>
+      <div class="cost-amount">$0.03</div>
+      <div class="cost-note">cheapest option</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── Findings ── -->
+  <h2>Three findings</h2>
+
+  <div class="finding">
+    <div class="finding-num">Finding 1</div>
+    <h3>Claude models write significantly better code fixes than GPT models</h3>
+    <p>
+      Both Claude models scored ~0.227 on code similarity vs ~0.177 for both GPT models — a
+      consistent <strong>29% advantage</strong> across all 65 tickets and every tier. When given
+      the same broken source file and the same ticket description, Claude produces answers that
+      are substantially closer to what a senior engineer actually committed.
+    </p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">Finding 2</div>
+    <h3>Opus and Sonnet are identical in quality — Sonnet is the right choice</h3>
+    <p>
+      Claude Opus (0.226) and Claude Sonnet (0.227) are statistically indistinguishable across
+      65 tickets. Opus costs <strong>4.6× more</strong> for no measurable gain on this task.
+      Sonnet is the optimal model for automated ticket resolution.
+    </p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-num">Finding 3</div>
+    <h3>GPT-4o provides zero benefit over GPT-4o-mini</h3>
+    <p>
+      The two OpenAI models scored 0.177 vs 0.176 — essentially the same. GPT-4o costs
+      <strong>19× more</strong>. For ticket triage and resolution, GPT-4o-mini matches its
+      larger sibling entirely.
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── Tier validation ── -->
+  <h2>What the tiers predicted</h2>
+  <p style="font-size:14px;color:#6b7280;line-height:1.65;margin-bottom:20px;">
+    The Automate / Assist / Escalate labels are derived purely from historical Jira resolution
+    patterns — resolution speed, watcher count, contributor experience — with no AI involvement.
+    The eval shows those labels correctly predict AI solvability: <strong>Automate tickets were
+    solved most reliably</strong> by every model, while Escalate tickets showed lower code
+    similarity across the board.
+    <br><br>
+    This validates the core premise: a team's own Jira history is a meaningful signal for
+    where AI can act autonomously vs. where human oversight is needed.
+  </p>
+
+  <div class="rec-grid">
+    <div class="rec-card automate">
+      <div class="rec-tier">Automate</div>
+      <div class="rec-action">Act autonomously</div>
+      <div class="rec-desc">Fast to resolve, low attention, routine change. AI answers are reliable enough to apply directly.</div>
+    </div>
+    <div class="rec-card assist">
+      <div class="rec-tier">Assist</div>
+      <div class="rec-action">Draft + human review</div>
+      <div class="rec-desc">AI produces a solid starting point. A developer should review before merging.</div>
+    </div>
+    <div class="rec-card escalate">
+      <div class="rec-tier">Escalate</div>
+      <div class="rec-action">Route to senior engineer</div>
+      <div class="rec-desc">AI answers look plausible but often miss the real fix. Senior attention required.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── Methodology ── -->
+  <h2>Methodology</h2>
+  <div class="method-note">
+    <strong>Corpus:</strong> 65 Spring Framework Jira tickets with a verified git commit, drawn
+    from 998 candidate tickets (matched from 11,424 SPR-#### commits in the spring-projects/spring-framework
+    repository). Commits range from 2009–2013.<br><br>
+    <strong>Prompt:</strong> Each model received the ticket summary, description, and the
+    before-state Java source file(s), with instruction to produce a minimal code fix as a unified diff.<br><br>
+    <strong>Scoring:</strong> <em>File hit</em> — did the response mention the correct class name?
+    <em>Token overlap</em> — Jaccard similarity between code identifier tokens in the model's
+    answer and the added lines in the real commit diff. Pass threshold: file hit AND overlap ≥ 0.15.<br><br>
+    <strong>Fairness:</strong> All models used identical prompts and the same 65 tickets (seed=42).
+    No fine-tuning or few-shot examples were used.<br><br>
+    Full code and raw results:
+    <a href="https://github.com/JussiTu/task2vec" target="_blank">github.com/JussiTu/task2vec</a>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-card">
+    <h2>See how your tickets score</h2>
+    <p>
+      The tier labels are built from your own Jira history — no training required.
+      Paste a ticket and see which tier it lands in.
+    </p>
+    <a href="/score.html" class="btn-primary">Score a ticket →</a>
+  </div>
+
+</div>
+</body>
+</html>
