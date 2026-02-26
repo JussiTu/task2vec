@@ -33,4 +33,10 @@ $entry = json_encode([
 
 file_put_contents('/home/adloccbvmx/task2vec/contacts.json', $entry, FILE_APPEND | LOCK_EX);
 
+$to      = 'jussi.tuominen@softerhr.com';
+$subject = 'task2vec enquiry from ' . $name;
+$body    = "Name: $name\nEmail: $email\n\n$message";
+$headers = "From: noreply@task2vec.com\r\nReply-To: $email\r\nX-Mailer: PHP/" . phpversion();
+mail($to, $subject, $body, $headers);
+
 echo json_encode(['ok' => true]);
