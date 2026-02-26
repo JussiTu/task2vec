@@ -33,10 +33,14 @@ $entry = json_encode([
 
 file_put_contents('/home/adloccbvmx/task2vec/contacts.json', $entry, FILE_APPEND | LOCK_EX);
 
+// Always respond OK — the log file is the source of truth
+http_response_code(200);
+echo json_encode(['ok' => true]);
+flush();
+
+// Send email notification — non-fatal if it fails
 $to      = 'jussi.tuominen@softerhr.com';
 $subject = 'task2vec enquiry from ' . $name;
 $body    = "Name: $name\nEmail: $email\n\n$message";
 $headers = "From: noreply@task2vec.com\r\nReply-To: $email\r\nX-Mailer: PHP/" . phpversion();
-mail($to, $subject, $body, $headers);
-
-echo json_encode(['ok' => true]);
+@mail($to, $subject, $body, $headers);
