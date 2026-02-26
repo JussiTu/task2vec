@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Posts — task2vec</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTKXE40LPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QTKXE40LPF');
+</script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --text:   #eee;
+  --muted:  #999;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  padding-top: 64px;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,.95);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; height: 52px;
+  backdrop-filter: blur(8px);
+}
+.nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
+.nav-logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; }
+.nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: #fff; font-weight: 600; }
+
+/* ── Layout ── */
+.page { max-width: 760px; margin: 0 auto; padding: 52px 24px 80px; }
+
+.page-header { margin-bottom: 48px; }
+.page-header h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.page-header p  { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 560px; }
+
+/* ── Series note ── */
+.series-note {
+  background: #111; border: 1px solid var(--border);
+  border-left: 3px solid var(--purple);
+  border-radius: 10px; padding: 16px 20px;
+  margin-bottom: 40px;
+  font-size: 13px; color: var(--muted); line-height: 1.7;
+}
+.series-note strong { color: #ddd; }
+
+/* ── Post card ── */
+.post-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.post-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.post-meta { display: flex; align-items: center; gap: 14px; }
+.post-num {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--purple);
+  background: rgba(123,104,238,.12); border: 1px solid rgba(123,104,238,.3);
+  padding: 3px 10px; border-radius: 20px;
+}
+.post-title { font-size: 15px; font-weight: 700; color: #fff; }
+.post-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.post-type {
+  font-size: 11px; color: var(--muted);
+  background: #161616; border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 6px;
+}
+
+.post-body { padding: 0 22px 18px; }
+
+textarea.post-text {
+  width: 100%; margin-top: 16px;
+  background: #0a0a0a; color: #ddd;
+  border: 1px solid #252525; border-radius: 8px;
+  padding: 14px 16px; font-size: 13px;
+  line-height: 1.75; font-family: 'Segoe UI', system-ui, sans-serif;
+  resize: vertical; outline: none;
+}
+
+.post-actions {
+  display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;
+}
+.btn-copy {
+  background: var(--purple); color: #fff; border: none;
+  padding: 8px 18px; border-radius: 8px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  transition: background .2s;
+}
+.btn-copy:hover { background: #6a57dd; }
+.btn-copy.secondary {
+  background: #1a1a1a; color: var(--muted);
+  border: 1px solid var(--border);
+}
+.btn-copy.secondary:hover { color: #fff; border-color: #444; }
+
+.first-comment {
+  margin-top: 14px; padding: 12px 14px;
+  background: #0d0d0d; border: 1px solid #1e1e1e;
+  border-radius: 8px;
+}
+.first-comment-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .08em;
+  color: #666; margin-bottom: 6px;
+}
+.first-comment-text { font-size: 12px; color: #aaa; line-height: 1.6; }
+
+/* ── Attachment note ── */
+.attachment {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 14px; padding: 10px 14px;
+  background: rgba(123,104,238,.06);
+  border: 1px solid rgba(123,104,238,.2);
+  border-radius: 8px; font-size: 12px; color: var(--muted);
+}
+.attachment-icon { font-size: 18px; }
+.attachment a { color: var(--purple); text-decoration: none; }
+.attachment a:hover { text-decoration: underline; }
+
+/* ── Status badge ── */
+.status-draft    { color: #f59e0b; }
+.status-ready    { color: var(--green); }
+.status-posted   { color: var(--muted); }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">task<span>2</span>vec</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/research.html">Research</a>
+    <a href="/score.html">Score</a>
+    <a href="/commission.html">Commission</a>
+    <a href="/linkedin_posts.html" class="active">Posts</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <h1>LinkedIn Series</h1>
+    <p>20-post series on AI, engineering teams, and the skills shift. Copy each post text, upload any attachment, then put the link in the first comment.</p>
+  </div>
+
+  <div class="series-note">
+    <strong>Series arc:</strong>
+    Phase 1 (posts 1–5) — the data findings &nbsp;·&nbsp;
+    Phase 2 (posts 6–10) — the hidden risk &nbsp;·&nbsp;
+    Phase 3 (posts 11–15) — the trajectory answer &nbsp;·&nbsp;
+    Phase 4 (posts 16–20) — the offer<br>
+    <strong>Rule:</strong> link goes in the first comment, not the post body — LinkedIn suppresses links in post text.
+  </div>
+
+  <!-- ══ POST 1 ══ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <span class="post-num">Post 1</span>
+        <div>
+          <div class="post-title">The Staffing Shift</div>
+          <div class="post-subtitle">The 39%→5% finding + 15-year trend carousel</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="status-ready" style="font-size:12px;font-weight:700;">● Ready</span>
+        <span class="post-type">Document carousel</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <textarea class="post-text" id="p1" rows="14" readonly>AI won't make your engineering team smaller.
+
+It will make it harder to staff.
+
+We analysed 69,000 Jira tickets and 11,000 Git commits from the Spring Framework — one of the world's most-used Java projects, 20 years of history.
+
+In 2005, 39% of the work was routine enough to safely delegate to AI.
+
+By 2020: 5%.
+
+The easy problems are gone. What remains is architecture decisions, concurrency bugs, and cross-cutting design questions that need hard-won experience.
+
+That creates two problems most engineering leaders haven't thought through:
+
+1. You need more senior engineers, not fewer
+2. You no longer know how to grow them — because the apprenticeship path (start with easy tickets, build up to hard ones) is quietly disappearing
+
+Swipe to see the 15-year trend →
+
+Next post: what does an expert-in-training actually look like in the ticket data?
+
+#EngineeringLeadership #SoftwareEngineering #AI #Jira #DeveloperProductivity</textarea>
+      <div class="post-actions">
+        <button class="btn-copy" onclick="copyPost('p1',this)">Copy post text</button>
+      </div>
+      <div class="attachment">
+        <span class="attachment-icon">📄</span>
+        <span>Attach: <a href="/linkedin_carousel.html">linkedin_carousel.html</a> — print to PDF → upload as document</span>
+      </div>
+      <div class="first-comment">
+        <div class="first-comment-label">First comment</div>
+        <div class="first-comment-text">Full research + interactive explorer: task2vec.com/research<br>Commission a study on your own data: task2vec.com/commission</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ POST 2 ══ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <span class="post-num">Post 2</span>
+        <div>
+          <div class="post-title">The On-Ramp Is Disappearing</div>
+          <div class="post-subtitle">Career trajectory data — 72% of juniors grew into hard work</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="status-ready" style="font-size:12px;font-weight:700;">● Ready</span>
+        <span class="post-type">Text post</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <textarea class="post-text" id="p2" rows="22" readonly>We tracked 57 Spring Framework engineers who started as juniors — low on complex work, learning the codebase.
+
+72% of them grew significantly into harder work over their careers.
+
+Here's what the career arc looks like in the data:
+
+→ Year 1:   17% complex tickets
+→ Year 2:   32% (+15pp — the biggest single jump)
+→ Year 3–4: 38%
+→ Year 10+: 44–51%
+
+The first year is the on-ramp. What they worked on mattered.
+
+Here's what surprises me: they didn't start with documentation fixes and dependency bumps.
+
+Their early tickets were mostly Assist-tier — framework tooling enhancements, content negotiation issues, MongoDB mapping problems. Bounded, domain-specific work that required real understanding. Enough to learn. Not so hard they drowned.
+
+By late career, those same engineers were handling JSF integration, class-loading issues, and cross-cutting architecture problems.
+
+The on-ramp worked. But it depended on a supply of Assist-tier starter tickets.
+
+That supply is now the first thing AI disrupts.
+
+The "Assist" tier is exactly where AI is most useful — draft a solution, human reviews it. As teams adopt AI for this tier, junior engineers go from "I write the first draft and a senior reviews it" to "the AI writes the first draft and I review it." That's a different skill. Not obviously easier to develop.
+
+The question isn't whether AI helps your senior engineers.
+
+It's whether your junior engineers are still on a path to becoming senior ones.
+
+(Next: how do you know the learning actually happened — and the signal that disappears when AI does the work)
+
+#EngineeringLeadership #SoftwareEngineering #DeveloperGrowth #AI #Jira</textarea>
+      <div class="post-actions">
+        <button class="btn-copy" onclick="copyPost('p2',this)">Copy post text</button>
+      </div>
+      <div class="first-comment">
+        <div class="first-comment-label">First comment</div>
+        <div class="first-comment-text">Full methodology: task2vec.com/research<br>Run the career arc analysis on your own data: task2vec.com/commission</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ POST 3 ══ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-meta">
+        <span class="post-num">Post 3</span>
+        <div>
+          <div class="post-title">How Do You Know the Learning Happened?</div>
+          <div class="post-subtitle">The velocity curve — a measurable learning signal from Jira data</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="status-ready" style="font-size:12px;font-weight:700;">● Ready</span>
+        <span class="post-type">Text post</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <textarea class="post-text" id="p3" rows="30" readonly>AI makes it easier to jump into problems you don't fully understand yet.
+
+That's mostly good. The activation energy for hard tickets drops. Junior engineers can attempt things they'd previously been shielded from.
+
+But it creates a question nobody is asking clearly:
+
+If the AI did the heavy lifting — did the engineer actually learn anything?
+
+We went looking for an answer in the data.
+
+We analysed 1,016 engineer-cluster series from the Spring Framework project — tracking whether engineers got measurably faster at the same type of ticket over time.
+
+The short answer: yes, learning is detectable. And it leaves a specific fingerprint.
+
+47% of series showed a clear velocity improvement — engineers consistently resolving the same ticket category faster as they did more of them. Some of the learning curves were near-perfect:
+
+→ One engineer's RequestMapping tickets: Spearman correlation of -1.0. Every subsequent ticket faster than the last. Nine in a row.
+→ OSGi infrastructure issues: rho = -0.94. 11 tickets, consistent acceleration.
+
+Learning happened. We can see it.
+
+Here's what matters for the AI question:
+
+The Assist tier showed the strongest learning signal of all three tiers.
+
+Not Escalate (the hardest work). Not Automate (the routine work). The middle tier — AI draft, human review — is where the most measurable skill development happened in our data.
+
+That's the tier AI disrupts first.
+
+Which means there's a specific risk: if an engineer "resolves" Assist-tier tickets by approving AI output without engaging deeply, the velocity curve stays flat. The learning fingerprint disappears.
+
+You can't see this by counting tickets closed per sprint.
+
+You can see it by asking: is this engineer getting faster at this type of problem — or are they just processing AI output at a constant rate?
+
+Declining resolution time within a ticket type = learning is probably happening.
+Flat line = worth asking why.
+
+This works with Jira data you already have. No AI layer required. Resolution dates and ticket categories are enough to run the diagnostic on any team, any time.
+
+The engineers who learned on Assist-tier tickets in our dataset went on to take significantly more complex work later. The ones who didn't stayed where they were.
+
+The teams that figure out how to measure the curve — not just the count — will know whether their AI investment is building capability or just shipping faster.
+
+Those are not the same thing.
+
+(Next: the specific ticket types that built the most expertise — and what the on-ramp looks like when those types disappear)
+
+#EngineeringLeadership #LearningAndDevelopment #AI #SoftwareEngineering #Jira #DeveloperGrowth</textarea>
+      <div class="post-actions">
+        <button class="btn-copy" onclick="copyPost('p3',this)">Copy post text</button>
+      </div>
+      <div class="first-comment">
+        <div class="first-comment-label">First comment</div>
+        <div class="first-comment-text">Full data and methodology: task2vec.com/research<br>Run the velocity diagnostic on your own Jira: task2vec.com/commission</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ UPCOMING ══ -->
+  <div style="border-top:1px solid #1e1e1e; padding-top:32px; margin-top:8px;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#555;margin-bottom:20px;">Upcoming posts</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#111;border:1px solid #1e1e1e;border-radius:8px;">
+        <span style="font-size:11px;font-weight:700;color:#555;background:#161616;border:1px solid #252525;padding:2px 8px;border-radius:12px;">Post 4</span>
+        <div style="font-size:13px;color:#777;">The specific ticket types that built expertise — and what's disappearing</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#111;border:1px solid #1e1e1e;border-radius:8px;">
+        <span style="font-size:11px;font-weight:700;color:#555;background:#161616;border:1px solid #252525;padding:2px 8px;border-radius:12px;">Post 5</span>
+        <div style="font-size:13px;color:#777;">Apache vs Spring — why the numbers differ and what that means for your team</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#111;border:1px solid #1e1e1e;border-radius:8px;">
+        <span style="font-size:11px;font-weight:700;color:#555;background:#161616;border:1px solid #252525;padding:2px 8px;border-radius:12px;">Post 6</span>
+        <div style="font-size:13px;color:#777;">The expert bottleneck — when 70% of tickets need a senior engineer</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyPost(id, btn) {
+  const text = document.getElementById(id).value;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = '#10b981';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
