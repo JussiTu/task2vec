@@ -378,30 +378,32 @@ body {
   <h2>Post text (copy before uploading)</h2>
   <p style="margin-bottom:12px; color:#666; font-size:12px;">Paste into the LinkedIn post body. Put the link in the <strong style="color:#ccc">first comment</strong> — LinkedIn suppresses links in post text.</p>
   <textarea id="post-text" readonly style="
-    width:100%; height:220px; resize:vertical;
+    width:100%; height:280px; resize:vertical;
     background:#0d0d0d; color:#ddd; border:1px solid #2a2a2a;
     border-radius:8px; padding:14px; font-size:13px;
     line-height:1.7; font-family:'Segoe UI',system-ui,sans-serif;
-  ">We analysed 69,000 Jira tickets and 11,000 Git commits from the Spring Framework project.
+  ">AI won't make your engineering team smaller.
 
-In 2005, 39% of the work was routine enough for AI to handle safely.
+It will make it harder to staff.
+
+We analysed 69,000 Jira tickets and 11,000 Git commits from the Spring Framework — one of the world's most-used Java projects, 20 years of history.
+
+In 2005, 39% of the work was routine enough to safely delegate to AI.
 
 By 2020: 5%.
 
-That's not a failure of AI. That's what a maturing codebase looks like.
+The easy problems are gone. What remains is architecture decisions, concurrency bugs, and cross-cutting design questions that need hard-won experience.
 
-The easy problems got solved. What remains is architecture decisions, concurrency bugs, and cross-cutting concerns that genuinely need a senior engineer.
+That creates two problems most engineering leaders haven't thought through:
 
-We classified every ticket into three tiers:
-→ Automate — safe for AI, no human review needed
-→ Assist — AI draft + human sign-off
-→ Escalate — senior engineer required
+1. You need more senior engineers, not fewer
+2. You no longer know how to grow them — because the apprenticeship path (start with easy tickets, build up to hard ones) is quietly disappearing
 
-Current split across the full dataset: 22% / 30% / 48%
+Swipe to see the 15-year trend →
 
-Swipe to see the 15-year trend — and why your team's split is probably very different.
+Next post: what does an expert-in-training actually look like in the ticket data?
 
-#SoftwareEngineering #AI #Jira #DeveloperProductivity #OpenSource</textarea>
+#EngineeringLeadership #SoftwareEngineering #AI #Jira #DeveloperProductivity</textarea>
   <button class="print-btn" style="background:#333; margin-top:10px;"
     onclick="navigator.clipboard.writeText(document.getElementById('post-text').value).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy post text',2000})">
     Copy post text
