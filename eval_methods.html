@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methods: AI Model Eval on Spring Ticket Resolution — task2vec</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #fafaf8;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px 100px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .page { max-width: 760px; margin: 0 auto; }
+
+  /* ── Navigation ── */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px; color: #888; text-decoration: none;
+    margin-bottom: 40px; transition: color .15s;
+  }
+  .back-link:hover { color: #6c63ff; }
+
+  /* ── Paper header ── */
+  .paper-header { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 2px solid #1a1a1a; }
+
+  .paper-title {
+    font-size: 26px; font-weight: 700; line-height: 1.25;
+    color: #0d0d0d; margin-bottom: 16px;
+  }
+
+  .paper-authors {
+    font-size: 14px; color: #444; margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .paper-date {
+    font-size: 13px; color: #888;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* ── Abstract ── */
+  .abstract {
+    background: #f3f3ef;
+    border-left: 4px solid #1a1a1a;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .abstract-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #888; margin-bottom: 8px;
+  }
+
+  /* ── Sections ── */
+  h2 {
+    font-size: 18px; font-weight: 700; color: #0d0d0d;
+    margin: 40px 0 12px; padding-bottom: 6px;
+    border-bottom: 1px solid #ddd;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    counter-increment: section;
+  }
+  h2::before {
+    content: counter(section) ". ";
+    color: #888;
+  }
+  body { counter-reset: section; }
+
+  h3 {
+    font-size: 15px; font-weight: 700; color: #0d0d0d;
+    margin: 24px 0 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* ── Code / formulas ── */
+  code {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px; background: #f0efe9;
+    padding: 1px 5px; border-radius: 3px;
+    color: #333;
+  }
+
+  pre {
+    font-family: 'Menlo', 'Consolas', 'Courier New', monospace;
+    font-size: 13px; background: #f0efe9;
+    padding: 16px 18px; border-radius: 6px;
+    overflow-x: auto; margin: 16px 0 20px;
+    line-height: 1.6; color: #222;
+    border: 1px solid #e0dfd8;
+  }
+
+  /* ── Math ── */
+  .formula {
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 13.5px;
+    background: #f7f7f3;
+    border: 1px solid #e0dfd8;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0 18px;
+    line-height: 1.8;
+    color: #1a1a1a;
+  }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  thead th {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #555;
+    padding: 8px 12px; border-bottom: 2px solid #1a1a1a;
+    text-align: left; white-space: nowrap;
+  }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid #e8e8e4; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #f7f7f3; }
+
+  /* ── Notes and callouts ── */
+  .note {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: #444;
+    margin: 16px 0;
+  }
+  .note strong { color: #92400e; }
+
+  .important {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    color: #444;
+    margin: 16px 0;
+  }
+
+  /* ── Footnotes / small text ── */
+  .footnote { font-size: 12.5px; color: #666; line-height: 1.6; margin-top: 8px; }
+
+  /* ── References ── */
+  .ref-list { font-size: 13.5px; padding-left: 0; list-style: none; }
+  .ref-list li { margin-bottom: 10px; padding-left: 24px; text-indent: -24px; }
+  .ref-list a { color: #6c63ff; text-decoration: none; }
+  .ref-list a:hover { text-decoration: underline; }
+
+  /* ── Footer ── */
+  .paper-footer {
+    margin-top: 60px; padding-top: 24px;
+    border-top: 1px solid #ddd;
+    font-size: 12px; color: #888;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
+  }
+  .paper-footer a { color: #6c63ff; text-decoration: none; }
+
+  hr { border: none; border-top: 1px solid #e0dfd8; margin: 36px 0; }
+
+  ol, ul { padding-left: 24px; margin-bottom: 14px; }
+  li { margin-bottom: 5px; }
+
+  sup { font-size: 11px; color: #888; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a href="eval_summary.html" class="back-link">← Back to results</a>
+
+  <!-- ── Header ── -->
+  <div class="paper-header">
+    <div class="paper-title">
+      Outcome-Derived Tier Labels as Predictors of AI Code-Fix Quality:
+      A Replication Study Using the Spring Framework Git History
+    </div>
+    <div class="paper-authors">task2vec.com research</div>
+    <div class="paper-date">February 2026 · Version 1.0</div>
+  </div>
+
+  <!-- ── Abstract ── -->
+  <div class="abstract">
+    <div class="abstract-label">Abstract</div>
+    We present an evaluation methodology and benchmark for measuring the ability of large
+    language models (LLMs) to reproduce real-world Java bug fixes from issue descriptions
+    alone. Using 69,156 publicly archived Spring Framework Jira tickets and the complete
+    git history of the spring-projects/spring-framework repository, we construct a
+    ground-truth benchmark of 65 tickets for which both a structured ticket and the
+    corresponding commit diff are available. Tickets are labelled into three AI-readiness
+    tiers (Automate, Assist, Escalate) using a scoring rule derived entirely from observable
+    resolution metadata — resolution time, watcher count, and assignee experience — with no
+    LLM involvement. We evaluate four models (claude-opus-4-6, claude-sonnet-4-6, gpt-4o,
+    gpt-4o-mini) on this benchmark and report two metrics: binary pass rate and continuous
+    token overlap. Claude Sonnet and Opus outperform GPT-4o and GPT-4o-mini by approximately
+    29% on token overlap (0.227 vs. 0.177). Within each provider family, model size provides
+    no statistically significant improvement. All code and raw results are publicly available.
+  </div>
+
+  <!-- ── 1. Data Sources ── -->
+  <h2>Data Sources and Availability</h2>
+
+  <h3>1.1 Spring Framework Jira Archive</h3>
+  <p>
+    The primary ticket corpus is the Spring Framework issue tracker, historically hosted at
+    <code>jira.spring.io</code> under project key <code>SPR</code>. This tracker is publicly
+    readable without authentication. The full ticket set spans SPR-1 through approximately
+    SPR-18000, covering the period 2003–2019, after which the project migrated to GitHub Issues.
+  </p>
+  <p>
+    To reproduce the corpus, query the Jira REST API iteratively:
+  </p>
+  <pre>GET https://jira.spring.io/rest/api/2/search
+    ?jql=project%3DSPR%20AND%20resolution%3DFixed
+    &fields=key,summary,description,created,resolutiondate,
+            watches,assignee,status,issuetype
+    &maxResults=100
+    &startAt={offset}</pre>
+
+  <p>
+    Increment <code>startAt</code> by 100 until <code>startAt ≥ total</code> from the
+    response. In our corpus, 69,156 documents were collected; 61,564 had both a
+    <code>created</code> and <code>resolutiondate</code> field populated and were retained
+    for labelling.
+  </p>
+
+  <div class="note">
+    <strong>Note for replicators:</strong> As of early 2026, jira.spring.io redirects most
+    traffic to GitHub Issues for newer tickets, but historical SPR-#### records remain
+    accessible via the REST API. Rate limiting applies; use a delay of ≥ 0.5 s between
+    requests. Estimated download time: 4–6 hours.
+  </div>
+
+  <h3>1.2 Spring Framework Git Repository</h3>
+  <p>
+    The full git history of the Spring Framework is publicly available:
+  </p>
+  <pre>git clone https://github.com/spring-projects/spring-framework.git</pre>
+  <p>
+    The repository is approximately 244 MB (compressed). No authentication is required.
+    The eval uses commits from the full history including all branches
+    (<code>--all</code> flag). In our checkout (February 2026), the repository contained
+    11,424 commits whose subject lines matched the pattern <code>SPR-\d+</code>.
+  </p>
+
+  <!-- ── 2. Tier Labelling ── -->
+  <h2>Outcome-Based Tier Labelling</h2>
+
+  <h3>2.1 Signal Extraction</h3>
+  <p>
+    Three observable signals are extracted per ticket. No natural language processing or
+    LLM inference is used at this stage.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Signal</th><th>Source field</th><th>Computation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>days</strong></td>
+          <td><code>fields.resolutiondate</code>,<br><code>fields.created</code></td>
+          <td>
+            <code>max(0, (resolutiondate − created).total_seconds() / 86400)</code><br>
+            Both timestamps parsed as UTC-aware datetimes.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>watches</strong></td>
+          <td><code>fields.watches.watchCount</code></td>
+          <td>Integer; missing values treated as 0.</td>
+        </tr>
+        <tr>
+          <td><strong>assignee_count</strong></td>
+          <td><code>fields.assignee.displayName</code></td>
+          <td>
+            Count of all tickets (resolved or not) in the corpus assigned to the same
+            <code>displayName</code>. A proxy for contributor experience within this project.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 Calibration Thresholds</h3>
+  <p>
+    Thresholds are computed from the empirical distribution of the full 61,564-ticket corpus
+    and are fixed constants — not tuned per experiment:
+  </p>
+
+  <div class="formula">
+    p33_days         = 1.9 days        (33rd percentile of days, resolved tickets)
+    p67_days         = 29.5 days       (67th percentile; informational only)
+    p75_assignee_cnt = 136 tickets     (75th percentile of assignee_count)
+    watch_threshold  = 2               (fixed, not percentile-derived)
+  </div>
+
+  <h3>2.3 Scoring Rule</h3>
+  <p>
+    Each ticket receives an integer score <em>s</em> ∈ {0, 1, 2, 3}:
+  </p>
+
+  <div class="formula">
+    s = I(days ≤ 1.9) + I(watches ≤ 2) + I(assignee_count &lt; 136)
+
+    where I(·) is the indicator function (1 if true, 0 if false).
+
+    Label:
+      s = 3  →  Automate
+      s = 2  →  Assist
+      s ≤ 1  →  Escalate
+  </div>
+
+  <h3>2.4 Label Distribution</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Label</th><th>Count</th><th>% of corpus</th></tr></thead>
+      <tbody>
+        <tr><td>Automate</td><td>1,973</td><td>3.2%</td></tr>
+        <tr><td>Assist</td><td>23,158</td><td>37.6%</td></tr>
+        <tr><td>Escalate</td><td>36,433</td><td>59.2%</td></tr>
+        <tr><td><strong>Total labeled</strong></td><td><strong>61,564</strong></td><td>100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 3. Git Benchmark Construction ── -->
+  <h2>Git Benchmark Construction</h2>
+
+  <h3>3.1 Commit Extraction</h3>
+  <p>
+    All commits referencing a Jira key are extracted in a single pass:
+  </p>
+  <pre>git log --all --format="%H|%P|%s" --grep="SPR-"</pre>
+  <p>
+    This yields a tab-separated stream of (sha, parent_shas, subject). For merge commits,
+    only the first parent is used. In our repository, this produced 11,424 matching commits.
+  </p>
+
+  <h3>3.2 Key Matching</h3>
+  <p>
+    The SPR key is extracted from the commit subject using the regular expression
+    <code>\bSPR-(\d+)\b</code> (case-insensitive). The resulting key is normalised to
+    uppercase <code>SPR-{N}</code>. Commits are matched against the set of labeled tickets
+    from Section 2. Of 11,424 commits, 2,234 referenced a labeled key; after deduplication
+    (keeping the most recent commit per key), 1,581 unique keys remained.
+  </p>
+
+  <h3>3.3 File Filtering</h3>
+  <p>
+    For each matched commit, changed files are retrieved:
+  </p>
+  <pre>git diff-tree --no-commit-id -r --name-only {sha}</pre>
+  <p>
+    A file is retained if and only if:
+  </p>
+  <ol>
+    <li>The filename ends in <code>.java</code></li>
+    <li>The path does not contain <code>/test/</code> or <code>/test-</code></li>
+    <li>The filename stem does not contain <code>Test</code> (e.g., <code>FooTests.java</code>)</li>
+  </ol>
+  <p>
+    Commits with zero retained files are discarded. This filter removed 583 commits (mostly
+    documentation-only or test-only changes), leaving <strong>998 tickets</strong> in the
+    final git index.
+  </p>
+
+  <h3>3.4 Git Index Distribution</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Label</th><th>In git index</th><th>% of labeled corpus</th><th>Files per commit (median)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Automate</td><td>5</td><td>0.3%</td><td>1</td></tr>
+        <tr><td>Assist</td><td>281</td><td>1.2%</td><td>1</td></tr>
+        <tr><td>Escalate</td><td>712</td><td>2.0%</td><td>1</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>998</strong></td><td><strong>1.6%</strong></td><td>1 (mean 3.4)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="important">
+    <strong>Important limitation:</strong> The extremely low coverage of the Automate tier
+    (5 tickets, 0.3%) is a structural property of the Spring project, not a data quality
+    problem. Automate tickets — characterised by fast resolution, low watcher count, and
+    less experienced contributors — correspond almost exclusively to documentation, configuration,
+    or sample application changes that produce no production Java source changes. This means
+    the Automate tier cannot be meaningfully evaluated with this benchmark. Results for
+    Automate (n=5) should be treated as illustrative only.
+  </div>
+
+  <!-- ── 4. Evaluation Sample ── -->
+  <h2>Evaluation Sample Selection</h2>
+
+  <p>
+    From the 998 tickets in the git index, a stratified random sample is drawn:
+  </p>
+  <pre>import random
+rng = random.Random(seed=42)
+sample[tier] = rng.sample(pool[tier], min(n, len(pool[tier])))</pre>
+
+  <p>
+    For the primary evaluation reported here, <code>n = 30</code> for Assist and Escalate,
+    and <code>n = 5</code> (full pool) for Automate. All four models were evaluated on the
+    <em>identical</em> 65 tickets using the same random seed, ensuring that differences in
+    aggregate scores are attributable to the models rather than ticket selection.
+  </p>
+
+  <!-- ── 5. Evaluation Protocol ── -->
+  <h2>Evaluation Protocol</h2>
+
+  <h3>5.1 System Prompt</h3>
+  <p>The following system prompt was used verbatim for all models and all tickets:</p>
+  <pre>You are a senior Spring Framework engineer doing a code review.
+You are given a Jira ticket and the current (unfixed) source file(s).
+Write the minimal code fix — show exactly which lines change.
+Format your fix as a unified diff or clearly mark old/new lines.
+Be specific. Do not ask for more information.</pre>
+
+  <h3>5.2 User Message Construction</h3>
+  <p>The user message is assembled as follows:</p>
+  <pre>**Ticket:** {key}
+**Summary:** {summary}
+**Description:**
+{description}    (truncated to 2,000 characters)
+
+**Source files (before fix):**
+
+--- {file_path_1} ---
+```java
+{file_content_1}    (truncated to 6,000 characters per file)
+```
+
+--- {file_path_2} ---        (up to 3 files shown)
+...</pre>
+
+  <p>
+    File content is retrieved at the parent commit (i.e., the state immediately before the
+    fix was applied):
+  </p>
+  <pre>git show {parent_sha}:{file_path}</pre>
+
+  <h3>5.3 Model Parameters</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Parameter</th><th>OpenAI models</th><th>Anthropic models</th></tr></thead>
+      <tbody>
+        <tr><td>max_tokens / max_tokens</td><td>1,500</td><td>1,500</td></tr>
+        <tr><td>temperature</td><td>0.3</td><td>(default, not set)</td></tr>
+        <tr><td>API version</td><td>openai-python 1.x</td><td>anthropic-python 0.84.0</td></tr>
+        <tr><td>System prompt delivery</td><td><code>messages[0].role="system"</code></td><td><code>system</code> parameter</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.4 Ground Truth</h3>
+  <p>
+    The ground truth for each ticket is the unified diff between the parent commit and the
+    fix commit:
+  </p>
+  <pre>git diff {parent_sha} {fix_sha}</pre>
+  <p>
+    This diff may include test files, documentation, and files outside the 1–3 shown to the
+    model. The full diff is used for scoring regardless of what was shown in the prompt.
+  </p>
+
+  <!-- ── 6. Scoring Metrics ── -->
+  <h2>Scoring Metrics</h2>
+
+  <h3>6.1 File Hit (binary)</h3>
+  <p>
+    Let <em>F</em> be the set of Java class name stems extracted from the diff header lines
+    matching the pattern <code>b/(.+\.java)</code>, e.g., <code>b/…/RedisTemplate.java</code>
+    yields stem <code>RedisTemplate</code>.
+  </p>
+
+  <div class="formula">
+    file_hit = |F| > 0  AND  ∃f ∈ F : f is a substring of model_answer
+  </div>
+
+  <p>
+    This is a weak positive test: the model receives credit if it mentions any of the correct
+    class names anywhere in its response. It does not require correct usage.
+  </p>
+
+  <div class="note">
+    <strong>Known artefact:</strong> In 5 of 65 GPT-4o responses, file_hit was False despite
+    non-trivial token overlap (range 0.13–0.73). Inspection showed that GPT-4o described
+    changes without writing the full class name (e.g., "the factory class" rather than
+    <code>AbstractAutowireCapableBeanFactory</code>). This artefact inflates the apparent
+    pass-rate disadvantage of GPT-4o relative to GPT-4o-mini. Token overlap is the more
+    reliable primary metric.
+  </div>
+
+  <h3>6.2 Token Overlap (continuous)</h3>
+  <p>
+    Let <em>T(·)</em> extract the set of identifier tokens from a text string, where an
+    identifier token matches the pattern <code>[A-Za-z_][A-Za-z0-9_]{2,}</code> (minimum
+    length 3 to exclude noise tokens such as <code>if</code>, <code>for</code>).
+  </p>
+  <p>
+    Let <em>A</em> be the set of added lines from the ground-truth diff (lines beginning
+    with <code>+</code>, excluding file-header lines beginning with <code>+++</code>).
+  </p>
+
+  <div class="formula">
+    token_overlap = |T(A) ∩ T(answer)| / |T(A) ∪ T(answer)|
+  </div>
+
+  <p>
+    This is the Jaccard similarity coefficient on identifier token sets. It ranges from 0
+    (no shared identifiers) to 1 (identical token sets). The metric is symmetric and does
+    not require the model's response to be a valid diff.
+  </p>
+
+  <h3>6.3 Pass (binary composite)</h3>
+
+  <div class="formula">
+    pass = file_hit  AND  token_overlap ≥ 0.15
+  </div>
+
+  <p>
+    The threshold of 0.15 was chosen to exclude responses that name the correct file but
+    produce generic boilerplate code unrelated to the actual fix. Sensitivity analysis at
+    thresholds 0.10 and 0.20 does not change the rank ordering of models.
+  </p>
+
+  <!-- ── 7. Baseline Characteristics ── -->
+  <h2>Baseline Characteristics</h2>
+
+  <h3>7.1 Per-model summary statistics (n=65)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Pass rate</th>
+          <th>Overlap mean</th>
+          <th>Overlap SD</th>
+          <th>Tokens in (mean)</th>
+          <th>Tokens out (mean)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>claude-opus-4-6</td><td>66%</td><td>0.226</td><td>0.141</td><td>2,449</td><td>930</td></tr>
+        <tr><td>claude-sonnet-4-6</td><td>69%</td><td>0.227</td><td>0.134</td><td>2,449</td><td>1,047</td></tr>
+        <tr><td>gpt-4o</td><td>48%</td><td>0.177</td><td>0.109</td><td>1,844</td><td>420</td></tr>
+        <tr><td>gpt-4o-mini</td><td>58%</td><td>0.176</td><td>0.093</td><td>1,844</td><td>317</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.2 Per-model, per-tier statistics</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Tier</th><th>n</th><th>Pass</th><th>Overlap mean</th><th>Overlap SD</th></tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="3">claude-opus-4-6</td><td>Automate</td><td>5</td><td>100%</td><td>0.222</td><td>0.043</td></tr>
+        <tr><td>Assist</td><td>30</td><td>60%</td><td>0.213</td><td>0.131</td></tr>
+        <tr><td>Escalate</td><td>30</td><td>67%</td><td>0.239</td><td>0.161</td></tr>
+
+        <tr style="border-top:1px solid #e8e8e4;"><td rowspan="3">claude-sonnet-4-6</td><td>Automate</td><td>5</td><td>80%</td><td>0.202</td><td>0.052</td></tr>
+        <tr><td>Assist</td><td>30</td><td>60%</td><td>0.218</td><td>0.137</td></tr>
+        <tr><td>Escalate</td><td>30</td><td>77%</td><td>0.240</td><td>0.142</td></tr>
+
+        <tr style="border-top:1px solid #e8e8e4;"><td rowspan="3">gpt-4o</td><td>Automate</td><td>5</td><td>20%</td><td>0.158</td><td>0.058</td></tr>
+        <tr><td>Assist</td><td>30</td><td>50%</td><td>0.176</td><td>0.106</td></tr>
+        <tr><td>Escalate</td><td>30</td><td>50%</td><td>0.180</td><td>0.121</td></tr>
+
+        <tr style="border-top:1px solid #e8e8e4;"><td rowspan="3">gpt-4o-mini</td><td>Automate</td><td>5</td><td>60%</td><td>0.165</td><td>0.045</td></tr>
+        <tr><td>Assist</td><td>30</td><td>67%</td><td>0.185</td><td>0.087</td></tr>
+        <tr><td>Escalate</td><td>30</td><td>50%</td><td>0.168</td><td>0.104</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.3 Within-ticket variance across models</h3>
+  <p>
+    All four models were run on the identical 65 tickets (same random seed). For each ticket,
+    we compute the range of token overlap scores across the four models:
+  </p>
+  <div class="formula">
+    mean within-ticket range = 0.151
+    max  within-ticket range = 0.618
+  </div>
+  <p>
+    The high within-ticket variance indicates that ticket difficulty is the dominant source of
+    variance, not model identity. A more powerful evaluation design would increase <em>n</em>
+    rather than add models.
+  </p>
+
+  <!-- ── 8. Limitations ── -->
+  <h2>Limitations</h2>
+
+  <ol>
+    <li>
+      <strong>Automate tier underrepresentation (n=5).</strong> No statistically meaningful
+      conclusions about the Automate tier can be drawn. The 5 available tickets are
+      unrepresentative of Automate-labelled work in general (see Section 3.4).
+    </li>
+    <li>
+      <strong>Temporal bias.</strong> All git commits in the benchmark date from 2009–2013,
+      corresponding to the Spring 2.x–3.x era. The code style, API patterns, and package
+      layout differ substantially from modern Spring 6.x. Model performance on current
+      Spring code may differ from reported figures.
+    </li>
+    <li>
+      <strong>Low coverage (1.6%).</strong> Only 1.6% of labeled tickets are included in
+      the benchmark (998 of 61,564). Tickets without a corresponding code commit are excluded,
+      creating selection bias toward tickets that were fixed by a code change rather than
+      closed as duplicates or won't-fix.
+    </li>
+    <li>
+      <strong>Token Jaccard as a proxy.</strong> The metric measures surface-level identifier
+      overlap, not semantic correctness. A model can achieve a high overlap score by producing
+      plausible-but-wrong code that reuses the same variable and method names. Conversely, a
+      correct fix that uses different local variable names will receive a low score. The metric
+      is intended as an inexpensive approximation; human evaluation or compilation-and-test
+      scoring would be more definitive.
+    </li>
+    <li>
+      <strong>File_hit artefact.</strong> As described in Section 6.1, the binary file_hit
+      criterion penalises models that describe changes without naming the class explicitly.
+      This artefact affects GPT-4o disproportionately. Pass rate results for GPT-4o should
+      be interpreted with caution; token overlap is the recommended primary metric.
+    </li>
+    <li>
+      <strong>Single project.</strong> All tickets and commits are from one project
+      (Spring Framework). Generalisation to other languages, ecosystems, or issue tracker
+      conventions is not established.
+    </li>
+    <li>
+      <strong>max_tokens cap.</strong> Responses are capped at 1,500 tokens. Longer fixes
+      may be truncated; this may disproportionately affect models that produce more verbose
+      output (Sonnet and Opus averaged 1,047 and 930 output tokens respectively, approaching
+      the cap on some tickets).
+    </li>
+  </ol>
+
+  <!-- ── 9. Replication ── -->
+  <h2>Replication Instructions</h2>
+
+  <p>
+    The following steps reproduce the benchmark from scratch using only public data
+    sources. No access to the authors' infrastructure is required.
+  </p>
+
+  <pre># 1. Clone the Spring Framework repository
+git clone https://github.com/spring-projects/spring-framework.git \
+          .cache/spring-framework
+
+# 2. Download Spring Jira tickets via the public REST API
+#    (substitute your own scraper; no auth required)
+#    Target collection: project=SPR, all resolved tickets
+
+# 3. Install dependencies
+pip install anthropic openai pymongo numpy
+
+# 4. Reproduce the tier labels
+python build_outcome_cache.py   # writes .cache/outcome_signals.json
+
+# 5. Build the git index
+python build_git_index.py       # writes .cache/git_index.json
+
+# 6. Run the evaluation (choose provider and model)
+python run_eval.py \
+    --provider anthropic \
+    --model claude-sonnet-4-6 \
+    --n 30 --seed 42
+
+# 7. Compare results across models
+python eval_compare.py</pre>
+
+  <p>
+    The calibration thresholds in <code>build_outcome_cache.py</code> (P33_DAYS = 1.9,
+    P75_ASSIGNEE_CNT = 136) are fixed constants derived from the authors' corpus. If a
+    different Jira corpus is used, these should be recomputed from the empirical distribution.
+    The scoring rule in Section 2.3 remains valid with any thresholds, provided they are
+    specified before any labelling is performed.
+  </p>
+
+  <!-- ── 10. Code & Data Availability ── -->
+  <h2>Code and Data Availability</h2>
+
+  <p>All evaluation code is released under the MIT licence:</p>
+  <pre>https://github.com/JussiTu/task2vec</pre>
+
+  <p>Relevant files:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>build_outcome_cache.py</code></td><td>Signal extraction and tier labelling</td></tr>
+        <tr><td><code>build_git_index.py</code></td><td>Git commit matching and file extraction</td></tr>
+        <tr><td><code>run_eval.py</code></td><td>Prompt construction and model evaluation</td></tr>
+        <tr><td><code>eval_compare.py</code></td><td>Multi-model result aggregation</td></tr>
+        <tr><td><code>eval_report.py</code></td><td>Single-model report generation</td></tr>
+        <tr><td><code>.cache/eval_results_*.json</code></td><td>Raw results for all four models</td></tr>
+        <tr><td><code>.cache/git_index.json</code></td><td>Benchmark ticket–commit mapping (998 entries)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The raw Jira dump is not redistributed due to size (~2 GB). The
+    <code>outcome_signals.json</code> file (61,564 labeled tickets, 4.6 MB) is not
+    included in the repository but can be regenerated from the public Jira API using
+    <code>build_outcome_cache.py</code>.
+  </p>
+
+  <hr>
+
+  <!-- ── References ── -->
+  <h2>References</h2>
+
+  <ul class="ref-list">
+    <li>
+      Spring Framework issue tracker (project SPR), Atlassian Jira.
+      <a href="https://jira.spring.io/browse/SPR" target="_blank">https://jira.spring.io/browse/SPR</a>.
+      Accessed February 2026.
+    </li>
+    <li>
+      Spring Framework source repository.
+      <a href="https://github.com/spring-projects/spring-framework" target="_blank">https://github.com/spring-projects/spring-framework</a>.
+      Accessed February 2026.
+    </li>
+    <li>
+      Jaccard, P. (1912). The distribution of the flora in the alpine zone.
+      <em>New Phytologist</em>, 11(2), 37–50.
+    </li>
+    <li>
+      Anthropic. (2025). Claude 4 model family.
+      <a href="https://www.anthropic.com" target="_blank">https://www.anthropic.com</a>.
+    </li>
+    <li>
+      OpenAI. (2024). GPT-4o and GPT-4o-mini technical report.
+      <a href="https://openai.com" target="_blank">https://openai.com</a>.
+    </li>
+  </ul>
+
+  <!-- ── Footer ── -->
+  <div class="paper-footer">
+    Published by <a href="/">task2vec.com</a> · February 2026 ·
+    Code: <a href="https://github.com/JussiTu/task2vec" target="_blank">github.com/JussiTu/task2vec</a> ·
+    <a href="eval_summary.html">Results summary</a>
+  </div>
+
+</div>
+</body>
+</html>
