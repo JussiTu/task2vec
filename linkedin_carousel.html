@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Carousel — task2vec</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+  --text:   #ddd;
+  --muted:  #666;
+}
+
+body {
+  background: #1a1a1a;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  padding: 40px 20px 80px;
+}
+
+/* ── Instructions ── */
+.instructions {
+  max-width: 600px; margin: 0 auto 40px;
+  background: #111; border: 1px solid #2a2a2a; border-radius: 12px;
+  padding: 20px 24px;
+  color: #888; font-size: 13px; line-height: 1.7;
+}
+.instructions strong { color: #ccc; }
+.instructions h2 { font-size: 15px; color: #fff; margin-bottom: 12px; }
+.instructions ol { padding-left: 18px; }
+.instructions li { margin-bottom: 6px; }
+.print-btn {
+  display: inline-block; margin-top: 16px;
+  background: #7b68ee; color: #fff; border: none;
+  padding: 10px 22px; border-radius: 8px; font-size: 13px;
+  font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.print-btn:hover { background: #6a57dd; }
+
+/* ── Slide wrapper ── */
+.slides { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+/* ── Each slide: 1080×1080 rendered at 600×600 ── */
+.slide {
+  width: 600px; height: 600px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+/* Slide label (not printed) */
+.slide-label {
+  text-align: center; color: #555; font-size: 12px; margin-bottom: 6px;
+  font-family: monospace;
+}
+
+/* ── Shared layout helpers ── */
+.s-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+
+.s-logo {
+  font-size: 13px; font-weight: 700; letter-spacing: -.01em;
+  color: #fff; opacity: .5; margin-bottom: auto;
+}
+.s-logo span { color: var(--purple); opacity: 1; }
+
+.s-slide-num {
+  position: absolute; bottom: 26px; right: 32px;
+  font-size: 11px; color: #333; font-weight: 600; letter-spacing: .06em;
+}
+
+/* dot row */
+.dot-row {
+  display: flex; gap: 6px; align-items: center;
+  position: absolute; bottom: 26px; left: 48px;
+}
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #2a2a2a;
+}
+.dot.active { background: var(--purple); }
+
+/* ══════════════════════════════════════
+   SLIDE 1 — Cover
+══════════════════════════════════════ */
+.s1 { background: var(--bg); }
+
+.s1-inner {
+  width: 100%; height: 100%;
+  padding: 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+
+.s1-tag {
+  display: inline-block;
+  border: 1px solid var(--purple); color: var(--purple);
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  align-self: flex-start;
+}
+
+.s1-headline {
+  font-size: 42px; font-weight: 800; line-height: 1.1;
+  color: #fff;
+  flex: 1; display: flex; align-items: center;
+}
+.s1-headline em { font-style: normal; color: var(--purple); }
+
+.s1-sub {
+  font-size: 14px; color: #555; line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.s1-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.s1-logo { font-size: 16px; font-weight: 700; color: #fff; }
+.s1-logo span { color: var(--purple); }
+.s1-swipe { font-size: 11px; color: #333; letter-spacing: .06em; text-transform: uppercase; }
+
+/* accent line */
+.s1::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--purple), #a99fff, transparent);
+}
+
+/* ══════════════════════════════════════
+   SLIDE 2 — Three tiers
+══════════════════════════════════════ */
+.s2-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s2-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 32px;
+}
+.s2-tiers { display: flex; flex-direction: column; gap: 20px; flex: 1; justify-content: center; }
+
+.tier-row { display: flex; align-items: center; gap: 18px; }
+.tier-pct {
+  font-size: 42px; font-weight: 800; line-height: 1;
+  width: 96px; text-align: right; flex-shrink: 0;
+}
+.tier-pct.green { color: var(--green); }
+.tier-pct.amber { color: var(--amber); }
+.tier-pct.red   { color: var(--red); }
+
+.tier-bar-wrap { flex: 1; }
+.tier-bar {
+  height: 8px; border-radius: 4px; margin-bottom: 8px;
+  transition: width 1s ease;
+}
+.tier-bar.green { background: var(--green); width: 22%; }
+.tier-bar.amber { background: var(--amber); width: 30%; }
+.tier-bar.red   { background: var(--red);   width: 48%; }
+
+.tier-name {
+  font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px;
+}
+.tier-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ══════════════════════════════════════
+   SLIDE 3 — The trend
+══════════════════════════════════════ */
+.s3-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s3-title {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 8px;
+}
+.s3-headline {
+  font-size: 24px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 36px;
+}
+.s3-headline em { font-style: normal; color: var(--red); }
+
+.trend-rows { display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: center; }
+.trend-row { display: flex; align-items: center; gap: 14px; }
+.trend-year { font-size: 13px; color: #444; width: 36px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.trend-bars { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+.tbar {
+  height: 6px; border-radius: 3px;
+  display: flex; align-items: center;
+  position: relative;
+}
+.tbar-auto { background: var(--green); }
+.tbar-esc  { background: var(--red); opacity: .7; }
+
+.trend-auto { font-size: 11px; color: var(--green); width: 58px; flex-shrink: 0; font-weight: 700; }
+.trend-esc  { font-size: 11px; color: var(--red);   width: 68px; flex-shrink: 0; font-weight: 700; }
+
+.trend-note { font-size: 10px; color: #333; flex: 1; }
+
+.trend-legend {
+  display: flex; gap: 20px; margin-top: 20px;
+}
+.tleg { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #555; }
+.tleg-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+/* ══════════════════════════════════════
+   SLIDE 4 — Key insight
+══════════════════════════════════════ */
+.s4 { background: #08090f; }
+.s4::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--purple), #a99fff, transparent);
+}
+
+.s4-inner {
+  width: 100%; height: 100%;
+  padding: 60px 52px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+}
+
+.s4-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--purple);
+  margin-bottom: 28px;
+}
+.s4-quote {
+  font-size: 28px; font-weight: 800; line-height: 1.25;
+  color: #fff; margin-bottom: 28px;
+}
+.s4-quote em { font-style: normal; color: var(--purple); }
+
+.s4-detail {
+  font-size: 13px; color: #555; line-height: 1.7;
+  border-left: 2px solid #1e1e1e; padding-left: 16px;
+}
+
+/* ══════════════════════════════════════
+   SLIDE 5 — The implication
+══════════════════════════════════════ */
+.s5-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+
+.s5-not {
+  font-size: 14px; color: #444; margin-bottom: 8px;
+  text-decoration: line-through; text-decoration-color: #333;
+}
+.s5-question {
+  font-size: 32px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 40px;
+}
+.s5-question em { font-style: normal; color: var(--purple); }
+
+.s5-cards { display: flex; flex-direction: column; gap: 12px; }
+.s5-card {
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.s5-card-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.s5-card-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.s5-card-desc  { font-size: 11px; color: #555; line-height: 1.5; }
+
+/* ══════════════════════════════════════
+   SLIDE 6 — CTA
+══════════════════════════════════════ */
+.s6 { background: #08090f; }
+.s6::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--purple), #a99fff, transparent);
+}
+
+.s6-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+
+.s6-logo { font-size: 22px; font-weight: 800; color: #fff; }
+.s6-logo span { color: var(--purple); }
+
+.s6-headline {
+  font-size: 30px; font-weight: 800; color: #fff; line-height: 1.2;
+}
+.s6-sub { font-size: 14px; color: #555; margin-top: 10px; line-height: 1.6; }
+
+.s6-links { display: flex; flex-direction: column; gap: 12px; }
+.s6-link {
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.s6-link-label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+.s6-link-url   { font-size: 13px; font-weight: 700; color: var(--purple); }
+.s6-link-arrow { font-size: 18px; color: #333; }
+
+.s6-tagline {
+  font-size: 12px; color: #333; text-align: center; line-height: 1.5;
+}
+
+/* ══════════════════════════════════════
+   PRINT — one slide per page at 1080×1080
+══════════════════════════════════════ */
+@media print {
+  body { background: #000; padding: 0; }
+  .instructions { display: none; }
+  .slide-label { display: none; }
+  .slides { gap: 0; }
+
+  @page { size: 1080px 1080px; margin: 0; }
+
+  .slide {
+    width: 1080px !important;
+    height: 1080px !important;
+    page-break-after: always;
+    box-shadow: none;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  /* Scale all slide internals 1.8× (600→1080) */
+  .s1-inner,
+  .s2-inner,
+  .s3-inner,
+  .s4-inner,
+  .s5-inner,
+  .s6-inner { transform: scale(1.8); transform-origin: top left; width: 600px !important; height: 600px !important; }
+
+  .s-slide-num, .dot-row { transform: scale(1.8); transform-origin: bottom left; }
+}
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h2>LinkedIn Carousel — export instructions</h2>
+  <ol>
+    <li><strong>Print to PDF:</strong> Click the button below → in the print dialog choose "Save as PDF", paper size will be set to 1080×1080px per slide.</li>
+    <li><strong>Or screenshot each slide:</strong> Right-click each slide → "Save image as" using a browser extension like GoFullPage, or screenshot each one individually.</li>
+    <li><strong>Upload to LinkedIn:</strong> Create a post → click the document icon → upload the PDF. LinkedIn will show it as a swipeable carousel.</li>
+    <li><strong>Post tip:</strong> Put the link to task2vec.com in the first comment, not the post body — LinkedIn suppresses links in posts.</li>
+  </ol>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="slides">
+
+  <!-- ══ SLIDE 1 — Cover ══ -->
+  <div class="slide-label">Slide 1 / 6 — Cover</div>
+  <div class="slide s1">
+    <div class="s1-inner">
+      <div class="s1-tag">New research</div>
+      <div class="s1-headline">
+        We analysed<br><em>69,000</em><br>Jira tickets.
+      </div>
+      <div class="s1-sub">
+        Here's what the data says about<br>AI in software engineering.
+      </div>
+      <div class="s1-footer">
+        <div class="s1-logo">task<span>2</span>vec</div>
+        <div class="s1-swipe">Swipe to see findings →</div>
+      </div>
+    </div>
+    <div class="s-slide-num">1 / 6</div>
+  </div>
+
+  <!-- ══ SLIDE 2 — Three tiers ══ -->
+  <div class="slide-label">Slide 2 / 6 — Three tiers</div>
+  <div class="slide">
+    <div class="s2-inner">
+      <div class="s2-title">Spring Framework · 69,156 tickets · 2002–2021</div>
+      <div class="s2-tiers">
+
+        <div class="tier-row">
+          <div class="tier-pct green">22%</div>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar green"></div>
+            <div class="tier-name">Automate</div>
+            <div class="tier-desc">Safe for AI with no human review — docs, deprecations, typo fixes, dependency bumps</div>
+          </div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tier-pct amber">30%</div>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar amber"></div>
+            <div class="tier-name">Assist</div>
+            <div class="tier-desc">AI draft + human sign-off — moderate complexity, some context required</div>
+          </div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tier-pct red">48%</div>
+          <div class="tier-bar-wrap">
+            <div class="tier-bar red"></div>
+            <div class="tier-name">Escalate</div>
+            <div class="tier-desc">Senior engineer required — architecture decisions, concurrency, failure modes</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="s-slide-num">2 / 6</div>
+  </div>
+
+  <!-- ══ SLIDE 3 — The trend ══ -->
+  <div class="slide-label">Slide 3 / 6 — The trend</div>
+  <div class="slide">
+    <div class="s3-inner">
+      <div class="s3-title">How it changes over time</div>
+      <div class="s3-headline">As projects mature,<br><em>hard work grows.</em></div>
+
+      <div class="trend-rows">
+
+        <div class="trend-row">
+          <div class="trend-year">2010</div>
+          <div class="trend-bars">
+            <div class="tbar tbar-auto" style="width:19%"></div>
+            <div class="tbar tbar-esc"  style="width:36%"></div>
+          </div>
+          <div class="trend-auto">19% auto</div>
+          <div class="trend-esc">36% escalate</div>
+          <div class="trend-note">lots of routine work</div>
+        </div>
+
+        <div class="trend-row">
+          <div class="trend-year">2013</div>
+          <div class="trend-bars">
+            <div class="tbar tbar-auto" style="width:21%"></div>
+            <div class="tbar tbar-esc"  style="width:39%"></div>
+          </div>
+          <div class="trend-auto">21% auto</div>
+          <div class="trend-esc">39% escalate</div>
+          <div class="trend-note"></div>
+        </div>
+
+        <div class="trend-row">
+          <div class="trend-year">2016</div>
+          <div class="trend-bars">
+            <div class="tbar tbar-auto" style="width:17%"></div>
+            <div class="tbar tbar-esc"  style="width:55%"></div>
+          </div>
+          <div class="trend-auto">17% auto</div>
+          <div class="trend-esc">55% escalate</div>
+          <div class="trend-note">maturing codebase</div>
+        </div>
+
+        <div class="trend-row">
+          <div class="trend-year">2018</div>
+          <div class="trend-bars">
+            <div class="tbar tbar-auto" style="width:15%"></div>
+            <div class="tbar tbar-esc"  style="width:59%"></div>
+          </div>
+          <div class="trend-auto">15% auto</div>
+          <div class="trend-esc">59% escalate</div>
+          <div class="trend-note"></div>
+        </div>
+
+        <div class="trend-row">
+          <div class="trend-year">2020</div>
+          <div class="trend-bars">
+            <div class="tbar tbar-auto" style="width:5%"></div>
+            <div class="tbar tbar-esc"  style="width:68%"></div>
+          </div>
+          <div class="trend-auto" style="color:#666">5% auto</div>
+          <div class="trend-esc">68% escalate</div>
+          <div class="trend-note" style="color:#ef4444;font-size:10px;">only hard problems remain</div>
+        </div>
+
+      </div>
+
+      <div class="trend-legend">
+        <div class="tleg"><div class="tleg-dot" style="background:var(--green)"></div> Automatable</div>
+        <div class="tleg"><div class="tleg-dot" style="background:var(--red);opacity:.7"></div> Escalate</div>
+      </div>
+    </div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="s-slide-num">3 / 6</div>
+  </div>
+
+  <!-- ══ SLIDE 4 — Key insight ══ -->
+  <div class="slide-label">Slide 4 / 6 — Key insight</div>
+  <div class="slide s4">
+    <div class="s4-inner">
+      <div class="s4-eyebrow">Key insight</div>
+      <div class="s4-quote">
+        AI doesn't reduce<br>the hard pile.<br>
+        It <em>exposes</em> it faster.
+      </div>
+      <div class="s4-detail">
+        As AI handles routine work, the remaining backlog shifts towards
+        architecture problems, failure modes, and cross-cutting concerns —
+        work that genuinely requires senior engineers.<br><br>
+        By 2020, nearly 70% of new Spring tickets were escalate-level.
+        The triage tool becomes <strong style="color:#ccc">more valuable</strong> as adoption grows, not less.
+      </div>
+    </div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="s-slide-num">4 / 6</div>
+  </div>
+
+  <!-- ══ SLIDE 5 — The implication ══ -->
+  <div class="slide-label">Slide 5 / 6 — The implication</div>
+  <div class="slide">
+    <div class="s5-inner">
+      <div>
+        <div class="s5-not">Can AI help our team?</div>
+        <div class="s5-question">
+          Which <em>22%</em> of your backlog<br>is safe to automate?
+        </div>
+      </div>
+
+      <div class="s5-cards">
+        <div class="s5-card">
+          <div class="s5-card-icon">📊</div>
+          <div>
+            <div class="s5-card-title">Every team has a different split</div>
+            <div class="s5-card-desc">Spring's 22/30/48 is from an open-source framework. Your product codebase will be different — possibly much more automatable if it's younger.</div>
+          </div>
+        </div>
+        <div class="s5-card">
+          <div class="s5-card-icon">⚠️</div>
+          <div>
+            <div class="s5-card-title">Getting it wrong is expensive</div>
+            <div class="s5-card-desc">An AI-drafted PR for an escalate-level ticket doesn't save time. It creates review burden, subtle bugs, and erodes trust in the tooling.</div>
+          </div>
+        </div>
+        <div class="s5-card">
+          <div class="s5-card-icon">🎯</div>
+          <div>
+            <div class="s5-card-title">Triage first. Automate second.</div>
+            <div class="s5-card-desc">The same methodology we used on Spring can be run on your own Jira history.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+    </div>
+    <div class="s-slide-num">5 / 6</div>
+  </div>
+
+  <!-- ══ SLIDE 6 — CTA ══ -->
+  <div class="slide-label">Slide 6 / 6 — CTA</div>
+  <div class="slide s6">
+    <div class="s6-inner">
+      <div class="s6-logo">task<span>2</span>vec</div>
+
+      <div>
+        <div class="s6-headline">See the full<br>analysis.</div>
+        <div class="s6-sub">Open research · Peer-reviewed methodology · All data public</div>
+      </div>
+
+      <div class="s6-links">
+        <div class="s6-link">
+          <div>
+            <div class="s6-link-label">Results &amp; model comparison</div>
+            <div class="s6-link-url">task2vec.com/eval_summary</div>
+          </div>
+          <div class="s6-link-arrow">→</div>
+        </div>
+        <div class="s6-link">
+          <div>
+            <div class="s6-link-label">Run it on your own Jira</div>
+            <div class="s6-link-url">task2vec.com/commission</div>
+          </div>
+          <div class="s6-link-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="s6-tagline">
+        Link in first comment · Code open source at github.com/JussiTu/task2vec
+      </div>
+    </div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+    </div>
+    <div class="s-slide-num">6 / 6</div>
+  </div>
+
+</div>
+
+</body>
+</html>
