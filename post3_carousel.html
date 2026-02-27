@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Do You Know the Learning Happened? — task2vec</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+  --text:   #eee;
+  --muted:  #bbb;
+  --teal:   #06b6d4;
+}
+
+body {
+  background: #1a1a1a;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  padding: 40px 20px 80px;
+}
+
+/* ── Instructions ── */
+.instructions {
+  max-width: 600px; margin: 0 auto 40px;
+  background: #111; border: 1px solid #2a2a2a; border-radius: 12px;
+  padding: 20px 24px;
+  color: #aaa; font-size: 13px; line-height: 1.7;
+}
+.instructions strong { color: #eee; }
+.instructions h2 { font-size: 15px; color: #fff; margin-bottom: 12px; }
+.instructions ol { padding-left: 18px; }
+.instructions li { margin-bottom: 6px; }
+.print-btn {
+  display: inline-block; margin-top: 16px;
+  background: #7b68ee; color: #fff; border: none;
+  padding: 10px 22px; border-radius: 8px; font-size: 13px;
+  font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.print-btn:hover { background: #6a57dd; }
+
+/* ── Slide wrapper ── */
+.slides { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+.slide {
+  width: 600px; height: 600px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.slide-label {
+  text-align: center; color: #aaa; font-size: 12px; margin-bottom: 6px;
+  font-family: monospace;
+}
+
+.s-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.s-slide-num {
+  position: absolute; bottom: 26px; right: 32px;
+  font-size: 11px; color: #888; font-weight: 600; letter-spacing: .06em;
+}
+
+.dot-row {
+  display: flex; gap: 6px; align-items: center;
+  position: absolute; bottom: 26px; left: 48px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #2a2a2a; }
+.dot.active { background: var(--teal); }
+
+.accent-line::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--teal), #a3e6ef, transparent);
+}
+
+/* ══════ SLIDE 1 — Cover ══════ */
+.s1-inner {
+  width: 100%; height: 100%;
+  padding: 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s1-tag {
+  display: inline-block;
+  border: 1px solid var(--teal); color: var(--teal);
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  align-self: flex-start;
+}
+.s1-headline {
+  font-size: 36px; font-weight: 800; line-height: 1.1; color: #fff;
+  flex: 1; display: flex; align-items: center;
+}
+.s1-headline em { font-style: normal; color: var(--teal); }
+.s1-sub { font-size: 13px; color: #aaa; line-height: 1.6; margin-bottom: 24px; }
+.s1-footer { display: flex; align-items: center; justify-content: space-between; }
+.s1-logo { font-size: 16px; font-weight: 700; color: #fff; }
+.s1-logo span { color: var(--purple); }
+.s1-swipe { font-size: 11px; color: #888; letter-spacing: .06em; text-transform: uppercase; }
+
+/* ══════ SLIDE 2 — The finding ══════ */
+.s2-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+
+.s2-stat-hero {
+  background: linear-gradient(135deg, #08131a, #0d0d0d);
+  border: 1px solid #0e2030;
+  border-left: 3px solid var(--teal);
+  border-radius: 14px; padding: 24px 26px;
+  margin-bottom: 20px;
+}
+.s2-stat-hero-n { font-size: 64px; font-weight: 800; color: var(--teal); line-height: 1; }
+.s2-stat-hero-label { font-size: 15px; color: #ddd; margin-top: 6px; font-weight: 600; }
+.s2-stat-hero-sub { font-size: 12px; color: #777; margin-top: 6px; line-height: 1.5; }
+
+.s2-stats { display: flex; gap: 14px; }
+.s2-stat {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 10px;
+  padding: 14px 16px; flex: 1;
+}
+.s2-stat-n { font-size: 28px; font-weight: 800; color: #fff; line-height: 1; }
+.s2-stat-label { font-size: 11px; color: #666; margin-top: 5px; line-height: 1.4; }
+
+/* ══════ SLIDE 3 — The fingerprint ══════ */
+.s3-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s3-headline {
+  font-size: 22px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 24px;
+}
+.s3-headline em { font-style: normal; color: var(--teal); }
+
+.fingerprint-examples { display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: center; }
+.fp-example {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 12px;
+  padding: 16px 20px;
+}
+.fp-type { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.fp-rho-row { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.fp-rho { font-size: 32px; font-weight: 800; color: var(--teal); }
+.fp-rho-label { font-size: 11px; color: #666; }
+.fp-dots { display: flex; gap: 4px; align-items: flex-end; }
+.fp-dot {
+  width: 14px; border-radius: 2px 2px 0 0;
+  background: var(--teal); opacity: 0.7;
+}
+.fp-desc { font-size: 11px; color: #777; }
+
+.s3-insight {
+  background: #0a1a14; border: 1px solid #0f2e1e;
+  border-left: 3px solid var(--green);
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+  font-size: 13px; color: var(--green); font-weight: 600;
+}
+
+/* ══════ SLIDE 4 — Tier signal strength ══════ */
+.s4-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s4-headline {
+  font-size: 20px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 28px;
+}
+.s4-headline em { font-style: normal; color: var(--teal); }
+
+.tier-signals { display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: center; }
+.ts-row {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 10px;
+  padding: 14px 16px;
+}
+.ts-row.highlight {
+  background: #08131a; border: 1px solid #0e2030;
+  border-left: 3px solid var(--teal);
+}
+.ts-top { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.ts-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  padding: 3px 10px; border-radius: 12px; flex-shrink: 0;
+}
+.badge-auto     { background: #0c1f14; color: var(--green); }
+.badge-assist   { background: #1f1800; color: var(--amber); }
+.badge-escalate { background: #1f0c0c; color: var(--red); }
+
+.ts-rho { font-size: 22px; font-weight: 800; margin-left: auto; }
+.ts-rho.strong { color: var(--teal); }
+.ts-rho.mid    { color: #aaa; }
+
+.ts-bar-wrap { background: #1a1a1a; border-radius: 3px; height: 6px; }
+.ts-bar { height: 6px; border-radius: 3px; }
+
+.ts-desc { font-size: 11px; color: #666; margin-top: 8px; }
+
+.s4-callout {
+  background: #0a1318; border: 1px solid #0e2030;
+  border-radius: 8px; padding: 12px 16px; margin-top: 16px;
+  font-size: 12px; color: #aaa; line-height: 1.5;
+}
+
+/* ══════ SLIDE 5 — The risk ══════ */
+.s5-inner {
+  width: 100%; height: 100%;
+  padding: 48px;
+  display: flex; flex-direction: column;
+}
+.s5-headline {
+  font-size: 20px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 28px;
+}
+
+.s5-scenarios { display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.s5-scenario {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 12px;
+  padding: 16px 20px; flex: 1;
+}
+.s5-scenario.good { border-left: 3px solid var(--green); }
+.s5-scenario.bad  { border-left: 3px solid var(--red); }
+
+.s5-scenario-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.s5-scenario-icon { font-size: 16px; }
+.s5-scenario-label {
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.s5-scenario-label.good { color: var(--green); }
+.s5-scenario-label.bad  { color: var(--red); }
+
+.s5-timeline { display: flex; align-items: flex-end; gap: 4px; height: 40px; margin-bottom: 10px; }
+.s5-tbar {
+  flex: 1; border-radius: 2px 2px 0 0;
+}
+.s5-scenario-desc { font-size: 11px; color: #888; line-height: 1.5; }
+
+/* ══════ SLIDE 6 — The diagnostic ══════ */
+.s6-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+}
+.s6-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 20px;
+}
+.s6-headline {
+  font-size: 24px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 24px;
+}
+.s6-rules { display: flex; flex-direction: column; gap: 14px; }
+.s6-rule {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 14px 16px;
+}
+.s6-rule-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.s6-rule-text { font-size: 13px; color: #ddd; line-height: 1.5; }
+.s6-rule-text strong { color: #fff; display: block; margin-bottom: 2px; }
+
+.s6-note {
+  font-size: 12px; color: #666; margin-top: 20px; line-height: 1.5;
+  border-top: 1px solid #1a1a1a; padding-top: 14px;
+}
+
+/* ══════ SLIDE 7 — CTA ══════ */
+.s7-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s7-logo { font-size: 22px; font-weight: 800; color: #fff; }
+.s7-logo span { color: var(--purple); }
+.s7-headline { font-size: 26px; font-weight: 800; color: #fff; line-height: 1.2; }
+.s7-sub { font-size: 13px; color: #aaa; margin-top: 10px; line-height: 1.6; }
+.s7-links { display: flex; flex-direction: column; gap: 12px; }
+.s7-link {
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.s7-link-label { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+.s7-link-url   { font-size: 13px; font-weight: 700; color: var(--purple); }
+.s7-link-arrow { font-size: 18px; color: #888; }
+.s7-tagline { font-size: 12px; color: #888; text-align: center; line-height: 1.5; }
+
+/* ══ PRINT ══ */
+@media print {
+  body { background: #000; padding: 0; }
+  .instructions { display: none; }
+  .slide-label { display: none; }
+  .slides { gap: 0; }
+
+  @page { size: 1080px 1080px; margin: 0; }
+
+  .slide {
+    width: 1080px !important;
+    height: 1080px !important;
+    page-break-after: always;
+    box-shadow: none;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  .s1-inner, .s2-inner, .s3-inner, .s4-inner,
+  .s5-inner, .s6-inner, .s7-inner {
+    transform: scale(1.8); transform-origin: top left;
+    width: 600px !important; height: 600px !important;
+  }
+  .s-slide-num, .dot-row { transform: scale(1.8); transform-origin: bottom left; }
+}
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h2>Post 3 — How Do You Know the Learning Happened?</h2>
+  <ol>
+    <li><strong>Print to PDF:</strong> Click the button → Save as PDF (1080×1080px per slide).</li>
+    <li><strong>Upload to LinkedIn:</strong> New post → document icon → upload PDF → swipeable carousel.</li>
+    <li><strong>Post tip:</strong> Paste the post text from <a href="/linkedin_posts.html" style="color:#7b68ee">linkedin_posts.html</a> → put the task2vec.com link in the first comment.</li>
+  </ol>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="slides">
+
+  <!-- ══ SLIDE 1 — Cover ══ -->
+  <div class="slide-label">Slide 1 / 7</div>
+  <div class="slide accent-line">
+    <div class="s1-inner">
+      <div class="s1-tag">Post 3 &nbsp;·&nbsp; Learning Signals Analysis · 1,016 Series</div>
+      <div class="s1-headline">
+        How Do You Know the<br>
+        <em>Learning Happened?</em>
+      </div>
+      <div class="s1-sub">
+        If AI did the heavy lifting — did the engineer actually learn anything?<br>
+        We went looking for an answer in 20 years of Spring Framework data.
+      </div>
+      <div class="s1-footer">
+        <div class="s1-logo">task<span>2</span>vec</div>
+        <div class="s1-swipe">Swipe for the findings →</div>
+      </div>
+    </div>
+    <div class="s-slide-num">1 / 7</div>
+    <div class="dot-row">
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 2 — The finding ══ -->
+  <div class="slide-label">Slide 2 / 7</div>
+  <div class="slide">
+    <div class="s2-inner">
+      <div class="s-eyebrow">Velocity analysis — Spring Framework 2003–2022</div>
+      <div class="s2-stat-hero">
+        <div class="s2-stat-hero-n">47%</div>
+        <div class="s2-stat-hero-label">of engineer-cluster series showed clear velocity improvement</div>
+        <div class="s2-stat-hero-sub">
+          Engineers consistently resolving the same ticket category faster as they did more of them.<br>
+          Measured using Spearman rank correlation on resolution time series.
+        </div>
+      </div>
+      <div class="s2-stats">
+        <div class="s2-stat">
+          <div class="s2-stat-n">1,016</div>
+          <div class="s2-stat-label">engineer × ticket-type<br>series analysed</div>
+        </div>
+        <div class="s2-stat">
+          <div class="s2-stat-n">5+</div>
+          <div class="s2-stat-label">tickets minimum<br>per series</div>
+        </div>
+        <div class="s2-stat">
+          <div class="s2-stat-n" style="color:var(--teal)">rho</div>
+          <div class="s2-stat-label">Spearman rank<br>correlation metric</div>
+        </div>
+      </div>
+    </div>
+    <div class="s-slide-num">2 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 3 — The fingerprint ══ -->
+  <div class="slide-label">Slide 3 / 7</div>
+  <div class="slide">
+    <div class="s3-inner">
+      <div class="s-eyebrow">The learning fingerprint — real examples from the data</div>
+      <div class="s3-headline">
+        <em>Learning happened.</em> We can see it.
+      </div>
+      <div class="fingerprint-examples">
+        <div class="fp-example">
+          <div class="fp-type">RequestMapping Enhancements</div>
+          <div class="fp-rho-row">
+            <div class="fp-rho">-1.00</div>
+            <div>
+              <div class="fp-rho-label">Spearman rho — perfect correlation</div>
+            </div>
+            <div class="fp-dots" style="margin-left:auto">
+              <div class="fp-dot" style="height:34px"></div>
+              <div class="fp-dot" style="height:30px"></div>
+              <div class="fp-dot" style="height:27px"></div>
+              <div class="fp-dot" style="height:23px"></div>
+              <div class="fp-dot" style="height:19px"></div>
+              <div class="fp-dot" style="height:15px"></div>
+              <div class="fp-dot" style="height:11px"></div>
+              <div class="fp-dot" style="height:8px"></div>
+              <div class="fp-dot" style="height:5px"></div>
+            </div>
+          </div>
+          <div class="fp-desc">9 tickets in a row. Every subsequent ticket faster than the last.</div>
+        </div>
+        <div class="fp-example">
+          <div class="fp-type">OSGi Manifest &amp; Dependencies</div>
+          <div class="fp-rho-row">
+            <div class="fp-rho">-0.94</div>
+            <div>
+              <div class="fp-rho-label">Spearman rho — near-perfect</div>
+            </div>
+            <div class="fp-dots" style="margin-left:auto">
+              <div class="fp-dot" style="height:34px"></div>
+              <div class="fp-dot" style="height:32px"></div>
+              <div class="fp-dot" style="height:28px"></div>
+              <div class="fp-dot" style="height:28px"></div>
+              <div class="fp-dot" style="height:24px"></div>
+              <div class="fp-dot" style="height:20px"></div>
+              <div class="fp-dot" style="height:17px"></div>
+              <div class="fp-dot" style="height:13px"></div>
+              <div class="fp-dot" style="height:11px"></div>
+              <div class="fp-dot" style="height:9px"></div>
+              <div class="fp-dot" style="height:6px"></div>
+            </div>
+          </div>
+          <div class="fp-desc">11 tickets, consistent acceleration over 3 years.</div>
+        </div>
+      </div>
+      <div class="s3-insight">
+        Velocity declining within a ticket type = a measurable learning signal from data you already have.
+      </div>
+    </div>
+    <div class="s-slide-num">3 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 4 — Tier signal strength ══ -->
+  <div class="slide-label">Slide 4 / 7</div>
+  <div class="slide">
+    <div class="s4-inner">
+      <div class="s-eyebrow">Learning signal by ticket tier</div>
+      <div class="s4-headline">
+        The <em>Assist tier</em> showed the strongest<br>learning signal of all three tiers
+      </div>
+      <div class="tier-signals">
+        <div class="ts-row">
+          <div class="ts-top">
+            <div class="ts-badge badge-auto">Automate</div>
+            <div style="font-size:12px;color:#666;flex:1">Routine, repetitive work</div>
+            <div class="ts-rho mid">-0.16</div>
+          </div>
+          <div class="ts-bar-wrap">
+            <div class="ts-bar" style="width:64%;background:var(--green);opacity:.4;height:6px;border-radius:3px;"></div>
+          </div>
+          <div class="ts-desc">52% speedup rate in Automate-tier series</div>
+        </div>
+        <div class="ts-row highlight">
+          <div class="ts-top">
+            <div class="ts-badge badge-assist">Assist</div>
+            <div style="font-size:12px;color:#aaa;flex:1">Bounded domain work — AI drafts, human reviews</div>
+            <div class="ts-rho strong">-0.22</div>
+          </div>
+          <div class="ts-bar-wrap">
+            <div class="ts-bar" style="width:88%;background:var(--teal);height:6px;border-radius:3px;"></div>
+          </div>
+          <div class="ts-desc" style="color:var(--teal)">52% speedup rate — strongest Spearman signal</div>
+        </div>
+        <div class="ts-row">
+          <div class="ts-top">
+            <div class="ts-badge badge-escalate">Escalate</div>
+            <div style="font-size:12px;color:#666;flex:1">Complex, cross-cutting work</div>
+            <div class="ts-rho mid">-0.17</div>
+          </div>
+          <div class="ts-bar-wrap">
+            <div class="ts-bar" style="width:68%;background:var(--red);opacity:.4;height:6px;border-radius:3px;"></div>
+          </div>
+          <div class="ts-desc">40% speedup rate in Escalate-tier series</div>
+        </div>
+      </div>
+      <div class="s4-callout">
+        The tier where AI copilots are most useful is also where the most measurable skill development happens.
+        Those two facts are in tension.
+      </div>
+    </div>
+    <div class="s-slide-num">4 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 5 — The risk ══ -->
+  <div class="slide-label">Slide 5 / 7</div>
+  <div class="slide">
+    <div class="s5-inner">
+      <div class="s-eyebrow">The specific risk with AI-assisted work</div>
+      <div class="s5-headline">Two engineers. Same tickets. Different outcomes.</div>
+      <div class="s5-scenarios">
+        <div class="s5-scenario good">
+          <div class="s5-scenario-header">
+            <div class="s5-scenario-label good">Scenario A — Learning happening</div>
+          </div>
+          <div class="s5-timeline">
+            <div class="s5-tbar" style="height:100%;background:var(--teal);opacity:.6"></div>
+            <div class="s5-tbar" style="height:85%;background:var(--teal);opacity:.6"></div>
+            <div class="s5-tbar" style="height:70%;background:var(--teal);opacity:.7"></div>
+            <div class="s5-tbar" style="height:55%;background:var(--teal);opacity:.8"></div>
+            <div class="s5-tbar" style="height:40%;background:var(--teal);opacity:.9"></div>
+            <div class="s5-tbar" style="height:28%;background:var(--teal)"></div>
+          </div>
+          <div class="s5-scenario-desc">
+            Engineer engages deeply → resolution time declines → Spearman rho negative → learning fingerprint visible.
+          </div>
+        </div>
+        <div class="s5-scenario bad">
+          <div class="s5-scenario-header">
+            <div class="s5-scenario-label bad">Scenario B — Processing AI output</div>
+          </div>
+          <div class="s5-timeline">
+            <div class="s5-tbar" style="height:48%;background:var(--red);opacity:.5"></div>
+            <div class="s5-tbar" style="height:52%;background:var(--red);opacity:.5"></div>
+            <div class="s5-tbar" style="height:45%;background:var(--red);opacity:.5"></div>
+            <div class="s5-tbar" style="height:50%;background:var(--red);opacity:.5"></div>
+            <div class="s5-tbar" style="height:47%;background:var(--red);opacity:.5"></div>
+            <div class="s5-tbar" style="height:49%;background:var(--red);opacity:.5"></div>
+          </div>
+          <div class="s5-scenario-desc">
+            Engineer approves AI output at constant rate → flat line → velocity curve disappears → no learning signal.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-slide-num">5 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 6 — The diagnostic ══ -->
+  <div class="slide accent-line" style="background:#08090f">
+    <div class="s6-inner">
+      <div class="s6-eyebrow">The diagnostic — what to measure</div>
+      <div class="s6-headline">
+        The question isn't tickets closed per sprint.<br>
+        It's whether they're getting faster.
+      </div>
+      <div class="s6-rules">
+        <div class="s6-rule">
+          <div class="s6-rule-icon" style="color:var(--teal)">↘</div>
+          <div class="s6-rule-text">
+            <strong>Declining resolution time within a ticket type</strong>
+            Learning is probably happening. Worth encouraging.
+          </div>
+        </div>
+        <div class="s6-rule">
+          <div class="s6-rule-icon" style="color:var(--red)">→</div>
+          <div class="s6-rule-text">
+            <strong>Flat line across same ticket type</strong>
+            Worth asking why. Could be quality AI assistance — or could be no engagement.
+          </div>
+        </div>
+      </div>
+      <div class="s6-note">
+        This works with Jira data you already have. Resolution dates + ticket categories.
+        No additional tooling required.
+      </div>
+    </div>
+    <div class="s-slide-num">6 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 7 — CTA ══ -->
+  <div class="slide accent-line" style="background:#08090f">
+    <div class="s7-inner">
+      <div class="s7-logo">task<span>2</span>vec</div>
+      <div>
+        <div class="s7-headline">Run the velocity diagnostic<br>on your own Jira</div>
+        <div class="s7-sub">
+          Your ticket history already contains the learning signal.<br>
+          We can compute the velocity curve for your team.
+        </div>
+      </div>
+      <div class="s7-links">
+        <div class="s7-link">
+          <div>
+            <div class="s7-link-label">Full data &amp; methodology</div>
+            <div class="s7-link-url">task2vec.com/research</div>
+          </div>
+          <div class="s7-link-arrow">→</div>
+        </div>
+        <div class="s7-link">
+          <div>
+            <div class="s7-link-label">Run the velocity diagnostic on your data</div>
+            <div class="s7-link-url">task2vec.com/commission</div>
+          </div>
+          <div class="s7-link-arrow">→</div>
+        </div>
+      </div>
+      <div class="s7-tagline">
+        Based on 69,000 Spring Framework tickets · 1,016 learning series analysed
+      </div>
+    </div>
+    <div class="s-slide-num">7 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

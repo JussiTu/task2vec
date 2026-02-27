@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The On-Ramp Is Disappearing — task2vec</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+  --text:   #eee;
+  --muted:  #bbb;
+}
+
+body {
+  background: #1a1a1a;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  padding: 40px 20px 80px;
+}
+
+/* ── Instructions ── */
+.instructions {
+  max-width: 600px; margin: 0 auto 40px;
+  background: #111; border: 1px solid #2a2a2a; border-radius: 12px;
+  padding: 20px 24px;
+  color: #aaa; font-size: 13px; line-height: 1.7;
+}
+.instructions strong { color: #eee; }
+.instructions h2 { font-size: 15px; color: #fff; margin-bottom: 12px; }
+.instructions ol { padding-left: 18px; }
+.instructions li { margin-bottom: 6px; }
+.print-btn {
+  display: inline-block; margin-top: 16px;
+  background: #7b68ee; color: #fff; border: none;
+  padding: 10px 22px; border-radius: 8px; font-size: 13px;
+  font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.print-btn:hover { background: #6a57dd; }
+
+/* ── Slide wrapper ── */
+.slides { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+/* ── Each slide: 600×600 displayed ── */
+.slide {
+  width: 600px; height: 600px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.slide-label {
+  text-align: center; color: #aaa; font-size: 12px; margin-bottom: 6px;
+  font-family: monospace;
+}
+
+/* ── Shared ── */
+.s-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+
+.s-logo { font-size: 13px; font-weight: 700; color: #fff; opacity: .5; }
+.s-logo span { color: var(--purple); opacity: 1; }
+
+.s-slide-num {
+  position: absolute; bottom: 26px; right: 32px;
+  font-size: 11px; color: #888; font-weight: 600; letter-spacing: .06em;
+}
+
+.dot-row {
+  display: flex; gap: 6px; align-items: center;
+  position: absolute; bottom: 26px; left: 48px;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #2a2a2a; }
+.dot.active { background: var(--purple); }
+
+/* accent line */
+.accent-line::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--purple), #a99fff, transparent);
+}
+
+/* ══════ SLIDE 1 — Cover ══════ */
+.s1-inner {
+  width: 100%; height: 100%;
+  padding: 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s1-tag {
+  display: inline-block;
+  border: 1px solid var(--amber); color: var(--amber);
+  font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  align-self: flex-start;
+}
+.s1-headline {
+  font-size: 40px; font-weight: 800; line-height: 1.1; color: #fff;
+  flex: 1; display: flex; align-items: center;
+}
+.s1-headline em { font-style: normal; color: var(--amber); }
+.s1-sub { font-size: 14px; color: #aaa; line-height: 1.6; margin-bottom: 24px; }
+.s1-footer { display: flex; align-items: center; justify-content: space-between; }
+.s1-logo { font-size: 16px; font-weight: 700; color: #fff; }
+.s1-logo span { color: var(--purple); }
+.s1-swipe { font-size: 11px; color: #888; letter-spacing: .06em; text-transform: uppercase; }
+
+/* ══════ SLIDE 2 — The data ══════ */
+.s2-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 28px;
+}
+.s2-stat-row { display: flex; gap: 32px; margin-bottom: 36px; }
+.s2-stat {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 12px;
+  padding: 18px 22px; flex: 1;
+}
+.s2-stat-n { font-size: 44px; font-weight: 800; color: #fff; line-height: 1; }
+.s2-stat-n em { font-style: normal; color: var(--amber); }
+.s2-stat-label { font-size: 12px; color: #888; margin-top: 6px; line-height: 1.4; }
+
+.s2-finding {
+  background: linear-gradient(135deg, #12100a, #0d0d0d);
+  border: 1px solid #2a2418;
+  border-left: 3px solid var(--amber);
+  border-radius: 12px; padding: 20px 22px;
+  flex: 1;
+}
+.s2-finding-pct { font-size: 52px; font-weight: 800; color: var(--amber); line-height: 1; margin-bottom: 6px; }
+.s2-finding-text { font-size: 15px; color: #ddd; line-height: 1.5; font-weight: 600; }
+.s2-finding-sub  { font-size: 12px; color: #888; margin-top: 8px; line-height: 1.5; }
+
+/* ══════ SLIDE 3 — Career arc ══════ */
+.s3-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s3-headline {
+  font-size: 20px; font-weight: 800; color: #fff;
+  line-height: 1.2; margin-bottom: 30px;
+}
+.s3-headline em { font-style: normal; color: var(--amber); }
+
+.arc-rows { display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: center; }
+.arc-row { display: flex; align-items: center; gap: 16px; }
+.arc-year { font-size: 13px; color: #777; width: 68px; flex-shrink: 0; }
+.arc-bar-wrap { flex: 1; }
+.arc-bar {
+  height: 22px; border-radius: 5px;
+  background: var(--amber); opacity: .85;
+  display: flex; align-items: center; padding-left: 10px;
+}
+.arc-bar-label { font-size: 12px; font-weight: 700; color: #000; }
+.arc-pct { font-size: 14px; font-weight: 800; color: var(--amber); width: 44px; flex-shrink: 0; text-align: right; }
+.arc-note { font-size: 11px; color: #555; width: 90px; flex-shrink: 0; }
+.arc-note.highlight { color: var(--green); font-weight: 700; }
+
+/* ══════ SLIDE 4 — Early vs Late tickets ══════ */
+.s4-inner {
+  width: 100%; height: 100%;
+  padding: 44px 48px;
+  display: flex; flex-direction: column;
+}
+.s4-cols { display: flex; gap: 18px; flex: 1; margin-top: 12px; }
+.s4-col { flex: 1; }
+.s4-col-header {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 6px; margin-bottom: 14px; text-align: center;
+}
+.s4-col-header.early { background: #161a24; color: var(--purple); border: 1px solid #1e2840; }
+.s4-col-header.late  { background: #1a1010; color: var(--red); border: 1px solid #2a1818; }
+
+.s4-ticket {
+  background: #111; border: 1px solid #1e1e1e; border-radius: 8px;
+  padding: 10px 12px; margin-bottom: 8px;
+}
+.s4-ticket-tier {
+  font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.s4-ticket-tier.assist { color: var(--amber); }
+.s4-ticket-tier.escalate { color: var(--red); }
+.s4-ticket-name { font-size: 11px; color: #ddd; line-height: 1.4; }
+.s4-ticket-pct { font-size: 10px; color: #666; margin-top: 3px; }
+
+.s4-insight {
+  background: #111; border: 1px solid var(--green); border-left: 3px solid var(--green);
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+  font-size: 12px; color: var(--green); line-height: 1.5;
+}
+
+/* ══════ SLIDE 5 — The disruption ══════ */
+.s5-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s5-question {
+  font-size: 28px; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 32px;
+}
+.s5-question em { font-style: normal; color: var(--amber); }
+
+.s5-tiers { display: flex; flex-direction: column; gap: 10px; }
+.s5-tier {
+  display: flex; align-items: center; gap: 14px;
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 12px 16px;
+}
+.s5-tier.highlight {
+  background: #12100a; border: 1px solid #2a2418;
+  border-left: 3px solid var(--amber);
+}
+.s5-tier-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 12px; flex-shrink: 0; width: 80px; text-align: center;
+}
+.badge-auto     { background: #0c1f14; color: var(--green); }
+.badge-assist   { background: #1f1800; color: var(--amber); }
+.badge-escalate { background: #1f0c0c; color: var(--red); }
+
+.s5-tier-desc { font-size: 12px; color: #aaa; flex: 1; line-height: 1.4; }
+.s5-tier-tag { font-size: 10px; font-weight: 700; color: var(--amber); }
+
+/* ══════ SLIDE 6 — The question ══════ */
+.s6-inner {
+  width: 100%; height: 100%;
+  padding: 60px 52px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+}
+.s6-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--purple);
+  margin-bottom: 28px;
+}
+.s6-quote {
+  font-size: 26px; font-weight: 800; line-height: 1.25;
+  color: #fff; margin-bottom: 28px;
+}
+.s6-quote em { font-style: normal; color: var(--amber); }
+.s6-detail {
+  font-size: 13px; color: #aaa; line-height: 1.7;
+  border-left: 2px solid #1e1e1e; padding-left: 16px;
+}
+
+/* ══════ SLIDE 7 — CTA ══════ */
+.s7-inner {
+  width: 100%; height: 100%;
+  padding: 52px 48px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+}
+.s7-logo { font-size: 22px; font-weight: 800; color: #fff; }
+.s7-logo span { color: var(--purple); }
+.s7-headline { font-size: 26px; font-weight: 800; color: #fff; line-height: 1.2; }
+.s7-sub { font-size: 13px; color: #aaa; margin-top: 10px; line-height: 1.6; }
+.s7-links { display: flex; flex-direction: column; gap: 12px; }
+.s7-link {
+  background: #111; border: 1px solid #1e1e1e;
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.s7-link-label { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+.s7-link-url   { font-size: 13px; font-weight: 700; color: var(--purple); }
+.s7-link-arrow { font-size: 18px; color: #888; }
+.s7-tagline { font-size: 12px; color: #888; text-align: center; line-height: 1.5; }
+
+/* ══ PRINT ══ */
+@media print {
+  body { background: #000; padding: 0; }
+  .instructions { display: none; }
+  .slide-label { display: none; }
+  .slides { gap: 0; }
+
+  @page { size: 1080px 1080px; margin: 0; }
+
+  .slide {
+    width: 1080px !important;
+    height: 1080px !important;
+    page-break-after: always;
+    box-shadow: none;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  .s1-inner, .s2-inner, .s3-inner, .s4-inner,
+  .s5-inner, .s6-inner, .s7-inner {
+    transform: scale(1.8); transform-origin: top left;
+    width: 600px !important; height: 600px !important;
+  }
+  .s-slide-num, .dot-row { transform: scale(1.8); transform-origin: bottom left; }
+}
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h2>Post 2 — The On-Ramp Is Disappearing</h2>
+  <ol>
+    <li><strong>Print to PDF:</strong> Click the button → Save as PDF (1080×1080px per slide).</li>
+    <li><strong>Upload to LinkedIn:</strong> New post → document icon → upload PDF → swipeable carousel.</li>
+    <li><strong>Post tip:</strong> Paste the post text from <a href="/linkedin_posts.html" style="color:#7b68ee">linkedin_posts.html</a> → put the task2vec.com link in the first comment.</li>
+  </ol>
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="slides">
+
+  <!-- ══ SLIDE 1 — Cover ══ -->
+  <div class="slide-label">Slide 1 / 7</div>
+  <div class="slide accent-line">
+    <div class="s1-inner">
+      <div class="s1-tag">Post 2 &nbsp;·&nbsp; Spring Framework · 57 Engineers Tracked</div>
+      <div class="s1-headline">
+        The On-Ramp Is<br><em>Disappearing</em>
+      </div>
+      <div class="s1-sub">
+        Junior engineers used to start on bounded work.<br>
+        Then grow into the hard tickets over years.<br>
+        That pathway is what AI disrupts first.
+      </div>
+      <div class="s1-footer">
+        <div class="s1-logo">task<span>2</span>vec</div>
+        <div class="s1-swipe">Swipe for the data →</div>
+      </div>
+    </div>
+    <div class="s-slide-num">1 / 7</div>
+    <div class="dot-row">
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 2 — The data ══ -->
+  <div class="slide-label">Slide 2 / 7</div>
+  <div class="slide">
+    <div class="s2-inner">
+      <div class="s-eyebrow">Career trajectory — Spring Framework 2003–2022</div>
+      <div class="s2-stat-row">
+        <div class="s2-stat">
+          <div class="s2-stat-n">57</div>
+          <div class="s2-stat-label">junior starters<br>tracked</div>
+        </div>
+        <div class="s2-stat">
+          <div class="s2-stat-n"><em>3+</em></div>
+          <div class="s2-stat-label">year careers<br>minimum</div>
+        </div>
+        <div class="s2-stat">
+          <div class="s2-stat-n">10+</div>
+          <div class="s2-stat-label">clustered tickets<br>required</div>
+        </div>
+      </div>
+      <div class="s2-finding">
+        <div class="s2-finding-pct">72%</div>
+        <div class="s2-finding-text">grew significantly into harder, more complex work</div>
+        <div class="s2-finding-sub">
+          Defined as a 15+ percentage-point increase in "Escalate-tier" ticket share<br>
+          from first year to last two years of career in the project.
+        </div>
+      </div>
+    </div>
+    <div class="s-slide-num">2 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 3 — Career arc ══ -->
+  <div class="slide-label">Slide 3 / 7</div>
+  <div class="slide">
+    <div class="s3-inner">
+      <div class="s-eyebrow">Aggregate career arc — Escalate-tier ticket share</div>
+      <div class="s3-headline">
+        The <em>biggest single jump</em> happens in year 2
+      </div>
+      <div class="arc-rows">
+        <div class="arc-row">
+          <div class="arc-year">Career yr 1</div>
+          <div class="arc-bar-wrap">
+            <div class="arc-bar" style="width:17%"><span class="arc-bar-label"></span></div>
+          </div>
+          <div class="arc-pct">17%</div>
+          <div class="arc-note">the on-ramp</div>
+        </div>
+        <div class="arc-row">
+          <div class="arc-year">Career yr 2</div>
+          <div class="arc-bar-wrap">
+            <div class="arc-bar" style="width:32%"><span class="arc-bar-label"></span></div>
+          </div>
+          <div class="arc-pct">32%</div>
+          <div class="arc-note highlight">+15pp jump</div>
+        </div>
+        <div class="arc-row">
+          <div class="arc-year">Career yr 3–4</div>
+          <div class="arc-bar-wrap">
+            <div class="arc-bar" style="width:38%"><span class="arc-bar-label"></span></div>
+          </div>
+          <div class="arc-pct">38%</div>
+          <div class="arc-note">building depth</div>
+        </div>
+        <div class="arc-row">
+          <div class="arc-year">Career yr 5–7</div>
+          <div class="arc-bar-wrap">
+            <div class="arc-bar" style="width:44%"><span class="arc-bar-label"></span></div>
+          </div>
+          <div class="arc-pct">44%</div>
+          <div class="arc-note"></div>
+        </div>
+        <div class="arc-row">
+          <div class="arc-year">Career yr 10+</div>
+          <div class="arc-bar-wrap">
+            <div class="arc-bar" style="width:51%;opacity:1;"><span class="arc-bar-label"></span></div>
+          </div>
+          <div class="arc-pct">44–51%</div>
+          <div class="arc-note">senior range</div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#555;margin-top:16px;">
+        Escalate tier = architecture, concurrency, integration issues requiring deep expertise
+      </div>
+    </div>
+    <div class="s-slide-num">3 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 4 — Early vs Late tickets ══ -->
+  <div class="slide-label">Slide 4 / 7</div>
+  <div class="slide">
+    <div class="s4-inner">
+      <div class="s-eyebrow">What did growing engineers actually work on?</div>
+      <div class="s4-cols">
+        <div class="s4-col">
+          <div class="s4-col-header early">Early career (yr 1–2)</div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier assist">Assist</div>
+            <div class="s4-ticket-name">Spring IDE Tooling</div>
+            <div class="s4-ticket-pct">14% of early work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier assist">Assist</div>
+            <div class="s4-ticket-name">Spring Web Flow</div>
+            <div class="s4-ticket-pct">10% of early work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier assist">Assist</div>
+            <div class="s4-ticket-name">MongoDB Mapping</div>
+            <div class="s4-ticket-pct">7% of early work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier assist">Assist</div>
+            <div class="s4-ticket-name">Bean Configuration</div>
+            <div class="s4-ticket-pct">6% of early work</div>
+          </div>
+        </div>
+        <div class="s4-col">
+          <div class="s4-col-header late">Late career (last 2 yr)</div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier escalate">Escalate</div>
+            <div class="s4-ticket-name">JSF &amp; Spring Web Flow</div>
+            <div class="s4-ticket-pct">18% of late work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier escalate">Escalate</div>
+            <div class="s4-ticket-name">Workspace &amp; Class Loading</div>
+            <div class="s4-ticket-pct">11% of late work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier escalate">Escalate</div>
+            <div class="s4-ticket-name">Validation &amp; Data Binding</div>
+            <div class="s4-ticket-pct">9% of late work</div>
+          </div>
+          <div class="s4-ticket">
+            <div class="s4-ticket-tier escalate">Escalate</div>
+            <div class="s4-ticket-name">JDBC Compatibility</div>
+            <div class="s4-ticket-pct">8% of late work</div>
+          </div>
+        </div>
+      </div>
+      <div class="s4-insight">
+        They didn't start on docs fixes. They started on bounded domain work — Assist tier.
+        The on-ramp is exactly what AI disrupts first.
+      </div>
+    </div>
+    <div class="s-slide-num">4 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 5 — The disruption ══ -->
+  <div class="slide-label">Slide 5 / 7</div>
+  <div class="slide">
+    <div class="s5-inner">
+      <div class="s-eyebrow">Where AI disrupts the learning path</div>
+      <div class="s5-question">
+        The tier that built the most expertise is the<br>
+        <em>first tier AI makes easier</em>
+      </div>
+      <div class="s5-tiers">
+        <div class="s5-tier">
+          <div class="s5-tier-badge badge-auto">Automate</div>
+          <div class="s5-tier-desc">Routine, repetitive work. AI replaces this entirely. Never the primary learning vehicle.</div>
+        </div>
+        <div class="s5-tier highlight">
+          <div class="s5-tier-badge badge-assist">Assist</div>
+          <div class="s5-tier-desc">Bounded domain work. AI drafts the solution — human reviews it.</div>
+          <div class="s5-tier-tag">← on-ramp here</div>
+        </div>
+        <div class="s5-tier">
+          <div class="s5-tier-badge badge-escalate">Escalate</div>
+          <div class="s5-tier-desc">Architecture, concurrency, cross-cutting concerns. Requires deep expertise — destination.</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:#666;margin-top:14px;line-height:1.5;">
+        With Assist tier: junior writes draft, senior reviews it → learning happens.<br>
+        With AI assist: AI writes draft, junior reviews it → <span style="color:#888">different skill. Possibly no learning.</span>
+      </div>
+    </div>
+    <div class="s-slide-num">5 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 6 — The question ══ -->
+  <div class="slide accent-line" style="background:#08090f">
+    <div class="s6-inner">
+      <div class="s6-eyebrow">The question for engineering leaders</div>
+      <div class="s6-quote">
+        Are your junior engineers still on a path to becoming<br>
+        <em>senior ones?</em>
+      </div>
+      <div class="s6-detail">
+        The data shows 72% of junior starters <em style="color:#eee;font-style:normal">did</em> grow into complex work —
+        when they had an Assist-tier on-ramp.<br><br>
+        That on-ramp is now the first thing AI adoption disrupts.<br><br>
+        This isn't a reason to slow down AI adoption. It's a reason to have a deliberate
+        answer to the question before it becomes a problem.
+      </div>
+    </div>
+    <div class="s-slide-num">6 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- ══ SLIDE 7 — CTA ══ -->
+  <div class="slide accent-line" style="background:#08090f">
+    <div class="s7-inner">
+      <div class="s7-logo">task<span>2</span>vec</div>
+      <div>
+        <div class="s7-headline">Run this analysis<br>on your own Jira</div>
+        <div class="s7-sub">
+          Your ticket history contains the same signals.<br>
+          We can run the career arc analysis on your team's data.
+        </div>
+      </div>
+      <div class="s7-links">
+        <div class="s7-link">
+          <div>
+            <div class="s7-link-label">Full research &amp; methodology</div>
+            <div class="s7-link-url">task2vec.com/research</div>
+          </div>
+          <div class="s7-link-arrow">→</div>
+        </div>
+        <div class="s7-link">
+          <div>
+            <div class="s7-link-label">Commission a study on your data</div>
+            <div class="s7-link-url">task2vec.com/commission</div>
+          </div>
+          <div class="s7-link-arrow">→</div>
+        </div>
+      </div>
+      <div class="s7-tagline">
+        Based on 69,000 Spring Framework tickets · 20 years of history
+      </div>
+    </div>
+    <div class="s-slide-num">7 / 7</div>
+    <div class="dot-row">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
