@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The On-Ramp Is Disappearing — task2vec</title>
+<title>AI didn't kill junior jobs. It killed the path to senior ones.</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -156,23 +156,30 @@ body {
 }
 .s3-headline {
   font-size: 20px; font-weight: 800; color: #fff;
-  line-height: 1.2; margin-bottom: 30px;
+  line-height: 1.2; margin-bottom: 20px;
 }
-.s3-headline em { font-style: normal; color: var(--amber); }
+.s3-headline em { font-style: normal; color: var(--red); }
 
-.arc-rows { display: flex; flex-direction: column; gap: 14px; flex: 1; justify-content: center; }
-.arc-row { display: flex; align-items: center; gap: 16px; }
-.arc-year { font-size: 13px; color: #777; width: 68px; flex-shrink: 0; }
-.arc-bar-wrap { flex: 1; }
-.arc-bar {
-  height: 22px; border-radius: 5px;
-  background: var(--amber); opacity: .85;
-  display: flex; align-items: center; padding-left: 10px;
+.arc-rows { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: center; }
+.arc-row { display: flex; align-items: center; gap: 12px; }
+.arc-year { font-size: 12px; color: #999; width: 72px; flex-shrink: 0; }
+.arc-stack-wrap { flex: 1; }
+.arc-stack {
+  height: 24px; border-radius: 5px; overflow: hidden;
+  display: flex; width: 100%;
 }
-.arc-bar-label { font-size: 12px; font-weight: 700; color: #000; }
-.arc-pct { font-size: 14px; font-weight: 800; color: var(--amber); width: 44px; flex-shrink: 0; text-align: right; }
-.arc-note { font-size: 11px; color: #555; width: 90px; flex-shrink: 0; }
-.arc-note.highlight { color: var(--green); font-weight: 700; }
+.seg-auto   { background: var(--green); opacity: .7; height: 100%; }
+.seg-assist { background: var(--amber); opacity: .6; height: 100%; }
+.seg-esc    { background: var(--red);   opacity: .85; height: 100%; }
+.arc-esc-label {
+  font-size: 12px; font-weight: 800; color: var(--red);
+  width: 36px; flex-shrink: 0; text-align: right;
+}
+.arc-legend {
+  display: flex; gap: 18px; margin-top: 16px;
+}
+.arc-leg { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #888; }
+.arc-leg-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
 /* ══════ SLIDE 4 — Early vs Late tickets ══════ */
 .s4-inner {
@@ -331,12 +338,12 @@ body {
     <div class="s1-inner">
       <div class="s1-tag">Post 2 &nbsp;·&nbsp; Spring Framework · 57 Engineers Tracked</div>
       <div class="s1-headline">
-        The On-Ramp Is<br><em>Disappearing</em>
+        AI didn't kill junior jobs.<br>It killed the path to <em>senior ones.</em>
       </div>
       <div class="s1-sub">
-        Junior engineers used to start on bounded work.<br>
-        Then grow into the hard tickets over years.<br>
-        That pathway is what AI disrupts first.
+        We tracked 57 engineers across 20 years of Spring Framework.<br>
+        Here's what the data says about how expertise actually forms —<br>
+        and what AI disrupts first.
       </div>
       <div class="s1-footer">
         <div class="s1-logo">task<span>2</span>vec</div>
@@ -389,54 +396,71 @@ body {
   <div class="slide-label">Slide 3 / 7</div>
   <div class="slide">
     <div class="s3-inner">
-      <div class="s-eyebrow">Aggregate career arc — Escalate-tier ticket share</div>
+      <div class="s-eyebrow">Share of ticket types — 57 junior starters, by career year</div>
       <div class="s3-headline">
-        The <em>biggest single jump</em> happens in year 2
+        The <em>hard work share</em> grows steadily with experience
       </div>
       <div class="arc-rows">
         <div class="arc-row">
           <div class="arc-year">Career yr 1</div>
-          <div class="arc-bar-wrap">
-            <div class="arc-bar" style="width:17%"><span class="arc-bar-label"></span></div>
+          <div class="arc-stack-wrap">
+            <div class="arc-stack">
+              <div class="seg-auto"   style="width:26%"></div>
+              <div class="seg-assist" style="width:57%"></div>
+              <div class="seg-esc"    style="width:17%"></div>
+            </div>
           </div>
-          <div class="arc-pct">17%</div>
-          <div class="arc-note">the on-ramp</div>
+          <div class="arc-esc-label">17%</div>
         </div>
         <div class="arc-row">
           <div class="arc-year">Career yr 2</div>
-          <div class="arc-bar-wrap">
-            <div class="arc-bar" style="width:32%"><span class="arc-bar-label"></span></div>
+          <div class="arc-stack-wrap">
+            <div class="arc-stack">
+              <div class="seg-auto"   style="width:25%"></div>
+              <div class="seg-assist" style="width:43%"></div>
+              <div class="seg-esc"    style="width:32%"></div>
+            </div>
           </div>
-          <div class="arc-pct">32%</div>
-          <div class="arc-note highlight">+15pp jump</div>
+          <div class="arc-esc-label">32%</div>
         </div>
         <div class="arc-row">
           <div class="arc-year">Career yr 3–4</div>
-          <div class="arc-bar-wrap">
-            <div class="arc-bar" style="width:38%"><span class="arc-bar-label"></span></div>
+          <div class="arc-stack-wrap">
+            <div class="arc-stack">
+              <div class="seg-auto"   style="width:27%"></div>
+              <div class="seg-assist" style="width:35%"></div>
+              <div class="seg-esc"    style="width:38%"></div>
+            </div>
           </div>
-          <div class="arc-pct">38%</div>
-          <div class="arc-note">building depth</div>
+          <div class="arc-esc-label">38%</div>
         </div>
         <div class="arc-row">
-          <div class="arc-year">Career yr 5–7</div>
-          <div class="arc-bar-wrap">
-            <div class="arc-bar" style="width:44%"><span class="arc-bar-label"></span></div>
+          <div class="arc-year">Career yr 7–9</div>
+          <div class="arc-stack-wrap">
+            <div class="arc-stack">
+              <div class="seg-auto"   style="width:10%"></div>
+              <div class="seg-assist" style="width:50%"></div>
+              <div class="seg-esc"    style="width:40%"></div>
+            </div>
           </div>
-          <div class="arc-pct">44%</div>
-          <div class="arc-note"></div>
+          <div class="arc-esc-label">40%</div>
         </div>
         <div class="arc-row">
           <div class="arc-year">Career yr 10+</div>
-          <div class="arc-bar-wrap">
-            <div class="arc-bar" style="width:51%;opacity:1;"><span class="arc-bar-label"></span></div>
+          <div class="arc-stack-wrap">
+            <div class="arc-stack">
+              <div class="seg-auto"   style="width:8%"></div>
+              <div class="seg-assist" style="width:48%"></div>
+              <div class="seg-esc"    style="width:44%"></div>
+            </div>
           </div>
-          <div class="arc-pct">44–51%</div>
-          <div class="arc-note">senior range</div>
+          <div class="arc-esc-label">44%</div>
         </div>
       </div>
-      <div style="font-size:11px;color:#555;margin-top:16px;">
-        Escalate tier = architecture, concurrency, integration issues requiring deep expertise
+      <div class="arc-legend">
+        <div class="arc-leg"><div class="arc-leg-dot" style="background:var(--green);opacity:.7"></div>Automate — routine work</div>
+        <div class="arc-leg"><div class="arc-leg-dot" style="background:var(--amber);opacity:.7"></div>Assist — domain work</div>
+        <div class="arc-leg"><div class="arc-leg-dot" style="background:var(--red)"></div>Escalate — complex work</div>
       </div>
     </div>
     <div class="s-slide-num">3 / 7</div>
