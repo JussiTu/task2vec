@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Score a Ticket — task2vec</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTKXE40LPF"></script>
 <script>
@@ -11,674 +12,403 @@
   gtag('js', new Date());
   gtag('config', 'G-QTKXE40LPF');
 </script>
-<title>Ticket Scorer — task2vec</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Nav ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(13,13,13,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #1e1e1e;
-    padding: 14px 40px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
-  .nav-logo span { color: #7b68ee; }
-  .nav-links { display: flex; gap: 20px; font-size: 13px; flex-wrap: wrap; justify-content: flex-end; }
-  .nav-links a { color: #666; text-decoration: none; transition: color .2s; white-space: nowrap; }
-  .nav-links a:hover { color: #ddd; }
-  .nav-links a.active { color: #7b68ee; }
-  @media (max-width: 600px) { nav { padding: 12px 16px; } .nav-links { gap: 14px; font-size: 12px; } }
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+  --text:   #eee;
+  --muted:  #999;
+}
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #f8f9fc;
-    color: #1a1d23;
-    min-height: 100vh;
-    padding: 88px 20px 64px;
-  }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 64px;
+}
 
-  .page {
-    max-width: 720px;
-    margin: 0 auto;
-  }
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: #a99fff; }
 
-  /* ── Header ── */
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: #6b7280;
-    text-decoration: none;
-    margin-bottom: 24px;
-    transition: color .15s;
-  }
-  .back-link:hover { color: #6c63ff; }
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,.95);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; height: 52px;
+  backdrop-filter: blur(8px);
+}
+.nav-logo { font-size: 17px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
+.nav-logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; }
+.nav-links a { color: var(--muted); text-decoration: none; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: #fff; font-weight: 600; }
 
-  .logo {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #6c63ff;
-    margin-bottom: 12px;
-  }
+/* ── Layout ── */
+.page { max-width: 720px; margin: 0 auto; padding: 52px 24px 100px; }
 
-  h1 {
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #0f1117;
-    margin-bottom: 8px;
-  }
+/* ── Header ── */
+.page-header { margin-bottom: 40px; }
+.back-link { font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; transition: color .2s; }
+.back-link:hover { color: var(--text); }
+.page-header h1 { font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.15; }
+.page-header p { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 560px; }
 
-  .subtitle {
-    font-size: 15px;
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 36px;
-  }
+/* ── Form ── */
+.form-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 28px; margin-bottom: 28px;
+}
+.form-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+textarea#ticket-text {
+  width: 100%; min-height: 130px;
+  background: #0a0a0a; color: #ddd;
+  border: 1px solid #252525; border-radius: 8px;
+  padding: 14px 16px; font-size: 13px; line-height: 1.7;
+  font-family: inherit; resize: vertical; outline: none;
+  transition: border-color .2s;
+}
+textarea#ticket-text:focus { border-color: var(--purple); }
+.form-actions { display: flex; align-items: center; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+.btn-score {
+  background: var(--purple); color: #fff; border: none;
+  padding: 10px 24px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+.btn-score:hover:not(:disabled) { background: #6a57dd; }
+.btn-score:disabled { opacity: .5; cursor: not-allowed; }
+.form-hint { font-size: 12px; color: #555; transition: opacity .2s; }
+.spinner { display: none; width: 16px; height: 16px; border: 2px solid #333; border-top-color: var(--purple); border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ── Form ── */
-  .form-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 28px 24px;
-    margin-bottom: 24px;
-  }
+/* ── Result panel ── */
+#result-panel { display: none; }
 
-  .form-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 8px;
-  }
+.result-header {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 28px; margin-bottom: 16px;
+}
 
-  textarea {
-    width: 100%;
-    min-height: 140px;
-    padding: 12px 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #1a1d23;
-    font-family: inherit;
-    line-height: 1.6;
-    resize: vertical;
-    transition: border-color .15s;
-    background: #fafafa;
-  }
-  textarea:focus {
-    outline: none;
-    border-color: #6c63ff;
-    background: #fff;
-  }
+.tier-row { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+.tier-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 22px; font-weight: 800; padding: 8px 20px;
+  border-radius: 10px; letter-spacing: -.01em;
+}
+.tier-badge.automate { background: rgba(16,185,129,.15); color: var(--green); border: 1px solid rgba(16,185,129,.25); }
+.tier-badge.assist    { background: rgba(245,158,11,.12); color: var(--amber); border: 1px solid rgba(245,158,11,.22); }
+.tier-badge.escalate  { background: rgba(239,68,68,.12);  color: var(--red);   border: 1px solid rgba(239,68,68,.22); }
 
-  .submit-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #6c63ff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 11px 26px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 16px;
-    transition: background .15s, transform .1s;
-  }
-  .submit-btn:hover { background: #5b53e8; transform: translateY(-1px); }
-  .submit-btn:active { transform: translateY(0); }
-  .submit-btn:disabled { background: #a5b4fc; cursor: not-allowed; transform: none; }
+.conf-block {}
+.confidence-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.confidence-bar-outer { background: #1a1a1a; border-radius: 6px; height: 8px; overflow: hidden; width: 180px; }
+.confidence-bar-inner { height: 100%; border-radius: 6px; transition: width .6s ease; }
 
-  .spinner {
-    width: 15px; height: 15px;
-    border: 2px solid rgba(255,255,255,0.4);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin .6s linear infinite;
-    display: none;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+.prob-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.prob-pill {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+.prob-pill.automate { background: rgba(16,185,129,.1);  color: var(--green); border: 1px solid rgba(16,185,129,.2); }
+.prob-pill.assist    { background: rgba(245,158,11,.1);  color: var(--amber); border: 1px solid rgba(245,158,11,.2); }
+.prob-pill.escalate  { background: rgba(239,68,68,.1);   color: var(--red);   border: 1px solid rgba(239,68,68,.2); }
+.prob-pill .pct { font-size: 14px; }
 
-  /* ── Result panel ── */
-  #result {
-    display: none;
-  }
+.coverage-line { font-size: 12px; color: var(--muted); }
+.insight-line  { font-size: 13px; color: #ccc; line-height: 1.6; margin-top: 14px; padding-top: 14px; border-top: 1px solid #1a1a1a; }
 
-  /* Tier badge */
-  .tier-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
+/* ── Evidence table ── */
+.evidence-section {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px; margin-bottom: 16px;
+}
+.section-title { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 
-  .tier-badge {
-    display: inline-block;
-    padding: 6px 20px;
-    border-radius: 24px;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-  .tier-badge.Automate { background: #d1fae5; color: #065f46; }
-  .tier-badge.Assist   { background: #fef3c7; color: #92400e; }
-  .tier-badge.Escalate { background: #fee2e2; color: #991b1b; }
+.evidence-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.evidence-table th { text-align: left; padding: 0 10px 10px 0; color: #555; font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
+.evidence-table td { padding: 10px 10px 10px 0; border-bottom: 1px solid #111; vertical-align: top; }
+.evidence-table tr:last-child td { border-bottom: none; }
+.ev-key { color: var(--purple); font-weight: 700; white-space: nowrap; }
+.ev-summary { color: #aaa; line-height: 1.4; }
+.ev-sim { color: #777; font-size: 11px; white-space: nowrap; }
+.ev-days { color: #ccc; white-space: nowrap; }
+.ev-badge {
+  display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; white-space: nowrap;
+}
+.ev-badge.automate { background: rgba(16,185,129,.12); color: #6fcf97; }
+.ev-badge.assist    { background: rgba(245,158,11,.12);  color: #fbbf24; }
+.ev-badge.escalate  { background: rgba(239,68,68,.12);   color: #f87171; }
 
-  .confidence-wrap {
-    flex: 1;
-    min-width: 160px;
-  }
-  .confidence-label {
-    font-size: 12px;
-    color: #6b7280;
-    margin-bottom: 4px;
-  }
-  .conf-bar-bg {
-    height: 8px;
-    background: #e5e7eb;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .conf-bar-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width .4s ease;
-  }
-  .conf-bar-fill.Automate { background: #10b981; }
-  .conf-bar-fill.Assist   { background: #f59e0b; }
-  .conf-bar-fill.Escalate { background: #ef4444; }
+/* ── Explainer ── */
+.explainer {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-left: 3px solid var(--purple);
+  border-radius: 14px; padding: 24px; margin-bottom: 16px;
+}
+.explainer-title { font-size: 13px; font-weight: 700; color: #ddd; margin-bottom: 14px; }
+.explainer-points { display: flex; flex-direction: column; gap: 10px; }
+.ep { display: flex; gap: 12px; }
+.ep-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); flex-shrink: 0; margin-top: 6px; }
+.ep-text { font-size: 12px; color: #888; line-height: 1.6; }
+.ep-text strong { color: #ccc; }
 
-  /* Probability pills */
-  .pills {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    border: 1px solid;
-  }
-  .pill.Automate { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
-  .pill.Assist   { background: #fffbeb; color: #92400e; border-color: #fde68a; }
-  .pill.Escalate { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
-  .pill-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-  }
-  .Automate .pill-dot { background: #10b981; }
-  .Assist   .pill-dot { background: #f59e0b; }
-  .Escalate .pill-dot { background: #ef4444; }
+/* ── CTA ── */
+.cta-card {
+  background: linear-gradient(135deg, #0e0c1a, #111);
+  border: 1px solid #1a1630; border-radius: 14px;
+  padding: 28px; text-align: center;
+}
+.cta-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.cta-card p { font-size: 13px; color: var(--muted); margin-bottom: 18px; line-height: 1.6; }
+.cta-btn {
+  display: inline-block; background: var(--purple); color: #fff;
+  padding: 10px 24px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; text-decoration: none;
+  transition: background .2s;
+}
+.cta-btn:hover { background: #6a57dd; color: #fff; }
 
-  /* Coverage note */
-  .coverage-note {
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 20px;
-    line-height: 1.5;
-  }
-
-  /* Insight sentence */
-  .insight-sentence {
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: #075985;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  /* Evidence table */
-  .table-wrap {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 20px 20px 8px;
-    margin-bottom: 24px;
-    overflow-x: auto;
-  }
-  .table-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 14px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-  thead tr {
-    border-bottom: 2px solid #e5e7eb;
-  }
-  th {
-    text-align: left;
-    padding: 6px 8px;
-    color: #6b7280;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  td {
-    padding: 8px 8px;
-    border-bottom: 1px solid #f3f4f6;
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
-
-  .key-link {
-    font-family: monospace;
-    font-size: 11px;
-    color: #6c63ff;
-    white-space: nowrap;
-  }
-  .summary-cell {
-    color: #374151;
-    line-height: 1.4;
-    max-width: 280px;
-  }
-  .days-cell {
-    color: #374151;
-    white-space: nowrap;
-    text-align: right;
-  }
-  .watchers-cell {
-    color: #374151;
-    text-align: right;
-  }
-  .tier-cell { white-space: nowrap; }
-
-  .badge {
-    display: inline-block;
-    padding: 2px 9px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-  .badge.Automate { background: #d1fae5; color: #065f46; }
-  .badge.Assist   { background: #fef3c7; color: #92400e; }
-  .badge.Escalate { background: #fee2e2; color: #991b1b; }
-
-  .sim-bar-wrap {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .sim-bar-bg {
-    width: 48px; height: 4px;
-    background: #e5e7eb;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .sim-bar-fill {
-    height: 100%;
-    background: #6c63ff;
-    border-radius: 2px;
-  }
-
-  /* Explainer card */
-  .explainer {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-  }
-  .explainer-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #0f1117;
-    margin-bottom: 16px;
-  }
-  .explainer-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    margin-bottom: 14px;
-  }
-  .explainer-item:last-child { margin-bottom: 0; }
-  .explainer-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
-  .explainer-text {
-    font-size: 13px;
-    color: #374151;
-    line-height: 1.6;
-  }
-  .explainer-text strong { color: #0f1117; }
-
-  /* CTA card */
-  .cta-card {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .cta-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    margin-bottom: 10px;
-  }
-  .cta-text {
-    font-size: 15px;
-    color: #3b0764;
-    line-height: 1.75;
-    font-weight: 500;
-    margin-bottom: 0;
-  }
-  .cta-text strong { color: #6c63ff; }
-
-  /* Error */
-  .error-box {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 13px;
-    color: #991b1b;
-    margin-bottom: 20px;
-    display: none;
-  }
+/* ── Error ── */
+.error-box { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: #f87171; display: none; margin-bottom: 16px; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">task<span>2</span>vec</a>
+  <a class="nav-logo" href="/">task<span>2</span>vec</a>
   <div class="nav-links">
-    <a href="/#how">How it works</a>
-    <a href="/#concepts">Concepts</a>
-    <a href="/ai_readiness_chart.html">AI Readiness</a>
-    <a href="/score.html" class="active">Score a ticket</a>
+    <a href="/">Home</a>
     <a href="/research.html">Research</a>
-    <a href="/cockpit.html">Cockpit</a>
-    <a href="/stories_spring/spring_explorer.html">Live demo</a>
+    <a href="/score.html" class="active">Score</a>
     <a href="/commission.html">Commission</a>
-    <a href="/#contact">Contact</a>
     <a href="/linkedin_posts.html">Posts</a>
   </div>
 </nav>
 
 <div class="page">
 
-  <!-- Header -->
-  <div style="margin-bottom: 40px;">
-    <div class="logo">task2vec · Ticket Scorer</div>
+  <div class="page-header">
+    <a class="back-link" href="/">← Back to home</a>
     <h1>Does this ticket need a human?</h1>
-    <p class="subtitle">
-      Paste any Jira ticket summary or description below. The scorer finds the most
-      similar tickets in 40 k resolved Spring Framework tickets and aggregates
-      their actual outcome signals — no LLM, pure historical evidence.
-    </p>
+    <p>Paste any Jira ticket below. We find the most similar Spring Framework tickets in our 61k-ticket dataset and look up how they actually resolved — how fast, how watched, by whom — to score yours.</p>
   </div>
 
   <!-- Form -->
   <div class="form-card">
-    <label class="form-label" for="ticket-text">Ticket summary or description</label>
-    <textarea
-      id="ticket-text"
-      placeholder="e.g. Fix NullPointerException in RedisTemplate when connection pool is exhausted under high load"
-    ></textarea>
-    <button class="submit-btn" id="submit-btn" onclick="submitScore()">
-      <svg id="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    <label class="form-label" for="ticket-text">Ticket summary &amp; description</label>
+    <textarea id="ticket-text" placeholder="e.g. Fix NullPointerException in RedisTemplate when connection pool is exhausted under high concurrency — occurs in production with 100+ concurrent requests, no reliable repro in dev environment."></textarea>
+    <div class="form-actions">
+      <button class="btn-score" id="score-btn" onclick="scoreTicket()">Score this ticket</button>
       <div class="spinner" id="spinner"></div>
-      Score ticket
-    </button>
+      <span class="form-hint" id="form-hint">~3 seconds &nbsp;·&nbsp; Ctrl+Enter to submit</span>
+    </div>
   </div>
 
-  <!-- Error box -->
   <div class="error-box" id="error-box"></div>
 
-  <!-- Result panel -->
-  <div id="result">
+  <!-- Results (hidden until scored) -->
+  <div id="result-panel">
 
-    <!-- Tier + confidence bar -->
-    <div class="form-card" style="margin-bottom:16px;">
+    <!-- Tier + confidence + probabilities -->
+    <div class="result-header">
       <div class="tier-row">
-        <span class="tier-badge" id="tier-badge">Automate</span>
-        <div class="confidence-wrap">
-          <div class="confidence-label" id="conf-label">Confidence: 74%</div>
-          <div class="conf-bar-bg">
-            <div class="conf-bar-fill" id="conf-bar" style="width:74%"></div>
+        <div class="tier-badge" id="tier-badge"></div>
+        <div class="conf-block">
+          <div class="confidence-label">Confidence</div>
+          <div class="confidence-bar-outer">
+            <div class="confidence-bar-inner" id="conf-bar"></div>
           </div>
         </div>
       </div>
-
-      <!-- Probability pills -->
-      <div class="pills" id="pills-row"></div>
-
-      <!-- Coverage note -->
-      <p class="coverage-note" id="coverage-note"></p>
-
-      <!-- Insight sentence -->
-      <div class="insight-sentence" id="insight-sentence"></div>
+      <div class="prob-pills" id="prob-pills"></div>
+      <div class="coverage-line" id="coverage-line"></div>
+      <div class="insight-line" id="insight-line"></div>
     </div>
 
     <!-- Evidence table -->
-    <div class="table-wrap" id="evidence-wrap">
-      <div class="table-title">Most similar historical tickets</div>
-      <table>
+    <div class="evidence-section">
+      <div class="section-title">Most similar historical tickets</div>
+      <table class="evidence-table">
         <thead>
           <tr>
             <th>Key</th>
             <th>Summary</th>
-            <th style="text-align:right">Resolved in</th>
-            <th style="text-align:right">Watchers</th>
             <th>Match</th>
+            <th>Resolved in</th>
             <th>Tier</th>
           </tr>
         </thead>
-        <tbody id="evidence-tbody"></tbody>
+        <tbody id="evidence-body"></tbody>
       </table>
     </div>
 
-    <!-- Explainer card (always visible after first result) -->
+    <!-- Explainer -->
     <div class="explainer">
-      <div class="explainer-title">How the score is computed</div>
-      <div class="explainer-item">
-        <div class="explainer-dot" style="background:#10b981;"></div>
-        <div class="explainer-text">
-          <strong>Resolution speed.</strong> Tickets resolved in under 1.9 days (p33 of Spring history) score a
-          point toward Automate — they were quick, well-understood work.
+      <div class="explainer-title">How the score is calculated</div>
+      <div class="explainer-points">
+        <div class="ep">
+          <div class="ep-dot"></div>
+          <div class="ep-text"><strong>Semantic similarity</strong> — your ticket is embedded and matched against 61,000 Spring Framework tickets using cosine similarity on text-embedding-3-large vectors.</div>
         </div>
-      </div>
-      <div class="explainer-item">
-        <div class="explainer-dot" style="background:#6c63ff;"></div>
-        <div class="explainer-text">
-          <strong>Watcher count.</strong> Tickets with 2 or fewer watchers required less cross-team
-          coordination — a signal of routine, self-contained work.
+        <div class="ep">
+          <div class="ep-dot"></div>
+          <div class="ep-text"><strong>Outcome signals</strong> — each matching ticket is labelled by how it actually resolved: resolution time, watcher count, and assignee experience. Fast + low-watch + junior = Automate; slow + high-watch + senior = Escalate.</div>
         </div>
-      </div>
-      <div class="explainer-item">
-        <div class="explainer-dot" style="background:#f59e0b;"></div>
-        <div class="explainer-text">
-          <strong>Assignee experience.</strong> Tickets handled by contributors with fewer than 136 tickets
-          (p75) were resolved without deep specialisation — suggesting the problem was approachable.
+        <div class="ep">
+          <div class="ep-dot"></div>
+          <div class="ep-text"><strong>Weighted vote</strong> — the final probabilities are a similarity-weighted average of the labels of the top-10 matching tickets that have resolved outcome records.</div>
         </div>
       </div>
     </div>
 
     <!-- CTA -->
     <div class="cta-card">
-      <div class="cta-tag">Your own data</div>
-      <p class="cta-text">
-        This model is trained on Spring Framework history. Connect your own Jira
-        and <strong>task2vec builds the same scorer from your team's actual outcomes</strong> —
-        calibrated to your codebase, your team's velocity, and your definition of "hard".
-      </p>
+      <h3>This model is trained on Spring Framework data.</h3>
+      <p>Your team's tickets are different. A model calibrated on your own Jira history — your resolution times, your engineers, your complexity patterns — gives you a personalised AI readiness score for every ticket you assign.</p>
+      <a href="/commission.html" class="cta-btn">Run this on your own data →</a>
     </div>
 
-  </div><!-- /#result -->
+  </div><!-- /result-panel -->
 
-</div><!-- /.page -->
+</div><!-- /page -->
 
 <script>
-const API = '/api/score.php';
+const TIER_COLORS = { Automate: 'automate', Assist: 'assist', Escalate: 'escalate' };
+const TIER_ICONS  = { Automate: '🤖', Assist: '🤝', Escalate: '🧠' };
+const BAR_COLORS  = { Automate: '#10b981', Assist: '#f59e0b', Escalate: '#ef4444' };
 
-async function submitScore() {
+async function scoreTicket() {
   const text = document.getElementById('ticket-text').value.trim();
-  if (!text) {
-    showError('Please enter a ticket summary or description.');
-    return;
-  }
+  if (!text) { showError('Please enter a ticket summary or description.'); return; }
 
   setLoading(true);
   hideError();
-  document.getElementById('result').style.display = 'none';
+  document.getElementById('result-panel').style.display = 'none';
 
   try {
-    const resp = await fetch(API, {
+    const resp = await fetch('/api/score.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
     });
-    const data = await resp.json();
-    if (!resp.ok || data.error) {
-      showError(data.error || `Server error ${resp.status}`);
-      return;
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || `Server error ${resp.status}`);
     }
+    const data = await resp.json();
     renderResult(data);
-  } catch (err) {
-    showError('Could not reach the server. Please try again.');
+  } catch (e) {
+    showError('Failed to score ticket: ' + e.message);
   } finally {
     setLoading(false);
   }
 }
 
 function renderResult(d) {
-  const tier       = d.tier       || 'Assist';
-  const confidence = d.confidence || 0;
-  const probs      = d.probabilities || {};
-  const evidence   = d.evidence   || [];
-  const coverage   = d.coverage   || 0;
-  const avgDays    = d.avg_days;
+  const tier  = d.tier || 'Assist';
+  const cls   = TIER_COLORS[tier] || 'assist';
+  const conf  = Math.round((d.confidence || 0) * 100);
+  const probs = d.probabilities || {};
+  const ev    = d.evidence || [];
+  const cov   = d.coverage || 0;
+  const avg   = d.avg_days;
 
   // Tier badge
   const badge = document.getElementById('tier-badge');
-  badge.textContent = tier;
-  badge.className   = 'tier-badge ' + tier;
+  badge.className = `tier-badge ${cls}`;
+  badge.textContent = `${TIER_ICONS[tier] || ''} ${tier}`;
 
   // Confidence bar
-  document.getElementById('conf-label').textContent =
-    `Confidence: ${Math.round(confidence * 100)}%`;
   const bar = document.getElementById('conf-bar');
-  bar.style.width = `${Math.round(confidence * 100)}%`;
-  bar.className   = 'conf-bar-fill ' + tier;
+  bar.style.width   = conf + '%';
+  bar.style.background = BAR_COLORS[tier] || '#7b68ee';
 
   // Probability pills
-  const pillsRow = document.getElementById('pills-row');
-  pillsRow.innerHTML = '';
-  ['Automate', 'Assist', 'Escalate'].forEach(t => {
-    const pct = Math.round((probs[t] || 0) * 100);
+  const pillsEl = document.getElementById('prob-pills');
+  pillsEl.innerHTML = '';
+  for (const [t, p] of Object.entries(probs)) {
+    const pct  = Math.round(p * 100);
+    const c    = TIER_COLORS[t] || 'assist';
     const pill = document.createElement('div');
-    pill.className = 'pill ' + t;
-    pill.innerHTML = `<div class="pill-dot"></div>${t} ${pct}%`;
-    pillsRow.appendChild(pill);
-  });
-
-  // Coverage note
-  document.getElementById('coverage-note').textContent =
-    `Based on ${coverage} similar historical tickets from Spring Framework with resolved outcome data.`;
-
-  // Insight sentence
-  let insight = '';
-  if (coverage > 0 && avgDays !== null && avgDays !== undefined) {
-    const topCount = Math.min(coverage, 7);
-    const expLabel = tier === 'Automate'
-      ? 'typically by less-experienced contributors'
-      : tier === 'Escalate'
-        ? 'often requiring specialised expertise'
-        : 'suggesting moderate complexity';
-    insight = `The ${topCount} most similar tickets were resolved in an average of ${avgDays} days — ${expLabel}.`;
-  } else {
-    insight = 'Not enough resolved outcome data found for similar tickets.';
+    pill.className = `prob-pill ${c}`;
+    pill.innerHTML = `<span>${TIER_ICONS[t] || ''} ${t}</span><span class="pct">${pct}%</span>`;
+    pillsEl.appendChild(pill);
   }
-  document.getElementById('insight-sentence').textContent = insight;
+
+  // Coverage line
+  document.getElementById('coverage-line').textContent =
+    `Based on ${cov} similar historical tickets from Spring Framework with resolved outcome data`;
+
+  // Insight line
+  let insight = '';
+  if (avg !== null && avg !== undefined && cov > 0) {
+    if (tier === 'Automate') {
+      insight = `The ${cov} most similar tickets resolved in an average of ${avg} days — typically straightforward, low-watch work handled by less-experienced contributors.`;
+    } else if (tier === 'Escalate') {
+      insight = `The ${cov} most similar tickets took an average of ${avg} days to resolve — complex, closely-watched problems that required senior involvement.`;
+    } else {
+      insight = `The ${cov} most similar tickets resolved in an average of ${avg} days — Assist-tier work where AI can accelerate without replacing human judgment.`;
+    }
+  }
+  document.getElementById('insight-line').textContent = insight;
 
   // Evidence table
-  const tbody = document.getElementById('evidence-tbody');
+  const tbody = document.getElementById('evidence-body');
   tbody.innerHTML = '';
-  evidence.forEach(ev => {
-    const simPct = Math.round(ev.similarity * 100);
+  if (ev.length === 0) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><span class="key-link">${escHtml(ev.key)}</span></td>
-      <td class="summary-cell">${escHtml(truncate(ev.summary, 80))}</td>
-      <td class="days-cell">${ev.days !== null ? ev.days + 'd' : '—'}</td>
-      <td class="watchers-cell">${ev.watches}</td>
-      <td>
-        <div class="sim-bar-wrap">
-          <div class="sim-bar-bg"><div class="sim-bar-fill" style="width:${simPct}%"></div></div>
-          <span style="font-size:11px;color:#6b7280;">${simPct}%</span>
-        </div>
-      </td>
-      <td class="tier-cell"><span class="badge ${ev.label}">${ev.label}</span></td>
-    `;
+    tr.innerHTML = `<td colspan="5" style="color:#555;padding:12px 0;">No outcome data found — try a more descriptive ticket text.</td>`;
     tbody.appendChild(tr);
-  });
+  } else {
+    for (const e of ev) {
+      const c  = TIER_COLORS[e.label] || 'assist';
+      const tr = document.createElement('tr');
+      const days = Number.isInteger(e.days) ? e.days : e.days.toFixed(1);
+      tr.innerHTML = `
+        <td><span class="ev-key">${esc(e.key)}</span></td>
+        <td><span class="ev-summary">${esc(e.summary)}</span></td>
+        <td class="ev-sim">${Math.round(e.similarity * 100)}%</td>
+        <td class="ev-days">${days} d</td>
+        <td><span class="ev-badge ${c}">${esc(e.label)}</span></td>
+      `;
+      tbody.appendChild(tr);
+    }
+  }
 
-  document.getElementById('result').style.display = 'block';
-  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('result-panel').style.display = 'block';
+  document.getElementById('result-panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function setLoading(on) {
-  const btn     = document.getElementById('submit-btn');
-  const icon    = document.getElementById('btn-icon');
-  const spinner = document.getElementById('spinner');
-  btn.disabled          = on;
-  icon.style.display    = on ? 'none' : '';
-  spinner.style.display = on ? 'block' : 'none';
+  document.getElementById('score-btn').disabled = on;
+  document.getElementById('spinner').style.display = on ? 'block' : 'none';
+  document.getElementById('form-hint').style.opacity = on ? 0 : 1;
 }
-
 function showError(msg) {
-  const box = document.getElementById('error-box');
-  box.textContent  = msg;
-  box.style.display = 'block';
+  const el = document.getElementById('error-box');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+function hideError() { document.getElementById('error-box').style.display = 'none'; }
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function hideError() {
-  document.getElementById('error-box').style.display = 'none';
-}
-
-function escHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function truncate(s, n) {
-  return s && s.length > n ? s.slice(0, n) + '…' : s || '';
-}
-
-// Allow Ctrl+Enter / Cmd+Enter to submit
 document.getElementById('ticket-text').addEventListener('keydown', e => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') submitScore();
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) scoreTicket();
 });
 </script>
 </body>
