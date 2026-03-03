@@ -301,8 +301,8 @@ It's whether your junior engineers are still on a path to becoming senior ones.
       <div class="post-meta">
         <span class="post-num">Post 3</span>
         <div>
-          <div class="post-title">How Do You Know the Learning Happened?</div>
-          <div class="post-subtitle">The velocity curve — a measurable learning signal from Jira data</div>
+          <div class="post-title">The real 10/20/70 rule!</div>
+          <div class="post-subtitle">11% learning · 20% forgetting · 70% no effect — 378 engineers, 45k commits</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
@@ -311,53 +311,37 @@ It's whether your junior engineers are still on a path to becoming senior ones.
       </div>
     </div>
     <div class="post-body">
-      <textarea class="post-text" id="p3" rows="30" readonly>AI makes it easier to jump into problems you don't fully understand yet.
+      <textarea class="post-text" id="p3" rows="36" readonly>The 70-20-10 rule is one of corporate L&D's most trusted frameworks.
 
-That's mostly good. The activation energy for hard tickets drops. Junior engineers can attempt things they'd previously been shielded from.
+70% of professional learning comes from on-the-job experience.
+20% from colleagues.
+10% from formal training.
 
-But it creates a question nobody is asking clearly:
+We decided to look for the 70% in the data.
 
-If the AI did the heavy lifting — did the engineer actually learn anything?
+We tracked 378 engineers across three Apache projects — Camel, Spark, and Hadoop — using 45,000 linked Jira tickets and git commits, 15 years of engineering history.
 
-We went looking for an answer in the data.
+Here's what the on-the-job experience actually produced:
 
-We analysed 1,016 engineer-cluster series from the Spring Framework project — tracking whether engineers got measurably faster at the same type of ticket over time.
+→ 11% — genuine learning: rising complexity, faster resolution, broader codebase impact over time
+→ 20% — quietly forgetting: drifting toward simpler work, getting slower even as the tasks got easier
+→ 70% — no measurable effect. Work experience neither built nor eroded their complexity ceiling.
 
-The short answer: yes, learning is detectable. And it leaves a specific fingerprint.
+The number rhymes with the rule. The meaning is inverted.
 
-47% of series showed a clear velocity improvement — engineers consistently resolving the same ticket category faster as they did more of them. Some of the learning curves were near-perfect:
+The 20% who are forgetting are the most alarming part of this.
 
-→ One engineer's RequestMapping tickets: Spearman correlation of -1.0. Every subsequent ticket faster than the last. Nine in a row.
-→ OSGi infrastructure issues: rho = -0.94. 11 tickets, consistent acceleration.
+They're not underperforming in any obvious way. They close tickets. They ship. They look fine in every sprint review. But if you track the complexity of their work over years — the number of modules they touch, how close to the core codebase they operate — you see a slow drift toward simpler problems, and slower resolution of those simpler problems.
 
-Learning happened. We can see it.
+That's not specialisation. That's forgetting in slow motion.
 
-Here's what matters for the AI question:
+The 11% who are genuinely learning share one pattern: the work kept getting harder. More cross-cutting problems. More modules in play. More people consulted per ticket. The work itself was the curriculum.
 
-The Assist tier showed the strongest learning signal of all three tiers.
+The question nobody is asking: whose job is it to make sure that happens?
 
-Not Escalate (the hardest work). Not Automate (the routine work). The middle tier — AI draft, human review — is where the most measurable skill development happened in our data.
+Swipe to see the full breakdown →
 
-That's the tier AI disrupts first.
-
-Which means there's a specific risk: if an engineer "resolves" Assist-tier tickets by approving AI output without engaging deeply, the velocity curve stays flat. The learning fingerprint disappears.
-
-You can't see this by counting tickets closed per sprint.
-
-You can see it by asking: is this engineer getting faster at this type of problem — or are they just processing AI output at a constant rate?
-
-Declining resolution time within a ticket type = learning is probably happening.
-Flat line = worth asking why.
-
-This works with Jira data you already have. No AI layer required. Resolution dates and ticket categories are enough to run the diagnostic on any team, any time.
-
-The engineers who learned on Assist-tier tickets in our dataset went on to take significantly more complex work later. The ones who didn't stayed where they were.
-
-The teams that figure out how to measure the curve — not just the count — will know whether their AI investment is building capability or just shipping faster.
-
-Those are not the same thing.
-
-(Next: the specific ticket types that built the most expertise — and what the on-ramp looks like when those types disappear)
+(Next: the signal is already in your data — and how companies can use it to design the learning environment instead of hoping it happens)
 
 #EngineeringLeadership #LearningAndDevelopment #AI #SoftwareEngineering #Jira #DeveloperGrowth</textarea>
       <div class="post-actions">
@@ -369,7 +353,7 @@ Those are not the same thing.
       </div>
       <div class="first-comment">
         <div class="first-comment-label">First comment</div>
-        <div class="first-comment-text">Full data and methodology: task2vec.com/research<br>Run the velocity diagnostic on your own Jira: task2vec.com/commission</div>
+        <div class="first-comment-text">Full data and methodology: task2vec.com/research<br>Run the learning distribution analysis on your own data: task2vec.com/commission</div>
       </div>
     </div>
   </div>
@@ -380,8 +364,8 @@ Those are not the same thing.
       <div class="post-meta">
         <span class="post-num">Post 4</span>
         <div>
-          <div class="post-title">The 70-20-10 Rule. We tested it.</div>
-          <div class="post-subtitle">70% no learning · 20% forgetting · 11% growing — 378 engineers, 45k commits</div>
+          <div class="post-title">Your Jira history is your L&amp;D strategy.</div>
+          <div class="post-subtitle">How companies can enable learning from data they already have</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
@@ -390,49 +374,36 @@ Those are not the same thing.
       </div>
     </div>
     <div class="post-body">
-      <textarea class="post-text" id="p4" rows="30" readonly>You've probably heard of the 70-20-10 learning rule.
+      <textarea class="post-text" id="p4" rows="36" readonly>The 11% who learned in our data didn't go on a training course.
 
-70% of professional learning comes from on-the-job experience.
-20% from working with colleagues.
-10% from formal training.
+They got the right tickets.
 
-It's one of the most cited frameworks in corporate L&D.
+That's the finding from 378 engineers and 45,000 git commits tracked across Apache Camel, Spark, and Hadoop over 15 years. The engineers who grew into genuinely harder work shared one pattern: the complexity of what they were assigned kept rising. More modules. More cross-cutting problems. More people consulted per ticket. The work was the curriculum.
 
-We tested the 70%.
+The 11% had that. The 70% didn't.
 
-We tracked 378 software engineers across three major Apache projects — mapping how the complexity of their work changed over their careers using 45,000 linked Jira tickets and git commits.
+Here's the thing: this isn't mysterious, and it isn't hard to fix. It just requires reading the signal that's already in your data.
 
-Here's what the on-the-job experience actually produced:
+Every company running a software team has two data sources sitting unused as learning infrastructure:
 
-→ 70% — no measurable change in complexity handled
-→ 20% — drifting toward simpler work over time
-→ 11% — genuinely taking on harder problems year over year
+→ Jira tickets — resolution time, ticket type, assignee history, who watched, who escalated
+→ Git commits — which files changed, which modules, how close to core, co-change patterns
 
-The numbers rhyme with the rule. But the meaning is inverted.
+Together, they tell you three things you currently have no way to know:
 
-The 70-20-10 model assumes that doing the job teaches you what you need. Our data says: only if you're doing the right job.
+1. Who is learning, who is stagnant, who is quietly forgetting
+2. What ticket would stretch each person — the adjacent module they haven't touched yet
+3. Who is 2–3 years into a forgetting trajectory that hasn't surfaced in any review yet
 
-The 20% who are drifting aren't bad engineers. They're productive. They close tickets. They look fine in any sprint review. But the complexity of their work has quietly declined over years — fewer modules, less core codebase, longer resolution times on simpler problems.
+You don't need a new platform. You don't need to import a training curriculum. The knowledge transfer is already latent in the work your team has done. You just need to read it differently.
 
-That's not specialisation. That's forgetting.
+The alternative — external L&D — teaches generic skills to a generic cohort with no connection to your actual codebase, your actual gaps, or the specific complexity curve each engineer needs next.
 
-The 11% who are genuinely learning share one pattern: the complexity of what they're asked to solve keeps rising. More cross-cutting problems. More modules in play. More people consulted per ticket. The work itself is the curriculum.
+Companies that figure this out won't need to wait for people to "develop" on their own. They'll design the environment where development happens — using data they already store.
 
-Here's the AI problem.
+The learning is designable. The signal is already there.
 
-AI is most useful on exactly the work that drives the 70%. Bounded, domain-specific problems — hard enough to need judgment, contained enough for AI to draft a solution. The tickets that sit just above routine.
-
-When AI handles those tickets, the on-the-job curriculum gets hollowed out.
-
-You can't compensate with more training. The 10% doesn't scale to replace the 70%.
-
-The question for engineering leaders isn't whether to adopt AI tools.
-
-It's whether your team's work distribution is still generating the experience that builds capability — or whether you're running on residual skills from people who learned before the tools arrived.
-
-The 70% is either working or it isn't. Most teams have no way to know.
-
-(Next: what the ticket data tells you about whether your team's 70% is working)
+(Swipe to see the pattern the 11% followed — and how to spot the forgetting signal before it becomes a capability gap)
 
 #EngineeringLeadership #LearningAndDevelopment #AI #SoftwareEngineering #Jira #DeveloperGrowth</textarea>
       <div class="post-actions">
