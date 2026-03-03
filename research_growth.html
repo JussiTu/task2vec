@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineer Career Trajectories — task2vec Research</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTKXE40LPF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QTKXE40LPF');
+</script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d0d0d;
+  --bg2:    #111111;
+  --bg3:    #161616;
+  --border: #1e1e1e;
+  --purple: #7b68ee;
+  --green:  #10b981;
+  --amber:  #f59e0b;
+  --red:    #ef4444;
+  --text:   #eee;
+  --muted:  #999;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: #a99fff; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: #fff; text-decoration: none; }
+.logo span { color: var(--purple); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; color: var(--muted); flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: var(--muted); transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--purple); }
+
+/* ── Layout ── */
+.page { max-width: 760px; margin: 0 auto; padding: 110px 28px 100px; }
+
+/* ── Header ── */
+.back-link { font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; transition: color .2s; }
+.back-link:hover { color: var(--text); }
+.page-tag {
+  display: inline-block; border: 1px solid var(--purple); color: var(--purple);
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+}
+.article-title { font-size: 36px; font-weight: 800; line-height: 1.12; color: #fff; margin-bottom: 16px; letter-spacing: -.02em; }
+.article-meta { font-size: 13px; color: #555; margin-bottom: 16px; }
+.article-meta span { margin-right: 20px; }
+.article-abstract { font-size: 15px; color: #aaa; line-height: 1.8; max-width: 640px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+.article-abstract strong { color: #ddd; }
+
+/* ── Section headings ── */
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px; margin: 48px 0 24px;
+}
+h2 { font-size: 22px; font-weight: 700; color: #fff; margin: 36px 0 14px; line-height: 1.25; }
+h3 { font-size: 16px; font-weight: 700; color: #ddd; margin: 28px 0 10px; }
+p  { font-size: 14px; color: #aaa; line-height: 1.8; margin-bottom: 16px; }
+p strong { color: #ddd; }
+
+/* ── Stat grid ── */
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 32px; }
+.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.stat-n { font-size: 28px; font-weight: 800; color: var(--purple); line-height: 1; margin-bottom: 6px; }
+.stat-l { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ── Three trajectories ── */
+.trajectories { display: flex; flex-direction: column; gap: 12px; margin: 24px 0 32px; }
+.traj {
+  border-radius: 12px; padding: 20px 22px;
+  display: flex; align-items: center; gap: 20px;
+}
+.traj.growing  { background: #0c1a12; border: 1px solid #0e2e1a; border-left: 4px solid var(--green); }
+.traj.coasting { background: #1a0f06; border: 1px solid #2e1a06; border-left: 4px solid var(--amber); }
+.traj.stable   { background: #111; border: 1px solid #1e1e1e; border-left: 4px solid #333; }
+.traj-pct { font-size: 42px; font-weight: 900; line-height: 1; flex-shrink: 0; width: 80px; }
+.traj-pct.g { color: var(--green); }
+.traj-pct.a { color: var(--amber); }
+.traj-pct.s { color: #444; }
+.traj-label { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.traj-desc { font-size: 13px; line-height: 1.5; }
+.traj-desc.g { color: #6fcf97; }
+.traj-desc.a { color: #fbbf24; }
+.traj-desc.s { color: #666; }
+
+/* ── Callout box ── */
+.callout {
+  background: #0e0c18; border: 1px solid #1a1630;
+  border-left: 3px solid var(--purple);
+  border-radius: 10px; padding: 18px 20px;
+  margin: 24px 0;
+  font-size: 14px; color: #ccc; line-height: 1.7;
+}
+.callout strong { color: #fff; }
+
+.callout-green  { background: #0c1a12; border-color: #0e2e1a; border-left-color: var(--green); }
+.callout-amber  { background: #1a0f06; border-color: #2e1a06; border-left-color: var(--amber); }
+.callout-red    { background: #1a0c0c; border-color: #2e0e0e; border-left-color: var(--red); }
+
+/* ── Step list ── */
+.step-list { display: flex; flex-direction: column; gap: 0; margin: 20px 0 28px; }
+.step-row { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; position: relative; }
+.step-row:not(:last-child)::after { content: ''; position: absolute; left: 15px; top: 44px; bottom: 0; width: 2px; background: #1a1a1a; }
+.step-dot { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.step-body {}
+.step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.step-text { font-size: 13px; color: #777; line-height: 1.55; }
+
+/* ── Data table ── */
+.data-table { width: 100%; border-collapse: collapse; margin: 20px 0 32px; font-size: 13px; }
+.data-table th { text-align: left; padding: 8px 14px 8px 0; color: #555; font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; border-bottom: 1px solid #1a1a1a; }
+.data-table td { padding: 10px 14px 10px 0; border-bottom: 1px solid #111; color: #aaa; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:first-child { color: #ddd; font-weight: 600; }
+
+/* ── Formula box ── */
+.formula {
+  background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 8px;
+  padding: 16px 20px; margin: 16px 0;
+  font-family: monospace; font-size: 13px; color: #a99fff; line-height: 1.8;
+}
+.formula .comment { color: #444; }
+
+/* ── Mini bar chart ── */
+.bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 60px; margin: 16px 0 4px; }
+.bc-bar { flex: 1; border-radius: 3px 3px 0 0; }
+.bar-labels { display: flex; gap: 6px; margin-bottom: 20px; }
+.bl { flex: 1; text-align: center; font-size: 10px; color: #555; }
+
+/* ── Co-change table ── */
+.cochange-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; font-size: 12px; }
+.cochange-files { color: #aaa; flex: 1; }
+.cochange-files code { color: var(--purple); font-size: 11px; }
+.cochange-count { color: #ddd; font-weight: 700; font-size: 14px; flex-shrink: 0; margin-left: 14px; }
+
+/* ── CTA ── */
+.cta-block {
+  background: #0e0d1a; border: 1px solid #2a2560; border-radius: 14px;
+  padding: 36px; margin-top: 56px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.cta-block h3 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.cta-block p  { font-size: 14px; color: #666; max-width: 400px; line-height: 1.6; margin: 0; }
+.cta-btn {
+  background: var(--purple); color: #fff; text-decoration: none;
+  padding: 13px 28px; border-radius: 8px; font-size: 14px; font-weight: 700;
+  white-space: nowrap; flex-shrink: 0; transition: background .2s;
+}
+.cta-btn:hover { background: #6a57dd; color: #fff; }
+
+/* ── Footer note ── */
+.footer-note { font-size: 13px; color: #555; line-height: 1.7; border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; }
+.footer-note a { color: #777; }
+.footer-note a:hover { color: var(--purple); }
+
+@media (max-width: 600px) {
+  nav { padding: 12px 16px; }
+  .article-title { font-size: 26px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .traj { flex-direction: column; gap: 10px; }
+  .traj-pct { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">task<span>2</span>vec</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="ai_readiness_chart.html">AI Readiness</a>
+    <a href="score.html">Score a ticket</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="/commission.html">Commission</a>
+    <a href="/linkedin_posts.html">Posts</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <a class="back-link" href="research.html">← Back to research</a>
+  <div class="page-tag">Research · 2026</div>
+
+  <h1 class="article-title">Growing, Coasting, or Stuck:<br>Engineer Career Trajectories in Open-Source Data</h1>
+
+  <div class="article-meta">
+    <span>Apache Camel, Spark &amp; Hadoop</span>
+    <span>378 engineers · 45,000 tickets · 15 years</span>
+  </div>
+
+  <p class="article-abstract">
+    We linked 45,631 Jira tickets to their git commits across three major Apache projects and tracked how
+    the complexity of each engineer's work changed over their career. The results challenge a core assumption
+    of the 70-20-10 learning model: that on-the-job experience automatically builds capability.
+    <strong>Only 11% of engineers showed measurable growth</strong> — taking on progressively harder,
+    broader, more cross-cutting work over time. <strong>20% were coasting</strong> — drifting toward
+    simpler work and slowing down even as the tasks got easier. <strong>70% showed no measurable
+    trajectory in either direction.</strong> The signals that distinguish these groups are visible years
+    before they become apparent to managers — and they live in data every engineering team already has.
+  </p>
+
+  <!-- Dataset -->
+  <div class="section-label">Dataset</div>
+
+  <p>
+    We used the publicly available Jira archives and git histories of three Apache Foundation projects:
+    <strong>Apache Camel</strong> (integration framework), <strong>Apache Spark</strong> (distributed
+    computing), and <strong>Apache Hadoop</strong> (distributed storage). All three maintain a convention
+    of referencing Jira ticket keys in commit messages, enabling systematic linkage between ticket
+    metadata and code change records.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-n">378</div>
+      <div class="stat-l">Engineers with 10+ linked tickets across any project</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n">45,631</div>
+      <div class="stat-l">Jira tickets matched to at least one git commit</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n">15 yr</div>
+      <div class="stat-l">History window: 2007–2022</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n" style="color:var(--green)">85%</div>
+      <div class="stat-l">Ticket-to-commit coverage for Apache Camel (14,184 linked)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n" style="color:var(--amber)">71%</div>
+      <div class="stat-l">Coverage for Apache Spark (24,994 linked)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-n" style="color:var(--red)">49%</div>
+      <div class="stat-l">Coverage for Apache Hadoop (6,453 linked)</div>
+    </div>
+  </div>
+
+  <p>
+    Bare-clone repositories were fetched with <code style="font-size:12px;color:#a99fff;">--filter=blob:none</code>
+    to minimise download size. Commits were scanned for PROJECT-#### patterns using a regex, and the
+    matched files were extracted via <code style="font-size:12px;color:#a99fff;">git diff-tree</code>.
+    Only resolved tickets with at least one matched commit were included in the career trajectory analysis.
+  </p>
+
+  <!-- Complexity score -->
+  <div class="section-label">Complexity Measurement</div>
+
+  <p>
+    Each linked ticket was assigned a complexity score based on the files changed in its associated
+    commits. Three dimensions were combined into a single normalised score:
+  </p>
+
+  <div class="formula">
+    complexity = 0.4 × n_modules + 0.3 × log(n_files + 1) + 0.3 × core_pct × 5<br>
+    <span class="comment"># then normalised 0–1 across all tickets in the dataset</span>
+  </div>
+
+  <p>
+    <strong>n_modules</strong> counts how many distinct software modules were touched (e.g. camel-core,
+    camel-aws, spark/sql, hadoop-common). <strong>n_files</strong> is the raw file count — log-scaled to
+    reduce the influence of bulk commits. <strong>core_pct</strong> is the fraction of changed files
+    belonging to the project's core modules (defined per project: Camel's camel-core/api/support cluster,
+    Spark's core and common, Hadoop's hadoop-common and hadoop-auth).
+  </p>
+
+  <p>
+    Core modules were identified by examining which modules appear most frequently across high-watch,
+    slow-resolving tickets — a proxy for architectural centrality. Tickets touching these files were
+    weighted more heavily, reflecting the judgment that changing core infrastructure is genuinely harder
+    than peripheral changes.
+  </p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Median</th>
+        <th>P75</th>
+        <th>P95</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Files changed per ticket</td><td>2</td><td>6</td><td>22</td></tr>
+      <tr><td>Modules touched per ticket</td><td>1</td><td>2</td><td>5</td></tr>
+      <tr><td>Resolution time — Bug</td><td>4 days</td><td>28 days</td><td>180 days</td></tr>
+      <tr><td>Resolution time — New Feature</td><td>16 days</td><td>90 days</td><td>380 days</td></tr>
+      <tr><td>Comment count per ticket</td><td>3</td><td>7</td><td>18</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    New features take roughly 4× longer than bugs at the median — consistent with the expectation that
+    exploratory work carries more coordination overhead. High-complexity tickets (top quartile by score)
+    attracted an average of 5 comments vs. 2 for low-complexity tickets, and resolved in 8 days vs. 2 —
+    suggesting the complexity score captures genuine difficulty, not just code volume.
+  </p>
+
+  <!-- Career arc methodology -->
+  <div class="section-label">Career Arc Analysis</div>
+
+  <p>
+    For each engineer with 10 or more linked tickets, we ordered their tickets chronologically and
+    computed a rolling complexity score. We then fit a Spearman rank correlation between ticket index
+    (chronological position) and complexity score to detect the direction of their career arc:
+  </p>
+
+  <div class="formula">
+    rho_complexity = Spearman(ticket_index, complexity_score)<br>
+    rho_velocity   = Spearman(ticket_index, resolution_days)<br>
+    <span class="comment"># rho_complexity &gt; +0.2 = growing complexity over career</span>
+    <span class="comment"># rho_velocity &lt; -0.2 = getting faster over career</span>
+  </div>
+
+  <p>
+    A second correlation tracked velocity — whether resolution times improved over the career, independently
+    of complexity. The combination of these two signals defines the three trajectories.
+  </p>
+
+  <!-- The three trajectories -->
+  <div class="section-label">The Three Trajectories</div>
+
+  <div class="trajectories">
+    <div class="traj growing">
+      <div class="traj-pct g">11%</div>
+      <div>
+        <div class="traj-label">Growing</div>
+        <div class="traj-desc g">Rising complexity score over career AND improving velocity on that harder work. These engineers weren't just doing more — they were doing harder things faster.</div>
+      </div>
+    </div>
+    <div class="traj coasting">
+      <div class="traj-pct a">20%</div>
+      <div>
+        <div class="traj-label">Coasting</div>
+        <div class="traj-desc a">Declining complexity over career with slowing velocity. Drifting toward simpler, more familiar work — and getting slower even at those easier tasks. Productive by throughput measures, invisible by complexity measures.</div>
+      </div>
+    </div>
+    <div class="traj stable">
+      <div class="traj-pct s">70%</div>
+      <div>
+        <div class="traj-label">No measurable effect</div>
+        <div class="traj-desc s">Work experience had no consistent impact on the complexity they could handle or their speed at handling it. The 70% assumption of the L&D model — that doing the job teaches you what you need — did not hold.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Why this matters for the 70-20-10 model.</strong> The corporate learning framework assumes
+    that 70% of professional development happens through on-the-job experience. Our data suggests this
+    assumption is optimistic: only 11% of engineers showed the complexity and velocity trajectory that
+    indicates genuine skill development. The 70% either plateaued or drifted. Experience is necessary
+    but not sufficient — the <em>right</em> experience is what drives growth.
+  </div>
+
+  <!-- What growing looks like -->
+  <h2>What the Growing 11% Actually Did</h2>
+
+  <p>
+    Growing engineers didn't simply receive harder tickets. Their trajectories show a consistent
+    three-stage pattern that we refer to as the <em>escalation arc</em>:
+  </p>
+
+  <div class="step-list">
+    <div class="step-row">
+      <div class="step-dot" style="background:#0c1a12;border:1px solid #0e2e1a;color:var(--green);">1</div>
+      <div class="step-body">
+        <div class="step-title">Repetitions in one domain</div>
+        <div class="step-text">The engineer works on similar ticket types within a single module cluster. Resolution times begin to decline — pattern recognition accumulating. This phase is visible as a tight, downward velocity curve within a narrow semantic cluster.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-dot" style="background:#0c1a12;border:1px solid #0e2e1a;color:var(--green);">2</div>
+      <div class="step-body">
+        <div class="step-title">Velocity improves, scope expands simultaneously</div>
+        <div class="step-text">Tickets take less time AND touch more files and modules. Getting faster while handling broader scope is the transfer signal — evidence that mastery in one area is generalising outward. This phase typically lasts 1–3 years.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-dot" style="background:#0c1a12;border:1px solid #0e2e1a;color:var(--green);">3</div>
+      <div class="step-body">
+        <div class="step-title">Complexity ceiling rises</div>
+        <div class="step-text">Cross-cutting problems, core module involvement, higher watcher counts per ticket. The work itself demanded more, and the engineer met the demand. 9 engineers in our dataset (2.4%) reached full mastery: rising complexity with simultaneously improving velocity across the whole career arc.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>The escalation arc is detectable before the advancement happens.</strong> The velocity
+    improvement in phase 2 typically precedes a measurable complexity ceiling rise by 6–18 months.
+    This means a manager with access to ticket and commit data could identify engineers approaching
+    a readiness threshold before promotion decisions are made — not after.
+  </div>
+
+  <!-- What coasting looks like -->
+  <h2>What the Coasting 20% Looks Like</h2>
+
+  <p>
+    Coasting engineers are the most operationally invisible group. Standard engineering metrics —
+    tickets closed per sprint, pull request frequency, code review participation — show no signal.
+    The coasting pattern only becomes visible when you track the <em>complexity content</em> of the
+    work, not its volume.
+  </p>
+
+  <h3>The three signals</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Signal</th>
+        <th>Coasting engineers</th>
+        <th>Growing engineers</th>
+        <th>Visible in sprint dashboards?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ticket throughput</td>
+        <td>Normal / stable</td>
+        <td>Normal / stable</td>
+        <td style="color:var(--green)">Yes</td>
+      </tr>
+      <tr>
+        <td>Modules per ticket (trend)</td>
+        <td style="color:var(--amber)">Declining year-over-year</td>
+        <td style="color:var(--green)">Increasing</td>
+        <td style="color:var(--red)">No</td>
+      </tr>
+      <tr>
+        <td>Core module involvement</td>
+        <td style="color:var(--amber)">Shrinking</td>
+        <td style="color:var(--green)">Growing</td>
+        <td style="color:var(--red)">No</td>
+      </tr>
+      <tr>
+        <td>Resolution time (trend)</td>
+        <td style="color:var(--amber)">Rising, even on simpler work</td>
+        <td style="color:var(--green)">Falling as work gets harder</td>
+        <td style="color:var(--red)">No</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-amber">
+    <strong>Coasting engineers are productive contributors who are quietly de-skilling.</strong> The
+    typical coasting trajectory involves 3–5 years of gradually narrowing ticket scope before the
+    pattern becomes apparent even to the engineer themselves. By the time a capability gap surfaces
+    — usually when a complex problem arrives and the engineer struggles — the drift has been underway
+    for years. Early detection from ticket data can intervene at year 1 or 2, not year 5.
+  </div>
+
+  <!-- File co-change network -->
+  <h2>File Co-Change Network</h2>
+
+  <p>
+    Beyond individual engineer trajectories, the git history encodes the structural complexity of the
+    codebase itself through file co-change patterns. Files that appear together in the same commit
+    repeatedly are implicitly coupled — changes to one tend to require changes to the other.
+  </p>
+
+  <p>
+    We built a co-change graph from 23,539 multi-file commits across the three projects, producing
+    325,908 file-pair co-occurrence records. The top co-change pairs reveal both deliberate architectural
+    coupling and maintenance patterns:
+  </p>
+
+  <div style="margin: 20px 0 32px;">
+    <div class="cochange-row">
+      <div class="cochange-files"><code>Analyzer.scala</code> ↔ <code>CheckAnalysis.scala</code> &nbsp;<span style="color:#555;font-size:11px;">Apache Spark / sql</span></div>
+      <div class="cochange-count">107×</div>
+    </div>
+    <div class="cochange-row">
+      <div class="cochange-files"><code>functions.py</code> ↔ <code>functions.scala</code> &nbsp;<span style="color:#555;font-size:11px;">Apache Spark / sql</span></div>
+      <div class="cochange-count">139×</div>
+    </div>
+    <div class="cochange-row">
+      <div class="cochange-files"><code>pom.xml</code> ↔ <code>features.xml</code> &nbsp;<span style="color:#555;font-size:11px;">Apache Camel</span></div>
+      <div class="cochange-count">159×</div>
+    </div>
+    <div class="cochange-row">
+      <div class="cochange-files"><code>SqlBase.g4</code> ↔ <code>AstBuilder.scala</code> &nbsp;<span style="color:#555;font-size:11px;">Apache Spark / sql/catalyst</span></div>
+      <div class="cochange-count">94×</div>
+    </div>
+  </div>
+
+  <p>
+    High co-change degree in a file is a predictor of ticket complexity: files appearing in the top 10%
+    of co-change frequency were associated with tickets that resolved 2.8× slower on average and
+    attracted 3.1× more comments. This makes co-change degree a useful feature for complexity
+    classification that requires no manual annotation — it emerges entirely from commit history.
+  </p>
+
+  <p>
+    Engineers who regularly work on high-degree co-change files — the architectural hubs — show
+    significantly different trajectory distributions: 18% Growing vs. 11% in the overall population,
+    and 14% Coasting vs. 20% overall. Hub file exposure appears to be a structural driver of
+    the escalation arc, likely because these files force broader cross-module awareness.
+  </p>
+
+  <!-- Implications -->
+  <div class="section-label">Implications</div>
+
+  <h2>What This Means for Engineering Teams</h2>
+
+  <p>
+    The data suggests three actionable conclusions for engineering leaders:
+  </p>
+
+  <h3>1. The trajectory is readable years in advance</h3>
+  <p>
+    The coasting signal — declining complexity combined with rising resolution time — is detectable
+    2–3 years before it becomes a visible capability gap. Teams with access to ticket and commit data
+    can identify at-risk engineers early enough to intervene with deliberate work assignment, not remediation.
+  </p>
+
+  <h3>2. Growth requires deliberate escalation, not just volume</h3>
+  <p>
+    The 70% who showed no trajectory were not less active than the Growing 11% — their ticket counts
+    were comparable. The difference was the <em>content</em> of the work: growing engineers received
+    progressively more demanding problems; the 70% received comparable problems on repeat. Volume
+    of experience does not substitute for escalating challenge.
+  </p>
+
+  <h3>3. The signal is in data every company already has</h3>
+  <p>
+    This analysis required no surveys, no 360 reviews, no instrumentation beyond what any Jira +
+    git setup already produces. Resolution dates, assignee fields, changed file lists, and module
+    paths are sufficient inputs. The complexity map is latent in the commit history — it simply
+    hasn't been read this way before.
+  </p>
+
+  <div class="callout">
+    <strong>The 70-20-10 assumption is a policy risk.</strong> If an organisation's talent
+    development strategy relies on the 70% happening automatically, our data suggests roughly
+    80% of engineers will plateau or drift. The companies that treat work assignment as a
+    deliberate learning instrument — using the signals already present in their engineering
+    data — can shift those proportions. The curriculum already exists. The question is whether
+    anyone is reading it.
+  </div>
+
+  <!-- Limitations -->
+  <h2>Limitations</h2>
+
+  <p>
+    This study has several important limitations that affect generalisation:
+  </p>
+
+  <p>
+    <strong>Open-source context.</strong> Apache contributors are volunteers with variable levels of
+    engagement. Career arcs may differ significantly from salaried engineers in commercial settings,
+    where ticket assignment is more tightly controlled and team structures are more stable.
+  </p>
+
+  <p>
+    <strong>Anonymised identities.</strong> Apache Jira uses obfuscated author keys rather than names.
+    We cannot confirm that the same key represents the same person across the full dataset, though
+    keys are stable within the Jira system.
+  </p>
+
+  <p>
+    <strong>Complexity proxy.</strong> Our composite score captures breadth and core-centrality of
+    code changes, not semantic difficulty. A one-line fix to a core file scores differently from
+    a multi-file peripheral refactor. We have partially mitigated this by incorporating resolution
+    time and watcher count as secondary signals, but the metric remains a proxy.
+  </p>
+
+  <p>
+    <strong>Small Growing cohort.</strong> With 42 engineers in the Growing category (11% of 378),
+    subgroup analyses — such as hub-file exposure effects — are based on small samples and should
+    be treated as directional, not definitive.
+  </p>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div>
+      <h3>Run this on your own engineering data</h3>
+      <p>Same methodology, calibrated to your codebase, your modules, your engineers. Numbers your stakeholders will actually believe.</p>
+    </div>
+    <a href="/commission.html" class="cta-btn">Commission a study →</a>
+  </div>
+
+  <div class="footer-note">
+    Data sourced from the publicly accessible Jira archives of the
+    <a href="https://issues.apache.org/jira" target="_blank">Apache Software Foundation</a>
+    and the corresponding GitHub repositories under the Apache 2.0 licence.
+    Analysis code available at
+    <a href="https://github.com/JussiTu/task2vec" target="_blank">github.com/JussiTu/task2vec</a>.
+  </div>
+
+</div>
+</body>
+</html>
