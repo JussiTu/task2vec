@@ -61,15 +61,14 @@ for p in ('SPARK', 'HADOOP', 'CAMEL'):
 # ── plot ─────────────────────────────────────────────────────────────
 COLORS = {'SPARK': '#7b68ee', 'HADOOP': '#10b981', 'CAMEL': '#f97316'}
 
-fig = plt.figure(figsize=(18, 14))
+fig = plt.figure(figsize=(18, 12))
 fig.patch.set_facecolor('#0d0d0d')
-gs  = gridspec.GridSpec(2, 2, hspace=0.45, wspace=0.35)
+gs  = gridspec.GridSpec(2, 1, hspace=0.45)
 
-ax1 = fig.add_subplot(gs[0, :])   # top: overlaid KDE
-ax2 = fig.add_subplot(gs[1, 0])   # bottom-left: violin
-ax3 = fig.add_subplot(gs[1, 1])   # bottom-right: cumulative distribution
+ax1 = fig.add_subplot(gs[0])   # top: overlaid KDE
+ax2 = fig.add_subplot(gs[1])   # bottom: violin (full width)
 
-for ax in [ax1, ax2, ax3]:
+for ax in [ax1, ax2]:
     ax.set_facecolor('#111116')
     ax.tick_params(colors='#888', labelsize=9)
     for spine in ax.spines.values():
@@ -117,23 +116,6 @@ for i, proj in enumerate(vlabels):
     med = np.median(proj_scores[proj])
     p75 = np.percentile(proj_scores[proj], 75)
     ax2.text(i+1, p75 + 0.04, f'med={med:.2f}', ha='center', color='#ccc', fontsize=8)
-
-# ── panel 3: CDF ──────────────────────────────────────────────────────
-for proj in ['SPARK', 'CAMEL', 'HADOOP']:
-    arr = np.sort(proj_scores[proj])
-    cdf = np.arange(1, len(arr)+1) / len(arr)
-    ax3.plot(arr, cdf, color=COLORS[proj], lw=2.2, label=proj)
-
-# shade the "low complexity zone" (bottom 30%)
-ax3.axhline(0.30, color='#444', lw=0.8, linestyle=':')
-ax3.axhline(0.70, color='#444', lw=0.8, linestyle=':')
-ax3.text(0.82, 0.31, '30th pct', color='#555', fontsize=8)
-ax3.text(0.82, 0.71, '70th pct', color='#555', fontsize=8)
-
-ax3.set_xlabel('Complexity score', color='#888', fontsize=10)
-ax3.set_ylabel('Cumulative fraction of tickets', color='#888', fontsize=10)
-ax3.set_title('Cumulative Distribution (CDF)', color='#ddd', fontsize=12, pad=10)
-ax3.legend(fontsize=10, framealpha=0.2, facecolor='#111', edgecolor='#333', labelcolor='white')
 
 fig.suptitle(
     'Ticket Complexity: Apache Spark vs Hadoop vs Camel\n'
