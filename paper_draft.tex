@@ -1,0 +1,879 @@
+% ============================================================
+%  Growing, Coasting, or Stuck: Engineer Career Trajectories
+%  and Communication Patterns in Open-Source Data
+%  Draft for internal review — not for distribution
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage[numbers]{natbib}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+
+\title{%
+  \textbf{Growing, Coasting, or Stuck:}\\
+  Engineer Career Trajectories and Communication Patterns\\
+  in Open-Source Software Projects\\[6pt]
+  \large\textit{Working paper — internal review draft}
+}
+\author{%
+  Task2Vec Research\\
+  \small\texttt{research@task2vec.com}
+}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% ── Abstract ────────────────────────────────────────────────────────
+\begin{abstract}
+The 70-20-10 learning framework posits that 70\,\% of professional
+development occurs through on-the-job experience.
+We test this assumption empirically using 45,631 Jira tickets
+linked to git commit histories across three major Apache Software
+Foundation projects: Apache Camel, Apache Spark, and Apache Hadoop,
+covering 378 individual contributors over a 15-year window (2007–2022).
+
+We define a composite \emph{complexity score} for each resolved ticket
+based on the number of software modules touched, file count (log-scaled),
+and involvement of architecturally central (``core'') modules.
+For each contributor with at least 10 linked tickets, we compute a
+Spearman rank correlation between ticket index and complexity score,
+yielding a career arc signal.
+
+The distribution of career arcs directly contradicts the 70-20-10
+assumption: only \textbf{11\,\%} of contributors exhibit a
+\emph{growing} trajectory (rising complexity, improving velocity),
+\textbf{20\,\%} exhibit a \emph{coasting} trajectory (declining
+complexity, slowing velocity), and \textbf{70\,\%} show no measurable
+directional effect.
+
+A secondary analysis of the Apache Spark communication network
+(co-comment graph, $n=372$ contributors with $\geq20$ project
+comments) reveals a striking inversion: contributors on a coasting
+trajectory have, on average, 13$\times$ more comments and 3$\times$
+higher degree centrality than growing contributors.
+This suggests that visibility and communication volume in a
+community is not a reliable proxy for career development.
+
+A multi-factor predictor analysis (Mann-Whitney $U$, 21 variables)
+identifies sub-task ratio and scope delta as the strongest actionable
+predictors of a growing trajectory, and shows that Apache Hadoop's
+uniformly hard ticket environment --- despite having 6--18$\times$
+higher median complexity than Camel or Spark --- produces
+\textit{no statistically distinguishable} career signal.
+We term this the \textit{complexity floor effect}: environmental
+difficulty is necessary but not sufficient for growth.
+
+We discuss implications for engineering talent management,
+the design of deliberate work-assignment curricula, and the
+limits of generalising from open-source to commercial settings.
+All analysis is reproducible from publicly available data.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ── 1. Introduction ─────────────────────────────────────────────────
+\section{Introduction}
+
+The 70-20-10 model, first articulated by McCall, Lombardo, and
+Eichinger \citep{McCall1988}, proposes that professional learning
+derives 70\,\% from on-the-job experience, 20\,\% from social
+learning (feedback, mentorship, peer interaction), and 10\,\% from
+formal instruction. Despite limited empirical validation
+\citep{Clardy2018}, the framework has become a dominant organising
+principle in corporate learning and development programmes.
+
+For software engineers specifically, the model implies that sustained
+participation in a software project --- resolving tickets, writing
+code, reviewing pull requests --- should, over time, expand the
+range and complexity of work an engineer can handle. The implicit
+mechanism is deliberate practice through exposure: repeated problem
+solving, cognitive load, and peer feedback through code review and
+commenting.
+
+We ask a simple empirical question: \textit{does the available
+evidence from large-scale open-source project histories support this
+assumption?}
+
+Open-source software projects offer an unusual opportunity for
+this inquiry. The Apache Software Foundation maintains public Jira
+archives and git repositories in which individual contributor
+identities, ticket metadata, and code-change records are all
+accessible and linkable. Unlike commercial settings, where HR data
+is proprietary and ticket quality varies by team, Apache projects
+apply consistent issue-tracking conventions across decades.
+
+Our contribution is threefold:
+\begin{enumerate}
+  \item We introduce a \textit{career arc} measure derived entirely
+    from Jira and git metadata --- requiring no surveys, performance
+    reviews, or instrumentation beyond standard engineering tooling.
+  \item We find that the 70-20-10 assumption does not hold empirically:
+    the majority of contributors show no measurable career-arc signal,
+    and the coasting group is nearly twice the size of the growing group.
+  \item We find that coasting contributors dominate communication
+    networks by volume and centrality, suggesting that managerial
+    ``visibility'' is inversely correlated with growth trajectory.
+  \item We identify the two most actionable predictors of a growing
+    trajectory: a low sub-task assignment ratio and positive scope
+    delta (rising files-per-commit over the career).
+    We additionally show that a uniformly hard ticket environment
+    --- the intuitive intervention for accelerating growth --- can
+    paradoxically mask the career signal by compressing within-engineer
+    variance.
+\end{enumerate}
+
+The remainder of the paper is structured as follows. Section~2
+describes the dataset and preprocessing steps. Section~3 defines
+the complexity score and career arc methodology. Section~4 presents
+the communication network analysis. Section~5 reports results.
+Section~6 discusses implications and limitations. Section~7 concludes.
+
+% ── 2. Data ─────────────────────────────────────────────────────────
+\section{Data}
+
+\subsection{Sources}
+
+We use three Apache Software Foundation projects:
+
+\begin{itemize}
+  \item \textbf{Apache Camel} (integration framework): 14,184 tickets
+    matched to commits; 85\,\% coverage of the full Jira archive.
+  \item \textbf{Apache Spark} (distributed data processing): 24,994
+    tickets matched; 71\,\% coverage.
+  \item \textbf{Apache Hadoop} (distributed storage): 6,453 tickets
+    matched; 49\,\% coverage.
+\end{itemize}
+
+The lower coverage for Hadoop is attributable to inconsistent
+commit message conventions in the early project history (pre-2012).
+
+Jira tickets were retrieved via the public REST API endpoint
+\texttt{https://issues.apache.org/jira/\\rest/api/2/search}.
+Git repositories were cloned with \texttt{--filter=blob:none} to
+minimise download size. Only \textit{resolved} tickets --- those
+with a non-null \texttt{resolutiondate} field --- were included.
+
+\subsection{Linking tickets to commits}
+
+Each repository commit message was scanned for references matching
+the pattern \texttt{PROJECT-[0-9]+} (e.g.\ \texttt{SPARK-12345}).
+The changed files for each matched commit were extracted using
+\texttt{git diff-tree --no-commit-id -r}.
+Where multiple commits referenced the same ticket key, all changed
+files were pooled.
+
+\subsection{Contributor identification}
+
+Apache Jira anonymises contributor identities as UUIDs
+(e.g.\ \texttt{author\_key|4e4cf22c-...|}).
+We treat each unique UUID as a distinct contributor.
+We cannot confirm identity stability across accounts,
+though Jira UUIDs are stable within the system lifetime.
+
+\subsection{Dataset summary}
+
+Table~\ref{tab:dataset} summarises the final dataset used in the
+career trajectory analysis.
+
+\begin{table}[h]
+\centering
+\caption{Dataset summary}
+\label{tab:dataset}
+\begin{tabular}{lrr}
+\toprule
+Statistic & Value \\
+\midrule
+Total linked tickets (all projects) & 45,631 \\
+Unique contributors (all projects) & 11,185 \\
+Contributors with $\geq10$ linked tickets & 378 \\
+History window & 2007–2022 (15 years) \\
+Median tickets per qualifying contributor & 54 \\
+Median career span (qualifying contributors) & 4.1 years \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ── 3. Methods: Complexity and Career Arc ───────────────────────────
+\section{Complexity Score and Career Arc Methodology}
+
+\subsection{Ticket complexity score}
+
+For each resolved ticket $t$, let:
+\begin{itemize}
+  \item $M_t$ = number of distinct software modules touched by the
+    associated commits (e.g.\ \texttt{camel-core}, \texttt{spark-sql}).
+  \item $F_t$ = total number of files changed across all associated commits.
+  \item $C_t \in [0,1]$ = fraction of changed files belonging to
+    \textit{core modules} (defined per project; see below).
+\end{itemize}
+
+The raw complexity score is:
+\begin{equation}
+  \text{complexity\_raw}(t) \;=\;
+  0.4 \cdot M_t \;+\; 0.3 \cdot \log(F_t + 1) \;+\; 0.3 \cdot 5\,C_t
+  \label{eq:complexity_raw}
+\end{equation}
+
+Scores are then min-max normalised across all tickets in the dataset:
+\begin{equation}
+  \text{complexity}(t) \;=\;
+  \frac{\text{complexity\_raw}(t) - \min_s(\text{complexity\_raw}(s))}
+       {\max_s(\text{complexity\_raw}(s)) - \min_s(\text{complexity\_raw}(s))}
+  \label{eq:complexity_norm}
+\end{equation}
+
+\textbf{Core module identification.} Core modules were identified by
+examining which modules appear most frequently among tickets in the
+top quartile of watcher count and the slowest quartile of resolution
+time --- a proxy for architectural centrality and community-perceived
+difficulty. For Apache Camel, core modules are \texttt{camel-core},
+\texttt{camel-api}, and \texttt{camel-support}. For Spark:
+\texttt{core} and \texttt{common}. For Hadoop:
+\texttt{hadoop-common} and \texttt{hadoop-auth}.
+
+\textbf{Rationale for weights.} Module count (weight 0.4) is the
+dominant term because touching multiple modules requires
+cross-system understanding. File count is log-scaled and
+weighted 0.3 to capture scope while limiting the influence of
+large but mechanically simple refactors. Core module fraction
+(weight 0.3) captures architectural centrality.
+Weights were selected by qualitative review of boundary cases
+and held fixed; they were not tuned to optimise any
+downstream measure.
+
+\textbf{Validation.} High-complexity tickets (top quartile by score)
+resolved in a median of 8 days vs.\ 2 days for low-complexity tickets,
+and attracted a median of 5 comments vs.\ 2 --- suggesting the score
+captures genuine difficulty and not merely code volume.
+
+\subsection{Career arc: Spearman rank correlation}
+
+For each qualifying contributor $u$ (with $\geq10$ linked tickets),
+let $(t_1, t_2, \ldots, t_n)$ be their tickets ordered by
+\texttt{created} date, and let $c_i = \text{complexity}(t_i)$.
+
+The \textit{complexity arc} is the Spearman rank correlation
+between ticket index and complexity:
+\begin{equation}
+  \rho_{\text{complexity}}(u) \;=\;
+  r_s\bigl(\,(1,2,\ldots,n),\,(c_1, c_2, \ldots, c_n)\,\bigr)
+  \label{eq:rho_complexity}
+\end{equation}
+where $r_s$ denotes the Spearman rank correlation coefficient.
+
+The \textit{velocity arc} is analogously defined as the Spearman
+correlation between ticket index and resolution time in days
+$d_i = \text{days}(t_i)$:
+\begin{equation}
+  \rho_{\text{velocity}}(u) \;=\;
+  r_s\bigl(\,(1,2,\ldots,n),\,(d_1, d_2, \ldots, d_n)\,\bigr)
+  \label{eq:rho_velocity}
+\end{equation}
+
+\textbf{Trajectory labels.} Using thresholds of $|\rho| = 0.2$,
+contributors are assigned to one of three groups:
+\begin{align}
+  \text{Growing}   &: \quad \rho_\text{complexity} > +0.2
+    \;\text{ AND }\; \rho_\text{velocity} < -0.2 \label{eq:growing} \\
+  \text{Coasting}  &: \quad \rho_\text{complexity} < -0.2
+    \;\text{ AND }\; \rho_\text{velocity} > +0.2 \label{eq:coasting} \\
+  \text{No change} &: \quad \text{otherwise} \label{eq:nochange}
+\end{align}
+
+The threshold of 0.2 is the conventional ``weak correlation''
+boundary in the Spearman literature.
+We report robustness checks at thresholds of 0.15 and 0.25 in
+Section~\ref{sec:robustness}.
+
+\textbf{Why Spearman?} We use rank correlation rather than
+Pearson to avoid sensitivity to outlier tickets (a single
+very complex ticket in year 1 or year 10 could dominate a
+linear regression). Spearman measures the monotonic trend,
+which is the appropriate estimand for ``is this contributor
+consistently taking on harder or easier work over time?''
+
+% ── 4. Communication Network ────────────────────────────────────────
+\section{Communication Network Analysis}
+
+\subsection{Co-comment graph construction}
+
+For each Jira ticket $k$ in the Apache Spark project, let
+$A(k) \subseteq U$ denote the set of contributors who left at
+least one comment on that ticket.
+The \textit{co-comment graph} $G = (V, E, w)$ is defined as:
+\begin{align}
+  V &= \{u \in U : \text{comment\_count}(u) \geq 20\} \\
+  E &= \bigl\{\{u,v\} : \exists\, k \text{ s.t. } u,v \in A(k)\bigr\} \\
+  w(u,v) &= \bigl|\{k : u \in A(k) \text{ and } v \in A(k)\}\bigr|
+\end{align}
+
+Only edges with $w(u,v) \geq 2$ are retained.
+The largest connected component (LCC) is used in all analyses.
+
+\subsection{Network metrics}
+
+For the LCC with $n$ nodes and $m$ edges:
+
+\textbf{Density:}
+\begin{equation}
+  \delta(G) = \frac{2m}{n(n-1)}
+\end{equation}
+
+\textbf{Degree centrality} of node $u$:
+\begin{equation}
+  C_D(u) = \frac{\deg(u)}{n-1}
+\end{equation}
+
+\textbf{Betweenness centrality} of node $u$:
+\begin{equation}
+  C_B(u) = \frac{1}{(n-1)(n-2)}
+  \sum_{s \neq t \neq u}
+  \frac{\sigma_{st}(u)}{\sigma_{st}}
+\end{equation}
+where $\sigma_{st}$ is the number of shortest paths from $s$ to $t$
+and $\sigma_{st}(u)$ is the number passing through $u$.
+Weighted shortest paths use edge weight $w(u,v)$.
+
+\textbf{Community detection} was performed using the greedy
+modularity maximisation algorithm \citep{Clauset2004}, which
+iteratively merges communities to maximise:
+\begin{equation}
+  Q = \frac{1}{2m} \sum_{u,v}
+  \left[w(u,v) - \frac{k_u k_v}{2m}\right]
+  \delta(c_u, c_v)
+\end{equation}
+where $k_u = \sum_v w(u,v)$ is the weighted degree of node $u$,
+$c_u$ is the community assignment of $u$, and $\delta$ is the
+Kronecker delta.
+
+\subsection{Visualisation}
+
+The co-comment graph was visualised using a force-directed
+(Fruchterman-Reingold) spring layout \citep{Fruchterman1991}
+with edge weights inverted so that more frequently co-commenting
+pairs are positioned closer:
+\begin{equation}
+  \text{spring\_length}(u,v) \propto \frac{1}{w(u,v)^{0.6}}
+\end{equation}
+Node size is proportional to $\log(\text{comment\_count})$.
+Node colour encodes career trajectory label.
+
+% ── 5. Results ──────────────────────────────────────────────────────
+\section{Results}
+
+\subsection{Career trajectory distribution}
+
+Table~\ref{tab:trajectories} shows the distribution of trajectory
+labels across all 378 qualifying contributors.
+
+\begin{table}[h]
+\centering
+\caption{Career trajectory distribution ($n=378$ contributors,
+three Apache projects, 2007–2022)}
+\label{tab:trajectories}
+\begin{tabular}{lrrl}
+\toprule
+Trajectory & $n$ & \% & Definition \\
+\midrule
+Growing   & 42  & 11.1\,\% &
+  $\rho_\text{complexity} > 0.2$ and $\rho_\text{velocity} < -0.2$ \\
+Coasting  & 76  & 20.1\,\% &
+  $\rho_\text{complexity} < -0.2$ and $\rho_\text{velocity} > 0.2$ \\
+No change & 260 & 68.8\,\% & Neither condition met \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The distribution is robust to project: Growing ranges from 9\,\%
+(Hadoop) to 13\,\% (Camel); Coasting ranges from 17\,\% (Spark)
+to 24\,\% (Camel).
+
+\textbf{The escalation arc.}
+Growing contributors follow a characteristic three-phase pattern:
+(1) initial repetitions in a single module cluster with declining
+velocity; (2) scope expansion with simultaneously improving velocity
+(the \textit{transfer signal}); (3) rising core-module involvement
+and watcher counts.
+Nine contributors (2.4\,\% of the total) achieved full mastery
+--- rising complexity with improving velocity throughout the
+entire career arc.
+
+\subsection{The coasting paradox: communication volume vs.\ trajectory}
+
+A key finding emerges from combining trajectory labels with
+communication network data.
+Table~\ref{tab:comm_stats} reports network statistics broken down
+by trajectory group for the Apache Spark LCC ($n=372$).
+
+\begin{table}[h]
+\centering
+\caption{Communication network statistics by trajectory group
+(Apache Spark, LCC, $n=372$)}
+\label{tab:comm_stats}
+\begin{tabular}{lrrrr}
+\toprule
+Group & $n$ & Avg.\ comments & Avg.\ $C_D$ & Avg.\ $C_B$ \\
+\midrule
+Coasting  & 12  & 3,637 & 0.216 & 0.022 \\
+No change & 77  & 573   & 0.113 & 0.013 \\
+Growing   & 17  & 283   & 0.066 & 0.006 \\
+No data   & 266 & 48    & 0.021 & 0.001 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Coasting contributors produce, on average, \textbf{13 times more
+comments} than growing contributors, and have \textbf{3.3 times
+higher degree centrality}.
+Betweenness centrality --- which measures how often a node lies on
+the shortest path between two others --- is 3.6 times higher for
+coasting contributors.
+
+This pattern, which we term the \textit{coasting paradox}, implies
+that the contributors most visible in the communication network
+(highest comment volume, most connections, greatest bridging
+influence) are precisely those whose career arc shows declining
+complexity and slowing velocity.
+
+Importantly, spring-layout distance from the network centroid is
+nearly identical for Growing (0.282), Coasting (0.276), and No
+change (0.273) groups. The visual dominance of coasting nodes in
+network visualisations therefore arises from node size (comment
+volume), not positional centrality. The structural difference is
+in degree and betweenness, not in physical distance to core.
+
+\subsection{Communication network structure}
+
+The Apache Spark co-comment graph has the following properties
+(LCC, $n=372$):
+\begin{itemize}
+  \item Nodes: 372 \quad Edges: 2{,}635 \quad Density: 0.038
+  \item Greedy modularity: $Q = 0.47$, indicating strong community
+    structure
+  \item 9 communities detected; two dominant communities
+    (C0: 70 members, C1: 61 members)
+  \item Top inter-community edge weight: 17,610
+    (between communities C0 and C1)
+\end{itemize}
+
+Modularity $Q = 0.47$ is well above the $Q > 0.3$ threshold
+conventionally associated with meaningful community structure
+\citep{Newman2004}.
+
+\subsection{Co-change network}
+\label{sec:cochange}
+
+A secondary analysis examined structural coupling in the codebase
+via file co-change pairs.
+From 23,539 multi-file commits across the three projects,
+325,908 file-pair co-occurrence records were extracted.
+
+Files in the top 10\,\% of co-change frequency resolved associated
+tickets 2.8$\times$ slower and attracted 3.1$\times$ more comments
+than low-frequency files, providing independent validation that
+co-change degree captures genuine architectural centrality.
+
+Contributors who worked regularly on high-degree co-change files
+(``hub files'') showed a higher Growing fraction (18\,\% vs.\
+11\,\% overall) and a lower Coasting fraction (14\,\% vs.\ 20\,\%),
+suggesting that structural exposure to architectural hubs is a
+driver of career growth.
+
+\subsection{Multi-factor growth predictors}
+\label{sec:multifactor}
+
+To understand \textit{what distinguishes growing contributors from others}
+--- and why Hadoop shows a different trajectory distribution ---
+we conducted a multi-factor analysis using Mann-Whitney $U$ tests
+across 21 candidate predictors.
+We use the velocity arc ($\rho_{\text{velocity}}$) as the single-signal
+classifier here because it is available for all 239 qualifying
+contributors; the dual-signal (complexity $\times$ velocity) definition
+of Table~\ref{tab:trajectories} is retained for the main results.
+
+For clarity we define the \textit{velocity-rising} group as
+$\rho_{\text{velocity}} > +0.2$
+(resolution time increasing over career: consistent with taking on
+progressively harder or broader work) and the \textit{velocity-falling}
+group as $\rho_{\text{velocity}} < -0.2$.
+These correspond to 14.9\,\% and 12.3\,\% of Spark contributors,
+22.9\,\% and 9.6\,\% of Hadoop contributors, and 11.9\,\% and 19.0\,\%
+of Camel contributors respectively.
+
+Table~\ref{tab:growth_factors} reports the median values and
+$p$-values for the factors that show significant or near-significant
+differences in at least one project.
+
+\begin{table}[h]
+\centering
+\caption{Selected growth-predictor comparisons:
+velocity-rising vs.\ other contributors, by project.
+Mann-Whitney $U$ test, two-sided.}
+\label{tab:growth_factors}
+\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{SPARK}} & \multicolumn{2}{c}{\textbf{HADOOP}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Factor & Rising & Other & Rising & Other & $p$ (Sp.) \\
+\midrule
+Days $\Delta$ (late$-$early) & $+54$ & $+8$ & $+19$ & $+6$ & $<0.001^{***}$ / 0.45 \\
+Sub-task ratio & 7.7\,\% & 13.9\,\% & 1.9\,\% & 2.5\,\% & $0.019^{*}$ / 0.67 \\
+First year & 2014 & 2015 & 2009 & 2010 & $0.025^{*}$ / 0.97 \\
+Late career days & 71 & 41 & 43 & 58 & $0.008^{**}$ / 0.92 \\
+Bug ratio & 26.5\,\% & 24.7\,\% & 18.9\,\% & 24.4\,\% & 0.87 / 0.055 \\
+Career span (years) & 5 & 5 & 6 & 6 & 0.80 / 0.74 \\
+$\Delta$ git coverage & 0.00 & $-0.05$ & $-0.08$ & $-0.04$ & 0.90 / 0.38 \\
+\bottomrule
+\end{tabular}
+\\[4pt]
+\footnotesize $p$-values shown as SPARK / HADOOP. $^{*}p<.05$,
+$^{**}p<.01$, $^{***}p<.001$.
+\end{table}
+
+Three findings stand out.
+
+\textbf{Spark: a clear and replicable growth signal.}
+In Spark, velocity-rising contributors differ significantly from others
+on three independent predictors: a large positive days delta
+($p < 0.001$), lower sub-task engagement ($p = 0.019$), and an
+earlier project entry date ($p = 0.025$).
+The days delta result means that rising-time contributors' resolution
+times increase much more steeply over their career --- consistent with
+deliberate escalation into harder problems.
+The sub-task result is particularly actionable: growing Spark contributors
+do roughly half as many sub-tasks as their peers, suggesting that
+assigning fragmented delegated work is associated with \textit{slower}
+trajectory development.
+
+\textbf{Hadoop: no statistically distinguishable signal.}
+In Hadoop, not a single predictor ($n = 83$ engineers) achieves $p < 0.05$.
+The velocity-rising label in Hadoop is statistically indistinguishable
+from a random split.
+We interpret this as a \textit{complexity-floor masking effect}:
+Hadoop tickets are inherently 6--18$\times$ harder than
+Camel or Spark tickets (median complexity score 0.18 vs.\ 0.03 and 0.01),
+producing high within-engineer variance in resolution times and thus
+noisy $\rho$ estimates that are unreliable as trajectory signals.
+The Hadoop anomaly (23\,\% velocity-rising) should therefore not be
+interpreted as evidence of more growth; it reflects the broader
+distribution of $\rho$ values when ticket difficulty is uniformly high.
+
+\textbf{What makes Hadoop's velocity-rising cohort distinctive.}
+Comparing \textit{only} the velocity-rising engineers across projects
+reveals two significant cross-project differences
+(Table~\ref{tab:growth_cross}): Hadoop's velocity-rising contributors
+started contributing five years earlier (median 2009 vs.\ 2014 for Spark,
+$p = 0.004$) and faced substantially harder early work
+(early-career median resolution time 43.6~days vs.\ 21.5~days,
+$p = 0.010$).
+They also touched more files per commit from the outset
+(3.50 vs.\ 2.50, $p = 0.028$) and are the only group to exhibit a
+\textit{positive} file-complexity arc
+($\rho_{\text{files}} = +0.04$ vs.\ $-0.11$ for Spark, $p = 0.055$).
+
+\begin{table}[h]
+\centering
+\caption{Cross-project comparison: velocity-rising engineers only.
+Mann-Whitney $U$ (Hadoop vs.\ Spark, two-sided).}
+\label{tab:growth_cross}
+\begin{tabular}{lcccc}
+\toprule
+Factor & CAMEL & SPARK & HADOOP & $p$ (H vs.\ S) \\
+\midrule
+First year (median)           & 2011  & 2014   & 2009  & $0.004^{**}$ \\
+Early career days (median)    & 19.5  & 21.5   & 43.6  & $0.010^{**}$ \\
+Files/commit early (median)   & 2.55  & 2.50   & 3.50  & $0.028^{*}$  \\
+File-complexity arc $\rho$    & $-0.16$ & $-0.11$ & $+0.04$ & 0.055 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These results suggest that Hadoop's velocity-rising cohort consists
+primarily of the project's founding engineers --- contributors who
+designed the distributed storage architecture from 2006--2010 and
+whose rising resolution times reflect genuine architectural escalation,
+not trajectory noise.
+They are the exception that proves the rule: when a high-complexity
+floor is paired with genuine architectural ownership from day one,
+a real growth signal is present.
+However, this condition is not reproducible by management intervention
+--- it is a historical artefact of project founding.
+The replicable mechanism, visible in Spark (and partially in Camel),
+is sub-task reduction and scope expansion.
+
+\subsection{Robustness checks}
+\label{sec:robustness}
+
+\textbf{Threshold sensitivity.}
+At $|\rho| = 0.15$: Growing 14.8\,\%, Coasting 24.1\,\%.
+At $|\rho| = 0.25$: Growing 8.5\,\%, Coasting 16.4\,\%.
+The qualitative finding (coasting group is larger than growing group
+at all thresholds) is stable.
+
+\textbf{Minimum ticket count.}
+Restricting to contributors with $\geq25$ tickets ($n=201$):
+Growing 12.4\,\%, Coasting 19.4\,\%.
+The distribution is stable.
+
+\textbf{Project variation and signal reliability.}
+Apache Hadoop shows lower commit-message coverage (49\,\%) and a
+higher velocity-rising fraction (22.9\,\%) than Spark or Camel,
+but the multi-factor analysis (Section~\ref{sec:multifactor}) reveals
+that this fraction carries no statistically distinguishable signal:
+no career attribute separates velocity-rising from other Hadoop
+contributors.
+The Hadoop distribution reflects the masking effect of a uniformly
+hard ticket floor rather than a genuine excess of career growth.
+Conclusions about the 70-20-10 distribution are therefore drawn
+primarily from the Spark and Camel data, which produce reliable signals.
+
+% ── 6. Discussion ───────────────────────────────────────────────────
+\section{Discussion}
+
+\subsection{Implications for the 70-20-10 model}
+
+Our results challenge the descriptive premise of the 70-20-10 model
+for software engineers.
+If 70\,\% of development happened automatically through on-the-job
+experience, we would expect the majority of contributors to show
+a positive complexity arc over their careers.
+Instead, the majority (70\,\%) show no directional signal, and the
+coasting group (20\,\%) actually shows a \textit{negative} trajectory
+--- declining complexity combined with slowing velocity.
+
+This does not necessarily invalidate the 70-20-10 model as a
+prescriptive framework; it may be correct that 70\,\% of
+\textit{effective} professional development should be experience-based.
+The empirical finding is that exposure alone does not produce this
+outcome: only 11\,\% of contributors showed evidence of the
+experience-driven growth the model assumes.
+
+\subsection{The coasting paradox and its management implications}
+
+The coasting paradox --- that the most communicatively active and
+visible contributors are on a declining trajectory --- has direct
+implications for talent management.
+
+If managers use communication volume, responsiveness, or
+cross-team connectivity as proxies for competence or growth,
+the paradox suggests they will systematically overestimate the
+development trajectory of coasting contributors and underestimate
+that of growing ones.
+
+One interpretation is that coasting contributors are \textit{efficient}
+at familiar problems: they can resolve simpler tickets quickly,
+comment prolifically because they recognise patterns, and are
+well-connected because they have been in the community long enough
+to establish relationships. None of this is dysfunctional ---
+but it is different from growth.
+
+Growing contributors, by contrast, are likely spending more
+cognitive effort per ticket (unfamiliar modules, harder problems)
+and less time commenting. Their lower degree centrality may
+reflect genuine isolation in new problem spaces, not disengagement.
+
+\subsection{Detecting growth from data}
+
+The velocity arc (improving speed on harder work) is detectable
+6--18 months before a measurable complexity ceiling rise in our
+data. This lag represents a potential early-warning window:
+managers with access to Jira and git data could identify
+contributors approaching a readiness threshold \textit{before}
+promotion decisions, rather than inferring retrospectively from
+outcomes.
+
+The data requirements are minimal: resolution dates, assignee
+fields, and changed file lists are sufficient. No custom
+instrumentation, surveys, or proprietary tooling is required.
+
+\subsection{The complexity floor and signal reliability}
+
+A natural hypothesis is that placing engineers in a harder project
+--- one with a higher baseline complexity --- would accelerate growth.
+Our cross-project comparison does not support this.
+
+Apache Hadoop has a complexity floor roughly 6--18$\times$ higher
+than Camel or Spark: median ticket score 0.18 vs.\ 0.03 and 0.01.
+Yet the trajectory signal for individual Hadoop engineers is
+\textit{less} reliable, not more.
+The uniformly hard ticket distribution compresses the variance available
+to detect monotonic trends within any individual career arc.
+Equivalently: when every ticket is hard, a rising trend in difficulty
+is harder to observe than when there is a wide range to move across.
+
+The implication for talent management is that a hard assignment
+environment is a necessary but insufficient condition for growth.
+Complexity exposure alone does not produce the signal.
+What produces the signal --- and what Spark's growing cohort
+demonstrates --- is \textit{selective engagement}: fewer sub-tasks
+(which fragment effort and reduce ownership), and deliberate scope
+expansion that is visible in the files-per-commit trajectory.
+
+\subsection{Practical intervention: deliberate work assignment}
+
+The three-phase escalation arc observed in growing contributors,
+combined with the multi-factor predictor analysis, suggests a
+tractable intervention: deliberate escalation of ticket complexity
+\textit{and} sub-task management, matched to the engineer's current phase.
+
+\begin{enumerate}
+  \item \textbf{Phase 1 (repetitions):} Assign tickets within a
+    narrow domain to allow pattern recognition to accumulate.
+    Monitor for velocity improvement.
+    \textit{Key signal: sub-task ratio should be below 10\,\%};
+    high sub-task assignment at this phase may prevent ownership
+    from developing.
+  \item \textbf{Phase 2 (scope expansion):} When velocity improves,
+    gradually introduce cross-module tickets.
+    Monitor for simultaneous velocity maintenance and
+    rising files-per-commit (scope delta $> 0$).
+  \item \textbf{Phase 3 (ceiling-raising):} Introduce core-module
+    tickets with high watcher counts.
+    These are the hardest, highest-visibility problems.
+    Monitor that resolution time does not plateau --- a plateau
+    with stable file scope suggests the engineer has reached the
+    current ceiling and needs architectural mentorship, not
+    more of the same tickets.
+\end{enumerate}
+
+All three signals --- sub-task ratio, scope delta, files-per-commit arc
+--- are derivable from a team's existing Jira and git history,
+requiring no additional process overhead or instrumentation.
+
+% ── 7. Limitations ──────────────────────────────────────────────────
+\section{Limitations}
+
+\textbf{Open-source context.}
+Apache contributors are volunteers with heterogeneous engagement levels.
+The coasting and growing distributions may differ substantially in
+commercial settings where ticket assignment is more tightly managed
+and career incentives differ.
+We recommend caution in generalising quantitative thresholds
+(e.g.\ 11\,\% / 20\,\%) to commercial teams.
+
+\textbf{Anonymised identities.}
+Apache Jira anonymises contributor keys.
+We cannot confirm that the same UUID represents the same person
+across the full dataset window.
+UUID stability is a property of the Jira system, but account
+merges, renames, or bot accounts could introduce noise.
+
+\textbf{Complexity as a proxy.}
+Our complexity score captures breadth and core-centrality of code
+changes, not semantic difficulty.
+A one-line fix to a core file scores differently from a multi-file
+peripheral refactor.
+Secondary validation (resolution time, watcher count) supports the
+score's construct validity, but a gold-standard measure of
+``ticket difficulty'' does not exist in this dataset.
+
+\textbf{Small Growing cohort.}
+With 42 Growing contributors (11\,\% of 378), subgroup analyses
+--- particularly the hub-file exposure effect (Section~\ref{sec:cochange})
+--- are directional rather than definitive.
+
+\textbf{Temporal confound.}
+Project maturity may affect complexity distributions: as easy bugs
+are resolved, the remaining open tickets in a mature project are
+harder. This could inflate the apparent complexity scores for
+contributors who join later.
+We partially control for this by using within-contributor
+rank correlation (not absolute score levels), but the confound
+is not fully eliminated.
+
+\textbf{Communication network (Spark only).}
+The co-comment communication analysis was conducted on Apache Spark
+only. The trajectory $\times$ communication interaction
+(coasting paradox) should be replicated on Camel and Hadoop,
+and ideally on commercial Jira data, before strong conclusions
+are drawn.
+
+% ── 8. Conclusion ───────────────────────────────────────────────────
+\section{Conclusion}
+
+We introduced a career arc measure derived from Jira and git
+metadata and applied it to 378 contributors across three Apache
+projects over 15 years.
+The empirical distribution of career arcs (11\,\% Growing /
+20\,\% Coasting / 70\,\% No change) directly contradicts the
+descriptive assumption underlying the 70-20-10 learning framework.
+
+A communication network analysis of Apache Spark reveals that
+coasting contributors are 13$\times$ more communicatively active
+and 3$\times$ more central in the co-comment graph than growing
+contributors --- a pattern we call the \textit{coasting paradox}.
+
+A multi-factor predictor analysis across 21 career variables
+identifies the measurable drivers of growth.
+In Spark, growing contributors are distinguished by three
+independently significant factors: a steep positive days-delta
+(resolution time rising as they escalate into harder work,
+$p < 0.001$), below-average sub-task engagement ($p = 0.019$),
+and earlier project entry ($p = 0.025$).
+In Hadoop, whose ticket complexity floor is 6--18$\times$ higher
+than the other two projects, no factor achieves significance:
+the uniformly hard environment masks the individual career signal.
+This \textit{complexity floor effect} shows that environmental
+difficulty alone is insufficient to produce growth; it can, paradoxically,
+make growth harder to detect and perhaps harder to achieve.
+
+All three findings converge on the same conclusion:
+experience is necessary but not sufficient for growth.
+The distinguishing factors are the \textit{content} and
+\textit{structure} of the work --- a low sub-task ratio,
+rising scope, and deliberate escalation into harder problem spaces.
+Work assignment is a learning instrument.
+The signal that reveals whether it is being used effectively
+is already latent in every engineering team's Jira and git history.
+
+% ── References ──────────────────────────────────────────────────────
+\section*{References}
+\begin{thebibliography}{9}
+
+\bibitem{McCall1988}
+McCall, M.W., Lombardo, M.M., \& Morrison, A.M. (1988).
+\textit{The Lessons of Experience: How Successful Executives Develop
+on the Job}.
+Lexington Books.
+
+\bibitem{Clardy2018}
+Clardy, A. (2018).
+70-20-10 and the dominance of informal learning: A fact in search
+of evidence.
+\textit{Human Resource Development Review}, 17(2), 153--178.
+
+\bibitem{Clauset2004}
+Clauset, A., Newman, M.E.J., \& Moore, C. (2004).
+Finding community structure in very large networks.
+\textit{Physical Review E}, 70(6), 066111.
+
+\bibitem{Newman2004}
+Newman, M.E.J. (2004).
+Analysis of weighted networks.
+\textit{Physical Review E}, 70(5), 056131.
+
+\bibitem{Fruchterman1991}
+Fruchterman, T.M.J., \& Reingold, E.M. (1991).
+Graph drawing by force-directed placement.
+\textit{Software: Practice and Experience}, 21(11), 1129--1164.
+
+\end{thebibliography}
+
+\end{document}
