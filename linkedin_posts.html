@@ -369,41 +369,62 @@ Swipe to see the full breakdown →
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
-        <span class="status-draft" style="font-size:12px;font-weight:700;">● Draft</span>
+        <span class="status-ready" style="font-size:12px;font-weight:700;">● Ready</span>
         <span class="post-type">Document carousel</span>
       </div>
     </div>
     <div class="post-body">
-      <textarea class="post-text" id="p4" rows="36" readonly>The 11% who learned in our data didn't go on a training course.
+      <textarea class="post-text" id="p4" rows="52" readonly>The signal is already in your Jira data.
 
-They got the right tickets.
+We ran 21 statistical tests on 239 engineers across Apache Camel, Spark, and Hadoop — 45,000 tickets, 15 years of git history — to find what actually separates engineers who grow from those who don't.
 
-That's the finding from 378 engineers and 45,000 git commits tracked across Apache Camel, Spark, and Hadoop over 15 years. The engineers who grew into genuinely harder work shared one pattern: the complexity of what they were assigned kept rising. More modules. More cross-cutting problems. More people consulted per ticket. The work was the curriculum.
+Three projects. Three lessons.
 
-The 11% had that. The 70% didn't.
+─────────────────────────────
 
-Here's the thing: this isn't mysterious, and it isn't hard to fix. It just requires reading the signal that's already in your data.
+Apache Spark — the signal is measurable.
 
-Every company running a software team has two data sources sitting unused as learning infrastructure:
+Growing engineers in Spark differ from their peers on exactly two variables:
 
-→ Jira tickets — resolution time, ticket type, assignee history, who watched, who escalated
-→ Git commits — which files changed, which modules, how close to core, co-change patterns
+→ Sub-task ratio: 7.7% vs 13.9% of their workload (p=0.02)
+   Growing engineers do roughly half as many sub-tasks.
+   They work on whole problems, not fragments.
 
-Together, they tell you three things you currently have no way to know:
+→ Days delta: +54 days vs +8 days over career (p<0.001)
+   Their resolution time rises steeply — not because they slow down,
+   but because they keep escalating into harder work.
 
-1. Who is growing, who is stagnant, who is quietly coasting
-2. What ticket would stretch each person — the adjacent module they haven't touched yet
-3. Who is 2–3 years into a coasting trajectory that hasn't surfaced in any review yet
+That's it. Not training hours. Not certifications. Sub-task ratio and scope expansion, both readable from Jira.
 
-You don't need a new platform. You don't need to import a training curriculum. The knowledge transfer is already latent in the work your team has done. You just need to read it differently.
+─────────────────────────────
 
-The alternative — external L&D — teaches generic skills to a generic cohort with no connection to your actual codebase, your actual gaps, or the specific complexity curve each engineer needs next.
+Apache Hadoop — hard work alone isn't enough.
 
-Companies that figure this out won't need to wait for people to "develop" on their own. They'll design the environment where development happens — using data they already store.
+Hadoop tickets are 6–18× harder than Spark's by every measure.
 
-The learning is designable. The signal is already there.
+If a difficult environment produced growth, Hadoop should show the clearest signal of all three projects.
 
-(Swipe to see the pattern the 11% followed — and how to spot the coasting signal before it becomes a capability gap)
+It shows the least. Zero predictors reach statistical significance. Nothing distinguishes growing engineers from non-growing ones.
+
+Why? The uniformly hard environment compresses the variance you need to detect a rising arc. When every ticket is hard, there's no signal gradient to measure.
+
+Hard work is necessary. It is not sufficient. The environment needs to be designed, not just made hard.
+
+─────────────────────────────
+
+Apache Camel — consistent baseline.
+
+Same two patterns as Spark. Growing engineers show rising resolution time and lower sub-task engagement. The signal is replicable across project types.
+
+─────────────────────────────
+
+What all three cases confirm: the levers are already in your data.
+
+Sub-task ratio. Scope delta (are they touching more files per commit this year than last?). Both readable from standard Jira and git logs. No new tooling. No surveys.
+
+Companies that figure this out won't wait for growth to happen. They'll design the environment so it does.
+
+(Swipe to see all three cases →)
 
 #EngineeringLeadership #LearningAndDevelopment #AI #SoftwareEngineering #Jira #DeveloperGrowth</textarea>
       <div class="post-actions">
