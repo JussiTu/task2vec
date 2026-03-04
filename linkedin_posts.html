@@ -364,8 +364,8 @@ Swipe to see the full breakdown →
       <div class="post-meta">
         <span class="post-num">Post 4</span>
         <div>
-          <div class="post-title">Your Jira history is your L&amp;D strategy.</div>
-          <div class="post-subtitle">How companies can enable learning from data they already have</div>
+          <div class="post-title">Three things you can do to help engineers grow — all readable from Jira.</div>
+          <div class="post-subtitle">What 21 statistical tests on 239 engineers actually found</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
@@ -374,59 +374,47 @@ Swipe to see the full breakdown →
       </div>
     </div>
     <div class="post-body">
-      <textarea class="post-text" id="p4" rows="52" readonly>The signal is already in your Jira data.
+      <textarea class="post-text" id="p4" rows="38" readonly>We analysed 239 engineers across three Apache projects — 45,000 tickets, 15 years of data.
 
-We ran 21 statistical tests on 239 engineers across Apache Camel, Spark, and Hadoop — 45,000 tickets, 15 years of git history — to find what actually separates engineers who grow from those who don't.
+Here are three things that actually predict whether an engineer grows. All readable from Jira and git.
 
-Three projects. Three lessons.
+─────────────────────
 
-─────────────────────────────
+1. Give them whole problems, not fragments.
 
-Apache Spark — the signal is measurable.
+Growing engineers handle sub-tasks at half the rate of their peers.
+7.7% vs 13.9% of their workload. (p=0.02)
 
-Growing engineers in Spark differ from their peers on exactly two variables:
+Sub-tasks are someone else's scope. Growth needs ownership of the full loop.
 
-→ Sub-task ratio: 7.7% vs 13.9% of their workload (p=0.02)
-   Growing engineers do roughly half as many sub-tasks.
-   They work on whole problems, not fragments.
+─────────────────────
 
-→ Days delta: +54 days vs +8 days over career (p<0.001)
-   Their resolution time rises steeply — not because they slow down,
-   but because they keep escalating into harder work.
+2. Escalate the difficulty deliberately.
 
-That's it. Not training hours. Not certifications. Sub-task ratio and scope expansion, both readable from Jira.
+Growing engineers' resolution time rises +54 days over their career.
+Non-growing engineers: +8 days. (p<0.001)
 
-─────────────────────────────
+That gap isn't slowness — it's harder work. The signal is scope expanding, not performance declining.
 
-Apache Hadoop — hard work alone isn't enough.
+─────────────────────
 
-Hadoop tickets are 6–18× harder than Spark's by every measure.
+3. Design the gradient, not just the difficulty.
 
-If a difficult environment produced growth, Hadoop should show the clearest signal of all three projects.
+Hadoop tickets are 6-18× harder than Spark's.
+Hadoop has zero significant growth predictors. Nothing.
 
-It shows the least. Zero predictors reach statistical significance. Nothing distinguishes growing engineers from non-growing ones.
+Hard environment does not equal growth environment.
 
-Why? The uniformly hard environment compresses the variance you need to detect a rising arc. When every ticket is hard, there's no signal gradient to measure.
+When every ticket is uniformly hard, the gradient disappears. Engineers need a range — easy to hard — so they can move through it.
 
-Hard work is necessary. It is not sufficient. The environment needs to be designed, not just made hard.
+─────────────────────
 
-─────────────────────────────
+The signal is already in your data.
+You just haven't been asked to look at it this way.
 
-Apache Camel — consistent baseline.
+(Swipe for the evidence →)
 
-Same two patterns as Spark. Growing engineers show rising resolution time and lower sub-task engagement. The signal is replicable across project types.
-
-─────────────────────────────
-
-What all three cases confirm: the levers are already in your data.
-
-Sub-task ratio. Scope delta (are they touching more files per commit this year than last?). Both readable from standard Jira and git logs. No new tooling. No surveys.
-
-Companies that figure this out won't wait for growth to happen. They'll design the environment so it does.
-
-(Swipe to see all three cases →)
-
-#EngineeringLeadership #LearningAndDevelopment #AI #SoftwareEngineering #Jira #DeveloperGrowth</textarea>
+#EngineeringLeadership #LearningAndDevelopment #SoftwareEngineering #DeveloperGrowth</textarea>
       <div class="post-actions">
         <button class="btn-copy" onclick="copyPost('p4',this)">Copy post text</button>
       </div>
@@ -436,7 +424,7 @@ Companies that figure this out won't wait for growth to happen. They'll design t
       </div>
       <div class="first-comment">
         <div class="first-comment-label">First comment</div>
-        <div class="first-comment-text">Full data and methodology: task2vec.com/research<br>Run the learning distribution analysis on your own data: task2vec.com/commission</div>
+        <div class="first-comment-text">Full paper and methodology: task2vec.com/research<br>Run this analysis on your own data: task2vec.com/commission</div>
       </div>
     </div>
   </div>
